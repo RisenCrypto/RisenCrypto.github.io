@@ -5,7 +5,6 @@ title: Why does Cryptography use Polynomial Modular Arithmetic in Finite Fields?
 
 ---
 
-{% include mathjax.html %}
 
 Polynomial Modular Arithmetic done in Finite Fields is used in a lot of places in Cryptography - for e.g. in AES/Rijndael, GHASH, POLYVAL etc. What is the reason for this?
 
