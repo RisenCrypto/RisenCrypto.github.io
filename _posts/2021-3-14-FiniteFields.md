@@ -134,3 +134,4 @@ Hence Modular Polynomial Arithmetic done in a Finite Field is used in Cryptograp
 
 AES uses $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible polynomial
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FFiniteFields%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
