@@ -13,9 +13,9 @@ Polynomial Modular Arithmetic done in Finite Fields is used in a lot of places i
 
 Let's start with what is a Finite Field? For that, we will start with a Group & from there go all the way up to Finite Fields.  
 
-#### A **Group** is a set G with a binary operation on G such that for all $$a, b, c \in G$$ 
+#### A **Group** is a set G with a binary operation on G such that for all $a, b, c \in G$ 
 
-* $$a * (b * c) = (a * b) * c$$  - This property is called **associativity** 
+* $a * (b * c) = (a * b) * c$  - This property is called **associativity** 
 
 * There exists an element e $$\in G $$ (called the **identity element**) such that for all $$a \in G, a * e = a = e * a$$ 
 
