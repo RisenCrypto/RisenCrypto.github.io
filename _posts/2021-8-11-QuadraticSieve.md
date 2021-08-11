@@ -13,6 +13,8 @@ Most commonly used factorization methods today rely on a simple mathematical Ide
 
 $X^2 - Y^2 = (X+Y)(X-Y)$
 
+**From Fermat's Factorization to Kraitchik & then Dixon's Factorization**  
+
 To factor $N$ we look for an integer $b$ such that $N + b^2$ is a perfect square.
 
 i.e. $N^2 + b^2 = a^2$  
@@ -57,7 +59,21 @@ $gcd(799, 49 + 2) = 17$
 
 So we get $799 = 17 * 47$   
 
+What we did here is $kN + b^2 = a^2$  
 
+This can also be represented as a Congruence i.e. 
 
+$a^2 \equiv b^2 \bmod N$  
 
+So the same thing could be done starting with $ceil(\sqrt 799) = 29$ 
+
+$29^2 \bmod 799$ - not a square 
+
+$30^2 \bmod 799$ - not a square 
+
+$31^2 \bmod 799$ - not a square 
+
+$32^2 \bmod 799 \equiv 225 = 15^2$
+
+$799 = (32 + 15) . (32 - 15) = 47 * 17$
 
