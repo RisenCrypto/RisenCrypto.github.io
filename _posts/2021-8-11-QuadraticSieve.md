@@ -115,8 +115,23 @@ Let's summarize this method to factorize $N$
 
 3. Use $gcd(N, a - b)$ to find the factors of $N$. There is a reasonable chance that the gcd is a factor of $N$   
 
-The first question is how do we achieve Step 1 - find many integers such that they are a Quadratic Residue $\bmod N$. 
 
-Enter the Quadratic Sieve Algorithm
+In Step 1 we look for Quadratic residues $c_i$'s which are B-Smooth. To factor $N$, we can calculate an approximate value of $B$ using the formula  
+
+$L =  e^{\sqrt {\ln(N)ln(ln(N))}}$
+
+$B \approx L^{\frac {1}{\sqrt 2}}$
+
+If we want to factor $N = 87463$, we calculate $B \approx 42$. So we are looking for 43-Smooth Quadratic Residues $\bmod N$. 
+
+The first question is how do we achieve Step 1 - find many 43-smooth integers such that they are a Quadratic Residue $\bmod N$. Enter the Quadratic Sieve Algorithm. If you are unfamiliar with what 'Sieving' in general is, then you can lookup the 'Sieve of Eratosthenes'.
 
 **Quadratic Sieve**   
+
+We use a Quadratic Polynomial to do the sieving - hence the name Quadratic Sieve.  
+
+One such polynomial is $F(T) = T^2 - N$. We start with a $a$ which is slightly larger than $\sqrt N$ 
+
+$\sqrt 87463 = 295.74$. So we start with $a = 296$.  
+
+We look at the list of numbers $F(a), F(a+1), F(a+2) ...$. We try to find 43-smooth numbers in this list by sieving away the primes smaller than B and seeing which numbers in the list get sieved all the way down to 1.
