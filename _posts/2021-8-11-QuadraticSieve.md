@@ -94,11 +94,12 @@ $445^2 \bmod 63787 \equiv 6664 = 2^3 * 7^2 * 17$
 
 $449^2 \bmod 63787 \equiv 10240 = 2^{11} * 5$
 
-Multiply the 3
+Multiply the above 3 congruences  
 
-$(439^2 * 445^2 * 449^2) \equiv (2^18 * 5^2 * 7^2 * 17^2) mod 63787
 
-$7270^2 = 49492^2 mod 64787$
+$(439^2 * 445^2 * 449^2) \equiv (2^18 * 5^2 * 7^2 * 17^2) mod 63787$
+
+$7270^2 = 49492^2 \bmod 64787$
 
 $gcd(63787, 49492 + 7270) = 281$
 
@@ -110,7 +111,7 @@ Let's summarize this method to factorize $N$
 
 1. Find many integers such that they are a Quadratic Residue $\bmod N$. Find many $c_i$ such that $c_i \equiv {a_i}^2 \bmod N$.   
 
-2. Take a product of some of the $c_i$'s such that their product is a product of even prime powers. i.e $c_i_1 . c_i_2 . c_i_3 ... \equiv b^2 \bmod N$. 
+2. Take a product of some of the $c_i$'s such that their product is a product of even prime powers. i.e ${c_i}_1 . {c_i}_2 . {c_i}_3 ... \equiv b^2 \bmod N$. 
 
 3. Use $gcd(N, a - b)$ to find the factors of $N$. There is a reasonable chance that the gcd is a factor of $N$   
 
