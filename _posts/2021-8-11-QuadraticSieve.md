@@ -13,7 +13,7 @@ Most commonly used factorization methods today rely on a simple mathematical Ide
 
 $X^2 - Y^2 = (X+Y)(X-Y)$
 
-**From Fermat's Factorization to Kraitchik & then Dixon's Factorization**  
+**Fermat's Factorization**  
 
 To factor $N$ we look for an integer $b$ such that $N + b^2$ is a perfect square.
 
@@ -43,7 +43,11 @@ Let's take $N = 799$. It will take us trying from 1 to 15, till we find $799 + 1
 
 So $799 = 17 * 47$
 
-Hoever, this can be simplified by using $3 * 799$ instead of 799.
+**Kraitchik's improvement** 
+
+Kraitchik reasoned that instead of trying to find a & b such that $a^2 - b^2$, it may be sufficient to find ones such that it's equal to a multiple of N.
+
+For e.g. try with $3 * 799$ instead of 799.
 
 $3 * 799 = 2397$  
 
@@ -76,4 +80,17 @@ $31^2 \bmod 799$ - not a square
 $32^2 \bmod 799 \equiv 225 = 15^2$
 
 $799 = (32 + 15) . (32 - 15) = 47 * 17$
+
+**Dixon's Factorization**   
+
+Dixon replaced the condition "is a square" with a much weaker condition "is a product of small prime powers". These are easier to find. Once you find several of them, you then combine them by multiplication to find a combination which is a square. 
+
+$N = 63787$   
+
+$439^2 \bmod 63787 \equiv 1360 = ^4 * 5 * 17$  
+
+$445^2 \bmod 63787 \equiv 6664 = 2^3 * 7^2 * 17$
+
+$449^2 \bmod 63787 \equiv 10240 = 2^11 * 5$
+
 
