@@ -6,6 +6,7 @@ title: The Quadratic Sieve algorithm for Integer Factorization
 ---
 
 {% include mathjax.html %}
+The Quadratic Sieve is the second fastest algorithm for factoring large semiprimes. It's the fastest for factoring ones which are lesser than 100 digits long.   
 
 Some Background first. 
 
@@ -111,4 +112,10 @@ Let's summarize this method to factorize $N$
 
 2. Take a product of some of the $c_i$'s such that their product is a product of even prime powers. i.e $c_i_1 . c_i_2 . c_i_3 ... \equiv b^2 \bmod N$. 
 
-3. Use $gcd(N, a - b)$ to find the factors of $N$
+3. Use $gcd(N, a - b)$ to find the factors of $N$. There is a reasonable chance that the gcd is a factor of $N$   
+
+The first question is how do we achieve Step 1 - find many integers such that they are a Quadratic Residue $\bmod N$. 
+
+Enter the Quadratic Sieve Algorithm
+
+**Quadratic Sieve**   
