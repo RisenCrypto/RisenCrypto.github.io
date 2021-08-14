@@ -184,7 +184,7 @@ This gives 2 roots - 5 & 8. Now, since we are starting from 296, we need to adju
 In our list LS if we start the indexing with 0, this means that the 8th & 11th number will be divisible by 13.  Also, 8+13th, 8+26th, 8+39th etc & 11+13th, 11+26th, 11+39th etc number will be divisible by 13. This can be used to avoid trial division & only sieve those numbers at that position.  
 I have created a Google Spreadsheet to show the the Sieving process.  
 
-[**Google Spreadsheet**](https://docs.google.com/spreadsheets/d/1mWJSKojkZtnXiJ332plIN1UPdYHN5k5SCG9G7_Fld10/)
+Click to view the [**Google Spreadsheet**](https://docs.google.com/spreadsheets/d/1mWJSKojkZtnXiJ332plIN1UPdYHN5k5SCG9G7_Fld10/)
 
 Row 3 is the Factor Base. Most of the primes have 2 roots for $N \bmod p_i$ & hence those appear twice in consecutive columns.
 
