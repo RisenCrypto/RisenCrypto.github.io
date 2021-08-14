@@ -221,7 +221,7 @@ After sieving all the numbers, those numbers which got sieved all the way to 1 a
 
 We have found the following Smooth Numbers 
 
-1. $296^2 \bmod 87463 \equiv 153$ and $153 = 31^2 * 17$
+1. $296^2 \bmod 87463 \equiv 153$ and $153 = 3^2 * 17$
 
 2. $299^2 \bmod 87463 \equiv 1938$ and $11938 = 2 * 3 * 17 * 19$
 
