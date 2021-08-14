@@ -165,7 +165,7 @@ We start with $LS = {153, 746, 1341, 1938, 2537, 3138, 3741, ....}$
 
 Next we start with first prime in the FB i.e 2 & start sieving the first number in $LS$.
 
-The First number in the list is 153. We cannot sieve it by 2 because it's not divisible by 2. Next we try with the next prime in the $FB$, i.e. 3 - it's divisible by 3 & gives 51, 51 again is divisible by 3 giving 17 - i.e. the original number got divided by 3 twice, i.e. one of it's factors is $3^2$. Next number in the FB is 13, but 17 is not divisible by 13, so we move on to the next prime in the $FB$, i.e. 17. 17 divides 17 & give us 1. When we reach 1, it means we have found a Smooth number. If we don't reach 1 by the time we try the last prime in the $FB$ (43 in this case), then it means that number we are sieveing is not a Smooth number. So either way, we move on to the next number to sieve.   
+The First number in the list is 153. We cannot sieve it by 2 because it's not divisible by 2. Next we try with the next prime in the $FB$, i.e. 3 - it's divisible by 3 & gives 51, 51 again is divisible by 3 giving 17 - i.e. the original number got divided by 3 twice, i.e. one of it's factors is $3^2$. Next number in the FB is 13, but 17 is not divisible by 13, so we move on to the next prime in the $FB$, i.e. 17. 17 divides 17 & the result is 1. When we reach 1, it means we have found a Smooth number. If we don't reach 1 by the time we try the last prime in the $FB$ (43 in this case), then it means that number we are sieveing is not a Smooth number. So either way, we move on to the next number to sieve.   
 
 $153 = 3^2 * 17$  
 
