@@ -299,7 +299,7 @@ gcd(N, (299 * 316 * 347) - (2 * 3^4 * 17^2 * 19)) = 587
 
 gcd(N, (302 * 307 * 343) - (2 * 3^3 * 13 * 29 * 43)) = 587 
 
-So all 3 gives zero product exponent vectors have given us the factorization (If not even one of them do, then we may have to sieve more numbers & redo the Elimination Step)   
+So all 3 zero product exponent vectors have given us the factorization (If not even one of them do, then we may have to sieve more numbers & redo the Elimination Step)   
 
 ---  
 
