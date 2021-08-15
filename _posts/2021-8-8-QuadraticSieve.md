@@ -144,7 +144,7 @@ $F(a) = 296^2 - N = 153$, $F(a+1) = 297^2 - N = 746$, $F(a+2) = 298^2 - N = 1341
 
 Let's call this list $LS$ = {153, 746, 1341, 1938, 2537, 3138, 3741, ....}
 
-We try to find 43-smooth numbers in this list by sieving away by primes smaller than or equal to 43 and checking which numbers in the list get sieved all the way down to 1.
+We try to find 43-smooth numbers in this list by sieving away with primes smaller than or equal to 43 and checking which numbers in the list get sieved all the way down to 1.
 
 First we build what is called as the Factor Base - this is a list of all primes lesser than or equal to B.
 
