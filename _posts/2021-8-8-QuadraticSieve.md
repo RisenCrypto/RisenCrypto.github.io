@@ -91,7 +91,7 @@ $gcd(799, 32 - 15) = 17$
 
 $799 = 47 * 17$
 
-However, even with this, you may not find a result which is a square. So Kraitchik tried to find several numbers whose squares are a product of prime powers. These are easier to find. Once you find several of them, you then combine them by multiplication to find a combination which is a square. 
+However, even with this, you may not find easily a result which is a square. So Kraitchik tried to find several numbers whose squares are a product of prime powers. These are easier to find. Once you find several of them, you then combine them by multiplication to find a combination which is a square. 
 
 $N = 63787$   
 
