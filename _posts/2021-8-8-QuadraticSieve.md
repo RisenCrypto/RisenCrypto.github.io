@@ -51,7 +51,7 @@ So $799 = 17 * 47$
 
 Obviously, with very large semiprimes, this method would take a lot of iterations to be practical.
 
-**Kraitchik's improvement** 
+**Kraitchik's Factorization** 
 
 Kraitchik reasoned that instead of trying to find a & b such that $a^2 - b^2 = N$, it may be sufficient to find a & b such that the difference of squares is equal to a multiple of N.
 
@@ -91,9 +91,7 @@ $gcd(799, 32 - 15) = 17$
 
 $799 = 47 * 17$
 
-**Dixon's Factorization**   
-
-Dixon replaced the condition "is a square" with a much weaker condition "is a product of small prime powers". These are easier to find. Once you find several of them, you then combine them by multiplication to find a combination which is a square. 
+However, even with this, you may not find a result which is a square. So Kraitchik tried to find several numbers whose squares are a product of prime powers. These are easier to find. Once you find several of them, you then combine them by multiplication to find a combination which is a square. 
 
 $N = 63787$   
 
@@ -104,7 +102,6 @@ $445^2 \bmod 63787 \equiv 6664 = 2^3 * 7^2 * 17$
 $449^2 \bmod 63787 \equiv 10240 = 2^{11} * 5$
 
 Multiply the above 3 congruences  
-
 
 $(439^2 * 445^2 * 449^2) \equiv (2^{18} * 5^2 * 7^2 * 17^2) \bmod 63787$
 
