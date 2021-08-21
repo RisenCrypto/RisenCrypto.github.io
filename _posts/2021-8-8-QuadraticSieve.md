@@ -35,7 +35,7 @@ $8051 + 7^2 = 90^2$
 
 So $8051 = (90 + 7)(90 - 7)$   
 
-$8051=  x $97$ x $83$
+$8051 = 97$ x $83$
 
 How quick we get to a b which produces a square depends on how close the factors are to the square-root of $N$.
 
@@ -122,7 +122,7 @@ Most modern factorization methods use the above procedure
 3. **GCD Computation:** Use GCD to find the factors of $N$. There is a reasonable chance that the GCD is a factor of $N$   
 
 
-In Step 1 we look for Quadratic residues $c_i$'s which are B-Smooth. To factor $N$, we can calculate an approximate value of $B$ before looking for B-smooth numbers. We can use this formula to find a suitable B.  
+In Step 1, we look for Quadratic residues $c_i$'s which are B-Smooth. To factor $N$, we can calculate an approximate value of $B$ before looking for B-smooth numbers. We can use this formula to find a suitable B.  
 
 $L =  e^{\sqrt {\ln(N)ln(ln(N))}}$
 
@@ -134,7 +134,7 @@ If we want to factor $N = 87463$, we calculate $B \approx 42$. So we are looking
 
 We use a Quadratic Polynomial to do the sieving - hence the name Quadratic Sieve.  
 
-One such polynomial is $F(T) = T^2 - N$. We start with a $T$ which is slightly larger than $\sqrt N$ 
+One such polynomial is $F(T) = T^2 - N$. We start with a $T$ which is $ceil(\sqrt N)$ 
 
 $\sqrt 87463 = 295.74$. So we start with a = 296.  
 
