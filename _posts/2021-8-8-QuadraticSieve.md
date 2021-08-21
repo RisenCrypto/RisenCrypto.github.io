@@ -212,7 +212,7 @@ This is the Formula in D7
 
 =If(Mod(<span>$</span>A7,D<span>$</span>3) = D<span>$</span>5,Sieve(C7,D<span>$</span>3),C7)
 
-For any cell if the position/index of the row matches with the Adjusted root, then we call the funtion Sieve on that cell passing the number to be Sieved (the cell to the left of the current cell) & also the prime to Sieve it with. The Sieve function doesn't stop at a single divison by the prime, it keep dividing repeatedly till it finds the exact prime power which divides the number. 
+For any cell if the position/index of the row matches with the Adjusted root, then we call the function Sieve on that cell passing the number to be Sieved (the cell to the left of the current cell) & also the prime to Sieve it with. The Sieve function doesn't stop at a single divison by the prime, it keep dividing repeatedly till it finds the exact prime power which divides the number. 
 
 After sieving all the numbers, those numbers which got sieved all the way to 1 are our Smooth numbers 
 
