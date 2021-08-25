@@ -204,7 +204,7 @@ function Sieve(no, p)
   return no;  
 }
 
-~~~js
+~~~
 
 Cells D7:R58 contain a formula (all the cells contain the same formula adjusted for Row & Column Numbers). 
 
