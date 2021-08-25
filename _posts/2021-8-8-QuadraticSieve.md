@@ -193,8 +193,7 @@ Column C contains the list of numbers we are going to sieve with the primes in t
 
 I have written a script function in the Google sheet to do the sieving
 
----   
-<pre> <code>
+~~~js   
 function Sieve(no, p) 
 {
   while (no % p == 0)
@@ -203,8 +202,7 @@ function Sieve(no, p)
   }
   return no;  
 }
-</code></pre>
---- 
+~~~js
 
 Cells D7:R58 contain a formula (all the cells contain the same formula adjusted for Row & Column Numbers). 
 
