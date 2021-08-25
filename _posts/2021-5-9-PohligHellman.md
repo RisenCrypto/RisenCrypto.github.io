@@ -74,7 +74,7 @@ $y \equiv g^{a_0+a_1{p_1}+a_2{p_1}^2+…} \bmod p$
 
 $y \equiv g^{a_0} . g^{a_1{p_1} + a_2{p_1}^2+ …} \bmod p$
 
-$g$ is a generator, so $g^{a_0} is an element of $GF(p)$. So $g^{a_0}$ will have an inverse in $GF(p)$. So we can multiply both sides by the inverse.
+$g$ is a generator, so $g^{a_0}$ is an element of $GF(p)$. So $g^{a_0}$ will have an inverse in $GF(p)$. So we can multiply both sides by the inverse.
 
 $y.g^{−a_0} \equiv g^{a_1{p_1}+a_2{p_1}^2+…} \bmod p$
 
