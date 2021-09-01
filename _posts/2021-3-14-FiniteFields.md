@@ -35,17 +35,17 @@ Let's start with what is a Finite Field? For that, we will start with a Group & 
 
      Left:  $a * (b+c) = a * b + a * c$
 
-     Right:  $(a+b)*c = a*c + b*c$
+     Right:  $(a+b) * c = a * c + b * c$
 
 #### An Integral Domain is a Ring which is
 
--   Commutative under multiplication - $a*b = b*a$
+-   Commutative under multiplication - $a * b = b * a$
 
 -   Cancellation under multiplication - $ac = bc$, means $a = b$
 
 -   an identity element under multiplication
 
--   one which has no zero divisors - i.e. $a*b = 0$ only if either $a = 0$ or $b = 0$
+-   one which has no zero divisors - i.e. $a * b = 0$ only if either $a = 0$ or $b = 0$
 
 #### A particular type of Integral Domain is called a field. A field is a commutative ring with an identity element under multiplication where every non-zero element has a multiplicative inverse. Every finite Integral Domain is a Finite Field. 
 
