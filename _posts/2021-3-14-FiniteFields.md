@@ -33,7 +33,7 @@ Let's start with what is a Finite Field? For that, we will start with a Group & 
 
 * Left & right distributive over multiplication
 
-     Left:  $a*(b+c) = a*b + a*c$
+     Left:  $a * (b+c) = a * b + a * c$
 
      Right:  $(a+b)*c = a*c + b*c$
 
