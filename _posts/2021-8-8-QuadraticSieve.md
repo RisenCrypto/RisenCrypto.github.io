@@ -220,7 +220,7 @@ We have found the following Smooth Numbers
 
 1. $296^2 \bmod 87463 \equiv 153$ and $153 = 3^2 * 17$
 
-2. $299^2 \bmod 87463 \equiv 1938$ and $11938 = 2 * 3 * 17 * 19$
+2. $299^2 \bmod 87463 \equiv 1938$ and $1938 = 2 * 3 * 17 * 19$
 
 3. $302^2 \bmod 87463 \equiv 3741$ and $3741 = 3 * 29 * 43$
 
