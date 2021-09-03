@@ -244,7 +244,7 @@ v(6786) = {1	2	1	0	0	0	1	0	0}
 
 i.e. $6786 = 2^1 . 3^2 . 13^1 . 17^0 . 19^0 . 21^0 . 29^1 . 41^0 . 43^0$
 
-When 2 numbers are multiplied, then their exponents get added. So the exponent vector for the result of the multiplication would the sum of the exponent vectors. The result would only be a square if each position in the component vector of the result is an even number. We can simplify this further by taking mod of each element of the exponent vector by 2 & then adding them mod 2. Any product of the smooth numbers would be a square if each element of the product exponent vector is 0.  
+When 2 numbers are multiplied, then their exponents get added. So the exponent vector for the result of the multiplication would be the sum of the exponent vectors. The result would only be a square if each position in the component vector of the result is an even number. We can simplify this further by taking mod of each element of the exponent vector by 2 & then adding them mod 2. Any product of the smooth numbers would be a square if each element of the product exponent vector is 0.
 
 This now reduces to a Linear Algebra problem. 
 
