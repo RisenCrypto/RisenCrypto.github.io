@@ -13,19 +13,19 @@ Polynomial Modular Arithmetic done in Finite Fields is used in a lot of places i
 
 Let's start with what is a Finite Field? For that, we will start with a Group & from there go all the way up to Finite Fields.  
 
-#### A **Group** is a set G with a binary operation on G such that for all $a, b, c \in G$ 
+#### A **Group** is a set G with a binary operation (let's call this operation '+') on G such that for all $a, b, c \in G$ 
 
-* $a * (b * c) = (a * b) * c$  - This property is called **associativity** 
+* $a + (b + c) = (a + b) + c$  - This property is called **associativity** 
 
-* There exists an element e $\in G $ (called the **identity element**) such that for all $a \in G, a * e = a = e * a$ 
+* There exists an element e $\in G $ (called the **identity element**) such that for all $a \in G, a + e = a = e + a$ 
 
-* For all $a \in G$ there exists $a' \in G$ (called the **inverse of** a) such that $a * a' = e = a' * a$
+* For all $a \in G$ there exists $a' \in G$ (called the **inverse of** a) such that $a + a' = e = a' + a$
 
 * Any operation done on the group using the operator will always produce a result which is also a member of the group. This property is called **Closure**
 
-#### An Abelian Group is a Group which is also **Commutative** - i.e. for all $a, b \in G, a * b = b * a$
+#### An Abelian Group is a Group which is also **Commutative** - i.e. for all $a, b \in G, a + b = b + a$
 
-#### An Abelian Group under Addition which also has the following two properties for Multiplication is called as a Ring
+#### An Abelian Group under one operation (let's say '+') which also has the following two properties for a second operation (let's say '*') is called as a Ring
 
 * Associative multiplication
 
