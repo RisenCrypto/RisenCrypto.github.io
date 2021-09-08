@@ -105,7 +105,7 @@ Multiply the above 3 congruences
 
 $(439^2 * 445^2 * 449^2) \equiv (2^{18} * 5^2 * 7^2 * 17^2) \bmod 63787$
 
-$7270^2 = 49492^2 \bmod 64787$
+$7270^2 = 49492^2 \bmod 63787$
 
 $gcd(63787, 49492 + 7270) = 281$
 
@@ -220,7 +220,7 @@ We have found the following Smooth Numbers
 
 1. $296^2 \bmod 87463 \equiv 153$ and $153 = 3^2 * 17$
 
-2. $299^2 \bmod 87463 \equiv 1938$ and $11938 = 2 * 3 * 17 * 19$
+2. $299^2 \bmod 87463 \equiv 1938$ and $1938 = 2 * 3 * 17 * 19$
 
 3. $302^2 \bmod 87463 \equiv 3741$ and $3741 = 3 * 29 * 43$
 
@@ -244,7 +244,7 @@ v(6786) = {1	2	1	0	0	0	1	0	0}
 
 i.e. $6786 = 2^1 . 3^2 . 13^1 . 17^0 . 19^0 . 21^0 . 29^1 . 41^0 . 43^0$
 
-When 2 numbers are multiplied, then their exponents get added. So the exponent vector for the result of the multiplication would the sum of the exponent vectors. The result would only be a square if each position in the component vector of the result is an even number. We can simplify this further by taking mod of each element of the exponent vector by 2 & then adding them mod 2. Any product of the smooth numbers would be a square if each element of the product exponent vector is 0.  
+When 2 numbers are multiplied, then their exponents get added. So the exponent vector for the result of the multiplication would be the sum of the exponent vectors. The result would only be a square if each position in the component vector of the result is an even number. We can simplify this further by taking mod of each element of the exponent vector by 2 & then adding them mod 2. Any product of the smooth numbers would be a square if each element of the product exponent vector is 0.  
 
 This now reduces to a Linear Algebra problem. 
 
