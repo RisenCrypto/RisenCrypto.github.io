@@ -5,7 +5,7 @@ layout: default
 <div class="posts">
   {% for post in site.posts %}
       {{post.title}}
-      {% if (post.title.indexOf('TMPPOST') == -1) %} 
+      {% if ({{post.title}}.indexOf('TMPPOST') == -1) %} 
         <article class="post">
 
           <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
