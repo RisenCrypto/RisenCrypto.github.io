@@ -1,21 +1,50 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="posts">
-  {% for post in site.posts %}
-      {{post.title}}
-      {% if ({{post.title}}.indexOf('TMPPOST') == -1) %} 
-        <article class="post">
+	<title>RisenCrypto - Mathematical Cryptography</title>
 
-          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+	<link rel="icon" href="favicon.ico" type="image/png" />
 
-          <div class="entry">
-            {{ post.excerpt }}
-          </div>
+	<link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/themes/green-white.css">
+</head>
+<body>
+	<main>
+		<div class="intro">RisenCrypto - Math Cryptography</div>
+		<div class="bloglist">
 
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-        </article>
-        {% endif %}    
-  {% endfor %}
-</div>
+<li>
+ <div id="textbox">
+
+  <p class="alignleft"><a href="https://risencrypto.github.io/QuadraticSieve/">The Quadratic Sieve algorithm for Integer Factorization</a></p>
+  <p class="alignright">August 8th, 2021</p>
+    </div>
+ </li>
+
+<br><br>
+<li>
+ <div id="textbox">
+
+  <p class="alignleft"><a href="https://risencrypto.github.io/PohligHellman/">The Pohlig-Hellman Algorithm for solving a special case of the Discrete Log Problem</a></p>
+  <p class="alignright">May 9th, 2021</p>
+    </div>
+ </li>
+<br><br>
+<li>
+ <div id="textbox">
+
+  <p class="alignleft"><a href="https://risencrypto.github.io/FiniteFields/">Why does Cryptography use Polynomial Modular Arithmetic in Finite Fields?</a></p>
+  <p class="alignright">March 14th, 2021</p>
+    </div>
+ </li>
+
+	</main>
+</body>
+</html>
