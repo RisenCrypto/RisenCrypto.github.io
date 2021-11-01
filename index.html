@@ -4,7 +4,7 @@ layout: default
 
 <div class="posts">
   {% for post in site.posts %}
-      {% if true %} 
+      {% if post.title.includes('TMPPOST') %} 
         <article class="post">
 
           <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
