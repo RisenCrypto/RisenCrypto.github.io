@@ -4,7 +4,7 @@ layout: default
 
 <div class="posts">
   {% for post in site.posts %}
-      {% unless post.title == "uc" %}
+      {% unless post.category == "uc" %}
         <article class="post">
 
           <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
