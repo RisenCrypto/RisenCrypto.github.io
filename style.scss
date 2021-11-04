@@ -254,21 +254,17 @@ nav {
 
 .posts > .post {
   padding-bottom: 0.5em;
-  border-bottom: 1px solid $lightGray;
 }
 
 .posts > .post:last-child {
-  padding-bottom: 1em;
-  border-bottom: none;
+  padding-bottom: 0.5em;
 }
 
 .post {
   blockquote {
     margin: 1.8em .8em;
     border-left: 2px solid $gray;
-    padding: 0.1em 1em;
-    color: $gray;
-    font-size: 22px;
+    font-size: 14px;
     font-style: italic;
   }
 
