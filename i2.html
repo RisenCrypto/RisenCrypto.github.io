@@ -6,15 +6,11 @@ layout: default
   {% for post in site.posts %}
       {% unless post.category == "uc" %}
         <article class="post">
-
-          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-
-          <div class="entry">
-            {{ post.excerpt }}
-          </div>
-
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+          <tr>
+            <td>{{ writeup.date | date: "%B %e, %Y" }}</td>
+            <td><a href="{{ writeup.url }}">{{ writeup.title }}</a></td>
+          </tr>
         </article>
-        {% endunless %}    
+      {% endunless %}    
   {% endfor %}
 </div>
