@@ -6,13 +6,12 @@ layout: default
   <table id="writeuptable">
   {% for post in site.posts %}
       {% unless post.category == "uc" %}
-          <h2>
           <tr>
             <td>{{ post.date | date: "%B %e, %Y" }}</td>
             <td><a href="{{ post.url }}">{{ post.title }}</a></td>
           </tr>
-    </h2>
       {% endunless %}    
-  {% endfor %}
+    <br>
+    {% endfor %}
  <table id="writeuptable">    
 </div>
