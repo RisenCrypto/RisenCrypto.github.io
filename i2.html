@@ -3,6 +3,7 @@ layout: default
 ---
 
 <div class="posts">
+  <table id="writeuptable">
   {% for post in site.posts %}
       {% unless post.category == "uc" %}
           <tr>
@@ -11,4 +12,5 @@ layout: default
           </tr>
       {% endunless %}    
   {% endfor %}
+ <table id="writeuptable">    
 </div>
