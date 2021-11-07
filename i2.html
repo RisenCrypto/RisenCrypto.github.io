@@ -3,18 +3,16 @@ layout: default
 ---
 
 <table width="100%">
- 
+<h3>
   <tr>
     <td>
   {% for post in site.posts %}
       {% unless post.category == "uc" %}
-        <article class="post">
-         <h3>
-         <t><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3> </td>
-<td>{{ writeup.date | date: "%B %e, %Y" }}</td>
+
+         <td><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3> </td>
+         <td>{{ writeup.date | date: "%B %e, %Y" }}</td>
         
 
-        </article>
         {% endunless %}    
   {% endfor %}
     </td>
