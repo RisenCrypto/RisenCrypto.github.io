@@ -14,4 +14,4 @@ I am not from a Math Background & Math Crypto is quite difficult for me. On a lo
 
 - I use [Utterances](https://utteranc.es/) for comments.   
 
-- Social Media share templates are based on the [this](https://sourabhbajaj.com/blog/2017/10/29/adding-social-media-share-icons-to-jekyll/).
+- Social Media share templates are based on [this](https://sourabhbajaj.com/blog/2017/10/29/adding-social-media-share-icons-to-jekyll/).
