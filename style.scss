@@ -23,16 +23,10 @@ body {
   color: $darkGray;
 }
 
-.image-left {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      float: right;
-}
 
-		.text-justify {
-			text-align: justify;
-		}
+td {
+ padding: 10px 0
+}
 
 .container {
   margin: 0 auto;
