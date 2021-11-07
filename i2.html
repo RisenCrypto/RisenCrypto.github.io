@@ -10,7 +10,7 @@ layout: default
       {% unless post.category == "uc" %}
 
          <td><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </td>
-         <td>{{ writeup.date | date: "%B %e, %Y" }}</td>
+         <td>{{ post.date | date: "%B %e, %Y" }}</td>
         
 
         {% endunless %}    
