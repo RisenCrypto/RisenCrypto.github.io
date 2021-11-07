@@ -2,13 +2,20 @@
 layout: default
 ---
 
-<div class="posts">
+<table width="100%">
+ 
+  <tr>
+    <td>
   {% for post in site.posts %}
       {% unless post.category == "uc" %}
         <article class="post">
 
-          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-            </article>
+          <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+
+
+        </article>
         {% endunless %}    
   {% endfor %}
+    </td>
+  </tr>
 </div>
