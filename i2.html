@@ -4,18 +4,17 @@ layout: default
 
 <table width="100%">
 <h3>
-  <tr>
+
  
   {% for post in site.posts %}
       {% unless post.category == "uc" %}
-
+  <tr>
          <td><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </td>
          <td>{{ post.date | date: "%B %e, %Y" }}</td>
         
-
+  </tr>
         {% endunless %}    
   {% endfor %}
-  </tr>
  </h3>
 
   </table>
