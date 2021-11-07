@@ -12,4 +12,6 @@ I am not from a Math Background & Math Crypto is quite difficult for me. On a lo
 
 - I use [Mathjax](https://www.mathjax.org/). Here are the [instructions](http://sgeos.github.io/github/jekyll/2016/08/21/adding_mathjax_to_a_jekyll_github_pages_blog.html) to integrate it into Github pages.
 
-- I use [Utterances](https://utteranc.es/) for comments.
+- I use [Utterances](https://utteranc.es/) for comments.   
+
+- Social Media share icons are taken from [Here](https://sourabhbajaj.com/blog/2017/10/29/adding-social-media-share-icons-to-jekyll/).
