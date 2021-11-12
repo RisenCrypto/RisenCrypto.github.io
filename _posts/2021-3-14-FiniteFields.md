@@ -37,6 +37,8 @@ Let's start with what is a Finite Field? For that, we will start with a Group & 
 
      Right:  $(a+b) * c = a * c + b * c$
 
+A ring is always commutative under the first operation. A ring which is also commutative under it's 2nd operation is called a commutative ring.
+
 #### A field is a commutative ring with an identity element under multiplication where every non-zero element has a multiplicative inverse. 
 
 Finite Fields are also called **Galois Fields**
