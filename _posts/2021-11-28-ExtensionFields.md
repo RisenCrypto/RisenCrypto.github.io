@@ -39,7 +39,7 @@ Addition of field elements is the usual addition of polynomials, with coefficien
 For a field $F_{p^k}$, an irreducible binary polynomial P(x) of degree k is chosen (such a polynomial exists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
 
 **Use of $F_{2^8}$ in AES**   
-In AES, $F(2^8)$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
+In AES, $F_{2^8}$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
 
 ----  
 
