@@ -21,7 +21,7 @@ Let's look at Extension fields of the form $F_{2^k}$ as an example - i.e. $F_{p^
 
 Each element of $F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $F_{2^k}$ would be of the form  $a_{k−1}x^{k−1} +a_{k−2}x^{k−2} +···+ a_{2}x^{2} +a_{1}x + a_0$ with $a_i \in F_2 = {0,1}$
 
-Let's take $F_{2^4}$ - here the polynomials will be of the form $a_{3}x^3 + a_{2}x^2 + a_{1}x + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each co-efficient of the polynomial is either 0 or 1, it's similar to a bit & all the co-efficients of one polynomial together can be considered as a bit-string or a vector space. 
+Let's take $F_{2^4}$ - here the polynomials will be of the form $a_{3}x^3 + a_{2}x^2 + a_{1}x + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
 
 For e.g. 5 is the bit-string/vector space (0101)- which can be represented as the polynomial $x^2 + 1$. 
 
@@ -33,7 +33,7 @@ In general, the finite field $F_{p^k}$ can be viewed as bit-string or a vector s
 
 **Addition**  
 
-Addition of field elements is the usual addition of polynomials, with coefficient addition performed modulo 2   
+Addition of field elements is the usual addition of polynomials, with coefficient addition performed modulo 2 (which is also the same as XORing of the bit-strings)  
 
 **Multiplication**  
 For a field $F_{p^k}$, an irreducible binary polynomial P(x) of degree k is chosen (such a polynomial exists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
@@ -47,17 +47,17 @@ In AES, $F(2^8)$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible
 
 Elliptic Curves over Finite fields (including ones over Extension Fields) have 2 group structures involved. 
 
-- When an Elliptic curve is defined over a Field $F_p$, then the co-ordinates of the Weierstrass equation of the curve are elements of the field - this field is also called the underlying Field. 
+- When an Elliptic curve is defined over a Field $F_p$, then the coordinates of the Weierstrass equation of the curve are elements of the field - this field is also called the underlying Field. 
 
 - The points on the curve themselves form a separate Group Structure - an additive Group, where the elements of the Group (the points) can be added. 
 
-Let's look at Elliptic Curves over Extension fields using this curve $$\#E: y^2 + xy = x^3 + ax^2 + b$$ over the extension field $$F_{2^k}$$. 
+Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + ax^2 + b$ over the extension field $$F_{2^k}$$. 
 
 ### Group Operations       
 
 **Point Addition**
 
-Let $P = (x_1, y_1)$ and $$Q = (x_2, y_2) \in \#E(F_2^{k})$$, where $P \ne \pm Q$. 
+Let $P = (x_1, y_1)$ and $Q = (x_2, y_2) \in E(F_{2^k})$, where $P \ne \pm Q$. 
 
 Then $P + Q = (x_3, y_3)$, with   
 
@@ -87,7 +87,7 @@ $-P = (x, x + y)$
 
 Let's construct this curve over $F_{2^4}$.
 
-$$\#E: y^2 + xy = x^3 + ax^2 + b$$
+$E: y^2 + xy = x^3 + ax^2 + b$
 
 a & b are coefficients of Curve Equation. The coefficients are in the field $F_{2^4}$ & hence they can be represented using polynomial basis representation.
 
@@ -96,7 +96,7 @@ Let a = 8, b = 9
 a = (1000) i.e. $z^3$   
 b = (1001) i.e. $z^3 + 1$
 
-So the Curve Equation is $$\#E: y^2 + xy = x^3 + {z^3}x^2 + (z^3 + 1)$$
+So the Curve Equation is $E: y^2 + xy = x^3 + {z^3}x^2 + (z^3 + 1)$
 
 The x & y coordinates of each point on the Curve are also in the field $F_{2^4}$. So x & y can be represented using polynomail basis representation. 
 
