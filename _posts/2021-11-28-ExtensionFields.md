@@ -15,7 +15,7 @@ We look at 2 things
 
 --- 
 
-## Polynomial Basis Representation for Extension Fields   
+## Polynomial Basis Representation in Extension Fields   
 
 Let's look at Extension fields of the form $F_{2^k}$ as an example - i.e. $F_{p^k}$ where $p = 2$. These are called as Binary Fields.
 
