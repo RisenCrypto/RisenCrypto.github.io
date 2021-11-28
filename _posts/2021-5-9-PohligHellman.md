@@ -27,7 +27,7 @@ Order of $GF(p)=p−1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}…$
 
 Let’s take the prime power factors one by one.  
 
-**First consider $p_1^{n_1}$***
+**First consider $p_1^{n_1}$**
 
 Let $x$ be the solution for the subgroup of order $p_1^{n_1}$
 
