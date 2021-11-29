@@ -17,17 +17,17 @@ We look at 2 things
 
 ## Polynomial Basis Representation in Extension Fields   
 
-Let's look at Extension fields of the form $\mathbb F_{2^k}$ as an example - i.e. $F_{p^k}$ where $p = 2$. These are called as Binary Fields.
+Let's look at Extension fields of the form $\mathbb F_{2^k}$ as an example - i.e. $\mathbb F_{p^k}$ where $p = 2$. These are called as Binary Fields.
 
-Each element of $F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $F_{2^k}$ would be of the form  $a_{k−1}x^{k−1} +a_{k−2}x^{k−2} +···+ a_{2}x^{2} +a_{1}x + a_0$ with $a_i \in F_2 = {0,1}$
+Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}x^{k−1} +a_{k−2}x^{k−2} +···+ a_{2}x^{2} +a_{1}x + a_0$ with $a_i \in \mathbb F_2 = {0,1}$
 
-Let's take $F_{2^4}$ - here the polynomials will be of the form $a_{3}x^3 + a_{2}x^2 + a_{1}x + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
+Let's take $\mathbb F_{2^4}$ - here the polynomials will be of the form $a_{3}x^3 + a_{2}x^2 + a_{1}x + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
 
 For e.g. 5 is the bit-string/vector space (0101)- which can be represented as the polynomial $x^2 + 1$. 
 
 7 is (0111) i.e $x^2 + x + 1$. 
 
-In general, the finite field $F_{p^k}$ can be viewed as bit-string or a vector space over its subfield $F_p$. The 16 polynomials in $F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
+In general, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector space over its subfield $\mathbb F_p$. The 16 polynomials in $\mathbb F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
 
 ### Group Operations  
 
@@ -36,10 +36,10 @@ In general, the finite field $F_{p^k}$ can be viewed as bit-string or a vector s
 Addition of field elements is the usual addition of polynomials, with coefficient addition performed modulo 2 (which is also the same as XORing of the bit-strings)  
 
 **Multiplication**  
-For a field $F_{p^k}$, an irreducible binary polynomial P(x) of degree k is chosen (such a polynomial exists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
+For a field $\mathbb F_{p^k}$, an irreducible binary polynomial P(x) of degree k is chosen (such a polynomial exists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
 
-**Use of $F_{2^8}$ in AES**   
-In AES, $F_{2^8}$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
+**Use of $\mathbb F_{2^8}$ in AES**   
+In AES, $\mathbb F_{2^8}$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
 
 ----  
 
@@ -47,17 +47,17 @@ In AES, $F_{2^8}$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducibl
 
 Elliptic Curves over Finite fields (including ones over Extension Fields) have 2 algebraic structures involved. 
 
-- When an Elliptic curve is defined over a Field $F_p$, then the coordinates of the Weierstrass equation of the curve are elements of the field - this field is also called the underlying Field. 
+- When an Elliptic curve is defined over a Field $\mathbb F_p$, then the coordinates of the Weierstrass equation of the curve are elements of the field - this field is also called the underlying Field. 
 
 - The points on the curve form a Group - the operation of the group is addition of points in the group. 
 
-Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + ax^2 + b$ over the extension field $$F_{2^k}$$. 
+Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + ax^2 + b$ over the extension field $$\mathbb F_{2^k}$$. 
 
 ### Group Operations       
 
 **Point Addition**
 
-Let $P = (x_1, y_1)$ and $Q = (x_2, y_2) \in E(F_{2^k})$, where $P \ne \pm Q$. 
+Let $P = (x_1, y_1)$ and $Q = (x_2, y_2) \in E(\mathbb F_{2^k})$, where $P \ne \pm Q$. 
 
 Then $P + Q = (x_3, y_3)$, with   
 
@@ -85,11 +85,11 @@ $-P = (x, x + y)$
 
 ### Construction
 
-Let's construct this curve over $F_{2^4}$.
+Let's construct this curve over $\mathbb F_{2^4}$.
 
 $E: y^2 + xy = x^3 + ax^2 + b$
 
-a & b are coefficients of Curve Equation. The coefficients are in the field $F_{2^4}$ & hence they can be represented using polynomial basis representation.
+a & b are coefficients of Curve Equation. The coefficients are in the field $\mathbb F_{2^4}$ & hence they can be represented using polynomial basis representation.
 
 Let a = 8, b = 9
 
@@ -98,7 +98,7 @@ b = (1001) i.e. $z^3 + 1$
 
 So the Curve Equation is $E: y^2 + xy = x^3 + {z^3}x^2 + (z^3 + 1)$
 
-The x & y coordinates of each point on the Curve are also in the field $F_{2^4}$. So x & y can be represented using polynomail basis representation. 
+The x & y coordinates of each point on the Curve are also in the field $\mathbb F_{2^4}$. So x & y can be represented using polynomail basis representation. 
 
 Using the group operations specified above, let's see how point addition & point doubling is done.
 
