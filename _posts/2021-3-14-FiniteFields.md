@@ -11,7 +11,7 @@ Polynomial Modular Arithmetic done in Finite Fields is used in a lot of places i
 
 ## First, why Finite Fields at all?
 
-Let's start with what is a Finite Field? For that, we will start with a Group & from there go all the way up to Finite Fields.  
+Let's first with defining what are Groups, Rings & Fields
 
 #### A **Group** is a set G with a binary operation (let's call this operation '+') on G such that for all $a, b, c \in G$ 
 
