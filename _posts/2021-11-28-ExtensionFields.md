@@ -49,7 +49,7 @@ Elliptic Curves over Finite fields (including ones over Extension Fields) have 2
 
 - When an Elliptic curve is defined over a Field $F_p$, then the coordinates of the Weierstrass equation of the curve are elements of the field - this field is also called the underlying Field. 
 
-- The points on the curve form a Group - the operation of the group is addition of points on the group. 
+- The points on the curve form a Group - the operation of the group is addition of points in the group. 
 
 Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + ax^2 + b$ over the extension field $$F_{2^k}$$. 
 
