@@ -157,4 +157,8 @@ $z^3 + z + 1$ is (1011) & $z$ is (0010)
 
 So $2P = (11, 2)$ i.e. $(1011, 0010)$  
 
+---  
+
+However, there are some reasons why Elliptic Curves over Finite Fields are more commonly seen than those over Binary Fields. This [Q & A](https://crypto.stackexchange.com/questions/91610/why-are-elliptic-curves-over-binary-fields-used-less-than-those-over-prime-field) covers most of the reasons.
+
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FExtensionFields%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
