@@ -25,7 +25,7 @@ Let's start with what is a Finite Field? For that, we will start with a Group & 
 
 #### An Abelian Group is a Group which is also **Commutative** - i.e. for all $a, b \in G, a + b = b + a$
 
-#### A Ring has 2 operations. A ring is an Abelian Group under the first operation (let's say '+'). It has the following two properties for a second operation (let's say '*').
+#### A Ring is a set with 2 operations. A ring is an Abelian Group under the first operation (let's say '+'). It has the following two properties for a second operation (let's say '*').
 
 * Associative multiplication
 
@@ -39,7 +39,7 @@ Let's start with what is a Finite Field? For that, we will start with a Group & 
 
 A ring is always commutative under the first operation. A ring which is also commutative under it's 2nd operation is called a commutative ring.
 
-#### A field also has 2 operations. A field is an Abelian group under the first operation (let's call it addition). Under the second (let's call it multiplication), a field has all the properaties which a Commutative rung has under it's 2nd operation. A field also has an identity element under multiplication where every non-zero element has a multiplicative inverse. 
+#### A field is also a set with 2 operations. A field is an Abelian group under the first operation (let's call it addition). Under the second operation (let's call it multiplication), a field has all the properaties which a commutative ring has under it's 2nd operation. A field also has an identity element under multiplication where every non-zero element has a multiplicative inverse. 
 
 Finite Fields are also called **Galois Fields**
 
