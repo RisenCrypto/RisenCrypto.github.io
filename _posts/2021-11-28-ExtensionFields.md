@@ -17,7 +17,7 @@ We look at 2 things
 
 ## Polynomial Basis Representation in Extension Fields   
 
-Let's look at Extension fields of the form $F_{2^k}$ as an example - i.e. $F_{p^k}$ where $p = 2$. These are called as Binary Fields.
+Let's look at Extension fields of the form $\mathbb F_{2^k}$ as an example - i.e. $F_{p^k}$ where $p = 2$. These are called as Binary Fields.
 
 Each element of $F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $F_{2^k}$ would be of the form  $a_{k−1}x^{k−1} +a_{k−2}x^{k−2} +···+ a_{2}x^{2} +a_{1}x + a_0$ with $a_i \in F_2 = {0,1}$
 
