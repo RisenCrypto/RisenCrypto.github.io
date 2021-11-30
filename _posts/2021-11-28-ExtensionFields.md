@@ -9,6 +9,7 @@ title: Polynomials and Elliptic Curves over Extension Fields
 
 We look at 2 things
 
+
 - Polynomial Basis Representation in Extension Fields  
 
 - Elliptic Curves over an Extension Field   
@@ -47,7 +48,7 @@ In AES, $\mathbb F_{2^8}$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the ir
 
 Elliptic Curves over Finite fields (including ones over Extension Fields) have 2 algebraic structures involved. 
 
-- When an Elliptic curve is defined over a Field $\mathbb F_p$, then the coordinates of the Weierstrass equation of the curve are elements of the field - this field is also called the underlying Field. 
+- When an Elliptic curve is defined over a Field $\mathbb F_p$, then the coordinates of the equation of the curve are elements of the field - this field is also called the underlying Field. 
 
 - The points on the curve form a Group - the operation of the group is addition of points in the group. 
 
