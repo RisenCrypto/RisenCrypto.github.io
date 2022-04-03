@@ -49,7 +49,7 @@ Let's take $N = 799$. It will take us trying from 1 to 15, till we find $799 + 1
 
 So $799 = 17 * 47$
 
-Obviously, with very large semiprimes, this method would take a lot of iterations to be practical.
+Obviously, with very large semiprimes, this method would take far too many iterations to be useful.
 
 **Kraitchik's Factorization** 
 
