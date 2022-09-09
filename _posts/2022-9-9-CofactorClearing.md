@@ -134,7 +134,7 @@ Now with a 8-torsion element like $33$
 
 2) With non-torsion safe cleared key $(a1.33) \bmod 88 = (136.33) \bmod 88 = 0$
 
-3) With torsion safe cleared key $(a2.22) \bmod 88 = (7896.33) \bmod 88 =0$
+3) With torsion safe cleared key $(a2.33) \bmod 88 = (7896.33) \bmod 88 =0$
 
 So what we see is if the element (say $M$) belongs to the prime order subgroup then $a2.M = a.M$, but if it belongs to torsion group, then $a2.M = identity$.
 
