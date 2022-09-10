@@ -136,6 +136,6 @@ Now with a 8-torsion element like $33$
 
 3) With torsion safe cleared key $(a2.33) \bmod 88 = (7896.33) \bmod 88 =0$
 
-So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a2.Q = a.Q$, but if it belongs to torsion group, then $a2.Q = identity$.
+So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a2.Q = a.Q$, but if it belongs to torsion subgroup, then $a2.Q = identity$.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FCofactorClearing%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
