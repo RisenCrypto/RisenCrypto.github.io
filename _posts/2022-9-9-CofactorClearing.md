@@ -123,19 +123,19 @@ Let's test with a prime order element like $16$.
 
 1) With original key $(a.16) \bmod 88 = (141.16) \bmod 88 = 56$
 
-2) With non-torsion safe cleared key $(a1.16) \bmod 88 = (136.16) \bmod 88 = 64$
+2) With non-torsion safe cleared key $(a_1.16) \bmod 88 = (136.16) \bmod 88 = 64$
 
-3) With torsion safe cleared key $(a2.16) \bmod 88 = (7896.16) \bmod 88 =56$
+3) With torsion safe cleared key $(a_2.16) \bmod 88 = (7896.16) \bmod 88 =56$
 
 Now with a 8-torsion element like $33$
 
 
 1) With Original key $(a.33) \bmod 88 = (141.33) \bmod 88 = 77$ 
 
-2) With non-torsion safe cleared key $(a1.33) \bmod 88 = (136.33) \bmod 88 = 0$
+2) With non-torsion safe cleared key $(a_1.33) \bmod 88 = (136.33) \bmod 88 = 0$
 
-3) With torsion safe cleared key $(a2.33) \bmod 88 = (7896.33) \bmod 88 =0$
+3) With torsion safe cleared key $(a_2.33) \bmod 88 = (7896.33) \bmod 88 =0$
 
-So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a2.Q = a.Q$, but if it belongs to torsion subgroup, then $a2.Q = identity$.
+So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a_2.Q = a.Q$, but if it belongs to torsion subgroup, then $a_2.Q = identity$.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FCofactorClearing%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
