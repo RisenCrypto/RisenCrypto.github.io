@@ -115,7 +115,7 @@ So multiplying by $56$ will clear the torsion component while leaving the prime 
 
 Let's take an example of private key/scalar $a = 141$. 
 
-If we use a non-torsion safe clearing of lowest 3 bits, then $a_1 = a \,\& \, 248 = 136$ (clearing lowest 3 bits)
+If we use a non-torsion safe clearing of lowest 3 bits, then $a_1 = a\&248 = 136$ (clearing lowest 3 bits)
 
 If we use torsion safe clearing, then $a_2 = 56.141 = 7896$
 
