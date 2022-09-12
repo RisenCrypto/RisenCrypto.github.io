@@ -37,7 +37,7 @@ So $8051 = (90 + 7)(90 - 7)$
 
 $8051 = 97$ x $83$
 
-How quick we get to a b which produces a square depends on how close the factors are to the square-root of $N$.
+How quick we get to $a$ & $b$ which produces a square depends on how close the factors are to the square-root of $N$.
 
 $\sqrt(8051) = 89.73$ 
 
