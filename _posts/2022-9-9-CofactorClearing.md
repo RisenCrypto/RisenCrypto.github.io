@@ -113,28 +113,28 @@ So $k = 56$.
 
 So multiplying by $56$ will clear the torsion component while leaving the prime order component undisturbed.
 
-Let's take an example of private key/scalar $a = 141$. 
+Let's take an example of private key/scalar $a = 29$. 
 
-If we use a non-torsion safe clearing of lowest 3 bits, then $a1 = a$ & $248 = 136$ (clearing lowest 3 bits)
+If we use a non-torsion safe clearing of lowest 3 bits, then $a1 = a$ & $248 = 24$ (clearing lowest 3 bits)
 
-If we use torsion safe clearing, then $a_2 = 56.141 = 7896$
+If we use torsion safe clearing, then $a_2 = 56.39 \bmod 88 = 40$
 
 Let's test with a prime order element like $16$.
 
-1) With original key $(a.16) \bmod 88 = (141.16) \bmod 88 = 56$
+1) With original key $(a.16) \bmod 88 = (29.16) \bmod 88 = 24$
 
-2) With non-torsion safe cleared key $(a_1.16) \bmod 88 = (136.16) \bmod 88 = 64$
+2) With non-torsion safe cleared key $(a_1.16) \bmod 88 = (24.16) \bmod 88 = 32$
 
-3) With torsion safe cleared key $(a_2.16) \bmod 88 = (7896.16) \bmod 88 =56$
+3) With torsion safe cleared key $(a_2.16) \bmod 88 = (40.16) \bmod 88 =24$
 
 Now with a 8-torsion element like $33$
 
 
-1) With Original key $(a.33) \bmod 88 = (141.33) \bmod 88 = 77$ 
+1) With Original key $(a.33) \bmod 88 = (29.33) \bmod 88 = 77$ 
 
-2) With non-torsion safe cleared key $(a_1.33) \bmod 88 = (136.33) \bmod 88 = 0$
+2) With non-torsion safe cleared key $(a_1.33) \bmod 88 = (24.33) \bmod 88 = 0$
 
-3) With torsion safe cleared key $(a_2.33) \bmod 88 = (7896.33) \bmod 88 =0$
+3) With torsion safe cleared key $(a_2.33) \bmod 88 = (40.33) \bmod 88 =0$
 
 So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a_2.Q = a.Q$, but if it belongs to the torsion subgroup, then $a_2.Q = identity$.
 
