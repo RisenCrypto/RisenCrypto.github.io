@@ -274,7 +274,7 @@ Doing it in SageMath ![Sagemath](https://raw.githubusercontent.com/RisenCrypto/R
 
 So we get the following vectors (written horizontally instead of vertically)  
 
-$v1 = [1 0 0 0 1 0 0]$ (i.e. multiply the squares of 1st & 5th Number to get a Zero exponent vector - $296^2 * 316^2$)   
+$v1 = [1\,0\,0\,0\,1\,0\,0]$ (i.e. multiply the squares of 1st & 5th Number to get a Zero exponent vector - $296^2 * 316^2$)   
 
 $v2 = [0 1 0 0 1 0 1]$ (i.e. multiply the 2nd, 5th & 7th number - $299^2 * 316^2 * 347^2$)
 
