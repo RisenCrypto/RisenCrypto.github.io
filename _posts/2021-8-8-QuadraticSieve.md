@@ -276,9 +276,9 @@ So we get the following vectors (written horizontally instead of vertically)
 
 $v1 = [1\,0\,0\,0\,1\,0\,0]$ (i.e. multiply the squares of 1st & 5th Number to get a Zero exponent vector - $296^2 * 316^2$)   
 
-$v2 = [0 1 0 0 1 0 1]$ (i.e. multiply the 2nd, 5th & 7th number - $299^2 * 316^2 * 347^2$)
+$v2 = [0\,1\,0\,0\,1\,0\,1]$ (i.e. multiply the 2nd, 5th & 7th number - $299^2 * 316^2 * 347^2$)
 
-$v3 = [0 0 1 1 0 1 0]$ (i.e. multiply the 3rd, 4th & 6th number - $302^2 * 307^2 * 343^2$)
+$v3 = [0\,0\,1\,1\,0\,1\,0]$ (i.e. multiply the 3rd, 4th & 6th number - $302^2 * 307^2 * 343^2$)
 
 Let's take the first one
 
