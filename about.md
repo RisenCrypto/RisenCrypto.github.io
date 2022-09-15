@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am not from a Math Background & Math Crypto is quite difficult for me. On a lot of topics, I am unable to find a single text or source which  explains the topic in enough detail for me to understand & I have to go looking through a lot of sources, ask questions on forums etc to understand the topic. I mostly blog here to collate all the information on such topics at one place.  
+On some topics, I am unable to find a single text or source which  explains the topic in enough detail for me to understand & I have to go looking through a lot of sources, ask questions on forums etc to understand the topic. I mostly blog here to collate all the information on such topics at one place.  
 
 - This blog is built on [Github Pages](https://pages.github.com/)   
 
