@@ -287,17 +287,17 @@ $296^2 * 316^2 \equiv (3^2 . 17)(3^6 . 17) \bmod 87463$
 $=  {(3^4 . 17)}^2$
 
 
-gcd(N, (296 * 316) - (3^4 * 17)) = 587
+$gcd(N, (296 . 316) - (3^4 * 17)) = 587$
 
-So we have factorized N using just the 1st vector 
+So we have factorized $N$ using just the 1st vector 
 
 $87463 = 587 * 149$
 
 The process actually ends here but let's try it again with the 2nd & 3rd vector also
 
-gcd(N, (299 * 316 * 347) - (2 * 3^4 * 17^2 * 19)) = 587
+$gcd(N, (299 * 316 * 347) - (2 * 3^4 * 17^2 * 19)) = 587$
 
-gcd(N, (302 * 307 * 343) - (2 * 3^3 * 13 * 29 * 43)) = 587 
+$gcd(N, (302 * 307 * 343) - (2 * 3^3 * 13 * 29 * 43)) = 587$ 
 
 So all 3 zero product exponent vectors have given us the factorization (If not even one of them do, then we may have to sieve more numbers & redo the Elimination Step)   
 
