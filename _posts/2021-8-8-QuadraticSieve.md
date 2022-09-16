@@ -284,14 +284,14 @@ Let's take the first one
 
 $296^2$ x $316^2 \equiv (3^2$ x $17)(3^6$ x $17) \bmod 87463$   
 
-$= {(3^4 * 17)} ^2$
+$= {(3^4 \, x \, 17)} ^2$
 
 
 $gcd(N, (296$ x $316) - (3^4$ x $17)) = 587$
 
 So we have factorized $N$ using just the 1st vector 
 
-$87463 = 587$\,x\,$149$
+$87463 = 587$ x $149$
 
 The process actually ends here but let's try it again with the 2nd & 3rd vector also
 
