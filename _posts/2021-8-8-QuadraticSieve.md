@@ -109,7 +109,7 @@ $7270^2 = 49492^2 \bmod 63787$
 
 $gcd(63787, 49492 + 7270) = 281$
 
-$63787 = 281 * 227$  
+$63787 = 281$ x $227$  
 
 The Factorisation is complete.   
 
@@ -164,7 +164,7 @@ Next we start with first prime in the FB i.e 2 & start sieving the first number 
 
 The First number in the list is 153. We cannot sieve it by 2 because it's not divisible by 2. Next we try with the next prime in the $FB$, i.e. 3 - it's divisible by 3 & gives 51, 51 again is divisible by 3 giving 17 - i.e. the original number got divided by 3 twice, i.e. one of it's factors is $3^2$. Next number in the FB is 13, but 17 is not divisible by 13, so we move on to the next prime in the $FB$, i.e. 17. 17 divides 17 & the result is 1. When we reach 1, it means we have found a Smooth number. If we don't reach 1 by the time we try the last prime in the $FB$ (43 in this case), then it means that number we are sieveing is not a Smooth number. So either way, we move on to the next number to sieve.   
 
-$153 = 3^2 * 17$  
+$153 = 3^2$ x $17$  
 
 One thing to notice here is that checking whether a number is divisible by the prime by using trial division may be expensive. We can avoid this by using the roots to figure out which numbers in the list are going to be divisible by a particular prime.  
 
@@ -176,7 +176,7 @@ Let's try it for $p_i = 13$. I am using sagemath here to find the roots of $N \b
 
 [5, 8]
 
-This gives 2 roots - 5 & 8. Now, since we are starting from 296, we need to adjust the roots to get the Index/Position of the number in our list which is divisible by 13. This can be done by Mod (5 - 296, 13) = 8 & Mod(8-296, 13) = 11. 
+This gives 2 roots - $5$ & $8$. Now, since we are starting from $296$, we need to adjust the roots to get the Index/Position of the number in our list which is divisible by 13. This can be done by $Mod (5 - 296, 13) = 8$ & $Mod(8-296, 13) = 11$. 
 
 In our list LS if we start the indexing with 0, this means that the 8th & 11th number will be divisible by 13.  Also, 8+13th, 8+26th, 8+39th etc & 11+13th, 11+26th, 11+39th etc number will be divisible by 13. This can be used to avoid trial division & only sieve those numbers at that position.  
 I have created a Google Spreadsheet to show the the Sieving process.  
@@ -218,19 +218,19 @@ After sieving all the numbers, those numbers which got sieved all the way to 1 a
 
 We have found the following Smooth Numbers 
 
-1. $296^2 \bmod 87463 \equiv 153$ and $153 = 3^2 * 17$
+1. $296^2 \bmod 87463 \equiv 153$ and $153 = 3^2$ x $17$
 
-2. $299^2 \bmod 87463 \equiv 1938$ and $1938 = 2 * 3 * 17 * 19$
+2. $299^2 \bmod 87463 \equiv 1938$ and $1938 = 2$ x $3$ x $17$ x $19$
 
-3. $302^2 \bmod 87463 \equiv 3741$ and $3741 = 3 * 29 * 43$
+3. $302^2 \bmod 87463 \equiv 3741$ and $3741 = 3$ x $29$ x $43$
 
-4. $307^2  \bmod 87463 \equiv 6786$ and $6786 = 2 * 3^2 * 13 * 29$
+4. $307^2  \bmod 87463 \equiv 6786$ and $6786 = 2$ x $3^2$ x $13$ x $29$
 
-5. $316^2 \bmod 87463 \equiv 12393$ and $12393 = 3^6 * 17$   
+5. $316^2 \bmod 87463 \equiv 12393$ and $12393 = 3^6$ x $17$   
 
-6. $343^2 \bmod 87463 \equiv 30186$ and $30186 = 2 * 3^3 * 13 * 43$
+6. $343^2 \bmod 87463 \equiv 30186$ and $30186 = 2$ x $3^3$ x $13$ x $43$
 
-7. $347^2 \bmod 87463 \equiv 32946$ and $32946 = 2 * 3 * 17^2 * 19$
+7. $347^2 \bmod 87463 \equiv 32946$ and $32946 = 2$ x $3$ x $17^2$ x $19$
 
 The remaining steps of factorization (Elimination & GCD) are not part of the Quadratic Sieving algorithm itself. They are used in all Factorization methods once the Relationship Building step is completed
 
@@ -238,11 +238,11 @@ The remaining steps of factorization (Elimination & GCD) are not part of the Qua
 
 Every positive integer m has an exponent vector v(m) that is based on the prime factorization of m
 
-For e.g. the exponent vector for $6786 = 2 * 3^2 * 13 * 29$ can be written as
+For e.g. the exponent vector for $6786 = 2$ x $3^2$ x $13$ x $29$ can be written as
 
 v(6786) = {1	2	1	0	0	0	1	0	0}
 
-i.e. $6786 = 2^1 . 3^2 . 13^1 . 17^0 . 19^0 . 21^0 . 29^1 . 41^0 . 43^0$
+i.e. $6786 = 2^1$ x $3^2$ x $13^1$ x $17^0$ x $19^0$ x $21^0$ x $29^1$ x $41^0$ x $43^0$
 
 When 2 numbers are multiplied, then their exponents get added. So the exponent vector for the result of the multiplication would be the sum of the exponent vectors. The result would only be a square if each position in the component vector of the result is an even number. We can simplify this further by taking mod of each element of the exponent vector by 2 & then adding them mod 2. Any product of the smooth numbers would be a square if each element of the product exponent vector is 0.  
 
@@ -274,17 +274,17 @@ Doing it in SageMath ![Sagemath](https://raw.githubusercontent.com/RisenCrypto/R
 
 So we get the following vectors (written horizontally instead of vertically)  
 
-$v1 = [1\,0\,0\,0\,1\,0\,0]$ (i.e. multiply the squares of 1st & 5th Number to get a Zero exponent vector - $296^2 * 316^2$)   
+$v1 = [1\,0\,0\,0\,1\,0\,0]$ (i.e. multiply the squares of 1st & 5th Number to get a Zero exponent vector - $296^2$ x $316^2$)   
 
-$v2 = [0\,1\,0\,0\,1\,0\,1]$ (i.e. multiply the 2nd, 5th & 7th number - $299^2 * 316^2 * 347^2$)
+$v2 = [0\,1\,0\,0\,1\,0\,1]$ (i.e. multiply the 2nd, 5th & 7th number - $299^2$ x $316^2$ x $347^2$)
 
-$v3 = [0\,0\,1\,1\,0\,1\,0]$ (i.e. multiply the 3rd, 4th & 6th number - $302^2 * 307^2 * 343^2$)
+$v3 = [0\,0\,1\,1\,0\,1\,0]$ (i.e. multiply the 3rd, 4th & 6th number - $302^2$ x $307^2$ x $343^2$)
 
 Let's take the first one
 
-$296^2 * 316^2 \equiv (3^2 . 17)(3^6 . 17) \bmod 87463$   
+$296^2 * 316^2 \equiv (3^2$ x $17)(3^6$ x $17) \bmod 87463$   
 
-$=  {(3^4 . 17)}^2$
+$=  {(3^4$ x $17)}^2$
 
 
 $gcd(N, (296 . 316) - (3^4 * 17)) = 587$
@@ -295,9 +295,9 @@ $87463 = 587 * 149$
 
 The process actually ends here but let's try it again with the 2nd & 3rd vector also
 
-$gcd(N, (299 * 316 * 347) - (2 * 3^4 * 17^2 * 19)) = 587$
+$gcd(N, (299$ x $316$ x $347) - (2$ x $3^4$ x $17^2$ x $19)) = 587$
 
-$gcd(N, (302 * 307 * 343) - (2 * 3^3 * 13 * 29 * 43)) = 587$ 
+$gcd(N, (302$ x $307$ x $343) - (2$ x $3^3$ x $13$ x $29$ x $43)) = 587$ 
 
 So all 3 zero product exponent vectors have given us the factorization (If not even one of them do, then we may have to sieve more numbers & redo the Elimination Step)   
 
