@@ -47,7 +47,7 @@ The further away the 2 factors of $N$ are away from $\sqrt(N)$, the more difficu
 
 Let's take $N = 799$. It will take us trying from 1 to 15, till we find $799 + 15^2 = 32^2$
 
-So $799 = 17 * 47$
+So $799 = 17$ x $47$
 
 Obviously, with very large semiprimes, this method would take far too many iterations to be useful.
 
@@ -55,7 +55,7 @@ Obviously, with very large semiprimes, this method would take far too many itera
 
 Kraitchik reasoned that instead of trying to find a & b such that $a^2 - b^2 = N$, it may be sufficient to find a & b such that the difference of squares is equal to a multiple of N.
 
-For e.g. try with $3 * 799$ instead of 799.
+For e.g. try with $3$ x $799$ instead of 799.
 
 $3$ x $799 = 2397$  
 
@@ -282,16 +282,16 @@ $v3 = [0\,0\,1\,1\,0\,1\,0]$ (i.e. multiply the 3rd, 4th & 6th number - $302^2$ 
 
 Let's take the first one
 
-$296^2 * 316^2 \equiv (3^2$ x $17)(3^6$ x $17) \bmod 87463$   
+$296^2$ x $316^2 \equiv (3^2$ x $17)(3^6$ x $17) \bmod 87463$   
 
 $=  {(3^4$ x $17)}^2$
 
 
-$gcd(N, (296 . 316) - (3^4 * 17)) = 587$
+$gcd(N, (296$ x $316) - (3^4$ x $17)) = 587$
 
 So we have factorized $N$ using just the 1st vector 
 
-$87463 = 587 * 149$
+$87463 = 587$ x $149$
 
 The process actually ends here but let's try it again with the 2nd & 3rd vector also
 
