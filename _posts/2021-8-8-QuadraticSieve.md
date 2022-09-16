@@ -39,9 +39,9 @@ $8051 = 97$ x $83$
 
 How quick we get to $a$ & $b$ which produces a square depends on how close the factors are to the square-root of $N$.
 
-$\sqrt(8051) = 89.73$ 
+$\sqrt(8051) = 89.73 \approx 90$ 
 
-So both factors in this case are quite close to the square root.
+So both factors in this case are quite close to the square root (i.e $90$).
 
 The further away the 2 factors of $N$ are away from $\sqrt(N)$, the more difficult this method becomes. Only a small fraction of numbers have a factor close to their square root.
 
@@ -57,7 +57,7 @@ Kraitchik reasoned that instead of trying to find a & b such that $a^2 - b^2 = N
 
 For e.g. try with $3 * 799$ instead of 799.
 
-$3 * 799 = 2397$  
+$3$ x $799 = 2397$  
 
 Try $2397 + 1^2, 2397 + 2^2$ etc.   
 
@@ -69,7 +69,7 @@ A small change in this method is that we need to compute $gcd(N, a + b)$ and/or 
 
 $gcd(799, 49 + 2) = 17$
 
-So we get $799 = 17 * 47$   
+So we get $799 = 17$ x $47$   
 
 What we did here is $kN + b^2 = a^2$  
 
@@ -89,21 +89,21 @@ $32^2 \bmod 799 \equiv 225 = 15^2$
 
 $gcd(799, 32 - 15) = 17$
 
-$799 = 47 * 17$
+$799 = 47$ x $17$
 
 However, even with this, you may not find easily a result which is a square. So Kraitchik tried to find several numbers whose squares are a product of prime powers. These are easier to find. Once you find several of them, you then combine them by multiplication to find a combination which is a square. 
 
 $N = 63787$   
 
-$439^2 \bmod 63787 \equiv 1360 = 2^4 * 5 * 17$  
+$439^2 \bmod 63787 \equiv 1360 = 2^4$ x $5$ x $17$  
 
-$445^2 \bmod 63787 \equiv 6664 = 2^3 * 7^2 * 17$
+$445^2 \bmod 63787 \equiv 6664 = 2^3$ x $7^2$ x $17$
 
-$449^2 \bmod 63787 \equiv 10240 = 2^{11} * 5$
+$449^2 \bmod 63787 \equiv 10240 = 2^{11}$ x $5$
 
 Multiply the above 3 congruences  
 
-$(439^2 * 445^2 * 449^2) \equiv (2^{18} * 5^2 * 7^2 * 17^2) \bmod 63787$
+ $(439^2$ x $445^2$ x $449^2$$)$ \equiv (2^{18}$ x $5^2$ x $7^2$ x $17^2) \bmod 63787$
 
 $7270^2 = 49492^2 \bmod 63787$
 
