@@ -284,7 +284,7 @@ Let's take the first one
 
 $296^2$ x $316^2 \equiv (3^2$ x $17)(3^6$ x $17) \bmod 87463$   
 
-$= {(3^4 \; X \; 17)} ^2$
+$= {(3^4 \quad X \quad 17)} ^2$
 
 
 
