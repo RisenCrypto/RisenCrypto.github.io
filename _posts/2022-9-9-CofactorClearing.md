@@ -11,7 +11,7 @@ Many cryptographic protocols use elliptic curves of prime order. However there a
 
 ## Small Subgroup attack in non-prime order curves
 
-The operations are usually implemented in the prime order subgroup of the full Curve. Let's take the example of Diffie Hellman to understand the small subgroup attack. Let's say our curve is of order $8p$ where $p$ is a prime & $8$ is the cofactor. Let $G$ be a generator of the prime order subgroup. Let $a$ & $b$ be Alice's & Bob's private key respectively. This is how a typical Diffie Hellman key exchange works.
+The operations are usually implemented in the prime order subgroup of the full Curve. Let's take the example of Diffie Hellman to understand the small subgroup attack. Let's say our curve is of order $8p$ where $p$ is a prime & $8$ is the cofactor. The main group of order $8p$ is a finite cyclic Group. By the fundamental theorem of finite cyclic groups, the 2 subgroups of order $8$ & order $p$ are also finite cyclic subgroups. Let $G$ be a generator of the prime order subgroup. Let $a$ & $b$ be Alice's & Bob's private key respectively. This is how a typical Diffie Hellman key exchange works.
 
 $$
 \text{Alice} \xrightarrow{\hspace{2cm} a G \hspace{2cm}} \text{Bob} \\
