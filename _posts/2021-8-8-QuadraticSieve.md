@@ -128,7 +128,7 @@ $L =  e^{\sqrt {\ln(N)ln(ln(N))}}$
 
 $B \approx L^{\frac {1}{\sqrt 2}}$
 
-If we want to factor $N = 87463$, we calculate $B \approx 42$. So we are looking for 43-Smooth Quadratic Residues $\bmod N$. We use the Quadratic Sieve Algorithm in the Relationship Building step to find the B-smooth numbers in our list. If you are unfamiliar with what 'Sieving', look up the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes). Unlike the Basic Sieve, in the Quadratic Sieve algorithm, we sieve all the way upto 1 so as to find Smooth numbers.
+If we want to factor $N = 87463$, we calculate $B \approx 42$. So we are looking for 43-Smooth Quadratic Residues $\bmod N$. We use the Quadratic Sieve Algorithm in the Relationship Building step to find the B-smooth numbers in our list. If you are not familiar with what 'Sieving' is, you can look up [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes). Unlike the Basic Sieve, in the Quadratic Sieve algorithm, we sieve all the way upto 1 so as to find Smooth numbers.
 
 **Quadratic Sieve**   
 
