@@ -76,7 +76,7 @@ So, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector s
 
 Addition of field elements is the usual addition of polynomials, with coefficient addition performed modulo 2 (which is also the same as XORing of the bit-strings)  
 
-For e.g. $(x^2 + x + 1) + (x^3 + x + 1) = x^3 +x^2 + (x + x) + (1 + 1)$
+For e.g. in  $\mathbb F_{2^4}$, $(x^2 + x + 1) + (x^3 + x + 1) = x^3 +x^2 + (x + x) + (1 + 1)$
 
 Now, $x + x = 2x \bmod 2 = 0$ and $1 + 1 = 2 \bmod 2 = 0$
 
@@ -86,6 +86,26 @@ $(x^2 + x + 1) + (x^3 + x + 1)  = x^3 + x^2$
 
 **Multiplication**  
 For a field $\mathbb F_{p^k}$, an irreducible binary polynomial P(x) of degree k is chosen (such a polynomial exists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
+
+Again, lets take $\mathbb F_{2^4}$ - the irreducible polynomial for this Extension field is $x^4 + x + 1$
+
+Let's multiply the elements $(x^3 + x + 1) * (x+1)$
+
+This gives us $x^4 + x^3 + x^2 + 1$. We now have reduce this mod the irreducible polynomial.
+
+i.e $x^4 + x^3 + x^2 + 1 \bmod x^4 + x + 1$ 
+
+Doing polynomial long division we get a remainder $x^3 + x^2 -x$ 
+
+In $\bmod 2$, $-x is the same as +x$, so this can be written as $x^3 + x^2 + x$.
+
+So we get $(x^3 + x + 1) * (x+1) = x^3 + x^2 + x$
+
+We can do both our addition & subtraction operations in SageMath
+
+
+
+
 
 **Use of $\mathbb F_{2^8}$ in AES**   
 In AES, the extension field $\mathbb F_{2^8}$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
