@@ -56,12 +56,14 @@ $$
 corresponding to the polynomial basis representation of 
 
 $$
-\begin{array}
+\left]
+\begin{matrix}
 0 & 4 & 8 &12 \\
 1 & 5 & 9 & 13 \\
 2 & 6 & 10 & 14 \\
 3 & 7 & 11 & 15 \\
-\end{array}
+\end{matrix}
+\right]
 $$
 
 For e.g. 5 is the bit-string/vector space (0101)- which can be represented as the polynomial $x^2 + 1$. 
