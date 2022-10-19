@@ -206,7 +206,7 @@ Using the group operations specified above, let's see how point addition & point
 $P = (2,15)$ i.e. $(0010, 1111)$     
 $Q = (12,12)$ i.e. $(1100, 1100)$
 
-The irreducible polynomial is $t^4 + t + 1$. 
+The irreducible polynomial is $z^4 + z + 1$. 
 
 We want to add $P + Q$. Let's use sagemath to do this.
 
