@@ -97,14 +97,11 @@ i.e $x^4 + x^3 + x^2 + 1 \bmod x^4 + x + 1$
 
 Doing polynomial long division we get a remainder $x^3 + x^2 -x$ 
 
-In $\bmod 2$, $-x is the same as +x$, so this can be written as $x^3 + x^2 + x$.
+In $\bmod 2$, $-x$ is the same as $+x$, so this can be written as $x^3 + x^2 + x$.
 
 So we get $(x^3 + x + 1) * (x+1) = x^3 + x^2 + x$
 
-We can do both our addition & subtraction operations in SageMath
-
-
-
+We can do both our addition & subtraction operations in SageMath ![Sagemath](https://raw.githubusercontent.com/RisenCrypto/RisenCrypto.github.io/master/images/SageEF.png )
 
 
 **Use of $\mathbb F_{2^8}$ in AES**   
