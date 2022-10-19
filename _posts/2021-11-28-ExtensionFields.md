@@ -20,25 +20,25 @@ We look at 2 things
 
 Let's look at Extension fields of the form $\mathbb F_{2^k}$ as an example - i.e. $\mathbb F_{p^k}$ where $p = 2$. These are called as Binary Fields.
 
-Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}x^{k−1} +a_{k−2}x^{k−2} +···+ a_{2}x^{2} +a_{1}x + a_0$ with $a_i \in \mathbb F_2 = {0,1}$
+Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}t^{k−1} +a_{k−2}t^{k−2} +···+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = {0,1}$
 
-Let's take $\mathbb F_{2^4}$ - here the polynomials will be of the form $a_{3}x^3 + a_{2}x^2 + a_{1}x + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
+Let's take $\mathbb F_{2^4}$ - here the polynomials will be of the form $a_{3}t^3 + a_{2}t^2 + a_{1}t + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
 
 For e.g. 
 
-$0$ is $0000$ i.e. $0x^3 + 0x^2 + 0x^1 + 0x^0 = 0$
+$0$ is $0000$ i.e. $0t^3 + 0t^2 + 0t^1 + 0t^0 = 0$
 
-$1$ is $0001$ i.e. $0x^3 + 0x^2 + 0x^1 + 1x^0 = 1$
+$1$ is $0001$ i.e. $0t^3 + 0t^2 + 0t^1 + 1t^0 = 1$
 
-$2$ is $0010$ i.e. $0x^3 + 0x^2 + 1x^1 + 0x^0 = x$
-
-....
-
-$5$ is $0101$ i.e. $0x^3 + 1x^2 + 0x^1 + 1x^0 = x^2 + 1$
+$2$ is $0010$ i.e. $0t^3 + 0t^2 + 1t^1 + 0t^0 = t$
 
 ....
 
-$10$ is $1010$ i.e. $1x^3 + 0x^2 + 1x^1 + 0x^0 = x^3 + x$
+$5$ is $0101$ i.e. $0t^3 + 1t^2 + 0t^1 + 1t^0 = t^2 + 1$
+
+....
+
+$10$ is $1010$ i.e. $1t^3 + 0t^2 + 1t^1 + 0t^0 = t^3 + t$
 
 and so on & so forth.
 
@@ -47,10 +47,10 @@ So the 16 elements of $\mathbb F_{2^4}$ are
 $$
 \left[
 \begin{matrix}
-0 & x^2& x^3 & x^3 +x^2 \\
-1 & x^2 +1 & x^3 +1 & x^3 +x^2 +1 \\
-x & x^2 +x & x^3 +x & x^3 +x^2 +x \\
-x +1 & x^2 +x +1 & x^3 +x +1 & x^3 +x^2 +x +1
+0 & t^2& t^3 & t^3 +t^2 \\
+1 & t^2 +1 & t^3 +1 & t^3 +t^2 +1 \\
+t & t^2 +t & t^3 +t & t^3 +t^2 +t \\
+t +1 & t^2 +t +1 & t^3 +t +1 & t^3 +t^2 +t +1
 \end{matrix}
 \right]
 $$
@@ -76,69 +76,71 @@ So, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector s
 
 Addition of field elements is the usual addition of polynomials, with coefficient addition performed modulo 2 (which is also the same as XORing of the bit-strings)  
 
-For e.g. in  $\mathbb F_{2^4}$, $(x^2 + x + 1) + (x^3 + x + 1) = x^3 +x^2 + (x + x) + (1 + 1)$
+For e.g. in  $\mathbb F_{2^4}$, $(t^2 + t + 1) + (t^3 + t + 1) = t^3 +t^2 + (t + t) + (1 + 1)$
 
-Now, $x + x = 2x \bmod 2 = 0$ and $1 + 1 = 2 \bmod 2 = 0$
+Now, $t + t = 2t \bmod 2 = 0$ and $1 + 1 = 2 \bmod 2 = 0$
 
 So
 
-$(x^2 + x + 1) + (x^3 + x + 1)  = x^3 + x^2$  
+$(t^2 + t + 1) + (t^3 + t + 1)  = t^3 + t^2$  
 
 **Multiplication**  
-For a field $\mathbb F_{p^k}$, an irreducible binary polynomial P(x) of degree k is chosen (such a polynomial exists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
 
-Again, lets take $\mathbb F_{2^4}$ - the irreducible polynomial for this Extension field is $x^4 + x + 1$
+For a field $\mathbb F_{p^k}$, an irreducible binary polynomial P(t) of degree k is chosen (such a polynomial etists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
 
-Let's multiply the elements $(x^3 + x + 1) * (x+1)$
+Again, lets take $\mathbb F_{2^4}$ - the irreducible polynomial for this Extension field is $t^4 + t + 1$
 
-This gives us $x^4 + x^3 + x^2 + 1$. We now have reduce this mod the irreducible polynomial.
+Let's multiply the elements $(t^3 + t + 1) * (t+1)$
 
-i.e $x^4 + x^3 + x^2 + 1 \bmod x^4 + x + 1$ 
+This gives us $t^4 + t^3 + t^2 + 1$. We now have reduce this mod the irreducible polynomial.
 
-Doing polynomial long division we get a remainder $x^3 + x^2 -x$ 
+i.e $t^4 + t^3 + t^2 + 1 \bmod t^4 + t + 1$ 
 
-In $\bmod 2$, $-x$ is the same as $+x$, so this can be written as $x^3 + x^2 + x$.
+Doing polynomial long division we get a remainder $t^3 + t^2 -t$ 
 
-So we get $(x^3 + x + 1) * (x+1) = x^3 + x^2 + x$
+In $\bmod 2$, $-t$ is the same as $+t$, so this can be written as $t^3 + t^2 + t$.
+
+So we get $(t^3 + t + 1) * (t+1) = t^3 + t^2 + t$
 
 We can check both our addition & multiplication operations in SageMath
+
 ~~~
-sage: F.<x> = GF(2^4) # Define our extension field
+sage: F.<t> = GF(2^4) # Define our extension field
 sage: F.modulus() # Irreducible polynomial
-x^4 + x + 1
+t^4 + t + 1
 sage: Flist = F.list()
 sage: Flist
 [0,
- x,
- x^2,
- x^3,
- x + 1,
- x^2 + x,
- x^3 + x^2,
- x^3 + x + 1,
- x^2 + 1,
- x^3 + x,
- x^2 + x + 1,
- x^3 + x^2 + x,
- x^3 + x^2 + x + 1,
- x^3 + x^2 + 1,
- x^3 + 1,
+ t,
+ t^2,
+ t^3,
+ t + 1,
+ t^2 + t,
+ t^3 + t^2,
+ t^3 + t + 1,
+ t^2 + 1,
+ t^3 + t,
+ t^2 + t + 1,
+ t^3 + t^2 + t,
+ t^3 + t^2 + t + 1,
+ t^3 + t^2 + 1,
+ t^3 + 1,
  1]
 sage: Flist[7]
-x^3 + x + 1
+t^3 + t + 1
 sage: Flist[10]
-x^2 + x + 1
-sage: Flist[10] + Flist[7] # Add (x^2 + x + 1) + (x^3 + x + 1)
-x^3 + x^2
+t^2 + t + 1
+sage: Flist[10] + Flist[7] # Add (t^2 + t + 1) + (t^3 + t + 1)
+t^3 + t^2
 sage: Flist[4]
-x + 1
-sage: Flist[7]*Flist[4] # (Multiply x^3 + x + 1) * (x + 1)
-x^3 + x^2 + x
+t + 1
+sage: Flist[7]*Flist[4] # (Multiply t^3 + t + 1) * (t + 1)
+t^3 + t^2 + t
 ~~~
 
 
 **Use of $\mathbb F_{2^8}$ in AES**   
-In AES, the extension field $\mathbb F_{2^8}$ is used with $x^{8} + x^{4} + x^{3} + x + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
+In AES, the extension field $\mathbb F_{2^8}$ is used with $t^{8} + t^{4} + t^{3} + t + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
 
 ----  
 
