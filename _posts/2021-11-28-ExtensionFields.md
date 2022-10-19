@@ -101,7 +101,43 @@ In $\bmod 2$, $-x$ is the same as $+x$, so this can be written as $x^3 + x^2 + x
 
 So we get $(x^3 + x + 1) * (x+1) = x^3 + x^2 + x$
 
-We can do both our addition & subtraction operations in SageMath ![Sagemath](https://raw.githubusercontent.com/RisenCrypto/RisenCrypto.github.io/master/images/SageEF.png )
+~~~
+
+sage: F.<x> = GF(2^4) # Define our extension field
+sage: F.modulus() # Irreducible polynomial
+x^4 + x + 1
+sage: Flist = F.list()
+sage: Flist
+[0,
+ x,
+ x^2,
+ x^3,
+ x + 1,
+ x^2 + x,
+ x^3 + x^2,
+ x^3 + x + 1,
+ x^2 + 1,
+ x^3 + x,
+ x^2 + x + 1,
+ x^3 + x^2 + x,
+ x^3 + x^2 + x + 1,
+ x^3 + x^2 + 1,
+ x^3 + 1,
+ 1]
+sage: Flist[7]
+x^3 + x + 1
+sage: Flist[10]
+x^2 + x + 1
+sage: Flist[10] + Flist[7] # Add (x^2 + x + 1) + (x^3 + x + 1)
+x^3 + x^2
+sage: Flist[4]
+x + 1
+sage: Flist[7]*Flist[4] # (Multiply x^3 + x + 1) * (x + 1)
+x^3 + x^2 + x
+
+ ~~~
+
+  We can do both our addition & subtraction operations in SageMath ![Sagemath](https://raw.githubusercontent.com/RisenCrypto/RisenCrypto.github.io/master/images/SageEF.png )
 
 
 **Use of $\mathbb F_{2^8}$ in AES**   
