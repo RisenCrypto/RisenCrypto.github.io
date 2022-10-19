@@ -68,11 +68,7 @@ $$
 \right]
 $$
 
-For e.g. 5 is the bit-string/vector space (0101)- which can be represented as the polynomial $x^2 + 1$. 
-
-7 is (0111) i.e $x^2 + x + 1$. 
-
-In general, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector space over its subfield $\mathbb F_p$. The 16 polynomials in $\mathbb F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
+So, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector space over its subfield $\mathbb F_p$. The 16 polynomials in $\mathbb F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
 
 ### Group Operations  
 
