@@ -50,7 +50,7 @@ $$
 0 & x^2& x^3 & x^3 +x^2 \\
 1 & x^2 +1 & x^3 +1 & x^3 +x^2 +1 \\
 x & x^2 +x & x^3 +x & x^3 +x^2 +x \\
-x +1 & x^2 +x +1 & x^3 +x +1 & x^3 +x^2 +x +1.
+x +1 & x^2 +x +1 & x^3 +x +1 & x^3 +x^2 +x +1
 \end{matrix}
 \right]
 $$
@@ -76,9 +76,13 @@ So, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector s
 
 Addition of field elements is the usual addition of polynomials, with coefficient addition performed modulo 2 (which is also the same as XORing of the bit-strings)  
 
-For e.g. $\{x^2 + x + 1\) + \(x^3 + x + 1\) = $x^3 +x^2 + \(x + x\) + \(1 + 1\)$
+For e.g. $(x^2 + x + 1) + (x^3 + x + 1) = $x^3 +x^2 + (x + x) + (1 + 1)$
 
-$ = x^3 + x^2$ (Since $x + x = 2x \bmod 2 = 0$ & $1 + 1 = 2 \bmod 2 = 0$
+Now, $x + x = 2x \bmod 2 = 0$ and $1 + 1 = 2 \bmod 2 = 0$
+
+So
+
+$(x^2 + x + 1) + (x^3 + x + 1)  = x^3 + x^2$  
 
 **Multiplication**  
 For a field $\mathbb F_{p^k}$, an irreducible binary polynomial P(x) of degree k is chosen (such a polynomial exists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
