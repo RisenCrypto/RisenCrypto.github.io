@@ -45,18 +45,20 @@ and so on & so forth.
 So the 16 elements of $\mathbb F_{2^4}$ are 
 
 $$
+\left[
 \begin{matrix}
 0 & x^2& x^3 & x^3 +x^2 \\
 1 & x^2 +1 & x^3 +1 & x^3 +x^2 +1 \\
 x & x^2 +x & x^3 +x & x^3 +x^2 +x \\
 x +1 & x^2 +x +1 & x^3 +x +1 & x^3 +x^2 +x +1.
 \end{matrix}
+\right]
 $$
 
 corresponding to the polynomial basis representation of 
 
 $$
-\left]
+\left[
 \begin{matrix}
 0 & 4 & 8 &12 \\
 1 & 5 & 9 & 13 \\
