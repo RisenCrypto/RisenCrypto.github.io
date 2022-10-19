@@ -24,6 +24,16 @@ Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of 
 
 Let's take $\mathbb F_{2^4}$ - here the polynomials will be of the form $a_{3}x^3 + a_{2}x^2 + a_{1}x + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
 
+For e.g. 
+
+$0$ is $0000$ i.e. $0x^3 + 0x^2 + 0x^1 + 0x^0 = 0$
+$1$ is $0001$ i.e. $0x^3 + 0x^2 + 0x^1 + 1x^0 = 1$
+$2$ is $0010$ i.e. $0x^3 + 0x^2 + 1x^1 + 0x^0 = x$
+....
+....
+$5$ is $0101$ i.e. $0x^3 + 1x^2 + 0x^1 + 1x^0 = x^2 + 1$
+
+
 For e.g. 5 is the bit-string/vector space (0101)- which can be represented as the polynomial $x^2 + 1$. 
 
 7 is (0111) i.e $x^2 + x + 1$. 
