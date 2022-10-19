@@ -34,10 +34,22 @@ $2$ is $0010$ i.e. $0x^3 + 0x^2 + 1x^1 + 0x^0 = x$
 
 ....
 
-....
-
 $5$ is $0101$ i.e. $0x^3 + 1x^2 + 0x^1 + 1x^0 = x^2 + 1$
+....
+$10$ is $1010$ i.e. $1x^3 + 0x^2 + 1x^1 + 0x^0 = x^3 + x$
 
+and so on & so forth.
+
+So the 16 elements of $\mathbb F_{2^4}$ are 
+
+$$
+\begin{matrix}
+0 & x^2& x^3 & x^3 +x^2 \\
+1 & x^2 +1 & x^3 +1 & x^3 +x^2 +1 \\
+x & x^2 +x & x^3 +x & x^3 +x^2 +x \\
+x +1 & x^2 +x +1 & x^3 +x +1 & x^3 +x^2 +x +1.
+\end{matrix}
+$$
 
 For e.g. 5 is the bit-string/vector space (0101)- which can be represented as the polynomial $x^2 + 1$. 
 
