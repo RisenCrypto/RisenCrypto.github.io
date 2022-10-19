@@ -76,7 +76,7 @@ So, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector s
 
 Addition of field elements is the usual addition of polynomials, with coefficient addition performed modulo 2 (which is also the same as XORing of the bit-strings)  
 
-For e.g. $(x^2 + x + 1) + (x^3 + x + 1) = $x^3 +x^2 + (x + x) + (1 + 1)$
+For e.g. $(x^2 + x + 1) + (x^3 + x + 1) = x^3 +x^2 + (x + x) + (1 + 1)$
 
 Now, $x + x = 2x \bmod 2 = 0$ and $1 + 1 = 2 \bmod 2 = 0$
 
