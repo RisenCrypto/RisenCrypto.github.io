@@ -27,10 +27,15 @@ Let's take $\mathbb F_{2^4}$ - here the polynomials will be of the form $a_{3}x^
 For e.g. 
 
 $0$ is $0000$ i.e. $0x^3 + 0x^2 + 0x^1 + 0x^0 = 0$
+
 $1$ is $0001$ i.e. $0x^3 + 0x^2 + 0x^1 + 1x^0 = 1$
+
 $2$ is $0010$ i.e. $0x^3 + 0x^2 + 1x^1 + 0x^0 = x$
+
 ....
+
 ....
+
 $5$ is $0101$ i.e. $0x^3 + 1x^2 + 0x^1 + 1x^0 = x^2 + 1$
 
 
