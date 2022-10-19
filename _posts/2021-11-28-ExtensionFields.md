@@ -51,6 +51,17 @@ x +1 & x^2 +x +1 & x^3 +x +1 & x^3 +x^2 +x +1.
 \end{matrix}
 $$
 
+corresponding to the polynomial basis representation of 
+
+$$
+\begin{matrix}
+0 & 4 & 8 &12 \\
+1 & 5 & 9 & 13 \\
+2 & 6 & 10 & 14 \\
+3 & 7 & 11 & 15 \\
+\end{matrix}
+$$
+
 For e.g. 5 is the bit-string/vector space (0101)- which can be represented as the polynomial $x^2 + 1$. 
 
 7 is (0111) i.e $x^2 + x + 1$. 
