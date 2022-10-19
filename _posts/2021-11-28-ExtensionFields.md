@@ -55,7 +55,7 @@ x +1 & x^2 +x +1 & x^3 +x +1 & x^3 +x^2 +x +1.
 \right]
 $$
 
-corresponding to the polynomial basis representation of 
+corresponding to the polynomial basis representations of 
 
 $$
 \left[
