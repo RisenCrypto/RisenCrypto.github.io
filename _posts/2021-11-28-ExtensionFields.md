@@ -152,7 +152,8 @@ Elliptic Curves over Finite fields (including ones over Extension Fields) have 2
 
 - The points on the curve form a separate Group - the operation of the group is addition of points in the group. The x & y co-ordinates of the points in this group are elements from Field $\mathbb F_p$ or $\mathbb F_{p^k}$ though.
 
-Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + a_2x^2 + a_6$ over the extension field $$\mathbb F_{2^k}$$. (This curve equation is in the long Weierstrass form $E:y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6$ with $a_1 = 1, a_3 = 0$ and $a_4 = 0$)
+Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + a_2x^2 + a_6$ over the extension field $$\mathbb F_{2^k}$$. 
+(This curve equation is in the long Weierstrass form $E:y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6$ with $a_1 = 1, a_3 = 0$ and $a_4 = 0$)
 
 ### Group Operations       
 
@@ -195,7 +196,7 @@ Let,
 
 $a_2 = t^3$ (i.e. the bitstring [1000])
 
-$a_6 = t^3 + 1$ (i.e. the bitstring [100])) 
+$a_6 = t^3 + 1$ (i.e. the bitstring [1001])) 
 
 So the Curve Equation is $E: y^2 + xy = x^3 + {t^3}x^2 + (t^3 + 1)$
 
@@ -205,12 +206,12 @@ Using the group operations specified above, let's see how point addition & point
 
 **Addition**   
 
-$P = (t : t^3 + t^2 + t + 1)$     
-$Q = (t^3 + t^2 : t^3 + t^2)$
+$P = (t, t^3 + t^2 + t + 1)$     
+$Q = (t^3 + t^2, t^3 + t^2)$
 
 The irreducible polynomial is $t^4 + t + 1$. 
 
-We want to add $P + Q$. Let's use sagemath to do this.
+We want to add $P + Q$. Let's use sagemath to do use the Group Law formulas to add the points. 
 
 We have 2 polynomial basis representations here - the coordinates of the Elliptic Curve equation are represented as polynomials & the x & y coordinates of the Curve points are also individually represented as polynomials. 
 
@@ -233,7 +234,7 @@ sage: y3
 1
 ~~~
 
-So we get $P + Q = (1:1)$
+So we get $P + Q = (1,1)$
 
 **Doubling** 
 
@@ -249,7 +250,7 @@ sage: y3
 t
 ~~~
 
-So $2P = (t^3 + t + 1: t)$  
+So $2P = (t^3 + t + 1, t)$  
 
 We used the group law calculations to do the above to understand it better. But it can be done using Sagemath's in-built EllipticCurve object as shown below
 ~~~
