@@ -188,13 +188,14 @@ $-P = (x, x + y)$
 
 Let's construct this curve over $\mathbb F_{2^4}$.
 
+$E: y^2 + xy = x^3 + a_2x^2 + a_6$ 
 
-$E: y^2 + xy = x^3 + ax^2 + b$
 
-a & b are coefficients of Curve Equation. The coefficients are in the field $\mathbb F_{2^4}$ & hence they can be represented using polynomial basis representation.
+Let, 
 
-a = $t^3$ (i.e. the bitstring [1000])
-b = $t^3 + 1$ (i.e. the bitstring [100])) 
+$a_2 = t^3$ (i.e. the bitstring [1000])
+
+$a_6 = t^3 + 1$ (i.e. the bitstring [100])) 
 
 So the Curve Equation is $E: y^2 + xy = x^3 + {t^3}x^2 + (t^3 + 1)$
 
@@ -248,4 +249,22 @@ sage: y3
 t
 ~~~
 
-So $2P = (t^3 + t + 1, t$  
+So $2P = (t^3 + t + 1: t)$  
+
+We used the group law calculations to do the above to understand it better. But it can be done using Sagemath's in-built EllipticCurve object as shown below
+~~~
+sage: F1.<t> = GF(2^4)
+sage: E1 = EllipticCurve(F1, [1, t^3, 0, 0, t^3 + 1])
+sage:
+sage: Elist = E1.points()
+sage: P = Elist[5]
+sage: P
+(t : t^3 + t^2 + t + 1 : 1)
+sage: Q = Elist[19]
+sage: Q
+(t^3 + t^2 : t^3 + t^2 : 1)
+sage: P + Q
+(1 : 1 : 1)
+sage: 2*P
+(t^3 + t + 1 : t : 1)
+~~~
