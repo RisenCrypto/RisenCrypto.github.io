@@ -221,8 +221,8 @@ Using the group operations specified above, let's see how point addition & point
 
 **Addition**   
 
-$P = (t, t^3 + t^2 + t + 1)$     
-$Q = (t^3 + t^2, t^3 + t^2)$
+$P = E(t, t^3 + t^2 + t + 1)$     
+$Q = E(t^3 + t^2, t^3 + t^2)$
 
 The irreducible polynomial is $t^4 + t + 1$. 
 
@@ -249,7 +249,7 @@ sage: y3
 1
 ~~~
 
-So we get $P + Q = (1,1)$
+So we get $P + Q = E(1,1)$
 
 **Doubling** 
 
@@ -265,9 +265,9 @@ sage: y3
 t
 ~~~
 
-So $2P = (t^3 + t + 1, t)$  
+So $2P = E(t^3 + t + 1, t)$  
 
-We used the group law calculations to do the above to understand it better. But it can be done using Sagemath's in-built EllipticCurve object as shown below
+We used the group law calculations to do the above to understand it better. But everything can be done using Sagemath's in-built EllipticCurve object as shown below
 ~~~
 sage: F1.<t> = GF(2^4)
 sage: E1 = EllipticCurve(F1, [1, t^3, 0, 0, t^3 + 1])
