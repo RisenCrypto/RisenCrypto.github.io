@@ -152,7 +152,7 @@ Elliptic Curves over Finite fields (including ones over Extension Fields) have 2
 
 - The points on the curve form a separate Group - the operation of the group is addition of points in the group. The x & y co-ordinates of the points in this group are elements from Field $\mathbb F_p$ or $\mathbb F_{p^k}$ though.
 
-Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + a_2x^2 + a_6$ over the extension field $$\mathbb F_{2^k}$$. (This curve equation is in the long Weierstrass form $E:y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6$ with $a_1 = 1, a_3 = 0$ and $a_4 = 0$
+Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + a_2x^2 + a_6$ over the extension field $$\mathbb F_{2^k}$$. (This curve equation is in the long Weierstrass form $E:y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6$ with $a_1 = 1, a_3 = 0$ and $a_4 = 0$)
 
 ### Group Operations       
 
@@ -188,16 +188,15 @@ $-P = (x, x + y)$
 
 Let's construct this curve over $\mathbb F_{2^4}$.
 
+
 $E: y^2 + xy = x^3 + ax^2 + b$
 
 a & b are coefficients of Curve Equation. The coefficients are in the field $\mathbb F_{2^4}$ & hence they can be represented using polynomial basis representation.
 
-Let a = 8, b = 9
+a = $t^3$ (i.e. the bitstring [1000])
+b = $t^3 + 1$ (i.e. the bitstring [100])) 
 
-a = (1000) i.e. $z^3$   
-b = (1001) i.e. $z^3 + 1$
-
-So the Curve Equation is $E: y^2 + xy = x^3 + {z^3}x^2 + (z^3 + 1)$
+So the Curve Equation is $E: y^2 + xy = x^3 + {t^3}x^2 + (t^3 + 1)$
 
 The x & y coordinates of each point on the Curve are also in the field $\mathbb F_{2^4}$. So x & y can be represented using polynomail basis representation. 
 
@@ -205,61 +204,48 @@ Using the group operations specified above, let's see how point addition & point
 
 **Addition**   
 
-$P = (2,15)$ i.e. $(0010, 1111)$     
-$Q = (12,12)$ i.e. $(1100, 1100)$
+$P = (t : t^3 + t^2 + t + 1)$     
+$Q = (t^3 + t^2 : t^3 + t^2)$
 
-The irreducible polynomial is $z^4 + z + 1$. 
+The irreducible polynomial is $t^4 + t + 1$. 
 
 We want to add $P + Q$. Let's use sagemath to do this.
 
-We have 2 polynomial basis representations here - the coordinates of the Elliptic Curve equation are represented as polynomials & the x & y coordinates of the Curve points are also individually represented as polynomials. We use $z$ as the variable for both.
+We have 2 polynomial basis representations here - the coordinates of the Elliptic Curve equation are represented as polynomials & the x & y coordinates of the Curve points are also individually represented as polynomials. 
 
 ~~~
-
-sage: BF.<z> = GF(2^4)
-sage: BF.polynomial()
-z^4 + z + 1
-sage: x1 = BF(z)
-sage: y1 = BF(z^3 + z^2 + z + 1)
-sage: x2 = BF(z^3 + z^2)
-sage: y2 = BF(z^3 + z^2)
+sage: F1.<t> = GF(2^4)
+sage: F1.polynomial()
+t^4 + t + 1
+sage: x1 = F1(t)
+sage: y1 = F1(t^3 + t^2 + t + 1)
+sage: x2 = F1(t^3 + t^2)
+sage: y2 = F1(t^3 + t^2)
 sage: λ = (y1 + y2)/(x1 + x2)
-sage: a = BF(z^3)
-sage: b = BF(z^3 + 1)
+sage: a = F1(t^3)
+sage: b = F1(t^3 + 1)
 sage: x3 = λ^2 + λ + x1 + x2 + a
 sage: y3 = λ*(x1 + x3)+ x3 + y1
 sage: x3
 1
 sage: y3
 1
-
 ~~~
-x3 & y3 are both 1 which is (0001)
 
-So we get $P + Q = (1,1)$ i.e. $(0001, 0001)$
+So we get $P + Q = (1:1)$
 
 **Doubling** 
 
-Next is Doubling i.e. 2P 
+Next is Doubling i.e. $2P$ 
 
 ~~~
-
 sage: λ = x1 + y1/x1
 sage: x3 = λ^2 + λ + a
 sage: y3 = x1^2 +λ*x3 + x3
 sage: x3
-z^3 + z + 1
+t^3 + t + 1
 sage: y3
-z
-
+t
 ~~~
 
-$z^3 + z + 1$ is (1011) & $z$ is (0010)
-
-So $2P = (11, 2)$ i.e. $(1011, 0010)$  
-
----  
-
-However, there are some reasons why Elliptic Curves over Finite Fields are more commonly seen than those over Binary Fields. This [Q & A](https://crypto.stackexchange.com/questions/91610/why-are-elliptic-curves-over-binary-fields-used-less-than-those-over-prime-field) covers most of the reasons.
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FExtensionFields%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+So $2P = (t^3 + t + 1, t$  
