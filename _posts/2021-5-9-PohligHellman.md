@@ -316,7 +316,7 @@ $x \equiv 6689 \bmod 8100$
 
 We can write the above congruence also as
 
-x = 8100k + 6689
+$x = 8100k + 6689$
 
 Substituting the above in the original DLP, we get
 
