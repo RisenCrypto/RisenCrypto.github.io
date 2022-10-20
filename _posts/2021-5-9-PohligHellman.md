@@ -129,7 +129,7 @@ $x=a_0+2a_1$ where $a_0 \in {0,1}$
 
 $7531 \equiv 6^{a_0+2a_1} \bmod p$
 
-$7531^{ \frac {p−1}{2}} \equiv (6^{a_0+2a1})^{\frac {p−1}{2}} \bmod p$ [Raise both sides to $\frac {p−1}{p_1}$]
+$7531^{ \frac {p−1}{2}} \equiv (6^{a_0+2a_1})^{\frac {p−1}{2}} \bmod p$ [Raise both sides to $\frac {p−1}{p_1}$]
 
 $7531^{4050} \equiv 6^{a_0 \frac {p−1}{2}} . g^{2a_1 \frac{p−1}{2}} \bmod p$
 
@@ -166,7 +166,7 @@ $8006^2025 \equiv 6 \bmod 8101$
 
 $1 \equiv 6^{4050a_1} \bmod 8101$
 
-$a1=0$
+$a_1=0$
 
 
 Substituting values of $a_1$ & $a_2$ in $x=a_0+2a_1$, we get $x=1$.
@@ -191,7 +191,7 @@ LHS = pow(7531, 2700, 8101) = 2217
 
 $2700 \equiv 6^{2700a_0} \bmod 8101$
 
-$a0=2$
+$a_0=2$
 
 Substituting value of $a_0$ in $x$, we get
 
@@ -213,7 +213,7 @@ $8006^{2025} \equiv 6 \bmod 8101$
 
 $1 \equiv 6^{4050a_1} \bmod 8101$
 
-$a1=0$
+$a_1=0$
 
 Substituting values of $a_1$ & $a_2$ in $x=a_0+2a_1$, we get $x=1$.
 
@@ -237,7 +237,7 @@ LHS = pow(7531, 2700, 8101) = 2217
 
 $2700 \equiv 6^{2700a_0} \bmod 8101$
 
-$a0=2$
+$a_0=2$
 
 
 $x=2+3a_1+9a_2+27a_3$ where $a_i \in {0,1,2}$
@@ -256,7 +256,7 @@ LHS = pow(6735, 900, 8101) = 1
 
 $1 \equiv 6^{2700a_1} \bmod 8101$
 
-$a1=0$
+$a_1=0$
 
 $x=2+9a_2+27a_3$ where $a_3 \in {0,1,2}$
 
@@ -274,7 +274,7 @@ LHS = pow(6735, 300, 8101) = 2217
 
 $2217\equiv 6^{2700a_2} \bmod 8101$
 
-$a2=2$
+$a_2=2$
 
 $x=2+18+27a_3$ where $a_i \in {0,1,2}$
 
@@ -292,7 +292,7 @@ LHS = pow(6992, 100, 8101) = 5883
 
 $5883 \equiv 6^{2700a_3} \bmod 8101$
 
-$a3=1$
+$a_3=1$
 
 $x \equiv 47 \bmod 81$
 
@@ -383,7 +383,7 @@ $1127Q=(1127a_0)P$ where $a_0 \in {0,1,2,3,4,5,6}$
 
 Only one variable here $a_0$. Can be solved to get
 
-$a0=1$
+$a_0=1$
 
 $Q=(1+7a_1+7^{2}a_2).P$
 
@@ -414,7 +414,7 @@ $23(Q−22P)=1127a_2P$
 
 Solving, we get
 
-$a2=4$
+$a_2=4$
 
 So $x=1+7 . 3+49 . 4=218$
 
@@ -434,7 +434,7 @@ $343Q=343a_0P$
 
 Solving, we get
 
-$a0=10$
+$a_0=10$
 
 So $x=10$
 
