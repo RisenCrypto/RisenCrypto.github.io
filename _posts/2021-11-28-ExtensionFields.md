@@ -139,7 +139,7 @@ t^3 + t^2 + t
 ~~~
 
 
-**Use of $\mathbb F_{2^8}$ in AES**   
+### Use of $\mathbb F_{2^8}$ in AES   
 In AES, the extension field $\mathbb F_{2^8}$ is used with $t^{8} + t^{4} + t^{3} + t + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
 
 ----  
