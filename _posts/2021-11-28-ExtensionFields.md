@@ -202,6 +202,23 @@ So the Curve Equation is $E: y^2 + xy = x^3 + {t^3}x^2 + (t^3 + 1)$
 
 The x & y coordinates of each point on the Curve are also in the field $\mathbb F_{2^4}$. So x & y can be represented using polynomail basis representation. 
 
+The Elliptic Curve Group has 22 points. These are the 21 elements excluding the Point at Infinity.
+
+$$
+\left[
+\begin{matrix}
+(0 : t^3 + t + 1) & (t + 1 : t^3 + t^2 + t + 1) & (t^3 : t^3 + 1) & (t^3 + t^2 : t^3 + t^2) \\
+(1 : 0) & (t^2 + 1 : 0) & (t^3 + 1 : t^2 + t) & (t^3 + t^2 + t + 1 : t^2) \\
+(1 : 1) & (t^2 + 1 : t^2 + 1) & (t^3 + 1 : t^3 + t^2 + t + 1) & (t^3 + t^2 + t + 1 : t^3 + t + 1) \\
+(t : t^3 + t^2 + 1) & (t^2 + t + 1 : t^3 + t + 1) & (t^3 + t + 1 : t) \\
+(t : t^3 + t^2 + t + 1) & (t^2 + t + 1 : t^3 + t^2) & (t^3 + t + 1 : t^3 + 1) \\
+(t + 1 : t^3 + t^2) & (t^3) & (t^3 + t^2 : 0)
+\end{matrix}
+\right]
+$$
+
+
+
 Using the group operations specified above, let's see how point addition & point doubling is done.
 
 **Addition**   
