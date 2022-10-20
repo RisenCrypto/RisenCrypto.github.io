@@ -207,17 +207,15 @@ The Elliptic Curve Group has 22 points. These are the 21 elements excluding the 
 $$
 \left[
 \begin{matrix}
-(0 : t^3 + t + 1) & (t + 1 : t^3 + t^2 + t + 1) & (t^3 : t^3 + 1) & (t^3 + t^2 : t^3 + t^2) \\
-(1 : 0) & (t^2 + 1 : 0) & (t^3 + 1 : t^2 + t) & (t^3 + t^2 + t + 1 : t^2) \\
-(1 : 1) & (t^2 + 1 : t^2 + 1) & (t^3 + 1 : t^3 + t^2 + t + 1) & (t^3 + t^2 + t + 1 : t^3 + t + 1) \\
-(t : t^3 + t^2 + 1) & (t^2 + t + 1 : t^3 + t + 1) & (t^3 + t + 1 : t) \\
-(t : t^3 + t^2 + t + 1) & (t^2 + t + 1 : t^3 + t^2) & (t^3 + t + 1 : t^3 + 1) \\
-(t + 1 : t^3 + t^2) & (t^3) & (t^3 + t^2 : 0)
+(0 , t^3 + t + 1) & (t + 1 , t^3 + t^2 + t + 1) & (t^3 , t^3 + 1) & (t^3 + t^2 , t^3 + t^2) \\
+(1 , 0) & (t^2 + 1 , 0) & (t^3 + 1 , t^2 + t) & (t^3 + t^2 + t + 1 , t^2) \\
+(1 , 1) & (t^2 + 1 , t^2 + 1) & (t^3 + 1 , t^3 + t^2 + t + 1) & (t^3 + t^2 + t + 1 , t^3 + t + 1) \\
+(t , t^3 + t^2 + 1) & (t^2 + t + 1 , t^3 + t + 1) & (t^3 + t + 1 , t) \\
+(t , t^3 + t^2 + t + 1) & (t^2 + t + 1 , t^3 + t^2) & (t^3 + t + 1 , t^3 + 1) \\
+(t + 1 , t^3 + t^2) & (t^3) & (t^3 + t^2 , 0)
 \end{matrix}
 \right]
 $$
-
-
 
 Using the group operations specified above, let's see how point addition & point doubling is done.
 
