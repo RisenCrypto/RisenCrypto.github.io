@@ -226,7 +226,7 @@ $Q = E(t^3 + t^2, t^3 + t^2)$
 
 The irreducible polynomial is $t^4 + t + 1$. 
 
-We want to add $P + Q$. Let's use sagemath to do use the Group Law formulas to add the points. 
+We want to add $P + Q$. Let's use the Group Law formulas to add the points.  
 
 We have 2 polynomial basis representations here - the coordinates of the Elliptic Curve equation are represented as polynomials & the x & y coordinates of the Curve points are also individually represented as polynomials. 
 
