@@ -240,7 +240,7 @@ Every positive integer m has an exponent vector v(m) that is based on the prime 
 
 For e.g. the exponent vector for $6786 = 2$ x $3^2$ x $13$ x $29$ can be written as
 
-$v(6786) = \{1\space 2\space 1\space	0\space	0\space	0\space	1\space	0\space	0\}$
+$v(6786) = \lbrace 1\space 2\space 1\space	0\space	0\space	0\space	1\space	0\space	0\brace$
 
 i.e. $6786 = 2^1$ x $3^2$ x $13^1$ x $17^0$ x $19^0$ x $21^0$ x $29^1$ x $41^0$ x $43^0$
 
