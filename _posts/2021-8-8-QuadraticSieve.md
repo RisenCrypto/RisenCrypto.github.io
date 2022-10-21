@@ -150,7 +150,7 @@ First we build what is called as the Factor Base - this is a list of all primes 
 
 {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41 ,43}
 
-However, there may be some numbers in our list which are not divisible by any of the primes our Factor Base. So we can remove them from the Factor Base. Euler's Criteria for Quadratic Residues can be used to check if $N$ is a Quadratic Residue for odd prime. If $N^{\frac {p-1}{2}} \bmod p \ne 1$, then $N$ is not a QR for that odd prime,  that prime is not going to divide any of the numbers in our list. Euler's criteria doesn't work 2 (an even prime), hence we check manually.
+However, there may be some numbers in our list which are not divisible by any of the primes our Factor Base. So we can remove them from the Factor Base. Euler's Criteria for Quadratic Residues can be used to check if $N$ is a Quadratic Residue for odd prime. If $N^{\frac {p-1}{2}} \bmod p \ne 1$, then $N$ is not a QR for that odd prime,  that prime is not going to divide any of the numbers in our list. Euler's criteria doesn't work for 2 (since it's an even prime), hence we check for 2 manually.
 
 Using the above criteria, we can reduce the factor base to 
 
