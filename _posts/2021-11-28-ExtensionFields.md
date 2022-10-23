@@ -20,7 +20,7 @@ We look at 2 things
 
 Let's look at Extension fields of the form $\mathbb F_{2^k}$ as an example - i.e. $\mathbb F_{p^k}$ where $p = 2$. These are called as Binary Fields.
 
-Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}t^{k−1} +a_{k−2}t^{k−2} +···+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = {0,1}$
+Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}t^{k−1} +a_{k−2}t^{k−2} +···+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$
 
 Let's take $\mathbb F_{2^4}$ - here the polynomials will be of the form $a_{3}t^3 + a_{2}t^2 + a_{1}t + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
 
