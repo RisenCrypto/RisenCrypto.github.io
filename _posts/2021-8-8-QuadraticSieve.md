@@ -282,14 +282,6 @@ sage: A = matrix(R, [
 ....: [0, 0, 0, 1, 0, 0, 0, 0, 0],
 ....: [1, 1, 1, 0, 0, 0, 0, 0, 1],
 ....: [1, 1, 0, 0, 1, 0, 0, 0, 0]])
-sage: A.T.kernel()
-Vector space of degree 9 and dimension 5 over Ring of integers modulo 2
-Basis matrix:
-[1 0 0 0 1 0 1 0 1]
-[0 1 0 0 1 0 0 0 1]
-[0 0 1 0 0 0 1 0 1]
-[0 0 0 0 0 1 0 0 0]
-[0 0 0 0 0 0 0 1 0]
 sage: A.kernel()
 Vector space of degree 7 and dimension 3 over Ring of integers modulo 2
 Basis matrix:
@@ -298,7 +290,7 @@ Basis matrix:
 [0 0 1 1 0 1 0]
 ~~~
 
-So we get the following vectors (written horizontally instead of vertically)  
+So we get the following vectors 
 
 $v1 = [1\,0\,0\,0\,1\,0\,0]$ (i.e. multiply the squares of 1st & 5th Number to get a Zero exponent vector - $296^2$ x $316^2$)   
 
