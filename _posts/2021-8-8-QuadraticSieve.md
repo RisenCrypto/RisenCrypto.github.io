@@ -270,7 +270,33 @@ Each column of A is the exponent vector of one Smooth Number we found through Si
 
 We can find $\vec{x}$ by computing the Kernel. Gaussian Elimination can be used for finding a basis for the kernel.
 
-Doing it in SageMath ![Sagemath](https://raw.githubusercontent.com/RisenCrypto/RisenCrypto.github.io/master/images/SageQS.png )
+Doing it in SageMath 
+
+~~~
+sage: R = Zmod(2)
+sage: A = matrix(R, [
+....: [0, 0, 0, 1, 0, 0, 0, 0, 0],
+....: [1, 1, 0, 1, 1, 0, 0, 0, 0],
+....: [0, 1, 0, 0, 0, 0, 1, 0, 1],
+....: [1, 0, 1, 0, 0, 0, 1, 0, 0],
+....: [0, 0, 0, 1, 0, 0, 0, 0, 0],
+....: [1, 1, 1, 0, 0, 0, 0, 0, 1],
+....: [1, 1, 0, 0, 1, 0, 0, 0, 0]])
+sage: A.T.kernel()
+Vector space of degree 9 and dimension 5 over Ring of integers modulo 2
+Basis matrix:
+[1 0 0 0 1 0 1 0 1]
+[0 1 0 0 1 0 0 0 1]
+[0 0 1 0 0 0 1 0 1]
+[0 0 0 0 0 1 0 0 0]
+[0 0 0 0 0 0 0 1 0]
+sage: A.kernel()
+Vector space of degree 7 and dimension 3 over Ring of integers modulo 2
+Basis matrix:
+[1 0 0 0 1 0 0]
+[0 1 0 0 1 0 1]
+[0 0 1 1 0 1 0]
+~~~
 
 So we get the following vectors (written horizontally instead of vertically)  
 
