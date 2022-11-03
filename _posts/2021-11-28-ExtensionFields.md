@@ -140,7 +140,7 @@ sage: Flist[7]*Flist[4] # (Multiply t^3 + t + 1) * (t + 1)
 t^3 + t^2 + t
 ~~~
 
-## Extension fields where $p > 2$
+### Extension fields where $p > 2$
 
 Extension fields of $\mathbb F_p$ where $p > 2$ are also similar. 
 With $p=2$, each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}t^{k−1} +a_{k−2}t^{k−2} +···+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$. For a general $p$, the $a_i$s would be in $F_p$ instead of $F_2$.
