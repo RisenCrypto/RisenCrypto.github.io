@@ -18,7 +18,9 @@ We look at 2 things
 
 ## Polynomial Basis Representation in Extension Fields   
 
-Let's look at Extension fields of the form $\mathbb F_{2^k}$ as an example - i.e. $\mathbb F_{p^k}$ where $p = 2$. These are called as Binary Fields.
+For a field $\mathbb F_p$, extension fields are of the form $\mathbb F_p^k$.
+
+Let's first look at Binary extension fields -i.e. extension fields $\mathbb F_{2^k}$ where $p = 2$.
 
 Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}t^{k−1} +a_{k−2}t^{k−2} +···+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$
 
@@ -68,7 +70,7 @@ $$
 \right]
 $$
 
-So, the finite field $\mathbb F_{p^k}$ can be viewed as bit-string or a vector space over its subfield $\mathbb F_p$. The 16 polynomials in $\mathbb F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
+So, the finite field $\mathbb F_{2^k}$ can be viewed as bit-string or a vector space over its subfield $\mathbb F_2$. The 16 polynomials in $\mathbb F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
 
 ### Group Operations  
 
@@ -86,9 +88,9 @@ $(t^2 + t + 1) + (t^3 + t + 1)  = t^3 + t^2$
 
 **Multiplication**  
 
-For a field $\mathbb F_{p^k}$, an irreducible binary polynomial P(t) of degree k is chosen (such a polynomial etists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
+For a field $\mathbb F_{2^k}$, an irreducible binary polynomial P(t) of degree k is chosen (such a polynomial etists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
 
-Again, lets take $\mathbb F_{2^4}$ - the irreducible polynomial for this Extension field is $t^4 + t + 1$
+For e.g. the irreducible polynomial for the Extension field $\mathbb F_{2^4}$is $t^4 + t + 1$
 
 Let's multiply the elements $(t^3 + t + 1) * (t+1)$
 
