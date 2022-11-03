@@ -18,7 +18,7 @@ We look at 2 things
 
 ## Polynomial Basis Representation in Extension Fields   
 
-For a field $\mathbb F_p$, extension fields are of the form $\mathbb F_p^k$.
+For a field $\mathbb F_p$, extension fields are of the form $\mathbb F_{p^k}$.
 
 Let's first look at Binary extension fields -i.e. extension fields $\mathbb F_{2^k}$ where $p = 2$.
 
