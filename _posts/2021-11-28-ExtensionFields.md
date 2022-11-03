@@ -20,7 +20,7 @@ We look at 2 things
 
 For a field $\mathbb F_p$, extension fields are of the form $\mathbb F_{p^k}$.
 
-Let's first look at Binary extension fields -i.e. extension fields $\mathbb F_{2^k}$ where $p = 2$.
+Let's first look at Binary extension fields i.e. extension fields $\mathbb F_{2^k}$ where $p = 2$.
 
 Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k − 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}t^{k−1} +a_{k−2}t^{k−2} +···+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$
 
