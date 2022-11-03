@@ -140,6 +140,10 @@ sage: Flist[7]*Flist[4] # (Multiply t^3 + t + 1) * (t + 1)
 t^3 + t^2 + t
 ~~~
 
+## Extension fields where $p > 2$
+
+Extension fields of $\mathbb F_p$ where $p > 2$ are also similar. 
+With $p=2$, each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k−1}t^{k−1} +a_{k−2}t^{k−2} +···+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$. For a general $p$, the $a_i$s would be in $F_p$ instead of $F_2$.
 
 ### Use of $\mathbb F_{2^8}$ in AES   
 In AES, the extension field $\mathbb F_{2^8}$ is used with $t^{8} + t^{4} + t^{3} + t + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
