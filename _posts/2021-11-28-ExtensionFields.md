@@ -144,8 +144,8 @@ The Extension Field $\mathbb F_{2^4}$ can also be thought of as the Quotient Rin
 We can try it in sage & we will get the same elements
 
 ~~~
-sage: R.<x> = PolynomialRing(GF(2))
-sage: Q.<t> = R.quotient(x^4 + x + 1)
+sage: R.<t> = PolynomialRing(GF(2))
+sage: Q.<t> = R.quotient(t^4 + t + 1)
 sage: for i in Q:
 ....:     print(i)
 ....:
