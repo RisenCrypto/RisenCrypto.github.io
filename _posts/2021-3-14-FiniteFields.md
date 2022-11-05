@@ -81,7 +81,7 @@ Let's look at a few of them
 
 2. Many operations in Cryptography need to be invertible. For e.g. if while encrypting, you do some mathematical operation, you want it to     invertible so that you can reverse the operation while decrypting. All elements in a Finite Field have an **Inverse** under addition & all non-zero elements have an **Inverse** under multiplication. In AES, in the MixColumns operation, we multiply by a matrix & during decryption we multiply by the inverse of the matrix.
 
-3.  In AES's MixColumns, we need the **associativity property** - $a*(b+c) = a*b + a*c$
+3.  In AES's MixColumns, we need the **associativity property** - $a\star (b+c) = a \star b + a\star c$
 
 So, these are some of the reasons many cryptographic operations are done in Finite Fields.
 
