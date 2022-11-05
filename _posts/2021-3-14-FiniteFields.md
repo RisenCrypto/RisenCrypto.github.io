@@ -25,17 +25,17 @@ Let's first with defining what are Groups, Rings & Fields
 
 #### An Abelian Group is a Group which is also **Commutative** - i.e. for all $a, b \in G, a + b = b + a$
 
-#### A Ring is a set with 2 operations. A ring is an Abelian Group under the first operation (let's say '+'). It has the following two properties for a second operation (let's say '*').
+#### A Ring is a set with 2 operations. A ring is an Abelian Group under the first operation (let's say '+'). It has the following two properties for a second operation (let's say '$\star$').
 
 * Associative multiplication
 
-    $a * ( b * c ) = ( a * b ) * c$
+    $a \star ( b \star c ) = ( a \star b ) \star c$
 
 * Left & right distributive over multiplication
 
-     Left:  $a * (b+c) = a * b + a * c$
+     Left:  $a \star (b+c) = a \star b + a \star c$
 
-     Right:  $(a+b) * c = a * c + b * c$
+     Right:  $(a+b) \star c = a \star c + b \star c$
 
 A ring is always commutative under the first operation. A ring which is also commutative under it's 2nd operation is called a commutative ring.
 
