@@ -140,8 +140,7 @@ sage: Flist[7]*Flist[4] # (Multiply t^3 + t + 1) * (t + 1)
 t^3 + t^2 + t
 ~~~
 
-The Extension Field $\mathbb F_{2^4}$ can also be thought of as the Quotient Ring $\mathbb F_2(t)/\langle t^4 + t + 1 \rangle$.
-We can try it in sage & we will get the same elements
+The Extension Field $\mathbb F_{2^4}$ can also be thought of as the Quotient Ring $\mathbb F_2(t)/\langle t^4 + t + 1 \rangle$ which is also an extension of the Polynomail Ring $\mathbb F_2(t)$). We can try it in sage & we will get the same elements
 
 ~~~
 sage: R.<t> = PolynomialRing(GF(2))
