@@ -116,9 +116,9 @@ But, 2 is a prime & 8 is an integer, so it should be possible to form a finite f
 
 ## Why Modular Polynomial Arithmetic? 
 
-Both $f(x)$ and $g(x)$ are polynomials of degree 7 or less. So $f(x) * g(x)$ can result in a polynomial of degree greater than 7.
+Both $f(x)$ and $g(x)$ are polynomials of degree 7 or less. So $f(x) \star g(x)$ can result in a polynomial of degree greater than 7.
 
-So, we reduce $f(x) * g(x)$ by modulo an irreducible polynomial of degree 8, so that the result $r(x)$ is a polynomial of degree 7 or less.
+So, we reduce $f(x) \star g(x)$ by modulo an irreducible polynomial of degree 8, so that the result $r(x)$ is a polynomial of degree 7 or less.
 
 So in AES, if 2 bytes have to be multiplied, they are each represented as a polynomial (the bits of the bytes form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced by modulo an irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte.
 
