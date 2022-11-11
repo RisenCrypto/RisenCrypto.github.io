@@ -110,7 +110,7 @@ There are 2 cases here
 
 Both these kinds of finite fields have different structures. $GF(p^{n})$ is called an extension field of $GF(p)$, because it can embed $GF(p)$. For e.g. $GF(2^{8})$ is an extension of $GF(2)$, $GF(2^{2})$, $GF(2^{4})$ 
 
-We can do the reduction by modulo 8, which would ensure that the degree of the polynomial cannot be greater than 7. However, $\mathbb{Z_8}$ is not a finite field under regular modular arithmetic because some of the elements in $\mathbb{Z}_{8}$ do not have an inverse.
+We can do the reduction by modulo 8, which would ensure that the degree of the polynomial cannot be greater than 7. However, $\mathbb Z/\mathbb Z_8$ is not a finite field under regular modular arithmetic because some of the elements in  $\mathbb Z/\mathbb Z_8$ do not have an inverse.
 
 But, 2 is a prime & 8 is an integer, so it should be possible to form a finite field $GF(2^{8})$ even if not through regular modular arithmetic. $2^8$ is 256 which is the number of bits in one byte, so we can use $GF(2^{8})$ as the finite field. 
 
