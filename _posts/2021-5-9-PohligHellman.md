@@ -171,7 +171,7 @@ $a_1=0$
 
 Substituting values of $a_1$ & $a_2$ in $x=a_0+2a_1$, we get $x=1$.
 
-$x\equiv \bmod 4$ [Solution for the DLP in $2^2$]
+$x\equiv 1 \bmod 4$ [Solution for the DLP in $2^2$]
 
 Solving in subgroup $3^4$
 
