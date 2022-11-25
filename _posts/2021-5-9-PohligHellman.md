@@ -131,7 +131,7 @@ $7531 \equiv 6^{a_0+2a_1} \bmod p$
 
 $7531^{ \frac {p−1}{2}} \equiv (6^{a_0+2a_1})^{\frac {p−1}{2}} \bmod p$ [Raise both sides to $\frac {p−1}{p_1}$]
 
-$7531^{4050} \equiv 6^{a_0 \frac {p−1}{2}} . g^{2a_1 \frac{p−1}{2}} \bmod p$
+$7531^{4050} \equiv 6^{a_0 \frac {p−1}{2}} . 6^{2a_1 \frac{p−1}{2}} \bmod p$
 
 $7531^{4050} \equiv 6^{4050a_0} \bmod 8101$
 
