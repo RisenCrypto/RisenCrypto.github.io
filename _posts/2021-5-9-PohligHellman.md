@@ -7,9 +7,9 @@ title: The Pohlig-Hellman Algorithm
 
 {% include mathjax.html %}
 
-The *Pohlig-Hellman Algorithm* helps solve the *Discrete Log Problem* for Finite Fields whose order can be factored into prime powers of smaller primes. The algorithm reduces the computation of the discrete log in the Finite Field $G$ to the computation of the discrete log in prime order subgroups of **⟨G⟩**
+The *Pohlig-Hellman Algorithm* helps solve the *Discrete Log Problem* for Finite Fields whose order can be factored into prime powers of smaller primes. The algorithm reduces the computation of the discrete log in the Finite Field $G$ to the computation of the discrete log in prime power order subgroups of $G$
 
-For e.g. Order of $GF(p)=p−1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}…$
+For e.g. Order of $\mathbb F(p)=p−1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}…$
 
 The PH algorithm allows your solve the DLP in the smaller subgroups of order $p_1^{n_1}, p_2^{n_2}, p_3^{n_3}$ etc and then combine the solutions using the *Chinese Remainder Theorem* to get the solution for the original DLP.    
 
@@ -17,76 +17,146 @@ The PH algorithm allows your solve the DLP in the smaller subgroups of order $p_
 
 ## The Algorithm
 
-Let $g$ be a generator in $GF(p)$
+
+### The DLP 
+
+Let $g$ be a generator in $\mathbb F(p)$
 
 $y \equiv g^x \bmod p$
 
 $y, p$ & $g$ are known. The discrete log problem here is to find $x$
 
-Order of $GF(p)=p−1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}…$
+**Step 1) Reduce the DLP in the field into the DLPs in the prime power order subgroups**
 
-Let’s take the prime power factors one by one.  
+The multiplicative operation of $\mathbb F(p)$ excludes the $0$ element & hence it's order is one less than the order of the field. So the order is $p-1$. Any composite number can be expressed as the product of prime powers. 
 
-**First consider $p_1^{n_1}$**
+Order = $p−1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}…$
 
-Let $x$ be the solution for the subgroup of order $p_1^{n_1}$
+Since each of the prime powers ${p_i}^{n_i}$ divides the order of the group, by the Fundamental Theorem of Cyclic Groups, there will be a cyclic subgroup for each of the prime powers of order ${p_i}^{n_i}$ with the generator for the subgroup being $g^{\frac {p-1} {p_i^{n_i}}}$ 
 
-First we expand $x$ as a base $p_1$ number.
 
-Note: For e.g. if $p_1=2$, then we have to expand $x$ in base 2 (i.e. do a binary expansion). If x is 13, then in binary (base 2), we can write it as $1101$.
+Let's take the DLP & raise both sides by $\frac {p-1}{p_i^{n_i}}$. For the sake of simplicity, let $r_i = \frac {p-1}{p_i^{n_i}}$
+
+$y^{r_i} \equiv ({g^x})^{r_i} \bmod p$
+
+
+$y^{r_i} \equiv {(g^{r_i})}^x \bmod p$
+
+$r_i = \frac {p-1}{p_i^{n_i}}$, so $g^{r_i}$ is the generator for the subgroup of order $p_i^{n_i}$.
+
+Let this generator be called $g_i = g^{r_i}$. Also let $y_i = y^{r_i}$.
+
+So,
+
+$y_i = {g_i}^x \bmod p$.
+
+Now since the order of $g_i$ is ${p_i}^{n_i}$, in the above equation, $x$ cannot have any value higher than ${p_i}^{n_i}$. We can write this is as 
+
+$x_i = x \bmod {p_i}^{n_i}$
+
+So, the DLP in the subgroup of order ${p_i}^{n_i}$ is
+
+$y_i \equiv {g_i}^{x_i} \bmod p$.
+
+We simplified the equation after raising using the new variables $y_i$, $g_i$ & $x_i$ to show that now it's a DLP problem in the subgroup. While solving however, we will use continue to use $y$ & $g$ along with the new variable $x_i$
+
+i.e. $y^{\frac {p-1}{p_i^{n_i}}} = ({g^{\frac {p-1}{p_i^{n_i}}}})^{x_i} \bmod p$
+
+
+**Step 2) Expansion of $x_i$'s**
+
+As we saw $x_i$ is the solution for the subgroup of order ${p_i}^{n_i}$
+
+$x_i = x \bmod {p_i}^{n_i}$
+
+We expand $x_i$ as a base $p_i$ number.
+
+Note: For e.g. if $p_i=2$, then we have to expand $x_i$ in base 2 (i.e. do a binary expansion). If $x_i = 13$, then in binary (base 2), we can write it as the bitstring $1101$.
 
 So the binary expansion of $x=13$ will be
 
-$x=13=1101=1 . 2^0 + 0. 2^1 + 1.2^2 + 1.2^3$
+$x_i=13=1101=1 . 2^0 + 0. 2^1 + 1.2^2 + 1.2^3$
 
-If we are solving for $\bmod 2^n$, then the max value of $x$ can only be $2^n −1$. The number $2^n$ in binary representation needs $n+1$ bits. So the number $2^n −1$ will need $n$ bits. Hence when we expand $x$ in base 2, we will have $n$ co-efficients from $0$ to $n−1$
+Since $x_i$ is $\bmod 2^{n_i}$, then the max value of $x_i$ can only be $2^n −1$. The number $2^n$ in binary representation needs $n+1$ bits. So the number $2^n −1$ will need $n_i$ bits. Hence when we expand $x_i$ in base 2, we will have $n_i$ co-efficients $\in \lbrace 0,1 \rbrace$
 
-For any base, we do it similarly
+For any base other than 2, we do it similarly
 
-$x=\sum_{i=0}^{n−1} a_i{p_1}^i$ where $a_i \in {0,…,p−1}$
+$x_i=\sum_{j=0}^{n−1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, …,{p_i}−1\rbrace$
 
-$x=a_0+ a_1p_1 + a_2{p_1}^2 +…$
+$x_i=a_0+ a_1p_i + a_2{p_i}^2 +…+ a_{n-1}{p_i}^{n-1}$ where $a_j \in \lbrace 0,1,...,{p_i}−1\rbrace$
 
-$y \equiv g^{a_0+ a_1{p_1}+ a_2{p_1}^2+…} \bmod p$ [substituting x by its expansion]
+**Step 3) Solving the DLP in the subgroup** 
 
-$y^{\frac{p−1}{p_1}} \equiv (g^{a_0+a_1{p_1}+a_2{p_1}^2+…})^{\frac {p−1}{p_1}} \bmod p$ [Raise both sides to $\frac {p−1}{p_1}$]
+Let's first solve it for the subgroup of order ${\frac {p-1}{p_1^{n_1}}}$
 
-$y^{\frac {p−1}{p_1}} \equiv g^{(a_0+a_1{p_1}+a_2{p_1}^22+…)(\frac {p−1}{p_1})} \bmod p$
+i.e. $y^{\frac {p-1}{p_i^{n_i}}} = ({g^{\frac {p-1}{p_i^{n_i}}}})^{x_i} \bmod p$
 
-$y^{\frac {p−1}{p_1}} \equiv g^{a_0 \frac {p−1} {p_1}} . g^{a_1{p_1}\frac{p−1}{p_1}}.g^{a_2{p_1}^2 \frac{p−1}{p_1}}… \bmod p$   
+$y^{\frac {p-1}{p_i^{n_i}}} = g^{\frac {p-1}{p_i^{n_i}}{x_i}} \bmod p$
 
-
-All the other terms after $g^{a_0 \frac {p−1}{p_1}} \bmod p$ have a coefficient which is a multiple of $p_1$. So after cancelling out the $p_1$ from the denominator, these terms are of the form $g^{k(p−1)}$. By *Fermat’s Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
-
-We are then left with
-
-$y^{\frac{p−1}{p_1}} \equiv g^{a_0 \frac {p−1}{p_1}} \bmod p$
-
-*In the above equation, the only unknown is $a_0$ and $a_0 \in {0,p−1}$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard’s rho etc)*.
-
-Now onto finding the other coefficients
-
-Start again with $y \equiv g^x \bmod p$  
+Raise both sides by $p_i^{n_i - 1}$
 
 
+$y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}{x_i}} \bmod p$
 
-$y \equiv g^{a_0+a_1{p_1}+a_2{p_1}^2+…} \bmod p$
+Substitute $x_i = {a_0+a_1{p_i}+a_2{p_i}^2+ ... + a_{n_i-1}{p_i}^{n_i-1} }$
 
-$y \equiv g^{a_0} . g^{a_1{p_1} + a_2{p_1}^2+ …} \bmod p$
+$y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}(a_0+a_1{p_i}+a_2{p_i}^2... + a_{n_i-1}{p_i}^{n_i-1})} \bmod p$
 
-$g$ is a generator, so $g^{a_0}$ is an element of $GF(p)$. So $g^{a_0}$ will have an inverse in $GF(p)$. So we can multiply both sides by the inverse.
+$y^{(p-1)p_i} = g^{\frac {(p-1)a_0}{p_i}}. g^{(p-1)a_1}. g^{(p-1){a_2}{p_i}}...g^{(p-1){a_{n-1}}{p_i}^{n-2}}  \bmod p $
 
-$y.g^{−a_0} \equiv g^{a_1{p_1}+a_2{p_1}^2+…} \bmod p$
+Other than the first term, all the remaining terms are of the form $g^{k(p−1).p^j}$. By *Fermat’s Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
 
-Now raise both sides to $\frac {p−1}{p^2}$ & follow a procedure similar to one we used for $a_0$ to find $a_1$
+$y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}} \bmod p $
 
-Keep repeating this till all the coefficients are known. Once all the coefficients are known, that solves $x$ for $\bmod {p_1}^{n_1}$
 
-$x \equiv x_1 \bmod {p_1}^{n_1}$  
+In the above equation, the only unknown is $a_0$ and $a_0 \in {0,p−1}$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard’s rho etc)
 
-Repeat the procedure for $p_2$,$p_3$ etc.
+Now, that $a_0$ i known, let's start again to find other $a_i$s
 
-So we have
+$y^{\frac {p-1}{p_1^{n_1}}} = g^{\frac {p-1}{p_1^{n_1}}{x_1}} \bmod p$
+
+Raise both sides by $p_1^{n_1 - 2}$
+
+
+$y^{\frac {p-1}{p_1^2}} = g^{\frac {p-1}{{p_1^2}}{x_1}} \bmod p$
+
+Substitute $x_1 = {a_0+a_1{p_1}+a_2{p_1}^2+ ... + a_{n_1-1}{p_1}^{n_1-1} }$
+
+$y^{\frac {p-1}{p_1^2}} = g^{\frac {p-1}{p_1^2}(a_0+a_1{p_1}+a_2{p_1}^2... + a_{n_i-1}{p_1}^{n_1-1})} \bmod p$
+
+$y^{\frac {p-1}{p_1^2}} = g^{\frac {(p-1)a_0}{p_1^2}}. g^{\frac {(p-1)a_1}{p_1}}. g^{(p-1){a_2}}...g^{(p-1){a_{n-1}}{p_i}^{n-3}}  \bmod p $
+
+Let $m = g^{\frac {(p-1)a_0}{p_1^2}}$ ($a_0$ is now a known value).
+
+
+
+So $m = (g^{\frac {p-1}{p_1^2}})^{a_0}$.
+
+
+
+ Since $p_1^2$ is a factor of the order of the group, $g^{\frac {p-1}{p_1^2}}$ is a generator of a subgroup. Hence $m$ is an element of the field & has an inverse $m^{-1}$ in the field.
+
+
+So,
+
+$y^{\frac {p-1}{p_1^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}}. g^{(p-1){a_2}}...g^{(p-1){a_{n-1}}{p_i}^{n-3}}  \bmod p $
+
+Other than the first term on the Right Hand Side, all the remaining terms are of the form $g^{k(p−1).p^j}$. By *Fermat’s Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
+
+$y^{\frac {p-1}{p_i^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}} \bmod p $
+
+In the above equation, the only unknown is $a_1$ and $a_1 \in {0,p−1}$. Like before, it can be solved to get $a_1$
+
+We can keep repeating these steps to get all values from $a_2$ to $a_{n-1}$, there by finding $x_i$.
+
+So now we know $x_1$.
+
+$x = x_1 \bmod p_1^{n_1}$
+
+
+Repeat the procedure for subgroups of order $p_2^{n_2}$,$p_3^{n_3}$ etc.
+
+We will then have all the $x_i$s
 
 $x \equiv x_1 \bmod {p_1}^{n_1}$
 
@@ -94,18 +164,35 @@ $x \equiv x_2 \bmod {p_2}^{n_2}$
 
 $…$
 
-$x \equiv x_i \bmod {p_i}^{n_i}$
+$…$
+
+$…$
 
 The *Chinese remainder theorem* can be used to combine the above to find $x$ for $\bmod p$
 
 So we have solved the DLP for the group by solving the DLP for smaller subgroups & combining them.   
 
 
----   
+We did an initial step of raising the original DLP by $\frac {p-1}{p_i^{n_i}}$ to change $x$ to $x_i$
+
+$y^{\frac {p-1}{p_i^{n_i}}} = ({g^{\frac {p-1}{p_i^{n_i}}}})^{x_i} \bmod p$
+
+And then for $i=1$, we raised it to $p_i^{n_i - 1}$ which got us
+
+$y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}{x_i}} \bmod p$
+
+We can combine the above 2 steps into directly raising the original DLP by $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ for find $a_0$.
+
+And then for finding $a_1$, we raise the original DLP to $\frac {p-1}{p_i^2}$
+
+
+
+For finding $a_2$, we raise the original DLP to $\frac {p-1}{p_i^3}$
+
+
+And then continue till we find all the $a_k$'s for $k = 0$ to $k = n_i - 1$ 
 
 ## A numerical example
-
-Note: Some textbooks describe a handy method to use Pohlig-Hellman by creating a table to solve for the coefficients. However, in this post, I am not using that because the reason for this write-up is to explain the algorithm’s steps in detail. Also, I use sage math to do the intermediate steps (finding the factors, finding the inverse, calculating pow etc). I don’t show those calculations here.
 
 **The Discrete Log Problem:**
 
@@ -115,150 +202,87 @@ Find $x$
 
 **Solution:**
 
-Order of $GF(8101)=p−1=8100$
+$7531 \equiv 6^x \bmod 8101$ 
 
-$8100=2^2.3^4.5^2$
+$8100 = 2^2.3^4.5^2$. 
 
-Solving for subgroup $2^2$
+Let's first start with the 2nd prime power subgroup which of order $3^4$ (you can start with any subgroup).
 
-$p_1 =2, n_1=2$
+For this subgroup, $p_i = 3$ & $n_i = 4$
 
-Expanding $x$ in base 2, we write
-
-$x=a_0+2a_1$ where $a_0 \in {0,1}$
-
-$7531 \equiv 6^{a_0+2a_1} \bmod p$
-
-$7531^{ \frac {p−1}{2}} \equiv (6^{a_0+2a_1})^{\frac {p−1}{2}} \bmod p$ [Raise both sides to $\frac {p−1}{p_1}$]
-
-$7531^{4050} \equiv 6^{a_0 \frac {p−1}{2}} . 6^{2a_1 \frac{p−1}{2}} \bmod p$
-
-$7531^{4050} \equiv 6^{4050a_0} \bmod 8101$
-
-LHS = pow(7531, 4050, 8101) = 8100
-
-$8100 \equiv 6^{4050a_0} \bmod 8101$
-
-Only one unknown above, $a_0 \in {0,1}$
-
-It can be solved easily to get  
-
-$a_0=1$
+Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3} = 2700$, replace $x$ by $x_1$ 
 
 
-Substituting value of $a_0$ in $x$, we get
+$7531^{2700} \equiv 6^{x_1} \bmod p$
 
-$x= 1+2a_1$
+Expanding $x_1$ in base 3, we get
 
-Substituting this in the DLP, we get
+$x_2=a_0+3a_1+9a_2+27a_3$ where $a_i \in \lbrace 0,1,2\rbrace$
 
-$7531 \equiv 6^{1+2a_1} \bmod p$
-
-$7531 . 6^{−1} \equiv 6 \bmod p$
-
-$7531 . 6751 \equiv 6 \bmod p$ [6751 is the inverse of 6 in GF(p)]
-
-$8006 \equiv 6 \bmod p$
-
-$8006^{\frac{p−1}{4}} \equiv 6^{2a_1\frac {p−1}{4}} \bmod p$ [Raise both sides to $\frac{p−1}{p^2}$]
-
-$8006^2025 \equiv 6 \bmod 8101$
-
-$1 \equiv 6^{4050a_1} \bmod 8101$
-
-$a_1=0$
-
-
-Substituting values of $a_1$ & $a_2$ in $x=a_0+2a_1$, we get $x=1$.
-
-$x\equiv 1 \bmod 4$ [Solution for the DLP in $2^2$]
-
-Solving in subgroup $3^4$
-
-$p_2=3$, $n_2=4$
-
-Expanding $x$ in base 3, we get
-
-$x=a_0+3a_1+9a_2+27a_3$ where a_i \in {0,1,2}$
-
-$7531 \equiv 6^{a_0+3a_1+9a_2+27a_3} \bmod p$
-
-$7531^{\frac {p−1}{3}} \equiv 6^{(a_0+3a_1+9a_2+27a_3)^{frac{p−1}{3}}} \bmod p$
+After substituting this, we can cancel out the terms involving everything except $a_0$ using Fermat's Little Theorem.
 
 $7531^{2700} \equiv 6^{2700a_0} \bmod p$
 
-LHS = pow(7531, 2700, 8101) = 2217
+$LHS = 7531^{2700} = pow(7531, 2700, 8101) = 2217$
 
 $2700 \equiv 6^{2700a_0} \bmod 8101$
 
+Since the only variable here is $a_0$ & $a_0 \in \lbrace 0, 1, 3 \rbrace$, we can solve & get 
+
 $a_0=2$
 
-
-$x=2+3a_1+9a_2+27a_3$ where $a_i \in {0,1,2}$
+Now, $x_1=2+3a_1+9a_2+27a_3$ 
 
 $7531\equiv 6^{2+3a_1+9a_2+27a_3} \bmod p$
 
 $7531 \equiv 6^2 . 6^{3a_1+9a_2+27a_3} \bmod p$
 
+
 $7531 . 6^{−2} \equiv 6^{3a_1+9a_2+27a_3} \bmod p$
 
-$6735^{\frac {p−1}{9}} \equiv 6^{3a_1+9a_2+27a_3}. \frac {p−1}{9} \bmod p$
+Using sage, 
+
+$pow(6, -2, 8101) = 7876$ and $mod(7876*7531,8101) = 6735$
+
+So, $6735= \equiv 6^{3a_1+9a_2+27a_3} \bmod p$
+
+We raise both sides by $\frac {p-1}{p_i^2}$ i.e. $\frac {8100}{9} = 900$ & also cancel out all $a_i$ terms other than $a_1$ using Fermat's little theorem.
 
 $6735^{900} \equiv 6^{2700a_1} \bmod p$
 
-LHS = pow(6735, 900, 8101) = 1
+$LHS = pow(6735, 900, 8101) = 1$
 
 $1 \equiv 6^{2700a_1} \bmod 8101$
 
 $a_1=0$
 
-$x=2+9a_2+27a_3$ where $a_3 \in {0,1,2}$
 
-$7531\equiv 6^{2+ 9a_2+27a_3} \bmod p$
+Now, $x_2=2+9a_2+27a_3$ 
 
-$7531\equiv 6^2 .6^{9a_2+27a_3} \bmod p$
+Raising by $\frac {8100}{3^3}$ i.e.$300$, we can solve similarly to get 
 
-$7531 . 6^{−2} \equiv 6^{9a_2+27a_3} \bmod p$
+$a_2 =2$
 
-$6735^{\frac {p−1}{27}} \equiv 6^{(9a_2+27a_3)} ∗ \frac{p−1}{27} \bmod p$
+Raising by $\frac {8100}{3^4}$ i.e.$100$, we can solve similarly to get 
 
-$6735^{300} \equiv 6^{2700a_2} \bmod p$
+$a_3 = 1$
 
-LHS = pow(6735, 300, 8101) = 2217
-
-$2217\equiv 6^{2700a_2} \bmod 8101$
-
-$a_2=2$
-
-$x=2+18+27a_3$ where $a_i \in {0,1,2}$
-
-$7531 \equiv 6^{20+27a_3} \bmod p$
-
-$7531 \equiv 6^{20}.6^{27a_3} \bmod p$
-
-$7531 . 6^{−20} \equiv 6^{27a_3} \bmod p$
-
-$6992^{\frac {p−1}{81}} \equiv 6^{27a_3} . \frac {p−1}{81} \bmod p$
-
-$6992^100 \equiv 6^{2700a_3} \bmod 8101$
-
-LHS = pow(6992, 100, 8101) = 5883
-
-$5883 \equiv 6^{2700a_3} \bmod 8101$
-
-$a_3=1$
+This gives us $x_2 = 47$. So 
 
 $x \equiv 47 \bmod 81$  [Solution for the DLP in $3^4$]
 
-Solving in subgroup $5^2$
+Next, we solve in the subgroup or order $2^2$ to get 
 
-If we solve for $5^2$, we get
+$x\equiv 1 \bmod 4$ 
+
+and subgroup of order $5^2$ to get 
 
 $x\equiv 14 \bmod 25$
 
-So we have 3 solutions for the 3 subgroups
+So we have a solution for each of the 3 subgroups we are interested in
 
-$x\equiv 1 \bmod 4$
+
+$x \equiv 1 \bmod 4$
 
 $x \equiv 47 \bmod 81$
 
@@ -266,6 +290,9 @@ $x \equiv 14 \bmod 25$
 
 Using the Chinese Remainder Theorem, we can combine it to get
 
+$CRT\_list([1, 47, 14],[4,81,25]) = 6689$
+
+So, 
 $x \equiv 6689 \bmod 8100$
 
 We can write the above congruence also as
@@ -293,14 +320,13 @@ Pohlig-Hellman is also similarly applicable for the Discrete Log Problem in ECC.
 
 The differences are mainly
 
-1. Groups are additive groups & not Multiplicative Groups.
+1. Groups are additive groups & not multiplicative groups.
 
 2.  We used Fermat’s Little Theorem for solving multiplicative Group DLP. Fermat’s Little Theorem is a special case of Lagrange’s Theorem. Lagrange’s Theorem implies (among other things) that for an additive Group $G$, if $m$ is the order of the group, then for every $g \in G$, $m∗g=0$
 
 ---  
 
 **Numerical example for ECDLP**
-
 $E:y2=x3+1001x+75 \bmod 7919$
 
 Order of the Curve = $m=7889$
@@ -313,7 +339,7 @@ $xP=Q$
 
 Find $x$
 
-Solution
+**Solution:**
 
 7889 can be factored as
 
@@ -321,19 +347,21 @@ $7889=7^3 . 23$
 
 Solving in subgroup $7^3$
 
-Expand $x$ in base 3
 
-$x=a_0+7a_1+7^{2}{a_2}$
+Multiply both sides of the DLP by $\frac {m}{7}$, replace $x$ with $x_1$
 
-$Q=(a_0+7a_1+7^{2}{a_2})P$ [Substitute x by it’s expansion]
 
-Multiply both sides by $\frac {m}{7}$
 
-$\frac {m}{7}Q=(a_0+7a_1+7^2{a_2}) \frac{m}{7}P$
+$\frac {m}{7}Q=x_1 \frac{m}{7}P$
 
-The 2nd & 3rd terms are factors of 7. So after multiplication by $\frac {m}{7}$, they are of the form mP. As we saw earlier, from Lagrange’s Theorem, this is equal to 0 & hence can be removed from the equation.
+Expand $x_1$ in base 3
 
-$1127Q=(1127a_0)P$ where $a_0 \in {0,1,2,3,4,5,6}$
+$x_1=a_0+7a_1+7^{2}{a_2}$
+
+Substitute this in the equation & also remove all terms after $a_0$ by using Lagrange's Theorem
+
+
+$1127Q=(1127a_0)P$ where $a_0 \in \lbrace 0,1,2,3,4,5,6 \rbrace$
 
 Only one variable here $a_0$. Can be solved to get
 
@@ -370,27 +398,13 @@ Solving, we get
 
 $a_2=4$
 
-So $x=1+7 . 3+49 . 4=218$
+So $x_1=1+7 . 3+49 . 4=218$
 
 $x\equiv 218 \bmod 7^3$
 
-Solving in subgroup $23$
+Likewise, solving in subgroup $23$
 
-$x=a_0$
-
-$Q=a_0P$
-
-Multiply both sides by $\frac{m}{23}$
-
-$\frac{m}{23}Q=23a_0P$
-
-$343Q=343a_0P$
-
-Solving, we get
-
-$a_0=10$
-
-So $x=10$
+$x=10$
 
 $x \equiv 10 \bmod 23$
 
@@ -409,5 +423,6 @@ So the ECDLP is solved
 ---  
 
 **Note:** the factors in both the numerical problems were very small, so just brute-forcing would be enough to get the coefficients for the subgroups. However, for larger factors, the BabyStep-GiantStep or Pollard’s rho algorithms would be used.
+
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FPohligHellman%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
