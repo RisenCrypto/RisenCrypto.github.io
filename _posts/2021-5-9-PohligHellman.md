@@ -26,7 +26,7 @@ $y \equiv g^x \bmod p$
 
 $y, p$ & $g$ are known. The discrete log problem here is to find $x$
 
-**Step 1) Reduce the DLP in the field into the DLPs in the prime power order subgroups**
+**Reduce the DLP in the field into the DLPs in the prime power order subgroups**
 
 The multiplicative operation of $\mathbb F(p)$ excludes the $0$ element & hence it's order is one less than the order of the field. So the order is $p-1$. Any composite number can be expressed as the product of prime powers. 
 
@@ -63,7 +63,7 @@ We simplified the equation after raising using the new variables $y_i$, $g_i$ & 
 i.e. $y^{\frac {p-1}{p_i^{n_i}}} = ({g^{\frac {p-1}{p_i^{n_i}}}})^{x_i} \bmod p$
 
 
-**Step 2) Expansion of $x_i$'s**
+**Expansion of $x_i$'s**
 
 As we saw $x_i$ is the solution for the subgroup of order ${p_i}^{n_i}$
 
@@ -85,7 +85,7 @@ $x_i=\sum_{j=0}^{n−1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, …,{p_i}−1\rb
 
 $x_i=a_0+ a_1p_i + a_2{p_i}^2 +…+ a_{n-1}{p_i}^{n-1}$ where $a_j \in \lbrace 0,1,...,{p_i}−1\rbrace$
 
-**Step 3) Solving the DLP in the subgroup** 
+**Solving the DLP in the subgroup** 
 
 Let's first solve it for the subgroup of order ${\frac {p-1}{p_1^{n_1}}}$
 
@@ -172,6 +172,7 @@ The *Chinese remainder theorem* can be used to combine the above to find $x$ for
 
 So we have solved the DLP for the group by solving the DLP for smaller subgroups & combining them.   
 
+---  
 
 We did an initial step of raising the original DLP by $\frac {p-1}{p_i^{n_i}}$ to change $x$ to $x_i$
 
@@ -181,16 +182,30 @@ And then for $i=1$, we raised it to $p_i^{n_i - 1}$ which got us
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}{x_i}} \bmod p$
 
-We can combine the above 2 steps into directly raising the original DLP by $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ for find $a_0$.
+We can combine the above 2 steps into directly raising the original DLP to $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ for find $a_0$.
 
-And then for finding $a_1$, we raise the original DLP to $\frac {p-1}{p_i^2}$
+So let's summarise the steps in the Algorithm
 
+1) Raise the original DLP to $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ 
 
+2) Remove all $a_i$ terms other than $a_0$ using Fermat's Little Theorem
 
-For finding $a_2$, we raise the original DLP to $\frac {p-1}{p_i^3}$
+3) Find $a_0$
 
+4) And then for finding $a_1$, we raise the original DLP to $\frac {p-1}{p_i^2}$
 
-And then continue till we find all the $a_k$'s for $k = 0$ to $k = n_i - 1$ 
+5) Remove all $a_i$ terms after $a_1$ using Fermat's Little Theorem
+
+6) Find $a_1$
+
+7) Continue steps 4 to 6 to find all $a_i$
+
+8) You now have found the first $x = x_i \bmod p$
+
+9) Find similar $x_i$s for other prime power subgroups
+
+10) Combine all the $x_i$s with CRT to find $x$ & solve the DLP.
+
 
 ## A numerical example
 
@@ -289,7 +304,6 @@ $x \equiv 47 \bmod 81$
 $x \equiv 14 \bmod 25$
 
 Using the Chinese Remainder Theorem, we can combine it to get
-
 
 $CRT\text_list([1, 47, 14],[4,81,25]) = 6689$
 
@@ -424,6 +438,7 @@ So the ECDLP is solved
 ---  
 
 **Note:** the factors in both the numerical problems were very small, so just brute-forcing would be enough to get the coefficients for the subgroups. However, for larger factors, the BabyStep-GiantStep or Pollard’s rho algorithms would be used.
+
 
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FPohligHellman%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
