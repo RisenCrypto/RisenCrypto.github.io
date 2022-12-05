@@ -65,7 +65,7 @@ i.e. $y^{\frac {p-1}{p_i^{n_i}}} = ({g^{\frac {p-1}{p_i^{n_i}}}})^{x_i} \bmod p$
 
 **Expansion of $x_i$'s**
 
-As we saw $x_i$ is the solution for the subgroup of order ${p_i}^{n_i}$
+As we saw, $x_i$ is the solution for the subgroup of order ${p_i}^{n_i}$
 
 $x_i = x \bmod {p_i}^{n_i}$
 
@@ -102,14 +102,14 @@ Substitute $x_i = {a_0+a_1{p_i}+a_2{p_i}^2+ ... + a_{n_i-1}{p_i}^{n_i-1} }$
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}(a_0+a_1{p_i}+a_2{p_i}^2... + a_{n_i-1}{p_i}^{n_i-1})} \bmod p$
 
-$y^{(p-1)p_i} = g^{\frac {(p-1)a_0}{p_i}}. g^{(p-1)a_1}. g^{(p-1){a_2}{p_i}}...g^{(p-1){a_{n-1}}{p_i}^{n-2}}  \bmod p $
+$y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}}. g^{(p-1)a_1}. g^{(p-1){a_2}{p_i}}...g^{(p-1){a_{n-1}}{p_i}^{n-2}}  \bmod p $
 
 Other than the first term, all the remaining terms are of the form $g^{k(p−1).p^j}$. By *Fermat’s Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}} \bmod p $
 
 
-In the above equation, the only unknown is $a_0$ and $a_0 \in {0,p−1}$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard’s rho etc)
+In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,p−1 \rbrace$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard’s rho etc)
 
 Now, that $a_0$ i known, let's start again to find other $a_i$s
 
@@ -145,7 +145,7 @@ Other than the first term on the Right Hand Side, all the remaining terms are of
 
 $y^{\frac {p-1}{p_i^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}} \bmod p $
 
-In the above equation, the only unknown is $a_1$ and $a_1 \in {0,p−1}$. Like before, it can be solved to get $a_1$
+In the above equation, the only unknown is $a_1$ and $a_1 \in \lbrace 0,1,...,p−1 \rbrace$. Like before, it can be solved to get $a_1$
 
 We can keep repeating these steps to get all values from $a_2$ to $a_{n-1}$, there by finding $x_i$.
 
@@ -182,7 +182,7 @@ And then for $i=1$, we raised it to $p_i^{n_i - 1}$ which got us
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}{x_i}} \bmod p$
 
-We can combine the above 2 steps into directly raising the original DLP to $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ for find $a_0$.
+We can combine the above 2 steps into directly raising the original DLP to $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ for finding $a_0$.
 
 So let's summarise the steps in the Algorithm
 
@@ -198,7 +198,7 @@ So let's summarise the steps in the Algorithm
 
 6) Find $a_1$
 
-7) Continue steps 4 to 6 to find all $a_i$
+7) Continue steps 4 to 6 to find all $a_i$ (You would need to raise the DLP to $\frac {p-1}{p_i^3}$, $\frac {p-1}{p_i^4} etc$) 
 
 8) You now have found the first $x = x_i \bmod p$
 
@@ -219,13 +219,13 @@ Find $x$
 
 $7531 \equiv 6^x \bmod 8101$ 
 
-$8100 = 2^2.3^4.5^2$. 
+Order = $8101 - 1 = 8100 = 2^2.3^4.5^2$. 
 
-Let's first start with the 2nd prime power subgroup which of order $3^4$ (you can start with any subgroup).
+Let's first start with the 2nd prime power subgroup which is of order $3^4$ (you can start with any subgroup).
 
 For this subgroup, $p_i = 3$ & $n_i = 4$
 
-Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3} = 2700$, replace $x$ by $x_1$ 
+Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3} = 2700. And also replace $x$ by $x_1$ 
 
 
 $7531^{2700} \equiv 6^{x_1} \bmod p$
@@ -261,7 +261,7 @@ $pow(6, -2, 8101) = 7876$ and $mod(7876*7531,8101) = 6735$
 
 So, $6735= \equiv 6^{3a_1+9a_2+27a_3} \bmod p$
 
-We raise both sides by $\frac {p-1}{p_i^2}$ i.e. $\frac {8100}{9} = 900$ & also cancel out all $a_i$ terms other than $a_1$ using Fermat's little theorem.
+We raise both sides to $\frac {p-1}{p_i^2}$ i.e. $\frac {8100}{9} = 900$ & also cancel out all $a_i$ terms other than $a_1$ using Fermat's little theorem.
 
 $6735^{900} \equiv 6^{2700a_1} \bmod p$
 
@@ -274,7 +274,7 @@ $a_1=0$
 
 Now, $x_2=2+9a_2+27a_3$ 
 
-Raising by $\frac {8100}{3^3}$ i.e.$300$, we can solve similarly to get 
+Raising to $\frac {8100}{3^3}$ i.e.$300$, we can solve similarly to get 
 
 $a_2 =2$
 
@@ -342,6 +342,7 @@ The differences are mainly
 ---  
 
 **Numerical example for ECDLP**
+
 $E:y2=x3+1001x+75 \bmod 7919$
 
 Order of the Curve = $m=7889$
