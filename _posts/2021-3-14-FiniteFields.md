@@ -2,6 +2,7 @@
 layout: post
 mathjax: true
 title: Why does Cryptography use Polynomial Modular Arithmetic in Finite Fields?
+category: uc
 
 ---
 
