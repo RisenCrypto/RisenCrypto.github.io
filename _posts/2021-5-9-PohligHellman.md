@@ -113,7 +113,7 @@ In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,pâ
 
 Now, that $a_0$ i known, let's start again to find other $a_i$s
 
-$y^{\frac {p-1}{p_1^{n_1}}} = g^{\frac {p-1}{p_1^{n_1}}{x_1}} \bmod p$
+$y^{\frac {p-1}{p_1^{2}}} = g^{\frac {p-1}{p_1^{2}}{x_1}} \bmod p$
 
 Raise both sides by $p_1^{n_1 - 2}$
 
