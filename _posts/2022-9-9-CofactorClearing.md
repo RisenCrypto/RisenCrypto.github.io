@@ -1,13 +1,47 @@
 ---
 layout: post
 mathjax: true
-title: Cofactor clearing in composite order Elliptic Curves
+title: Clamping & Cofactor clearing in Curve25519 
 
 ---
 
 {% include mathjax.html %}
 
-Many cryptographic protocols use elliptic curves of prime order. However there are composite order curves like the Edwards Curve, Montgomery Curve etc which easily provide faster group operations with complete addition laws which are not vulnerable to a timing attack. So many modern elliptic curve implentations use a composite order curve of order $h.p$ where $p$ is a prime & $h$ is a small cofactor usually $8$ or lesser. The composite order curve has a subgroup of prime order $p$ which is used for the implementation. Though these curves have a lot of advantages, there are also some disadvantages, one of which we discuss below called as a small subgroup attack.
+
+When using DJB's $Curve25519$, the private key is clamped before use.
+
+The claimping function typically looks like this
+
+~~~  
+
+key[0] &= 248;  
+
+key[31] &= 127; 
+
+key[31] |= 64; 
+
+~~~ 
+
+Here `key` is the private key, a 32-byte value interpreted as an integer in **little-endian** format. Let's see what these 3 lines of code do.
+ 
+> key[0] &= 248; // 248 is 011111000
+
+This Bitwise ANDing will clear (zero out) the lowest 3 bits of the key. This is called **Cofactor Clearing** and a majority of this post is spent in discussing this.
+
+
+> key[31] &= 127; // 127 is 01111111
+
+This Bitwise ANDing will clear (zero out) bit 255. This ensures that the key is always in the range $0..2^{255}-1$ where the operations are defined. 
+
+> key[31] |= 64; // 64 is 01000000
+
+This Bitwise ORing will set bit 254 to 1 which improves performance when operations are implemented in a way that doesn't leak information about the key through timing.
+
+This post is mainly about the Cofactor Clearing part of the Clamping function, so the rest of the post only discusses that.
+
+## Cofactor Clearing
+
+Many cryptographic protocols use elliptic curves of prime order. However there are composite order curves like the Edwards Curve, Montgomery Curve etc which easily provide faster group operations with complete addition laws which are not vulnerable to a timing attack. So many modern elliptic curve implentations use a composite order curve of order $h.p$ where $p$ is a prime & $h$ is a small cofactor usually $8$ or lesser. The composite order curve has a subgroup of prime order $p$ which is used for the implementation. Though these curves have a lot of advantages, there are also some disadvantages, one of which we discuss below called as a small subgroup attack. $Curve25519$ is a composite order curve.
 
 ## Small Subgroup attack in non-prime order curves
 
@@ -48,7 +82,7 @@ If you have a cyclic group of order $np$ (where $p$ is a prime), then scalar mul
 
 Below is a sage program which takes all possible values of $a$ & scalar multiplies it by $8$. And you can see that after doing this, the output is always an element of the prime order subgroup. 
 
-$djb$ uses a related method for $Curve25519$ - the lower 3 bits of the private key/scalar is cleared before use. Any element with $3$ least significant bits as $0$ is a multiple of $8$ & nothing is leaked by the small subgroup attack.
+As we saw at the beginning of the post DJB uses something similar for $Curve25519$ - the lower 3 bits of the private key/scalar is cleared before use. Any element with $3$ least significant bits as $0$ is a multiple of $8$ & nothing is leaked by the small subgroup attack.
 
 ## Torsion safe cofactor clearing
 
@@ -137,5 +171,13 @@ Now with a 8-torsion element like $33$
 3) With torsion safe cleared key $(a_2.33) \bmod 88 = (40.33) \bmod 88 =0$
 
 So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a_2.Q = a.Q$, but if it belongs to the torsion subgroup, then $a_2.Q = identity$.
+
+-----  
+
+**Note:** Since this post only discusses the Cofactor Clearing part of Clamping, here are some links about the other parts of claming
+
+- [When using Curve25519, why does the private key always have a fixed bit at 2^254](https://crypto.stackexchange.com/questions/11810/when-using-curve25519-why-does-the-private-key-always-have-a-fixed-bit-at-2254/11818#11818)?
+
+- [DJB's explanation](https://mailarchive.ietf.org/arch/msg/cfrg/pt2bt3fGQbNF8qdEcorp-rJSJrc/)
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FCofactorClearing%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
