@@ -174,7 +174,7 @@ So what we see is if the element (say $Q$) belongs to the prime order subgroup t
 
 -----  
 
-**Note:** Since this post only discusses the Cofactor Clearing part of Clamping, here are some links about the other parts of claming
+**Note:** Since this post only discusses the Cofactor Clearing part of Clamping, here are some links about the other parts of clamping
 
 - [When using Curve25519, why does the private key always have a fixed bit at 2^254](https://crypto.stackexchange.com/questions/11810/when-using-curve25519-why-does-the-private-key-always-have-a-fixed-bit-at-2254/11818#11818)?
 
