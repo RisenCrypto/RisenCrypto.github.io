@@ -9,7 +9,7 @@ name: Risen Crypto
 description: Mathematical Cryptography
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/RisenCrypto/RisenCrypto.github.io/master/images/Logo.png
+avatar: /images/Logo.png?raw=true
 
 #
 # Flags below are optional
