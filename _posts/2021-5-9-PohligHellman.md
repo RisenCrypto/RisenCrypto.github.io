@@ -9,7 +9,7 @@ title: The Pohlig-Hellman Algorithm
 
 The *Pohlig-Hellman Algorithm* helps solve the *Discrete Log Problem* for Finite Fields whose order can be factored into prime powers of smaller primes. The algorithm reduces the computation of the discrete log in the Finite Field $G$ to the computation of the discrete log in prime power order subgroups of $G$
 
-For e.g. Order of $\mathbb F(p)=p−1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}…$
+For e.g. Order of $\mathbb F(p)=p-1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}...$
 
 The PH algorithm allows your solve the DLP in the smaller subgroups of order $p_1^{n_1}, p_2^{n_2}, p_3^{n_3}$ etc and then combine the solutions using the *Chinese Remainder Theorem* to get the solution for the original DLP.    
 
@@ -30,7 +30,7 @@ $y, p$ & $g$ are known. The discrete log problem here is to find $x$
 
 The multiplicative operation of $\mathbb F(p)$ excludes the $0$ element & hence it's order is one less than the order of the field. So the order is $p-1$. Any composite number can be expressed as the product of prime powers. 
 
-Order = $p−1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}…$
+Order = $p-1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}...$
 
 Since each of the prime powers ${p_i}^{n_i}$ divides the order of the group, by the Fundamental Theorem of Cyclic Groups, there will be a cyclic subgroup for each of the prime powers of order ${p_i}^{n_i}$ with the generator for the subgroup being $g^{\frac {p-1} {p_i^{n_i}}}$ 
 
@@ -77,13 +77,13 @@ So the binary expansion of $x=13$ will be
 
 $x_i=13=1101=1 . 2^0 + 0. 2^1 + 1.2^2 + 1.2^3$
 
-Since $x_i$ is $\bmod 2^{n_i}$, then the max value of $x_i$ can only be $2^n −1$. The number $2^n$ in binary representation needs $n+1$ bits. So the number $2^n −1$ will need $n_i$ bits. Hence when we expand $x_i$ in base 2, we will have $n_i$ co-efficients $\in \lbrace 0,1 \rbrace$
+Since $x_i$ is $\bmod 2^{n_i}$, then the max value of $x_i$ can only be $2^n -1$. The number $2^n$ in binary representation needs $n+1$ bits. So the number $2^n -1$ will need $n_i$ bits. Hence when we expand $x_i$ in base 2, we will have $n_i$ co-efficients $\in \lbrace 0,1 \rbrace$
 
 For any base other than 2, we do it similarly
 
-$x_i=\sum_{j=0}^{n−1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, …,{p_i}−1\rbrace$
+$x_i=\sum_{j=0}^{n-1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, ...,{p_i}-1\rbrace$
 
-$x_i=a_0+ a_1p_i + a_2{p_i}^2 +…+ a_{n-1}{p_i}^{n-1}$ where $a_j \in \lbrace 0,1,...,{p_i}−1\rbrace$
+$x_i=a_0+ a_1p_i + a_2{p_i}^2 +...+ a_{n-1}{p_i}^{n-1}$ where $a_j \in \lbrace 0,1,...,{p_i}-1\rbrace$
 
 **Solving the DLP in the subgroup** 
 
@@ -104,13 +104,12 @@ $y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}(a_0+a_1{p_i}+a_2{p_i}^2... + a_{n_i-
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}}. g^{(p-1)a_1}. g^{(p-1){a_2}{p_i}}...g^{(p-1){a_{n-1}}{p_i}^{n-2}}  \bmod p $
 
-Other than the first term, all the remaining terms are of the form $g^{k(p−1).p^j}$. By *Fermat’s Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
+Other than the first term, all the remaining terms are of the form $g^{k(p-1).p^j}$. By *Fermat's Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}} \bmod p $
 
 
-In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,p−1 \rbrace$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard’s rho etc)
-
+In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,p-1 \rbrace$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard's rho etc)
 
 Now, that $a_0$ i known, let's start again to find other $a_i$s
 
@@ -142,11 +141,11 @@ So,
 
 $y^{\frac {p-1}{p_1^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}}. g^{(p-1){a_2}}...g^{(p-1){a_{n-1}}{p_i}^{n-3}}  \bmod p $
 
-Other than the first term on the Right Hand Side, all the remaining terms are of the form $g^{k(p−1).p^j}$. By *Fermat’s Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
+Other than the first term on the Right Hand Side, all the remaining terms are of the form $g^{k(p-1).p^j}$. By *Fermat's Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
 
 $y^{\frac {p-1}{p_i^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}} \bmod p $
 
-In the above equation, the only unknown is $a_1$ and $a_1 \in \lbrace 0,1,...,p−1 \rbrace$. Like before, it can be solved to get $a_1$
+In the above equation, the only unknown is $a_1$ and $a_1 \in \lbrace 0,1,...,p-1 \rbrace$. Like before, it can be solved to get $a_1$
 
 We can keep repeating these steps to get all values from $a_2$ to $a_{n-1}$, there by finding $x_i$.
 
@@ -163,11 +162,11 @@ $x \equiv x_1 \bmod {p_1}^{n_1}$
 
 $x \equiv x_2 \bmod {p_2}^{n_2}$
 
-$…$
+$...$
 
-$…$
+$...$
 
-$…$
+$...$
 
 The *Chinese remainder theorem* can be used to combine the above to find $x$ for $\bmod p$
 
@@ -254,7 +253,7 @@ $7531\equiv 6^{2+3a_1+9a_2+27a_3} \bmod p$
 $7531 \equiv 6^2 . 6^{3a_1+9a_2+27a_3} \bmod p$
 
 
-$7531 . 6^{−2} \equiv 6^{3a_1+9a_2+27a_3} \bmod p$
+$7531 . 6^{-2} \equiv 6^{3a_1+9a_2+27a_3} \bmod p$
 
 Using sage, 
 
@@ -321,7 +320,7 @@ $7531 \equiv 6^{8100k+6689} \bmod 8101$
 
 $7531 \equiv 6^{8100k} . 6^{6689} \bmod 8101$
 
-By Fermat’s Little Theorem, $6^{8100k} \bmod 8101$ is 1
+By Fermat's Little Theorem, $6^{8100k} \bmod 8101$ is 1
 
 $7531 \equiv 6^{6689} \bmod 8101$
 
@@ -338,7 +337,7 @@ The differences are mainly
 
 1. Groups are additive groups & not multiplicative groups.
 
-2.  We used Fermat’s Little Theorem for solving multiplicative Group DLP. Fermat’s Little Theorem is a special case of Lagrange’s Theorem. Lagrange’s Theorem implies (among other things) that for an additive Group $G$, if $m$ is the order of the group, then for every $g \in G$, $m∗g=0$
+2.  We used Fermat's Little Theorem for solving multiplicative Group DLP. Fermat's Little Theorem is a special case of Lagrange's Theorem. Lagrange's Theorem implies (among other things) that for an additive Group $G$, if $m$ is the order of the group, then for every $g \in G$, $m*g=0$
 
 ---  
 
@@ -386,30 +385,30 @@ $a_0=1$
 
 $Q=(1+7a_1+7^{2}a_2).P$
 
-$Q−P=(7a_1+7^{2}a_2).P$
+$Q-P=(7a_1+7^{2}a_2).P$
 
 Multiply both sides by $\frac{m}{7^2}$
 
-$\frac{m}{7^2}(Q−P)=(7a_1+7^2a_2).\frac{m}{7^2}P$
+$\frac{m}{7^2}(Q-P)=(7a_1+7^2a_2).\frac{m}{7^2}P$
 
-Again, by Lagrange’s Theorem we can remove the $7^2$ term.
+Again, by Lagrange's Theorem we can remove the $7^2$ term.
 
-$161(Q−P)=1127a_1P$
+$161(Q-P)=1127a_1P$
 
 We solve this to get
 $a_1=3$
 
-$Q=(1+7∗3+{7^2}a_2)P$
+$Q=(1+7*3+{7^2}a_2)P$
 
 $Q=(22+7^2{a_2})P$
 
-$Q−22P=7^2a_2P$
+$Q-22P=7^2a_2P$
 
 Multiply both sides by $\frac{m}{7^3}$
 
-$\frac {m}{7^3}(Q−22P)=7^2a_2 \frac {m}{7^3}P$
+$\frac {m}{7^3}(Q-22P)=7^2a_2 \frac {m}{7^3}P$
 
-$23(Q−22P)=1127a_2P$
+$23(Q-22P)=1127a_2P$
 
 Solving, we get
 
@@ -437,7 +436,7 @@ So the ECDLP is solved
 
 ---  
 
-**Note:** the factors in both the numerical problems were very small, so just brute-forcing would be enough to get the coefficients for the subgroups. However, for larger factors, the BabyStep-GiantStep or Pollard’s rho algorithms would be used.
+**Note:** the factors in both the numerical problems were very small, so just brute-forcing would be enough to get the coefficients for the subgroups. However, for larger factors, the BabyStep-GiantStep or Pollard's rho algorithms would be used.
 
 
 
