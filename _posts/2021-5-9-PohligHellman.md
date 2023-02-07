@@ -111,14 +111,15 @@ $y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}} \bmod p $
 
 In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,p−1 \rbrace$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard’s rho etc)
 
+
 Now, that $a_0$ i known, let's start again to find other $a_i$s
 
-$y^{\frac {p-1}{p_1^{2}}} = g^{\frac {p-1}{p_1^{2}}{x_1}} \bmod p$
+$y^{\frac {p-1}{p_1^{n_1}}} = g^{\frac {p-1}{p_1^{n_1}}{x_1}} \bmod p$
 
 Raise both sides by $p_1^{n_1 - 2}$
 
 
-$y^{\frac {p-1}{p_1^2}} = g^{\frac {p-1}{{p_1^2}}{x_1}} \bmod p$
+$y^{\frac {p-1}{p_1^{2}}} = g^{\frac {p-1}{p_1^{2}}{x_1}} \bmod p$
 
 Substitute $x_1 = {a_0+a_1{p_1}+a_2{p_1}^2+ ... + a_{n_1-1}{p_1}^{n_1-1} }$
 
