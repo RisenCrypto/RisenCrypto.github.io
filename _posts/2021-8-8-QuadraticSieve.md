@@ -168,7 +168,7 @@ $153 = 3^2$ x $17$
 
 One thing to notice here is that checking whether a number is divisible by the prime by using trial division may be expensive. We can avoid this by using the roots to figure out which numbers in the list are going to be divisible by a particular prime.  
 
-For e.g. for the prime $p_i$, the roots of $N \bmod p_i$ will tell us which numbers in our list are divisible by $p_i$. The roots can be found using the Tonelli–Shanks algorithm
+For e.g. for the prime $p_i$, the roots of $N \bmod p_i$ will tell us which numbers in our list are divisible by $p_i$. The roots can be found using the Tonelli-Shanks algorithm
 
 Let's try it for $p_i = 13$. I am using sagemath here to find the roots of $N \bmod 13$
 
