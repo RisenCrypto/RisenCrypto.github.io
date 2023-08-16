@@ -403,3 +403,5 @@ $f'(X)z(X) - g'(X)z(X\omega)$
 This is the $6(b)$ statement which the prover needs to prove. This is divided by $z_H$ for the same reason. If the provers gives a commitment to this & opens it successfully, then it means that this polynomial is zero at all points of $H$ - i.e proof for $6(b)$. About the $\alpha$ terms in both, it is [explained here](/PLONKWHY#linear-independence). Instead proving multiple different polynomials are zero at $H$, PLONK combines them as linearly independent terms, so it can proven together for all those polynomials.
 
 Thus the permutation check is constructed.
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FPLONKPerm%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
