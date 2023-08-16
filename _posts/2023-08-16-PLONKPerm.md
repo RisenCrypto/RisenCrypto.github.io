@@ -340,7 +340,7 @@ We have to prove 2 things as discussed earlier.
 
 Point 6 in Section 5.1 of the Plonk Paper (Page 22) shows what needs to be done.
 
-![Perm](/images/Perm.png)
+![Perm](/images/Perm.png?raw=true)
 (Note - They use $Z(a)$ while we use $z(X)$, they use $g$ where we use $\omega$ but it's the same other than these different names.)
 
 a) $L_1$ is $1$ at $a=1$ & $0$ at all other members of $H$ (by definition of the Lagrange Base). So at $a=1$, if $L_1(a)(z(a) - 1) = 0$, then it means $z(1) = 1$ - which if true, proves the first condition we are looking to prove.
@@ -370,7 +370,7 @@ So proving 6a & 6b would prove our Copy Constraints.
 
 In the PLONK paper, this is done in Round 3 (Page 29).
 
-![Round 3](\images\R3.png)
+![Round 3](/images/R3.png?raw=true)
 
 Let's go over only the part marked in red (the others are not part of the permuation check).
 
