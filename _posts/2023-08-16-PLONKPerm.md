@@ -215,13 +215,13 @@ Let's create $S_{\sigma_1}$ in sagemath.
 
 (Note we are operating in the field $\mathbb F_{97}$)
 
-~~~python
+```python
 sage: F97 = GF(97)
 sage: R97.<x> = PolynomialRing(F97)
 sage: pts = [(1,96),(22,3),(96,2),(75,94)]
 sage: R97.lagrange_polynomial(pts)
 8*x^3 + 73*x^2 + 39*x + 73
-~~~
+```
 Likewise, we can also interpolate $S_{\sigma_2}$ & $S_{\sigma_3}$
 
 
