@@ -193,7 +193,7 @@ Column C contains the list of numbers we are going to sieve with the primes in t
 
 I have written a script function in the Google sheet to do the sieving
 
-~~~js   
+~~~ruby   
 
 function Sieve(no, p) 
 {
@@ -270,7 +270,7 @@ We can find $\vec{x}$ by computing the Kernel. Gaussian Elimination can be used 
 
 Doing it in SageMath 
 
-~~~
+~~~ruby
 sage: R = Zmod(2)
 sage: A = matrix(R, [
 ....: [0,2,0,1,0,0,0,0],
