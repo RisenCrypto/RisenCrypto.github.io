@@ -106,7 +106,7 @@ So we get $(t^3 + t + 1) * (t+1) = t^3 + t^2 + t$
 
 We can check both our addition & multiplication operations in SageMath
 
-~~~
+~~~ruby
 sage: F.<t> = GF(2^4) # Define our extension field
 sage: F.modulus() # Irreducible polynomial
 t^4 + t + 1
@@ -262,7 +262,7 @@ We want to add $P + Q$. Let's use the Group Law formulas to add the points.
 
 We have 2 polynomial basis representations here - the coordinates of the Elliptic Curve equation are represented as polynomials & the x & y coordinates of the Curve points are also individually represented as polynomials. 
 
-~~~
+~~~ruby
 sage: F1.<t> = GF(2^4)
 sage: F1.polynomial()
 t^4 + t + 1
@@ -287,7 +287,7 @@ So we get $P + Q = E(1,1)$
 
 Next is Doubling i.e. $2P$ 
 
-~~~
+~~~ruby
 sage: λ = x1 + y1/x1
 sage: x3 = λ^2 + λ + a
 sage: y3 = x1^2 +λ*x3 + x3
@@ -300,7 +300,8 @@ t
 So $2P = E(t^3 + t + 1, t)$  
 
 We used the group law calculations to do the above to understand it better. But everything can be done using Sagemath's in-built EllipticCurve object as shown below
-~~~
+
+~~~ruby
 sage: F1.<t> = GF(2^4)
 sage: E1 = EllipticCurve(F1, [1, t^3, 0, 0, t^3 + 1])
 sage:
