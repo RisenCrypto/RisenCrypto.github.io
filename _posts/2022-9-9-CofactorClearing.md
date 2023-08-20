@@ -12,7 +12,7 @@ When using DJB's $Curve25519$, the private key is clamped before use.
 
 The claimping function typically looks like this
 
-~~~  
+~~~ruby  
 
 key[0] &= 248;  
 
@@ -138,7 +138,7 @@ $k \equiv 0 \bmod 8$ [Congruence (2)]
 
 We can combine the (1) & (2) congruences using Chinese Remainder Theorem to find $k$
 
-~~~
+~~~ruby
 sage: CRT_list([0,1], [8,11])
 56
 ~~~
