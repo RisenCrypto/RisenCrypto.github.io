@@ -262,13 +262,17 @@ $z(\omega^{n-1}) = m(\omega)m(\omega^2)...m(\omega^{n-1})$
 
 **For** $i = n$
 
-$z(\omega^n) = m(\omega)m(\omega^2)...m(\omega^{n-1})m(\omega^n)$
+$z(\omega^n) = m(\omega)m(\omega^2)...m(\omega^{n-1})$
 
 However, since $\omega$ is the $n$th root of unity, $\omega^n = 1$ 
 
 So
 
-$z(1) = m(\omega^2)...m(\omega^{n-1})$
+$z(1) = m(\omega)m(\omega^2)...m(\omega^{n-1})$
+
+**For** $i=n+1$
+
+$z(\omega^{n+1}) = z(\omega) = m(1)m(\omega)m(\omega^2)...m(\omega^{n-1})$
 
 To prove the Copy Constraint, prover has to prove that
 
@@ -350,6 +354,8 @@ $z(\omega^3) = m(\omega)m(\omega^2)$
 ...
 
 $z(1) = m(\omega)\cdot m(\omega^2)...m(\omega^{k-1})$
+
+$z(\omega) = m(1)m(\omega)\cdot m(\omega^2)...m(\omega^{k-1})$
 
 So proving 6a & 6b would prove our Copy Constraints.
 
