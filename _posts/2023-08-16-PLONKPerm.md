@@ -268,7 +268,7 @@ However, since $\omega$ is the $n$th root of unity, $\omega^n = 1$
 
 So
 
-$z(1) = m(1)m(\omega^2)...m(\omega^{n-1})$
+$z(1) = m(\omega^2)...m(\omega^{n-1})$
 
 To prove the Copy Constraint, prover has to prove that
 
@@ -349,7 +349,7 @@ $z(\omega^3) = m(\omega)m(\omega^2)$
 
 ...
 
-$z(1) = m(1)\cdot m(\omega)\cdot m(\omega^2)...m(\omega^{k-1})$
+$z(1) = m(\omega)\cdot m(\omega^2)...m(\omega^{k-1})$
 
 So proving 6a & 6b would prove our Copy Constraints.
 
