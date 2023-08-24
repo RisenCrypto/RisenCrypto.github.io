@@ -255,7 +255,7 @@ $z(\omega^2) = m(\omega)$
 
 **For i = 3**,
 
-$z(\omega^3) = m(\omega)m\omega^2)$
+$z(\omega^3) = m(\omega)m(\omega^2)$
 
 **For i = n-1**,
 
