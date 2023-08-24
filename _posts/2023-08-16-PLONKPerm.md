@@ -280,7 +280,9 @@ So we have to prove
 
 - We have to also prove the above steps were followed in building $z(\omega)$ - i.e. the $z$'s were accumulatively as computed above.
 
-Point 6 in Section 5.1 of the Plonk Paper (Page 22) shows what needs to be done.
+#### The Proof
+
+Point 6 in Section 5.1 of the Plonk Paper (Page 22) shows what needs to be done to prove this
 
 ![Perm](/images/Perm.png?raw=true)
 (Note - They use $Z(a)$ while we use $z(X)$, they use $g$ where we use $\omega$ but it's the same other than these different names.)
