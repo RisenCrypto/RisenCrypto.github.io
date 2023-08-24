@@ -336,29 +336,34 @@ Here is a screenshot of Round 2 from Page 28 of the paper
 
 ![Round 2](/images/R2.png?raw=true) 
 
-1) The formula for Lagrange Interpolation is
+The formula for Lagrange Interpolation is
 
-$\sum_{i=0}^{n-1} L_{i+1}Y_{i+1}$
+$z(X) = \sum_{i=0}^{n-1} L_i Y_i$
 
 where $L_i(X)$ is the $i$th Lagrange base. 
 
-Our first point for the interpolation is always $(1,1)$, i.e. $Y_1 = 1$. This is always true because we assume that $Z(1) = 1$ & also  prove it. So the first term  $L_1(X)\cdot Y_1$ can be replaced by just $L_1(X)$ which is what they do in the screenshot shown for Round 2. The first term of $\sum_{i=0}^{n-1} L_i\cdot Y_i$ is separated out & the $L_1(X)$ term is written separately & the remaining terms from $L_2$ on are written using the summation symbol.
+We have $z(\omega) = 1$
+i.e. for $X=\omega$, $Y=1$
 
-i.e. $\sum_{i=0}^{n-1} L_{i+1}Y_{i+1}$ 
+$\omega$ is the 2nd element of $H$, so $Y_1 = 1$. 
 
-is replaced by 
+So we can rewrite the Lagrange interpolation as 
 
-$L_1(X) + \sum_{i=1}^{n-1} L_{i+1}Y_{i+1}$
+$z(X) =  L_0 Y_0 + L_1 + \sum_{i=2}^{n-1} L_i Y_i$
 
-because $Y_1 = 1$
+Again, since the last+1 element is the first element (i.e. $n$ is same as index $0$ in the subgroup), we rewrite this as
 
-In the screenshot, we have the equation used to calculate $Y_i$ instead of $Y_i$ itself. The numerator of the equation is the same as the $f'(X)$ we defined earlier & the denominator is $g'(X)$
+$z(X) =   L_1 + \sum_{i=2}^{n} L_i Y_i$
+
+Also, we change the $\sum$ range by using $L_{i+1}$ instead of $L_i$
+
+$z(X) =   L_1 + \sum_{i=1}^{n-1} L_{i+1} Y_{i+1}$
+
+So that's what is used in the screenshot above. Alsoit has the Perm Check equation to calculate $Y_i$ instead of $Y_i$ itself. The numerator of the equation is the same as the $f'(X)$ we defined earlier & the denominator is $g'(X)$
 
 Also, the term $(b_7 X^2 + b_8 X + b_9)z_H(X)$ is added while computing $z(X)$ for blinding which is explained [here](/PLONKWHY#blinding) 
 
 Thus, we interpolate & compute the Permutatation Polynomial $z(X)$.
-
-That covers the design of the PLONK Permutation Check.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FPLONKPerm%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
