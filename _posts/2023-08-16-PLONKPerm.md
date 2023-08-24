@@ -239,8 +239,6 @@ Let $m(X) = \frac {f'(X)}{g'(X)}$
 
 So what we have to check is if $\prod_{x \in H} m(X) \stackrel {?}{=} 1$
 
-#### The Permutation Check
-
 Let's define another polynomial $z(X)$ such that  
 
 - $z(\omega) = 1$ and 
