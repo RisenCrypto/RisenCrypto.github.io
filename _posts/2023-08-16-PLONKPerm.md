@@ -359,7 +359,7 @@ Also, we change the $\sum$ range by using $L_{i+1}$ instead of $L_i$
 
 $z(X) =   L_1 + \sum_{i=1}^{n-1} L_{i+1} Y_{i+1}$
 
-So that's what is used in the screenshot above. Alsoit has the Perm Check equation to calculate $Y_i$ instead of $Y_i$ itself. The numerator of the equation is the same as the $f'(X)$ we defined earlier & the denominator is $g'(X)$
+So that's what is used in the screenshot above. $Y_i$ is replaced by the formula to calculate $Y_i$. The numerator of the equation is the same as the $f'(X)$ we defined earlier & the denominator is $g'(X)$
 
 Also, the term $(b_7 X^2 + b_8 X + b_9)z_H(X)$ is added while computing $z(X)$ for blinding which is explained [here](/PLONKWHY#blinding) 
 
