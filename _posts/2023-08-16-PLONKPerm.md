@@ -282,7 +282,7 @@ So we have to prove
 - $z(\omega) = 1$
 
 
-- Other than this, we have to also prove the above steps were followed in building $z(\omega)$ - i.e. the $z$'s were accumulatively as computed above.
+- We have to also prove the above steps were followed in building $z(\omega)$ - i.e. the $z$'s were accumulatively as computed above.
 
 Point 6 in Section 5.1 of the Plonk Paper (Page 22) shows what needs to be done.
 
