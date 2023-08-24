@@ -225,10 +225,6 @@ sage: R97.lagrange_polynomial(pts)
 Likewise, we can also interpolate $S_{\sigma_2}$ & $S_{\sigma_3}$
 
 
-#### The Permutation Polynomial
-
-Next, we build the permutation polynomial which will help the prover prove that the permutation check is as per specified copy constraints.
-
 Our Perm Check Equation
 
 $f'(X) = (a(X) + X\cdot \beta + \gamma)(b(X) + X\cdot \beta + \gamma)(c(X) + X\cdot \beta + \gamma)$
@@ -238,6 +234,8 @@ $g'(X) =  (a(X) + \sigma_1(X)\cdot \beta + \gamma)(b(X) + \sigma_2(X)\cdot \beta
 Let $m(X) = \frac {f'(X)}{g'(X)}$
 
 So what we have to check is if $\prod_{x \in H} m(X) \stackrel {?}{=} 1$
+
+#### The Permutation Polynomial
 
 Let's define another polynomial $z(X)$ such that  
 
