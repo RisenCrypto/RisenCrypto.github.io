@@ -341,7 +341,7 @@ with $m(X) = \frac {f'(X)}{g'(X)}$
 
 i.e. $z(X\omega)g'(X) = z(X) f'(X)$
 
-So condition 2 when proved for all $X \in H$ would show that $z(1)$ is built accumulatively from $m(X)$
+So condition 2 when proved for all $X \in H$ would show that $z(\omega)$ is built accumulatively from $m(X)$
 
 i.e.
 
