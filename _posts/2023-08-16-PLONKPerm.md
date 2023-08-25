@@ -361,7 +361,7 @@ So that's what is used in the screenshot above. $Y_i$ is replaced by the equatio
 
 Also, the term $(b_7 X^2 + b_8 X + b_9)z_H(X)$ is added while computing $z(X)$ for blinding which is explained [here](/PLONKWHY#blinding) 
 
-Thus, we interpolate & compute the Permutatation Polynomial $z(X)$.
+Thus, we interpolate & compute the Permutatation Polynomial $z(X)$. This polynomial is then used in Round 3 as discussed earlier to create a proof for the Copy Constraints.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FPLONKPerm%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
