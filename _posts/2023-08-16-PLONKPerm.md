@@ -153,6 +153,8 @@ So the actual permutation check will be
 
 **(Perm Check)**
 
+The index numbers for Left of the Circuit would be the elements of $H$, while those for the right & output would be $k_1H$ & $k_2H$ respectively.
+
 $\prod_{X \in  H} (a(X) + X\cdot \beta + \gamma)(b(X) + X\cdot k_1\cdot \beta + \gamma)(c(X) + X\cdot k_2\cdot \beta + \gamma) \stackrel {?}{=} $
 
 $\prod_{X \in H} (a(X) + \sigma_1(X)\cdot \beta + \gamma)(b(X) + \sigma_2(X)\cdot \beta + \gamma)(a(X) + \sigma_3(X)\cdot \beta + \gamma)$
