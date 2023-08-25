@@ -153,7 +153,7 @@ So the actual permutation check will be
 
 **(Perm Check)**
 
-$\prod_{X \in  H} (a(X) + X\cdot \beta + \gamma)(b(X) + X\cdot\k_1\cdot \beta + \gamma)(c(X) + X\cdot\k_2\cdot \beta + \gamma) \stackrel {?}{=} $
+$\prod_{X \in  H} (a(X) + X\cdot \beta + \gamma)(b(X) + X\cdot k_1\cdot \beta + \gamma)(c(X) + X\cdot k_2\cdot \beta + \gamma) \stackrel {?}{=} $
 
 $\prod_{X \in H} (a(X) + \sigma_1(X)\cdot \beta + \gamma)(b(X) + \sigma_2(X)\cdot \beta + \gamma)(a(X) + \sigma_3(X)\cdot \beta + \gamma)$
 
