@@ -289,7 +289,7 @@ Point 6 in Section 5.1 of the Plonk Paper (Page 22) shows what needs to be done 
 ![Perm](/images/Perm.png?raw=true)
 (Note - They use $Z(a)$ while we use $z(X)$, they use $g$ where we use $\omega$ but it's the same other than these different names.)
 
-a) $L_1$ is $1$ at $a=1$ & $0$ at all other members of $H$ (by definition of the Lagrange Base). So at $a=1$, if $L_1(a)(z(a) - 1) = 0$, then it means $z(1) = 1$ - which if true, proves the first condition we are looking to prove.
+a) $L_1$ is $1$ at $a=1$ & $0$ at all other members of $H$ (by definition of the Lagrange Base). So at $a=\omega$, if $L_1(a)(z(a) - 1) = 0$, then it means $z(\omega) = 1$ - which if true, proves the first condition we are looking to prove.
 
 b) As we go through 6(b) for each element $\in H$,it will show $z$ has been build accumulatively - i.e. each $z$ is the previous $z$ multiplied by the previous $m$.
 
@@ -312,9 +312,9 @@ $z_H(X) = (X-1)(X-\omega)(X-\omega^2)(X-\omega^3).....(X-\omega^{n-1})$
 
 i.e. $z_H=0$ at every element of the set $H$ - it vanishes at every element of $H$. If a prover wants to prove that a polynomial is zero (vanishes) at every element in a set, she divides the polynomial by the vanishing polynomial for that set. Only if it divides without a remainder will the prover be able to provide a commitment to the quotient of the division. So if the prover is able to provide a commitment to a polynomial divided by $z_H$ and is able to open the commitment successfully, then it means that polynomial is zero on every element of the set $H$. 
 
-So if the prover is able to do this for $(z(X) -1)L_1(X) \frac {\alpha^2}{z_H}$ (we will discuss the $\alpha$ term separately), it means $(z(X) -1)L_1(X) = 0$ at all points of $H$ including at $1$. Which means $(z(1) -1) = 0$ (because $L_1(1) = 1$).
+So if the prover is able to do this for $(z(X) -1)L_1(X) \frac {\alpha^2}{z_H}$ (we will discuss the $\alpha$ term separately), it means $(z(X) -1)L_1(X) = 0$ at all points of $H$ including at $\omega$. Which means $(z(\omega) -1) = 0$ (because $L_1(1) = 1$).
 
-Which means $z(1) = 1$ which was one of the things ($6(a)$) the prover set out to prove.
+Which means $z(\omega) = 1$ which was one of the things ($6(a)$) the prover set out to prove.
 
 Next, let's look at first 2 polynomials inside the red box in the earlier screenshot.
 
