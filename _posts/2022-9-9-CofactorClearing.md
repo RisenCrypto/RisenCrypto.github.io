@@ -39,11 +39,11 @@ This Bitwise ORing will set bit 254 to 1 which improves performance when operati
 
 This post is mainly about the Cofactor Clearing part of the Clamping function, so the rest of the post only discusses that.
 
-## Cofactor Clearing
+**Cofactor Clearing**
 
 Many cryptographic protocols use elliptic curves of prime order. However there are composite order curves like the Edwards Curve, Montgomery Curve etc which easily provide faster group operations with complete addition laws which are not vulnerable to a timing attack. So many modern elliptic curve implentations use a composite order curve of order $h.p$ where $p$ is a prime & $h$ is a small cofactor usually $8$ or lesser. The composite order curve has a subgroup of prime order $p$ which is used for the implementation. Though these curves have a lot of advantages, there are also some disadvantages, one of which we discuss below called as a small subgroup attack. $Curve25519$ is a composite order curve.
 
-## Small Subgroup attack in non-prime order curves
+**Small Subgroup attack in non-prime order curves**
 
 The operations are usually implemented in the prime order subgroup of the full Curve. Let's take the example of Diffie Hellman to understand the small subgroup attack. Let's say our curve is of order $8p$ where $p$ is a prime & $8$ is the cofactor. The main group of order $8p$ is a finite cyclic Group. By the fundamental theorem of finite cyclic groups, the 2 subgroups of order $8$ & order $p$ are also finite cyclic subgroups. Let $G$ be a generator of the prime order subgroup. Let $a$ & $b$ be Alice's & Bob's private key respectively. This is how a typical Diffie Hellman key exchange works.
 
@@ -76,7 +76,7 @@ There are also a couple of other attacks similar to the one we described.
 
 In DH, leaking $a \bmod 8$ matters only if Alice reuses $a$. However, above attack is not limited to DH, but also applicable to many other Cryptographic protocols. In some protocols like like PAKE, MQV etc, the attack can have far worse effects.
 
-## Mitigation for the small subgroup attack - cofactor clearing
+**Mitigation for the small subgroup attack - cofactor clearing**
 
 If you have a cyclic group of order $np$ (where $p$ is a prime), then scalar multipliying any element of the group by the cofactor ($n$) gives you an element of the prime order subgroup irrespective irrespective of which subgroup it was in originally. This can be easily done by both parties - i.e. Alice after choosing a private key $a$, she multiplies it by $8$ & uses $8a$ as the private key. So when she receives $bG$ from Bob, the shared secret is derived from $8abG$ instread of from $abG$. Likewise Bob does the same. Now if Bob is a malicious player, then what is leaked is $8a \bmod 8$ instead of $a \bmod 8$. Since $8a \bmod 8$ is always 0, nothing of significance is leaked. Thus, mutliplying the private key by the cofactor mitigates the small subgroup attack.
 
@@ -84,7 +84,7 @@ Below is a sage program which takes all possible values of $a$ & scalar multipli
 
 As we saw at the beginning of the post DJB uses something similar for $Curve25519$ - the lower 3 bits of the private key/scalar is cleared before use. Any element with $3$ least significant bits as $0$ is a multiple of $8$ & nothing is leaked by the small subgroup attack.
 
-## Torsion safe cofactor clearing
+**Torsion safe cofactor clearing**
 
 The method of cofactor clearing by scalar multiplying by the cofactor works fine for many protocols but isn't suitable everywhere. In many implementations of $Ed25519$, the private key/scalar is persisted as is and before use the least significant 3 bits of the scalar are cleared. This creates a problem for some use-cases. 
 Any point $Q$ on the full curve of order $8p$ can be written as the sum of 2 components i.e. the prime order component $P$ & a $8$-torsion component $T$ from the subgroup of order $8$ i.e $Q = P + T$. Clearing the lower 3 bits of $Q$ could change both the prime order component & also the 8-torsion component. This may not be appropriate in some places (like BIP-32 which uses hierarchical key derivation scheme). These use-cases require "torsion-safe" cofactor clearing. 
@@ -179,5 +179,6 @@ So what we see is if the element (say $Q$) belongs to the prime order subgroup t
 - [When using Curve25519, why does the private key always have a fixed bit at 2^254](https://crypto.stackexchange.com/questions/11810/when-using-curve25519-why-does-the-private-key-always-have-a-fixed-bit-at-2254/11818#11818)?
 
 - [DJB's explanation](https://mailarchive.ietf.org/arch/msg/cfrg/pt2bt3fGQbNF8qdEcorp-rJSJrc/)
+
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FCofactorClearing%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
