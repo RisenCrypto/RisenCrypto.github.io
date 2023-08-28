@@ -7,14 +7,6 @@ title: Polynomials and Elliptic Curves over Extension Fields
 
 {% include mathjax.html %}
 
-We look at 2 things
-
-
-- Polynomial Basis Representation in Extension Fields  
-
-- Elliptic Curves over an Extension Field   
-
---- 
 
 ## Polynomial Basis Representation in Extension Fields   
 
@@ -72,7 +64,7 @@ $$
 
 So, the finite field $\mathbb F_{2^k}$ can be viewed as bit-string or a vector space over its subfield $\mathbb F_2$. The 16 polynomials in $\mathbb F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
 
-### Group Operations  
+**Group Operations**
 
 **Addition**  
 
@@ -167,11 +159,12 @@ t^3 + t^2 + t
 t^3 + t^2 + t + 1
 ```
 
-### Extension fields where $p > 2$
+**Extension fields where $p > 2$**
 
 Extension fields of $\mathbb F_p$ where $p > 2$ are also similar. With $p=2$, each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k-1}t^{k-1} +a_{k-2}t^{k-2} +...+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$. For a general $p$, the $a_i$s would be in $F_p$ instead of $F_2$.
 
-### Use of $\mathbb F_{2^8}$ in AES   
+**Use of $\mathbb F_{2^8}$ in AES**
+
 In AES, the extension field $\mathbb F_{2^8}$ is used with $t^{8} + t^{4} + t^{3} + t + 1$ as the irreducible polynomial. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
 
 ----  
@@ -187,7 +180,7 @@ Elliptic Curves over Finite fields (including ones over Extension Fields) have 2
 Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + a_2x^2 + a_6$ over the extension field $$\mathbb F_{2^k}$$. 
 (This curve equation is in the long Weierstrass form $E:y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6$ with $a_1 = 1, a_3 = 0$ and $a_4 = 0$)
 
-### Group Operations       
+**Group Operations** 
 
 **Point Addition**
 
@@ -217,7 +210,7 @@ $P = (x, y)$
 
 $-P = (x, x + y)$
 
-### Construction
+**Construction**
 
 Let's construct this curve over $\mathbb F_{2^4}$.
 
@@ -270,11 +263,11 @@ sage: x1 = F1(t)
 sage: y1 = F1(t^3 + t^2 + t + 1)
 sage: x2 = F1(t^3 + t^2)
 sage: y2 = F1(t^3 + t^2)
-sage: λ = (y1 + y2)/(x1 + x2)
+sage: ? = (y1 + y2)/(x1 + x2)
 sage: a = F1(t^3)
 sage: b = F1(t^3 + 1)
-sage: x3 = λ^2 + λ + x1 + x2 + a
-sage: y3 = λ*(x1 + x3)+ x3 + y1
+sage: x3 = ?^2 + ? + x1 + x2 + a
+sage: y3 = ?*(x1 + x3)+ x3 + y1
 sage: x3
 1
 sage: y3
@@ -288,9 +281,9 @@ So we get $P + Q = E(1,1)$
 Next is Doubling i.e. $2P$ 
 
 ~~~ruby
-sage: λ = x1 + y1/x1
-sage: x3 = λ^2 + λ + a
-sage: y3 = x1^2 +λ*x3 + x3
+sage: ? = x1 + y1/x1
+sage: x3 = ?^2 + ? + a
+sage: y3 = x1^2 +?*x3 + x3
 sage: x3
 t^3 + t + 1
 sage: y3
@@ -319,5 +312,3 @@ sage: 2*P
 ~~~
 ----  
 
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FExtensionFields%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
