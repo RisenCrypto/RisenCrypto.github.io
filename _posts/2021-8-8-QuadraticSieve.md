@@ -11,7 +11,9 @@ The Quadratic Sieve is the second fastest algorithm for factoring large semiprim
 
 Some Background first. 
 
-**Fermat's Factorization**  
+### Historical Background
+
+#### Fermat's Factorization
 
 Most commonly used factorization methods today rely on a simple mathematical Identity    
 
@@ -51,7 +53,7 @@ So $799 = 17$ x $47$
 
 Obviously, with very large semiprimes, this method would take far too many iterations to be useful.
 
-**Kraitchik's Factorization** 
+#### Kraitchik's Factorization 
 
 Kraitchik reasoned that instead of trying to find a & b such that $a^2 - b^2 = N$, it may be sufficient to find a & b such that the difference of squares is equal to a multiple of N.
 
@@ -130,9 +132,11 @@ $B \approx L^{\frac {1}{\sqrt 2}}$
 
 If we want to factor $N = 87463$, we calculate $B \approx 42$. So we are looking for 43-Smooth Quadratic Residues $\bmod N$. We use the Quadratic Sieve Algorithm in the Relationship Building step to find the B-smooth numbers in our list. If you are not familiar with what 'Sieving' is, you can look up [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes). Unlike the Basic Sieve, in the Quadratic Sieve algorithm, we sieve all the way upto 1 so as to find Smooth numbers.
 
-**Quadratic Sieve**   
+### Quadratic Sieve   
 
 We use a Quadratic Polynomial to do the sieving - hence the name Quadratic Sieve.  
+
+#### Relation Building
 
 One such polynomial is $F(T) = T^2 - N$. We start with a $T$ which is $ceil(\sqrt N)$ 
 
@@ -234,7 +238,7 @@ We have found the following Smooth Numbers
 
 The remaining steps of factorization (Elimination & GCD) are not part of the Quadratic Sieving algorithm itself. They are used in all Factorization methods once the Relationship Building step is completed
 
-**Elimination & GCD:**  
+#### Elimination & GCD  
 
 Every positive integer m has an exponent vector v(m) that is based on the prime factorization of m
 
@@ -296,6 +300,8 @@ $v2 = [0\,1\,0\,0\,1\,0\,1]$ (i.e. multiply the squares of the 2nd, 5th & 7th nu
 
 $v3 = [0\,0\,1\,1\,0\,1\,0]$ (i.e. multiply the squares of the 3rd, 4th & 6th number - $302^2$ x $307^2$ x $343^2$)
 
+#### GCD Computation
+
 Let's take the first one
 
 $296^2$ x $316^2 \equiv (3^2$ x $17)(3^6$ x $17) \bmod 87463$   
@@ -322,4 +328,3 @@ So all 3 zero product exponent vectors have given us the factorization (If not e
 
 The above is a very simple version of the Quadratic Sieve without much optimizations. Also, our example factors a very small 5 digit number while the Quadratic Sieve is used for upto 100 digit numbers. 
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FQuadraticSieve%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
