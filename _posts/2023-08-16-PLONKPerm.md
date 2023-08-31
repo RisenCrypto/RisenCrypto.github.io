@@ -6,7 +6,7 @@ title: Permutation Check in PLONK
 
 {% include mathjax.html %}
 
-Like every SNARK, in PLONK, we have to check if Gate Constraints are satisfied. Other than this, there are also Copy Constraints (also called as Wire Constraints) which have to be checked. 
+Like every SNARK, in PLONK, we have to check if Gate Constraints are satisfied. Other than this, there are also Copy Constraints which have to be checked. 
 
 Consider the following Circuit & it's trace for witness $x = 4$![Circuit](/images/Circuit3.png?raw=true)
 
