@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: Permutation Check in 𝒫𝔩𝔬𝔫𝒦
+title: Permutation Check in PlonK
 ---
 
 {% include mathjax.html %}
