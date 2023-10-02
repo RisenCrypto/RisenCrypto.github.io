@@ -14,7 +14,7 @@ Polynomial Modular Arithmetic done in Finite Fields is used in a lot of places i
 
 Let's first with defining what are Groups, Rings & Fields
 
-#### A **Group** is a set G with a binary operation (let's call this operation '+') on G such that for all $a, b, c \in G$ 
+*A Group is a set G with a binary operation (let's call this operation '+') on G such that for all $a, b, c \in G$*
 
 * $a + (b + c) = (a + b) + c$  - This property is called **associativity** 
 
@@ -24,9 +24,9 @@ Let's first with defining what are Groups, Rings & Fields
 
 * Any operation done on the group using the operator will always produce a result which is also a member of the group. This property is called **Closure**
 
-#### An Abelian Group is a Group which is also **Commutative** - i.e. for all $a, b \in G, a + b = b + a$
+*An Abelian Group is a Group which is also **Commutative** - i.e. for all $a, b \in G, a + b = b + a$*
 
-#### A Ring is a set with 2 operations. A ring is an Abelian Group under the first operation (let's say '+'). It has the following two properties for a second operation (let's say '$\star$').
+*A Ring is a set with 2 operations. A ring is an Abelian Group under the first operation (let's say '+'). It has the following two properties for a second operation (let's say '$\star$').*
 
 * Associative multiplication
 
@@ -40,7 +40,7 @@ Let's first with defining what are Groups, Rings & Fields
 
 A ring is always commutative under the first operation. A ring which is also commutative under it's 2nd operation is called a commutative ring.
 
-#### A field is also a set with 2 operations. A field is an Abelian group under the first operation (let's call it addition). Under the second operation (let's call it multiplication), a field has all the properaties which a commutative ring has under it's 2nd operation. A field also has an identity element under multiplication where every non-zero element has a multiplicative inverse. 
+*A field is also a set with 2 operations.* A field is an Abelian group under the first operation (let's call it addition). Under the second operation (let's call it multiplication), a field has all the properaties which a commutative ring has under it's 2nd operation. A field also has an identity element under multiplication where every non-zero element has a multiplicative inverse. 
 
 Finite Fields are also called **Galois Fields**
 
