@@ -10,7 +10,7 @@ On some topics, I am unable to find a single text or source which  explains the 
 
 - I do not use Ruby & other tools locally to build it. Forked from [Jekyll Now](https://www.jekyllnow.com/) so everything can be done online.
 
-- I use [Mathjax](https://www.mathjax.org/). Here are the [instructions](http://sgeos.github.io/github/jekyll/2016/08/21/adding_mathjax_to_a_jekyll_github_pages_blog.html) to integrate it into Github pages.
+- I use [Mathjax](https://www.mathjax.org/). Here are the [instructions](http://sgeos.github.io/github/jekyll/2016/08/21/adding_mathjax_to_a_jekyll_github_pages_blog.html) to integrate it into a Github pages Jekyll Blog.
 
 - I use [Allejo's Pure Liquid jekyll-toc](https://pure-liquid.allejo.org/) for the Table of Contents.
 
