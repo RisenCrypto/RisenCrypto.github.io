@@ -2,7 +2,6 @@
 layout: post
 mathjax: true
 title: Clamping & Cofactor clearing in Curve25519 
-
 ---
 
 {% include mathjax.html %}
