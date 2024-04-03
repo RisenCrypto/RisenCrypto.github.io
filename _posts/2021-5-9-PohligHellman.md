@@ -11,7 +11,7 @@ The *Pohlig-Hellman Algorithm* helps solve the *Discrete Log Problem* for Finite
 
 For e.g. Order of $\mathbb F(p)=p-1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}...$
 
-The PH algorithm allows your solve the DLP in the smaller subgroups of order $p_1^{n_1}, p_2^{n_2}, p_3^{n_3}$ etc and then combine the solutions using the *Chinese Remainder Theorem* to get the solution for the original DLP.    
+The PH algorithm allows you to solve the DLP in the smaller subgroups of order $p_1^{n_1}, p_2^{n_2}, p_3^{n_3}$ etc and then combine the solutions using the *Chinese Remainder Theorem* to get the solution for the original DLP.    
 
 ---   
 
@@ -77,13 +77,13 @@ So the binary expansion of $x=13$ will be
 
 $x_i=13=1101=1 . 2^0 + 0. 2^1 + 1.2^2 + 1.2^3$
 
-Since $x_i$ is $\bmod 2^{n_i}$, then the max value of $x_i$ can only be $2^n -1$. The number $2^n$ in binary representation needs $n+1$ bits. So the number $2^n -1$ will need $n_i$ bits. Hence when we expand $x_i$ in base 2, we will have $n_i$ co-efficients $\in \lbrace 0,1 \rbrace$
+Since $x_i$ is $\bmod 2^{n_i}$, then the max value of $x_i$ can only be $2^{n_i} -1$. The number $2^{n_i}$ in binary representation needs $n_i+1$ bits. So the number $2^{n_i}-1$ will need $n_i$ bits. Hence when we expand $x_i$ in base 2, we will have $n_i$ co-efficients $\in \lbrace 0,1 \rbrace$
 
 For any base other than 2, we do it similarly
 
-$x_i=\sum_{j=0}^{n-1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, ...,{p_i}-1\rbrace$
+$x_i=\sum_{j=0}^{{n_i}-1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, ...,{p_i}-1\rbrace$
 
-$x_i=a_0+ a_1p_i + a_2{p_i}^2 +...+ a_{n-1}{p_i}^{n-1}$ where $a_j \in \lbrace 0,1,...,{p_i}-1\rbrace$
+$x_i=a_0+ a_1p_i + a_2{p_i}^2 +...+ a_{n_i-1}{p_i}^{n_i-1}$ where $a_j \in \lbrace 0,1,...,{p_i}-1\rbrace$
 
 **Solving the DLP in the subgroup** 
 
@@ -102,7 +102,7 @@ Substitute $x_i = {a_0+a_1{p_i}+a_2{p_i}^2+ ... + a_{n_i-1}{p_i}^{n_i-1} }$
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}(a_0+a_1{p_i}+a_2{p_i}^2... + a_{n_i-1}{p_i}^{n_i-1})} \bmod p$
 
-$y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}}. g^{(p-1)a_1}. g^{(p-1){a_2}{p_i}}...g^{(p-1){a_{n-1}}{p_i}^{n-2}}  \bmod p $
+$y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}}. g^{(p-1)a_1}. g^{(p-1){a_2}{p_i}}...g^{(p-1){a_{n_i-1}}{p_i}^{n_i-2}}  \bmod p $
 
 Other than the first term, all the remaining terms are of the form $g^{k(p-1).p^j}$. By *Fermat's Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
 
@@ -111,7 +111,7 @@ $y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}} \bmod p $
 
 In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,p-1 \rbrace$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard's rho etc)
 
-Now, that $a_0$ i known, let's start again to find other $a_i$s
+Now, that $a_0$ is known, let's start again to find other $a_i$
 
 $y^{\frac {p-1}{p_1^{n_1}}} = g^{\frac {p-1}{p_1^{n_1}}{x_1}} \bmod p$
 
@@ -124,7 +124,7 @@ Substitute $x_1 = {a_0+a_1{p_1}+a_2{p_1}^2+ ... + a_{n_1-1}{p_1}^{n_1-1} }$
 
 $y^{\frac {p-1}{p_1^2}} = g^{\frac {p-1}{p_1^2}(a_0+a_1{p_1}+a_2{p_1}^2... + a_{n_i-1}{p_1}^{n_1-1})} \bmod p$
 
-$y^{\frac {p-1}{p_1^2}} = g^{\frac {(p-1)a_0}{p_1^2}}. g^{\frac {(p-1)a_1}{p_1}}. g^{(p-1){a_2}}...g^{(p-1){a_{n-1}}{p_i}^{n-3}}  \bmod p $
+$y^{\frac {p-1}{p_1^2}} = g^{\frac {(p-1)a_0}{p_1^2}}. g^{\frac {(p-1)a_1}{p_1}}. g^{(p-1){a_2}}...g^{(p-1){a_{n_1-1}}{p_i}^{n_1-3}}  \bmod p $
 
 Let $m = g^{\frac {(p-1)a_0}{p_1^2}}$ ($a_0$ is now a known value).
 
@@ -139,7 +139,7 @@ So $m = (g^{\frac {p-1}{p_1^2}})^{a_0}$.
 
 So,
 
-$y^{\frac {p-1}{p_1^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}}. g^{(p-1){a_2}}...g^{(p-1){a_{n-1}}{p_i}^{n-3}}  \bmod p $
+$y^{\frac {p-1}{p_1^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}}. g^{(p-1){a_2}}...g^{(p-1){a_{n_1-1}}{p_i}^{n_1-3}}  \bmod p $
 
 Other than the first term on the Right Hand Side, all the remaining terms are of the form $g^{k(p-1).p^j}$. By *Fermat's Little Theorem*, all these terms evaluate to 1 & can be removed from the expression.
 
@@ -202,9 +202,9 @@ So let's summarise the steps in the Algorithm
 
 8) You now have found the first $x = x_i \bmod p$
 
-9) Find similar $x_i$s for other prime power subgroups
+9) Find similar ${x_i}$'s for other prime power subgroups
 
-10) Combine all the $x_i$s with CRT to find $x$ & solve the DLP.
+10) Combine all the ${x_i}$'s with CRT to find $x$ & solve the DLP.
 
 
 ## A numerical example
@@ -225,7 +225,7 @@ Let's first start with the 2nd prime power subgroup which is of order $3^4$ (you
 
 For this subgroup, $p_i = 3$ & $n_i = 4$
 
-Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3} = 2700. And also replace $x$ by $x_1$ 
+Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3}$ = 2700. And also replace $x$ by $x_1$ 
 
 
 $7531^{2700} \equiv 6^{x_1} \bmod p$
@@ -274,11 +274,11 @@ $a_1=0$
 
 Now, $x_2=2+9a_2+27a_3$ 
 
-Raising to $\frac {8100}{3^3}$ i.e.$300$, we can solve similarly to get 
+Raising to $\frac {8100}{3^3}$ i.e. $300$, we can solve similarly to get 
 
 $a_2 =2$
 
-Raising by $\frac {8100}{3^4}$ i.e.$100$, we can solve similarly to get 
+Raising by $\frac {8100}{3^4}$ i.e. $100$, we can solve similarly to get 
 
 $a_3 = 1$
 
@@ -304,6 +304,7 @@ $x \equiv 47 \bmod 81$
 $x \equiv 14 \bmod 25$
 
 Using the Chinese Remainder Theorem, we can combine it to get
+
 
 $CRT\text_list([1, 47, 14],[4,81,25]) = 6689$
 
@@ -439,5 +440,4 @@ So the ECDLP is solved
 **Note:** The factors in both the numerical problems were very small, so just brute-forcing would be enough to get the coefficients for the subgroups. However, for larger factors, the BabyStep-GiantStep or Pollard's rho algorithms would be used.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FPohligHellman%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-
 
