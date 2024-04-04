@@ -81,7 +81,7 @@ Since $x_i$ is $\bmod 2^{n_i}$, then the max value of $x_i$ can only be $2^{n_i}
 
 For any base other than 2, we do it similarly
 
-$x_i=\sum_{j=0}^{{n_i}-1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, ...,{p_i}-1\rbrace$
+$x_i=\sum_{j=0}^{n_i-1} a_j{p_i}^j$ where $a_j \in \lbrace 0,1, ...,{p_i}-1\rbrace$
 
 $x_i=a_0+ a_1p_i + a_2{p_i}^2 +...+ a_{n_i-1}{p_i}^{n_i-1}$ where $a_j \in \lbrace 0,1,...,{p_i}-1\rbrace$
 
