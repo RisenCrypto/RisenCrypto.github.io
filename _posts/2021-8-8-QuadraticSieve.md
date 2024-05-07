@@ -21,9 +21,9 @@ $X^2 - Y^2 = (X+Y)(X-Y)$
 
 To factor $N$, we look for an integer $b$ such that $N + b^2$ is a perfect square.
 
-i.e. $N^2 + b^2 = a^2$  
+i.e. $N + b^2 = a^2$  
 
-So $N^2 = a^2 - b^2$
+So $N = a^2 - b^2$
 
 $N = (a + b)(a - b)$  
 
