@@ -27,10 +27,6 @@ As shown by the coloured lines in the trace table next to circuit diagram above,
 - the output of Gate 1 is the left input of Gate 2
 
 etc.
-
-In other older SNARKs like [Groth16](/R1CSQAP/), we didn't have to check Copy Constraints but we need to check it in $\mathcal{P} \mathfrak{lon}\mathcal{K}$ and the reason for this is [explained here](/$\mathcal{P} \mathfrak{lon}\mathcal{K}$WHY#copy-constraints)
-
-
 #### Checking Permutations in a vector
 
 Let's first consider vector $a$ alone - here we have to check that the 1st, & 3rd element are the same. 
