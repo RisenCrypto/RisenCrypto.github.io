@@ -344,7 +344,7 @@ The differences are mainly
 
 **Numerical example for ECDLP**
 
-$E:y2=x3+1001x+75 \bmod 7919$
+$E:y^2=x^3+1001x+75 \bmod 7919$
 
 Order of the Curve = $m=7889$
 
