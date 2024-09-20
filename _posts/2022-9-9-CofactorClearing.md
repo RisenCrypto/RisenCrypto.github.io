@@ -6,7 +6,7 @@ title: Clamping & Cofactor clearing in Curve25519
 
 {% include mathjax.html %}
 
-
+### Clamping
 When using DJB's $Curve25519$, the private key is clamped before use.
 
 The claimping function typically looks like this
@@ -38,7 +38,7 @@ This Bitwise ORing will set bit 254 to 1 which improves performance when operati
 
 This post is mainly about the Cofactor Clearing part of the Clamping function, so the rest of the post only discusses that.
 
-**Cofactor Clearing**
+### Cofactor Clearing
 
 Many cryptographic protocols use elliptic curves of prime order. However there are composite order curves like the Edwards Curve, Montgomery Curve etc which easily provide faster group operations with complete addition laws which are not vulnerable to a timing attack. So many modern elliptic curve implentations use a composite order curve of order $h.p$ where $p$ is a prime & $h$ is a small cofactor usually $8$ or lesser. The composite order curve has a subgroup of prime order $p$ which is used for the implementation. Though these curves have a lot of advantages, there are also some disadvantages, one of which we discuss below called as a small subgroup attack. $Curve25519$ is a composite order curve.
 
