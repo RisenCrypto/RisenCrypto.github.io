@@ -33,8 +33,6 @@ footer-links:
 
 plugins:
   - jekyll-feed
-title: Mathematical Cryptography, zkSNARKs
-description: Welcome to my blog
 author: RisenCrypto
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
