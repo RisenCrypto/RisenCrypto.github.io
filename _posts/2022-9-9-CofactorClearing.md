@@ -9,7 +9,7 @@ title: Clamping & Cofactor clearing in Curve25519
 ### Clamping
 When using DJB's $Curve25519$, the private key is clamped before use.
 
-The claimping function typically looks like this
+The clamping function typically looks like this
 
 ~~~ruby  
 
@@ -23,18 +23,18 @@ key[31] |= 64;
 
 Here `key` is the private key, a 32-byte value interpreted as an integer in **little-endian** format. Let's see what these 3 lines of code do.
  
-> key[0] &= 248; // 248 is 011111000
+`key[0] &= 248; // 248 is 11111000`
 
-This Bitwise ANDing will clear (zero out) the lowest 3 bits of the key. This is called **Cofactor Clearing** and a majority of this post is spent in discussing this.
+This Bitwise AND will clear (zero out) the lowest 3 bits of the key. This is called **Cofactor Clearing** and a majority of this post is spent in discussing this.
 
 
-> key[31] &= 127; // 127 is 01111111
+`key[31] &= 127; // 127 is 01111111`
 
-This Bitwise ANDing will clear (zero out) bit 255. This ensures that the key is always in the range $0..2^{255}-1$ where the operations are defined. 
+This Bitwise AND will clear (zero out) bit 255. This ensures that the key is always in the range $0..2^{255}-1$ where the operations are defined. 
 
-> key[31] |= 64; // 64 is 01000000
+`key[31] |= 64; //   64 is 01000000`
 
-This Bitwise ORing will set bit 254 to 1 which improves performance when operations are implemented in a way that doesn't leak information about the key through timing.
+This Bitwise OR will set bit 254 to 1 which improves performance when operations are implemented in a way that doesn't leak information about the key through timing.
 
 This post is mainly about the Cofactor Clearing part of the Clamping function, so the rest of the post only discusses that.
 
