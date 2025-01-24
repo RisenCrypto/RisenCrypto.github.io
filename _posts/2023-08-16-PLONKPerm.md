@@ -145,9 +145,8 @@ The above check considers only vector $a$. However, the constraints aren't local
 
 Though we had $\sigma: index(a) \mapsto index(a)$, in reality we need 3 maps $\sigma_1, \sigma_2, \sigma_3$ one each for index of elements of vectors $a$, $b$ & $c$, in each of these maps the destination could be any the index of the $3n$ elements.
 
-The actual permutation check will be 
 
-**(Perm Check)**
+**Perm Check**
 
 The index numbers for Left of the Circuit would be the elements of $H$, while those for the right & output would be $k_1H$ & $k_2H$ respectively.
 
