@@ -228,7 +228,7 @@ For this subgroup, $p_i = 3$ & $n_i = 4$
 Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3}$ = 2700. And also replace $x$ by $x_1$ 
 
 
-$7531^{2700} \equiv 6^{x_1} \bmod p$
+$7531^{2700} \equiv 6^{x_1} \bmod 8101$
 
 Expanding $x_1$ in base 3, we get
 
@@ -236,7 +236,7 @@ $x_2=a_0+3a_1+9a_2+27a_3$ where $a_i \in \lbrace 0,1,2\rbrace$
 
 After substituting this, we can cancel out the terms involving everything except $a_0$ using Fermat's Little Theorem.
 
-$7531^{2700} \equiv 6^{2700a_0} \bmod p$
+$7531^{2700} \equiv 6^{2700a_0} \bmod 8101$
 
 $LHS = 7531^{2700} = pow(7531, 2700, 8101) = 2217$
 
@@ -248,22 +248,22 @@ $a_0=2$
 
 Now, $x_1=2+3a_1+9a_2+27a_3$ 
 
-$7531\equiv 6^{2+3a_1+9a_2+27a_3} \bmod p$
+$7531\equiv 6^{2+3a_1+9a_2+27a_3} \bmod 8101$
 
-$7531 \equiv 6^2 . 6^{3a_1+9a_2+27a_3} \bmod p$
+$7531 \equiv 6^2 . 6^{3a_1+9a_2+27a_3} \bmod 8101$
 
 
-$7531 . 6^{-2} \equiv 6^{3a_1+9a_2+27a_3} \bmod p$
+$7531 . 6^{-2} \equiv 6^{3a_1+9a_2+27a_3} \bmod 8101$
 
 Using sage, 
 
 $pow(6, -2, 8101) = 7876$ and $mod(7876*7531,8101) = 6735$
 
-So, $6735= \equiv 6^{3a_1+9a_2+27a_3} \bmod p$
+So, $6735= \equiv 6^{3a_1+9a_2+27a_3} \bmod 8101$
 
 We raise both sides to $\frac {p-1}{p_i^2}$ i.e. $\frac {8100}{9} = 900$ & also cancel out all $a_i$ terms other than $a_1$ using Fermat's little theorem.
 
-$6735^{900} \equiv 6^{2700a_1} \bmod p$
+$6735^{900} \equiv 6^{2700a_1} \bmod 8101$
 
 $LHS = pow(6735, 900, 8101) = 1$
 
