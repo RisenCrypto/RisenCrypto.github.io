@@ -286,7 +286,7 @@ This gives us $x_2 = 47$. So
 
 $x \equiv 47 \bmod 81$  [Solution for the DLP in $3^4$]
 
-Next, we solve in the subgroup or order $2^2$ to get 
+Next, we solve in the subgroup of order $2^2$ to get 
 
 $x\equiv 1 \bmod 4$ 
 
