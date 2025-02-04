@@ -272,7 +272,13 @@ $\qquad\qquad = \begin{bmatrix} 2 \cr 3 \cr 4 \end{bmatrix} + \begin{bmatrix} 41
 
 $\qquad\qquad = \begin{bmatrix} 139 \cr 61 \cr 194 \end{bmatrix} $
 
-**Note:** The evaluation of a vector polynomial is a vector.
+<div class="boxed">
+
+The evaluation of a vector polynomial is a vector.
+
+</div>
+
+<hr style="clear:both;">
 
 $\overrightarrow l(x) = \overrightarrow l_0  + \overrightarrow l_1x$
 
