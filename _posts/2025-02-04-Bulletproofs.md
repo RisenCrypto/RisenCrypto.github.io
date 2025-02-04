@@ -25,7 +25,7 @@ For convenience, I represent vectors horizontally in this post except in case of
 
 I represent a vector of exponentiated scalars as 
 
-$\overrightarrow {an} = [a^0, a^1, a^2, ..., a^n]$ 
+$\overrightarrow {a^n} = [a^0, a^1, a^2, ..., a^n]$ 
 
 Pedersen Commitments can be extended to commit a vector of elements. 
 
