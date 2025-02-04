@@ -13,7 +13,8 @@ The Prover is $\mathcal P$ & the Verifier $\mathcal V$.
 ### Prerequisites
 
 #### Pedersen Commitments
-The basic Pedersen Commitment has been covered [here](/Monero/#pedersen-commitments) in the earlier Monero post. 
+The basic Pedersen Commitment has been covered in the earlier Monero post - [Privacy and Anonymity in Monero
+](/Monero/#pedersen-commitments) . 
 
 ##### Pedersen Vector Commitments
 I use the following notations for vectors. The arrow on top denotes that it is a vector & not just a single value
