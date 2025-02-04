@@ -272,13 +272,7 @@ $\qquad\qquad = \begin{bmatrix} 2 \cr 3 \cr 4 \end{bmatrix} + \begin{bmatrix} 41
 
 $\qquad\qquad = \begin{bmatrix} 139 \cr 61 \cr 194 \end{bmatrix} $
 
-<div class="boxed">
-
-The evaluation of a vector polynomial is a vector.
-
-</div>
-
-<hr style="clear:both;">
+**Note:** The evaluation of a vector polynomial is a vector.
 
 $\overrightarrow l(x) = \overrightarrow l_0  + \overrightarrow l_1x$
 
@@ -314,12 +308,7 @@ $c = <\overrightarrow m, \overrightarrow n>$
 
 $\overrightarrow G$ & $\overrightarrow H$ are the bases for $\overrightarrow m$ & $\overrightarrow n$ respectively
 
-<div class="boxed">
-
-The commitment $S$ is a binding commitment but not a hiding commitment because there is no blinding factor. 
-</div>
-
-<hr style="clear:both;">
+**Note:** The commitment $S$ is a binding commitment but not a hiding commitment because there is no blinding factor. 
 
 Instead of proving these 2 statements separately, $\mathcal P$ wants to combine them into one statement & prove it such that proving the one statement will prove both of the above. Since $S$ is an Elliptic Curve point, we will convert $c$ also to a point before combining them.
 
