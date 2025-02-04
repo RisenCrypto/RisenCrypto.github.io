@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: Bulletproofs & Range Proof in Monero using Bulletproofs
+title: Bulletproofs Inner Product Argument & Range Proofs in Monero using Bulletproofs
 ---
 
 {% include mathjax.html %}
@@ -486,7 +486,7 @@ However, $\mathcal V$ doesn't really do anything with these updated bases in eac
 
 In each round, we used a random $x_i$ & scaled up the left halves by $x_i$ & we scaled down the right half by $x_i^{-1}$. This is done so that $\mathcal P$ cannot fake a proof. We saw earlier how without using a random $r$ to create $U = rV$, $\mathcal P$ could prove $c_{fake} = <\overrightarrow m, \overrightarrow n>$ by crafting a $S_{fake}$. Similarly in each round, $\mathcal P$ instead of sending the correctly computed $L$ & $R$ could craft $L_{fake}$ & $R_{fake}$ such that everything matches & if he does this in each round, the final $<m_l, n_l>$ can be made to equal $c_{fake}$. To prevent this, in each round, after $\mathcal P$ sends $L_i$ & $R_i$, $\mathcal V$ samples a random $x_i$ sends it to $\mathcal P$. And then $\mathcal P$ scales the left & right halves of that round by $x_i$ & $x_i^{-1}$ respectively.
 
-### Range Proof in Monero
+### Range Proofs in Monero
 
 In the [Monero Post](/Monero/#ringct), we saw how validators can verify that the sum of the inputs of a transaction is greater than the sum of the outputs even though the amounts of the values are hidden using Pedersen Commitments. This check by itself is not enough because of wraparound which happens in Finite Fields. Consider a transaction with 2 inputs & 2 outputs. Alice uses 2 UTXOs of value $10$ & $15$ to send Bob $17$ moneros & sends back change of $7$ to herself. 
 
@@ -793,6 +793,6 @@ So, this proves that
 
 $z^2 v + f(y,z) = \overrightarrow l_0\overrightarrow r_0 = <\overrightarrow a_L -z \overrightarrow{1^n},\overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n }>$
 
-Which is what we set out to prove. This concludes the Range Proof for Monero.
+Which is what we set out to prove. This concludes the Range Proofs for Monero.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FBulletproofs%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
