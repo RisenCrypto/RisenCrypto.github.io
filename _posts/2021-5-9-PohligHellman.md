@@ -228,7 +228,7 @@ For this subgroup, $p_i = 3$ & $n_i = 4$
 Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3}$ = 2700. And also replace $x$ by $x_2$ 
 
 
-$7531^{2700} \equiv 6^{x_1} \bmod 8101$
+$7531^{2700} \equiv 6^{x_2} \bmod 8101$
 
 Expanding $x_2$ in base 3, we get
 
