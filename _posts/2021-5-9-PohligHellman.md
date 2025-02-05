@@ -240,7 +240,7 @@ $7531^{2700} \equiv 6^{2700a_0} \bmod 8101$
 
 $LHS = 7531^{2700} = pow(7531, 2700, 8101) = 2217$
 
-$2700 \equiv 6^{2700a_0} \bmod 8101$
+$2217 \equiv 6^{2700a_0} \bmod 8101$
 
 Since the only variable here is $a_0$ & $a_0 \in \lbrace 0, 1, 3 \rbrace$, we can solve & get 
 
