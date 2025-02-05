@@ -225,12 +225,12 @@ Let's first start with the 2nd prime power subgroup which is of order $3^4$ (you
 
 For this subgroup, $p_i = 3$ & $n_i = 4$
 
-Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3}$ = 2700. And also replace $x$ by $x_1$ 
+Raise the original DLP to $\frac {p-1}{p_i}$ i.e. $\frac{8100}{3}$ = 2700. And also replace $x$ by $x_2$ 
 
 
 $7531^{2700} \equiv 6^{x_1} \bmod 8101$
 
-Expanding $x_1$ in base 3, we get
+Expanding $x_2$ in base 3, we get
 
 $x_2=a_0+3a_1+9a_2+27a_3$ where $a_i \in \lbrace 0,1,2\rbrace$
 
