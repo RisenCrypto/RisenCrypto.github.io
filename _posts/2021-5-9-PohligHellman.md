@@ -246,7 +246,7 @@ Since the only variable here is $a_0$ & $a_0 \in \lbrace 0, 1, 3 \rbrace$, we ca
 
 $a_0=2$
 
-Now, $x_1=2+3a_1+9a_2+27a_3$ 
+Now, $x_2=2+3a_1+9a_2+27a_3$ 
 
 $7531\equiv 6^{2+3a_1+9a_2+27a_3} \bmod 8101$
 
