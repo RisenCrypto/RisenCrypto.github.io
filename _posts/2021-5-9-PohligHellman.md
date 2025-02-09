@@ -435,9 +435,14 @@ $x \equiv 4334 \bmod 7889$
 
 So the ECDLP is solved
 
----  
 
-**Note:** The factors in both the numerical problems were very small, so just brute-forcing would be enough to get the coefficients for the subgroups. However, for larger factors, the BabyStep-GiantStep or Pollard's rho algorithms would be used.
+<div class="boxed">
+ 
+The factors in both the numerical problems were very small, so just brute-forcing would be enough to get the coefficients for the subgroups. However, for larger factors, the BabyStep-GiantStep or Pollard's rho algorithms would be used.
+
+</div>
+
+<hr style="clear:both;">
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FPohligHellman%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
