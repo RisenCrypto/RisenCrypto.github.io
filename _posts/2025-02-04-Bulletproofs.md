@@ -474,7 +474,7 @@ $\overrightarrow G_1 = x_1^{-1} \overrightarrow G_L + x_1 \overrightarrow G_R$
 
 & similarly for computing $\overrightarrow H_1$ from $\overrightarrow H_L$ & $\overrightarrow H_R$.
 
-Similarly in round 2, $\overrightarrow G_2$ would be computed from $\overrightarrow G_{1L}$ & $\overrightarrow G_{2R}$. And $\overrightarrow H_2$ also similarly.
+Similarly in round 2, $\overrightarrow G_2$ would be computed from $\overrightarrow G_{1L}$ & $\overrightarrow G_{1R}$. And $\overrightarrow H_2$ also similarly.
 
 However, $\mathcal V$ doesn't really do anything with these updated bases in each round because he doesn't do any checks till the final round. He needs the final updated bases only in the final round. So, he saves his $x_i$s from each round & finally computes the final $G_l$ & $H_l$ which will be a function of our starting $\overrightarrow G$ & $\overrightarrow H$ & all the $x_i$s.
 
