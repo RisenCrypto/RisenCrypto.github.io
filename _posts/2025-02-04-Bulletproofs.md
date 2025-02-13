@@ -787,7 +787,7 @@ The constant co-efficient of $t(x)$ is equal to $z^2 v + f(y,z) $. The constant 
 
 So, this proves that 
 
-$z^2 v + f(y,z) = \overrightarrow l_0\overrightarrow r_0 = <\overrightarrow a_L -z \overrightarrow{1^n},\overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n }>$
+$z^2 v + f(y,z) = <\overrightarrow l_0,\overrightarrow r_0> = <\overrightarrow a_L -z \overrightarrow{1^n},\overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n }>$
 
 Which is what we set out to prove. This concludes the Range Proofs for Monero.
 
