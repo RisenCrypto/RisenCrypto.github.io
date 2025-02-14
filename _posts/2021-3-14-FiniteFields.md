@@ -78,7 +78,7 @@ Many of the different properties which Finite Fields possess are very useful in 
 
 Let's look at a few of them
 
-1. When you are multiplying 2 numbers in a cryptographic operation, it's very useful to have the result also in the same closed set. For e.g. in AES, when you multiply 2-byte variables with each other, you want the result also to be a byte - the multiplication shouldn't result in something which is bigger than a byte. Finite Fields have **Closure**, so the result will always be a byte
+1. When you are multiplying 2 numbers in a cryptographic operation, it's very useful to have the result also in the same closed set. For e.g. in AES, when you multiply two different byte variables with each other, you want the result also to be a byte - the multiplication shouldn't result in something which is bigger than a byte. Finite Fields have **Closure**, so the result will always be a byte
 
 2. Many operations in Cryptography need to be invertible. For e.g. if while encrypting, you do some mathematical operation, you want it to     invertible so that you can reverse the operation while decrypting. All elements in a Finite Field have an **Inverse** under addition & all non-zero elements have an **Inverse** under multiplication. In AES, in the MixColumns operation, we multiply by a matrix & during decryption we multiply by the inverse of the matrix.
 
