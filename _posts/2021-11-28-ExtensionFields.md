@@ -8,17 +8,35 @@ title: Polynomials and Elliptic Curves over Extension Fields
 {% include mathjax.html %}
 
 
-## Polynomial Basis Representation in Extension Fields   
+## Extension Fields
 
-For a field $\mathbb F_p$, extension fields are of the form $\mathbb F_{p^k}$.
+Let $\mathbb F_p$ be a field. So $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree 2 or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$. However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
 
-Let's first look at Binary extension fields i.e. extension fields $\mathbb F_{2^k}$ where $p = 2$.
 
-Each element of $\mathbb F_{2^k}$ can be represented as a polynomials & each of these polynomials have their coefficients in the field $\mathbb F_2$ = {0,1}. The degree of the polynomial is less than or equal to $k - 1$. Each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k-1}t^{k-1} +a_{k-2}t^{k-2} +...+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$
+Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$. An irreducible polynomial of degree 2 is $f(x) = x^2 + x + 1$. Let $t$ be the root of this polynomial in an extension field - so $f(t) = 0$ i.e. $t^2 + t + 1 = 0$. 
 
-Let's take $\mathbb F_{2^4}$ - here the polynomials will be of the form $a_{3}t^3 + a_{2}t^2 + a_{1}t + a_0$ with each coefficient $a_i$ being equal to either 0 or 1. Since each coefficient of the polynomial is either 0 or 1, it's similar to a bit & all the coefficients of one polynomial together can be considered as a bit-string or a vector space. 
+The elements of the extension field will be all terms in $t$ with co-efficients in $\mathbb F_2$ - i.e. $a_1t + a_0$ with $t$ taking values from $\mathbb F_2$. This extension field is called $\mathbb F_2(t)/\langle t^2 + t+1 \rangle$ and it would have 4 elements as below
 
-For e.g. 
+$\mathbb F_2(t)/\langle t^2 + t+1 \rangle = \lbrace 0, 1, t, 1 + t\rbrace$
+
+We need not consider polynomials with degree $2$ or higher because $t^2 + t + 1 = 0$, so
+
+$t^2 = -t -1$
+
+$t^2 = t + 1$ (because $-1 \bmod 2 \equiv 1)$
+
+So any term with $t^2$, $t^3$ & higher could be reduced to degree less than 2.
+
+For e.g. $t^2 + 1 = 1+t + 1 = 2 + t = t$ (because $2 \bmod 2 \equiv 0$)
+
+$t^3 = t^2 \cdot t = (t+1)\cdot t = t^2 + t = 1 + t + t = 1$
+
+So even if we consider terms of degree higher than 1, they will be equivalent to one of the 4 elements we have already listed.
+
+
+This field can also be referred to as $\mathbb F_{2^2}$ or $\mathbb F_4$. We created $\mathbb F_{2^2}$ using the irreducible polynomial of degree 2 over $\mathbb F_2$. Likewise, we can construct any extension field $\mathbb F_{p^k}$ over $\mathbb F_p$ using the irreducible polynomial of degree $k$ over $\mathbb F_p$. Every element of the extension field $\mathbb F_{p^k}$ will be of degree $k-1$ or lessser i.e. of the form  $a_{k-1}t^{k-1} +a_{k-2}t^{k-2} +...+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_p$.
+
+Let's list out the elements of the extension field $F_{2^4}$ - here the terms will be of the form $a_{3}t^3 + a_{2}t^2 + a_{1}t + a_0$ with each coefficient $a_i$ being equal to either 0 or 1 from $\mathbb F_2$. So there are $2^4 = 16$ possible permutations - taking the coefficients to be of the form "$a_3a_2a_1a_0$", there would 16 permutations. 
 
 $0$ is $0000$ i.e. $0t^3 + 0t^2 + 0t^1 + 0t^0 = 0$
 
@@ -36,35 +54,94 @@ $10$ is $1010$ i.e. $1t^3 + 0t^2 + 1t^1 + 0t^0 = t^3 + t$
 
 and so on & so forth.
 
-So the 16 elements of $\mathbb F_{2^4}$ are 
+So the 16 elements of $\mathbb F_{2^4}$ where the irreducible polynomial is $x^4 + x + 1$ are 
 
-$$
-\left[
-\begin{matrix}
-0 & t^2& t^3 & t^3 +t^2 \\
-1 & t^2 +1 & t^3 +1 & t^3 +t^2 +1 \\
-t & t^2 +t & t^3 +t & t^3 +t^2 +t \\
-t +1 & t^2 +t +1 & t^3 +t +1 & t^3 +t^2 +t +1
-\end{matrix}
-\right]
-$$
+$\mathbb F_{2^4} = \lbrace 0 , t^2, t^3 , t^3 +t^2 , 1 , t^2 +1 , t^3 +1 , t^3 +t^2 +1, t , t^2 +t , t^3 +t , t^3 +t^2 +t , t +1 , t^2 +t +1 , t^3 +t +1 , t^3 +t^2 +t +1\rbrace$
 
-corresponding to the polynomial basis representations of 
+corresponding to the bit representations of $\lbrace 0, 1, ...., 15 \rbrace$ in base 2.
 
-$$
-\left[
-\begin{matrix}
-0 & 4 & 8 &12 \\
-1 & 5 & 9 & 13 \\
-2 & 6 & 10 & 14 \\
-3 & 7 & 11 & 15 \\
-\end{matrix}
-\right]
-$$
+Likewise $\mathbb F_{3^2}$ would be corresponding to the base 3 representations of $\lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8\rbrace$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
 
-So, the finite field $\mathbb F_{2^k}$ can be viewed as bit-string or a vector space over its subfield $\mathbb F_2$. The 16 polynomials in $\mathbb F_{2^4}$ can be viewed as the bit representations of all the numbers {0, 1, ...., 15} & the polynomials corresponding to them.
 
-**Group Operations**
+There is also another way of computing the elements of an extension field. Let's try it for $F_{2^4}$. An irreducible polynomial of degree 4 is $x^4 + x + 1$. So if $t$ is the root of this polynomial, then $t^4 + t + 1 =0 $
+
+So,
+$t^4 = -t -1= t + 1$ (because $-1 \bmod 2 \equiv 1$ ) 
+
+So, $t^4 = t+1$
+
+We can write out the list of elements 
+of $\mathbb F_{2^4} = \lbrace 0, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14}, t^{15} \rbrace$
+
+Now, we know $t^4 = t+1$
+
+So,
+
+$t^5 = t^4 \cdot t = (t+1)\cdot t = t^2 + t$
+
+$t^6 = t^5 \cdot t = (t^2 + t) \cdot t = t^3 + t^2$
+
+$t^7 = t^6 \cdot t = (t^3 + t^2)\cdot t =t^4 + t^3 = t+1 + t^3 = t^3 + t + 1$
+
+We continue this way, till we get
+
+$t^{14} = t^3 + 1$
+
+& 
+
+$t^{15} = (t^3 + 1)\cdot t = t^4 + t = (t + 1) + t = 1$
+
+So,
+
+$\mathbb F_{2^4} = \lbrace 0,
+ t,
+ t^2,
+ t^3,
+ t + 1,
+ t^2 + t,
+ t^3 + t^2,
+ t^3 + t + 1,
+ t^2 + 1,
+ t^3 + t,
+ t^2 + t + 1,
+ t^3 + t^2 + t,
+ t^3 + t^2 + t + 1,
+ t^3 + t^2 + 1,
+ t^3 + 1,
+ 1 \rbrace$
+
+ Let's try this for $\mathbb F_{3^2}$
+
+ $\mathbb F_{3^2} = \lbrace 0, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8\rbrace$
+ 
+The irreducible prolynomial here is $x^2 + 2x + 2$
+
+So $t^2 + 2t + 2 = 0$
+
+$t^2 = -2t -2 = t + 1 $ (because $-2 \bmod 3 \equiv 1$ ) 
+
+So $\mathbb F_{3^2} = \lbrace 0, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8\rbrace$
+
+$t^2 = t +1$
+
+$t^3 = t^2 + t = t + 1 + t = 2t + 1$
+
+$t^4 = 2t^2 + t = 2t + 2 + t = 2$
+
+$t^5 = 2t$
+
+$t^6 = 2t^2 = 2t + 2$
+
+$t^7 = 2t^2 + 2t = 2t + 2 + 2t = t + 2$
+
+$t^8 = t^2 + 2t = t+1 + 2t = 1$
+
+
+So,
+
+ $\mathbb F_{3^2} =\lbrace 0, t, t + 1, 2t + 1, 2, 2t, 2t + 2, t + 2, 1\rbrace$
+
+**Group Operations in Extension Fields**
 
 **Addition**  
 
@@ -82,7 +159,7 @@ $(t^2 + t + 1) + (t^3 + t + 1)  = t^3 + t^2$
 
 For a field $\mathbb F_{2^k}$, an irreducible binary polynomial P(t) of degree k is chosen (such a polynomial etists for any k and can be efficiently found). Multiplication of field elements (which are polynomials of degree $k-1$ or lesser) is done modulo the irreducible polynomial. 
 
-For e.g. the irreducible polynomial for the Extension field $\mathbb F_{2^4}$is $t^4 + t + 1$
+For e.g. the irreducible polynomial for the Extension field $\mathbb F_{2^4}$ is $t^4 + t + 1$
 
 Let's multiply the elements $(t^3 + t + 1) * (t+1)$
 
@@ -131,37 +208,6 @@ t + 1
 sage: Flist[7]*Flist[4] # (Multiply t^3 + t + 1) * (t + 1)
 t^3 + t^2 + t
 ~~~
-
-The bitstring way of visualizing Extension fields works well for Binary Fields (extensions of $\mathbb F_2$). However, for Extension Fields $\mathbb F_{p^k}$ with $p 
-\gt 2$, it's much simpler to think of the extension field as the Quotient of a Polynomial Ring, so let's first do the same for $\mathbb F_{2^4}$. It can be constructed as the Quotient of $\mathbb F_2(t)/\langle t^4 + t + 1 \rangle$ - this is the Polynomial ring of  $\mathbb F_2[x]$ quotiented by an ideal generated by an irreducible polynomial of degree $4$ in the Ring.
-
-```python
-sage: R.<t> = PolynomialRing(GF(2))
-sage: Q.<t> = R.quotient(t^4 + t + 1)
-sage: for i in Q:
-....:     print(i)
-....:
-0
-1
-t
-t + 1
-t^2
-t^2 + 1
-t^2 + t
-t^2 + t + 1
-t^3
-t^3 + 1
-t^3 + t
-t^3 + t + 1
-t^3 + t^2
-t^3 + t^2 + 1
-t^3 + t^2 + t
-t^3 + t^2 + t + 1
-```
-
-**Extension fields where $p > 2$**
-
-Extension fields of $\mathbb F_p$ where $p > 2$ are also similar. With $p=2$, each element $A(x)$ in $\mathbb F_{2^k}$ would be of the form  $a_{k-1}t^{k-1} +a_{k-2}t^{k-2} +...+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_2 = \lbrace 0,1 \rbrace$. For a general $p$, the $a_i$s would be in $F_p$ instead of $F_2$.
 
 **Use of $\mathbb F_{2^8}$ in AES**
 
@@ -263,11 +309,11 @@ sage: x1 = F1(t)
 sage: y1 = F1(t^3 + t^2 + t + 1)
 sage: x2 = F1(t^3 + t^2)
 sage: y2 = F1(t^3 + t^2)
-sage: λ = (y1 + y2)/(x1 + x2)
+sage: ? = (y1 + y2)/(x1 + x2)
 sage: a = F1(t^3)
 sage: b = F1(t^3 + 1)
-sage: x3 = λ^2 + λ + x1 + x2 + a
-sage: y3 = λ*(x1 + x3)+ x3 + y1
+sage: x3 = ?^2 + ? + x1 + x2 + a
+sage: y3 = ?*(x1 + x3)+ x3 + y1
 sage: x3
 1
 sage: y3
@@ -281,9 +327,9 @@ So we get $P + Q = E(1,1)$
 Next is Doubling i.e. $2P$ 
 
 ~~~ruby
-sage: λ = x1 + y1/x1
-sage: x3 = λ^2 + λ + a
-sage: y3 = x1^2 +λ*x3 + x3
+sage: ? = x1 + y1/x1
+sage: x3 = ?^2 + ? + a
+sage: y3 = x1^2 +?*x3 + x3
 sage: x3
 t^3 + t + 1
 sage: y3
@@ -310,6 +356,6 @@ sage: P + Q
 sage: 2*P
 (t^3 + t + 1 : t : 1)
 ~~~
-----  
+----
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FExtensionFields%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
