@@ -790,5 +790,3 @@ So, this proves that
 $z^2 v + f(y,z) = <\overrightarrow l_0,\overrightarrow r_0> = <\overrightarrow a_L -z \overrightarrow{1^n},\overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n }>$
 
 Which is what we set out to prove. This concludes the Range Proofs for Monero.
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Frisencrypto.github.io%2FBulletproofs%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
