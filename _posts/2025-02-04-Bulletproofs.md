@@ -790,3 +790,7 @@ So, this proves that
 $z^2 v + f(y,z) = <\overrightarrow l_0,\overrightarrow r_0> = <\overrightarrow a_L -z \overrightarrow{1^n},\overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n }>$
 
 Which is what we set out to prove. This concludes the Range Proofs for Monero.
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=20117897&style=0002&nbdigits=6&type=ip&initCount=1500" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a> 
