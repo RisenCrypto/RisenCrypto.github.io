@@ -443,3 +443,7 @@ The factors in both the numerical problems were very small, so just brute-forcin
 </div>
 
 <hr style="clear:both;">
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=20155159&style=0002&nbdigits=6&type=ip&initCount=12000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>      
