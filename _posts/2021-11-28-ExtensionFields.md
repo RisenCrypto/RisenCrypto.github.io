@@ -357,3 +357,7 @@ sage: 2*P
 (t^3 + t + 1 : t : 1)
 ~~~
 ----
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=20155070&style=0002&nbdigits=6&type=ip&initCount=3000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a> 
