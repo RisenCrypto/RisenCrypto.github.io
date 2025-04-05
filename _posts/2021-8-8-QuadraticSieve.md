@@ -327,3 +327,7 @@ So all 3 zero product exponent vectors have given us the factorization (If not e
 ---  
 
 The above is a very simple version of the Quadratic Sieve without much optimizations. Also, our example factors a very small 5 digit number while the Quadratic Sieve is used for upto 100 digit numbers. 
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=20155115&style=0002&nbdigits=6&type=ip&initCount=7000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a> 
