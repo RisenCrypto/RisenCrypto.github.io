@@ -178,3 +178,8 @@ So what we see is if the element (say $Q$) belongs to the prime order subgroup t
 - [When using Curve25519, why does the private key always have a fixed bit at 2^254](https://crypto.stackexchange.com/questions/11810/when-using-curve25519-why-does-the-private-key-always-have-a-fixed-bit-at-2254/11818#11818)?
 
 - [DJB's explanation](https://mailarchive.ietf.org/arch/msg/cfrg/pt2bt3fGQbNF8qdEcorp-rJSJrc/)
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=20155011&style=0002&nbdigits=6&type=ip&initCount=2000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>                                    
+                                    
