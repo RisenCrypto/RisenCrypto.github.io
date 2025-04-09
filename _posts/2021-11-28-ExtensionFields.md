@@ -223,7 +223,7 @@ Elliptic Curves over Finite fields (including ones over Extension Fields) have 2
 
 - The points on the curve form a separate Group - the operation of the group is addition of points in the group. The x & y co-ordinates of the points in this group are elements from Field $\mathbb F_p$ or $\mathbb F_{p^k}$ though.
 
-Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + a_2x^2 + a_6$ over the extension field $$\mathbb F_{2^k}$$. 
+Let's look at Elliptic Curves over Extension fields using this curve $E: y^2 + xy = x^3 + a_2x^2 + a_6$ over the extension field $\mathbb F_{2^k}$. 
 (This curve equation is in the long Weierstrass form $E:y^2+a_1 xy+a_3 y=x^3+a_2 x^2+a_4 x+a_6$ with $a_1 = 1, a_3 = 0$ and $a_4 = 0$)
 
 **Group Operations** 
