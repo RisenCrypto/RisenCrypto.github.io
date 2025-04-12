@@ -15,9 +15,7 @@ Let $\mathbb F_p$ be a field. So $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x
 
 Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$. An irreducible polynomial of degree 2 is $f(x) = x^2 + x + 1$. Let $t$ be the root of this polynomial in an extension field - so $f(t) = 0$ i.e. $t^2 + t + 1 = 0$. 
 
-The elements of the extension field will be all terms in $t$ with co-efficients in $\mathbb F_2$ - i.e. $a_1t + a_0$ with $t$ taking values from $\mathbb F_2$. This extension field is called $\mathbb F_2(t)/\langle t^2 + t+1 \rangle$ and it would have 4 elements as below
-
-$\mathbb F_2(t)/\langle t^2 + t+1 \rangle = \lbrace 0, 1, t, 1 + t\rbrace$
+The elements of the extension field will be all terms in $t$ with co-efficients in $\mathbb F_2$ - i.e. $a_1t + a_0$ with $t$ taking values from $\mathbb F_2$. This extension field is called $\mathbb F_2(x)/\langle x^2 + x+1 \rangle$ and it would have 4 elements $\lbrace 0, 1, t, 1 + t\rbrace$
 
 We need not consider polynomials with degree $2$ or higher because $t^2 + t + 1 = 0$, so
 
