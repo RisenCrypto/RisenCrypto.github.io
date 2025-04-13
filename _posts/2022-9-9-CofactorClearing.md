@@ -180,6 +180,13 @@ So what we see is if the element (say $Q$) belongs to the prime order subgroup t
 - [DJB's explanation](https://mailarchive.ietf.org/arch/msg/cfrg/pt2bt3fGQbNF8qdEcorp-rJSJrc/)
 
 <!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com" target="_blank">
+<div class="cboxed">
+ 
+Visitor Count &nbsp;&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
 <img src="https://hitwebcounter.com/counter/counter.php?page=20155011&style=0002&nbdigits=6&type=ip&initCount=2000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>                                    
+
+</div>
+
+<div style="clear:both"></div>
+<br>
                                     
