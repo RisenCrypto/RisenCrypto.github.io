@@ -357,5 +357,13 @@ sage: 2*P
 ----
 
 <!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com" target="_blank">
+
+<div class="cboxed">
+ 
+Visitor Count &nbsp;&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
 <img src="https://hitwebcounter.com/counter/counter.php?page=20155070&style=0002&nbdigits=6&type=ip&initCount=3000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a> 
+
+</div>
+
+<div style="clear:both"></div>
+<br>
