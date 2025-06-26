@@ -444,14 +444,4 @@ The factors in both the numerical problems were very small, so just brute-forcin
 
 <hr style="clear:both;">
 
-<!-- hitwebcounter Code START -->
-
-<div class="cboxed">
- 
-Visitor Count &nbsp;&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=20155159&style=0002&nbdigits=6&type=ip&initCount=12000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>      
-
-</div>
-
-<div style="clear:both"></div>
-<br>
+![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Frisencrypto.github.io%2FPohligHellman%2F&label=Visitors&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FCalcutta)
