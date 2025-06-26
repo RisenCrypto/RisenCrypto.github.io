@@ -179,14 +179,4 @@ So what we see is if the element (say $Q$) belongs to the prime order subgroup t
 
 - [DJB's explanation](https://mailarchive.ietf.org/arch/msg/cfrg/pt2bt3fGQbNF8qdEcorp-rJSJrc/)
 
-<!-- hitwebcounter Code START -->
-<div class="cboxed">
- 
-Visitor Count &nbsp;&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=20155011&style=0002&nbdigits=6&type=ip&initCount=2000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>                                    
-
-</div>
-
-<div style="clear:both"></div>
-<br>
-                                    
+![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Frisencrypto.github.io%2FCofactorClearing%2F&label=Visitors&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FCalcutta)
