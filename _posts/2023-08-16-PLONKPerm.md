@@ -363,15 +363,4 @@ Also, the term $(b_7 X^2 + b_8 X + b_9)z_H(X)$ is added while computing $z(X)$ f
 
 Thus, we interpolate & compute the Permutation Polynomial $z(X)$. This polynomial is then used in Round 3 as discussed earlier to create a proof for the Copy Constraints.
 
-<!-- hitwebcounter Code START -->
-
-<div class="cboxed">
- 
-Visitor Count &nbsp;&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=20154793&style=0002&nbdigits=6&type=ip&initCount=1500" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>            
-
-</div>
-
-<div style="clear:both"></div>
-<br>
-
+![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Frisencrypto.github.io%2FPLONKPerm%2F&label=Visitors&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FCalcutta)
