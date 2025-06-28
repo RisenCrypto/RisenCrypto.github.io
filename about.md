@@ -17,3 +17,5 @@ On some topics, I am unable to find a single text or source which  explains the 
 - I use [Utterances](https://utteranc.es/) for comments.   
 
 - Social Media share templates are based on [this](https://sourabhbajaj.com/blog/2017/10/29/adding-social-media-share-icons-to-jekyll/).
+
+- [Visitor Counter](https://hitscounter.dev/) by [Donald Zou](https://github.com/donaldzou/)
