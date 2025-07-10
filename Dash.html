@@ -1,0 +1,23 @@
+---
+layout: post
+title: Try
+category: uc
+mathjax: true
+---
+
+<a href="https://hitscounter.dev/history?url=https://risencrypto.github.io/">Landing Page</a>
+
+<table width="100%">
+
+    {% for post in site.posts %}
+    {% unless post.category == "uc" %}
+
+    <tr>
+        <td><a href="https://hitscounter.dev/history?url={{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </td>
+        <td>{{ post.date | date: "%B %e, %Y" }}</td>
+    </tr>
+
+    {% endunless %}    
+    {% endfor %}
+
+</table>
