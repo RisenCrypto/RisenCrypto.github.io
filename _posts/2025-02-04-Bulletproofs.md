@@ -488,7 +488,7 @@ In the [Monero Post](/Monero/#ringct), we saw how validators can verify that the
 
 $in_1 = 10, in_2 = 15, out_1 = 17, out_2 = 7$
 
-Because Pedersen Commitments are homomorphic, we can check if $C_{in_1} + C_{in_2} > C_{out_1} + C_{out_2}$ & the above transaction would verify. 
+Because Pedersen Commitments are homomorphic, we can check if $C_{in_1} + C_{in_2} \ge C_{out_1} + C_{out_2}$ & the above transaction would verify. 
 
 However, the scalars in Monero & other blockchains operate in a finite field & not in the field of reals or integers. The actual field is a very large field but for ease of understanding, let's assume they operate in the field $\mathbb F_{7841}$
 
