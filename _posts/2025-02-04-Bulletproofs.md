@@ -508,7 +508,7 @@ $12^0 + 0 2^1 + 12^2 + 0 2^3 + 0 2^4 + 1 2^5 + 1 2^6 = 101$
 
 $\overrightarrow a_L = [1,0,1,0,0,1,1]$ 
 
-Let's create another vector $\overrightarrow a_R$ which is the complement of $\overrightarrow a_L$ - i.e. we create $\overrightarrow a_R$ by subtracting 1 from each element of $ \overrightarrow a_L$ - i.e. by subtracting  bit vector of all $1$s (denoted as $\overrightarrow{1^n}$) from  $ \overrightarrow a_L$.
+Let's create another vector $\overrightarrow a_R$ which is the complement of $\overrightarrow a_L$ - i.e. we create $\overrightarrow a_R$ by subtracting 1 from each element of $ \overrightarrow a_L$ - i.e. by subtracting  a bit vector of all $1$s (denoted as $\overrightarrow{1^n}$) from  $ \overrightarrow a_L$.
 
 $\overrightarrow a_R = \overrightarrow a_L - \overrightarrow{1^n} $
 
