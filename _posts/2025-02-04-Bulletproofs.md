@@ -510,7 +510,7 @@ $\overrightarrow a_L = [1,0,1,0,0,1,1]$
 
 Let's create another vector $\overrightarrow a_R$ which is the complement of $\overrightarrow a_L$ - i.e. we create $\overrightarrow a_R$ by subtracting each element of $ \overrightarrow a_L$ from a bit vector of all $1$s (denoted as $\overrightarrow{1^n}$).
 
-$\overrightarrow a_R = \overrightarrow{1^n} - \overrightarrow a_L$
+$\overrightarrow a_R = \overrightarrow a_L - \overrightarrow{1^n} $
 
 $\overrightarrow a_R = [0, 1, 0,1,1,0,1,1]$
 
@@ -556,7 +556,7 @@ $<\overrightarrow a_L, \space\space \overrightarrow a_R \circ \overrightarrow {y
 
 So, it's sufficient to check if $<\overrightarrow a_L, \space\space \overrightarrow a_R \circ \overrightarrow {y^n}> \stackrel {?}{=} 0$. If it is, then it means that $v$'s decomposition into $\overrightarrow  a_L$ is indeed a bitwise decomposition.
 
-$3)$ Prove $\overrightarrow a_R = \overrightarrow{1^n} - \overrightarrow a_L$
+$3)$ Prove $\overrightarrow a_R = \overrightarrow a_L - \overrightarrow{1^n}$
 i.e. each element of $\overrightarrow a_R$ is a bitwise complement of the corresponding element of $\overrightarrow a_L$.
 
 If each element of the vector $\overrightarrow a_L - \overrightarrow {1^n} - \overrightarrow a_R$ is $0$, then it means that $\overrightarrow a_R$ is the bitwise complement of $\overrightarrow a_L$. Again, we combine each element of this vector using the linearly independent set of $\overrightarrow {y^n}$ to create an inner product.
