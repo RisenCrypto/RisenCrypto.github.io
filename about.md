@@ -20,4 +20,4 @@ On some topics, I am unable to find a single text or source which  explains the 
 
 - Social Media share templates are based on [this](https://sourabhbajaj.com/blog/2017/10/29/adding-social-media-share-icons-to-jekyll/).
 
-- I couldn't have learn Mathematical Cryptography without [Cryptohack](https://cryptohack.org/). Cryptohack CTF's were extremely helpful in learning the math. And the Cryptohack community is the best!
+- I couldn't have learnt Mathematical Cryptography without [Cryptohack](https://cryptohack.org/). Cryptohack CTF's were extremely helpful in learning the math. And the Cryptohack community is the best!
