@@ -6,7 +6,7 @@ permalink: /about/
 
 On some topics, I am unable to find a single text or source which  explains the topic in enough detail for me to understand & I have to go looking through a lot of sources, ask questions on forums etc to understand the topic. I mostly blog here to collate all the information on such topics at one place.  My posts are usually about the nuts & bolts of the algorithms rather than the theory.
 
-- I couldn't have learnt Mathematical Cryptography without [Cryptohack](https://cryptohack.org/). Cryptohack CTF's were extremely helpful in learning the math. And the Cryptohack community is the best!
+- I couldn't have learnt Mathematical Cryptography without [Cryptohack](https://cryptohack.org/). Cryptohack CTFs were extremely helpful in learning the math. And the Cryptohack community is the best!
 
 - This blog is built on [Github Pages](https://pages.github.com/) and [Jekyll](https://jekyllrb.com/).
 
