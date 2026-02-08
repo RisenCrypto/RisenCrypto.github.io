@@ -10,7 +10,7 @@ On some topics, I am unable to find a single text or source which  explains the 
 
 - This blog is built on [Github Pages](https://pages.github.com/) and [Jekyll](https://jekyllrb.com/).
 
-- Forked from [Jekyll Now](https://www.jekyllnow.com/) so I don't have build locally for every small change.
+- Forked from [Jekyll Now](https://www.jekyllnow.com/) so I don't have to build locally for every small change.
 
 - I use [Mathjax](https://www.mathjax.org/). Here are the [instructions](http://sgeos.github.io/github/jekyll/2016/08/21/adding_mathjax_to_a_jekyll_github_pages_blog.html) to integrate it into a Github pages Jekyll Blog.
 
