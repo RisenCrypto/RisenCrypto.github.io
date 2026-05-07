@@ -693,7 +693,7 @@ $C_{t_1} = \overrightarrow t_1 \overrightarrow G + b_{t_1} B$
 
 $C_{t_2} = \overrightarrow t_2 \overrightarrow G + b_{t_2} B$
 
-$\mathcal P$ sends $C_a, C_s, C_{t_1}$ & $C_{t_2}$ to $\mathcal V$. $\mathcal V$ of the Monero Transaction already has the [amount commitment](/jMonero/#amount-commitments) $C_v$ of the value ($v$) whose range we are proving 
+$\mathcal P$ sends $C_a, C_s, C_{t_1}$ & $C_{t_2}$ to $\mathcal V$. $\mathcal V$ of the Monero Transaction already has the [amount commitment](/Monero/#amount-commitments) $C_v$ of the value ($v$) whose range we are proving 
 
 $C_v = v G + b_vB $
 
