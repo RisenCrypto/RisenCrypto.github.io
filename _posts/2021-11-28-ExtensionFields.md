@@ -10,7 +10,7 @@ title: Polynomials and Elliptic Curves over Extension Fields
 
 ## Extension Fields
 
-Let $\mathbb F_p$ be a field. So $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree 2 or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$. However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
+Let $\mathbb F_p$ be a field. So $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree 2 or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$ (because if $f(x)$ can be factored, then you would have $f(x) = (x-t_1)\cdot(x-t_2)...$, so $f(t_1) = 0, f(t_2) = 0$ & so on.However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
 
 
 Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$. An irreducible polynomial of degree 2 is $f(x) = x^2 + x + 1$. Let $t$ be the root of this polynomial in an extension field - so $f(t) = 0$ i.e. $t^2 + t + 1 = 0$. 
