@@ -63,7 +63,7 @@ So the 16 elements of $\mathbb F_{2^4}$ where the irreducible polynomial is $x^4
 
 $\mathbb F_{2^4} = \lbrace 0 , t^2, t^3 , t^3 +t^2 , 1 , t^2 +1 , t^3 +1 , t^3 +t^2 +1, t , t^2 +t , t^3 +t , t^3 +t^2 +t , t +1 , t^2 +t +1 , t^3 +t +1 , t^3 +t^2 +t +1\rbrace$
 
-$\t = \mathbb F_8 = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15 \rbrace$
+$\qquad = \mathbb F_8 = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15 \rbrace$
 
 
 
