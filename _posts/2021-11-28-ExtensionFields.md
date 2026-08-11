@@ -60,7 +60,11 @@ and so on & so forth.
 
 So the 16 elements of $\mathbb F_{2^4}$ where the irreducible polynomial is $x^4 + x + 1$ can be represented as  
 
-$\mathbb F_{2^4} = \lbrace 0 , t^2, t^3 , t^3 +t^2 , 1 , t^2 +1 , t^3 +1 , t^3 +t^2 +1, t , t^2 +t , t^3 +t , t^3 +t^2 +t , t +1 , t^2 +t +1 , t^3 +t +1 , t^3 +t^2 +t +1\rbrace = \mathbb F_8 = \lbrace 0, 1, 2, 3, 4, 5, 6, 7 \rbrace$
+
+$\mathbb F_{2^4} = \lbrace 0 , t^2, t^3 , t^3 +t^2 , 1 , t^2 +1 , t^3 +1 , t^3 +t^2 +1, t , t^2 +t , t^3 +t , t^3 +t^2 +t , t +1 , t^2 +t +1 , t^3 +t +1 , t^3 +t^2 +t +1\rbrace$
+
+$\t = \mathbb F_8 = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15 \rbrace$
+
 
 
 Likewise $\mathbb F_{3^2}$ would be corresponding to the base 3 representations of $\lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8\rbrace$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
