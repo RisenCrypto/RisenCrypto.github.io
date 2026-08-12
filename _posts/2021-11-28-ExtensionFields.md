@@ -63,11 +63,7 @@ So the 16 elements of $\mathbb F_{2^4}$ where the irreducible polynomial is $x^4
 
 $\mathbb F_{2^4} = \lbrace 0 , t^2, t^3 , t^3 +t^2 , 1 , t^2 +1 , t^3 +1 , t^3 +t^2 +1, t , t^2 +t , t^3 +t , t^3 +t^2 +t , t +1 , t^2 +t +1 , t^3 +t +1 , t^3 +t^2 +t +1\rbrace$
 
-$\qquad = \mathbb F_{16} = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15 \rbrace$
-
-
-
-Likewise $\mathbb F_{3^2}$ would be corresponding to the base 3 representations of $\lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8\rbrace$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
+Likewise $\mathbb F_{3^2}$ would be corresponding to the base 3 representations of $ 0, 1, 2, 3, 4, 5, 6, 7, 8$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
 
 
 You can also get to polynomial basis notation for the elements of an extension field in another way (other than using the bit patterns). Let's try it for $F_{2^4}$. An irreducible polynomial of degree 4 is $x^4 + x + 1$. So if $t$ is the root of this polynomial, then $t^4 + t + 1 =0 $
