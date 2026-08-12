@@ -36,12 +36,12 @@ This field can also be referred to as $\mathbb F_{2^2}$ or $\mathbb F_4$. We cre
 
 Let's list out the elements of the extension field $\mathbb F_{2^4}$ - here the terms will be of the form $a_{3}t^3 + a_{2}t^2 + a_{1}t + a_0$ with each coefficient $a_i$ being equal to either 0 or 1 from $\mathbb F_2$. So there are $2^4 = 16$ possible permutations - taking the coefficients to be of the form "$a_3a_2a_1a_0$", there would 16 permutations. 
 
-We can write the 16 elements quickly by considering
+We can write the 16 elements quickly by first considering
 
-$\mathbb F_{2^3} = \mathbb F_8 = \lbrace 0, 1, 2, 3, 4, 5, 6, 7\rbrace$
+$\mathbb Z_16 = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10, 11, 12, 13, 14, 15 \rbrace$
 
-i.e the field elements can also be written as numbers from $0$ to $p^n - 1$ instead of using polynomial basis notation in terms of $t$. This also gives us a quick way of mapping between the 2 notations
-
+Note that, $\mathbb F(2^4}$ isn't the same as or even isomorphic to $\mathbb Z_16$ - we are just using this as a convenience. We use this to quickly write out the elements of the extension field
+  
 $0$ is $0000$ i.e. $0t^3 + 0t^2 + 0t^1 + 0t^0 = 0$
 
 $1$ is $0001$ i.e. $0t^3 + 0t^2 + 0t^1 + 1t^0 = 1$
