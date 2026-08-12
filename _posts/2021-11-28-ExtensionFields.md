@@ -38,9 +38,9 @@ Let's list out the elements of the extension field $\mathbb F_{2^4}$ - here the 
 
 We can write the 16 elements quickly by first considering
 
-$\mathbb Z_16 = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10, 11, 12, 13, 14, 15 \rbrace$
+$\mathbb Z_{16} = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10, 11, 12, 13, 14, 15 \rbrace$
 
-Note that, $\mathbb F(2^4}$ isn't the same as or even isomorphic to $\mathbb Z_16$ - we are just using this as a convenience. We use this to quickly write out the elements of the extension field
+Note that, $\mathbb F{2^4}$ isn't the same as or even isomorphic to $\mathbb Z_16$ - we are just using this as a convenience. We use this to quickly write out the elements of the extension field
   
 $0$ is $0000$ i.e. $0t^3 + 0t^2 + 0t^1 + 0t^0 = 0$
 
