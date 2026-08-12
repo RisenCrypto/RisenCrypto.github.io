@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: Polynomials and Elliptic Curves over Extension Fields
+title: Extension Fields and Elliptic Curves over Extension Fields
 
 ---
 
