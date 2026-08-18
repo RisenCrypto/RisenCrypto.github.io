@@ -1,47 +1,168 @@
 ---
 layout: post
 mathjax: true
-title: Extension Fields and Elliptic Curves over Extension Fields
+title: Finite Extension Fields and Elliptic Curves over Extension Fields
 
 ---
 
 {% include mathjax.html %}
 
+A Field $E$ is an extension field of a field $F$ if $F \subseteq E$ and the operations of $F$ are those of $E$ restricted to $F$ i.e.
+- Every element in the smaller field $F$ is also in the larger field $E$ . The field $F$ is fully contained in the field $E$.
+-  If you add or multiply two elements from the smaller field $F$, you get the exact same result whether you use $F$'s rules or $E$'s rules
 
-## Extension Fields
-
-Let $\mathbb F_p$ be a field where $p$ is a prime number. So $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree 2 or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$ (because if $f(x)$ can be factored, then you would have $f(x) = (x-t_1)\cdot(x-t_2)...$, so $f(t_1) = 0, f(t_2) = 0$ & so on). However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
-
-
-Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$. An irreducible polynomial of degree 2 is $f(x) = x^2 + x + 1$. Let $t$ be the root of this polynomial in an extension field - so $f(t) = 0$ i.e. $t^2 + t + 1 = 0$. 
-
-The elements of the extension field will be all terms in $t$ with co-efficients in $\mathbb F_2$ - i.e. $a_1t + a_0$ with $t$ taking values from $\mathbb F_2$. This extension field is called $\mathbb F_2(x)/\langle x^2 + x+1 \rangle$ and it would have 4 elements $\lbrace 0, 1, t, 1 + t\rbrace$ - writing out the field elements in this way is called Polynomial Basis representation
-
-We need not consider polynomials with degree $2$ or higher because $t^2 + t + 1 = 0$, so
-
-$t^2 = -t -1$
-
-$t^2 = t + 1$ (because $-1 \bmod 2 \equiv 1)$
-
-So any term with $t^2$, $t^3$ & higher could be reduced to degree less than 2.
-
-For e.g. $t^2 + 1 = 1+t + 1 = 2 + t = t$ (because $2 \bmod 2 \equiv 0$)
-
-$t^3 = t^2 \cdot t = (t+1)\cdot t = t^2 + t = 1 + t + t = 1$
-
-So even if we consider terms of degree higher than 1, they will be equivalent to one of the 4 elements we have already listed.
+This post is restricted to Finite Extension Fields. Finite Extension Fields are Prime Power Extension Fields. i.e. for a prime $p$ & an integer $n > 1$, $\mathbb F_{p^n}$ is an extension of $\mathbb F_p$. 
 
 
-This field can also be referred to as $\mathbb F_{2^2}$ or $\mathbb F_4$. We created $\mathbb F_{2^2}$ using the irreducible polynomial of degree 2 over $\mathbb F_2$. Likewise, we can construct any extension field $\mathbb F_{p^k}$ over $\mathbb F_p$ using the irreducible polynomial of degree $k$ over $\mathbb F_p$. Every element of the extension field $\mathbb F_{p^k}$ will be of degree $k-1$ or lessser i.e. of the form  $a_{k-1}t^{k-1} +a_{k-2}t^{k-2} +...+ a_{2}t^{2} +a_{1}t + a_0$ with $a_i \in \mathbb F_p$.
+Let $\mathbb F_p$ be a field where $p$ is a prime number. $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree $2$ or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$ (because if $f(x)$ can be factored, then you would have $f(x) = (x-t_1)\cdot(x-t_2)\cdots$, so $f(t_1) = 0, f(t_2) = 0$ & so on). However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
 
-Let's list out the elements of the extension field $\mathbb F_{2^4}$ - here the terms will be of the form $a_{3}t^3 + a_{2}t^2 + a_{1}t + a_0$ with each coefficient $a_i$ being equal to either 0 or 1 from $\mathbb F_2$. So there are $2^4 = 16$ possible permutations - taking the coefficients to be of the form "$a_3a_2a_1a_0$", there would 16 permutations. 
 
-We can write the 16 elements quickly by first considering
+## Construction
 
-$\mathbb Z_{16} = \lbrace 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10, 11, 12, 13, 14, 15 \rbrace$
+Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$.
 
-Note that, $\mathbb F_{2^4}$ isn't the same as or even isomorphic to $\mathbb Z_16$ - we are just using this as a convenience. We use this to quickly write out the elements of the extension field
-  
+$f(x) = x^3 + x + 1$ is an irreducible polynomial of degree $3$ in $\mathbb F_2$.
+
+$\mathbb F_2$ doesn't contain the root of the irreducible polynomial. However the root exists in extension fields of $\mathbb F_2$. Let's go about finding the smallest extension field which contains the root
+
+Let $t$ be the root of this polynomial in an extension field of $\mathbb F_2$. If t is a root, then $f(t) = 0$ i.e. $t^3 + t + 1 = 0$.
+
+Let's write out the Polynomial Ring  $\mathbb F_2[t]$. All polynomials will be of the form 
+$a_0 + a_1 t + a_2 t^2 + a_3 t^3 + a_4 t^4 + a_5 t^5 + ...$ where $a_n \in \mathbb F_2$ i.e. all the $a_n$s can only have one the two values, $0$ & $1$ 
+
+Polynomials:
+
+**Degree 0:**  $0$ & $1$
+
+**Degree 1:** $t,t+1$
+
+**Degree 2:** $t^2, t^2 + 1, t^2 + t, t^2 + t + 1$
+
+**Degree 3:** $t^3, t^3 + 1, t^3 + t, t^3 + t + 1, t^3 + t^2, t^3 + t^2 + 1, t^3 + t^2 + t, t^3 + t^2 + t + 1$
+
+**Degree 4:** $t^4,t^4 + 1, t^4 + t, t^4 + t + 1, t^4 + t^2, ....$
+
+Now, since $t^3 + t + 1 = 0$, $t^3 = t + 1$ (because in $\mathbb F_2, -1$ is the same as $1$)
+
+The first element of degree $4$, 
+
+$t^4 = t^3 \cdot t = (t+1)\cdot t = t^2 + t$ (which is already in our list of degree $2$ elements)
+
+The next element of degree $4$,
+
+$t^4 + 1 = t^2 + t + 1$ (already in our degree $2$ list)
+
+This way, we can reduce all elements of degree $4$ and above to existing elements of upto degree $3$ or below
+
+So our extension field $\mathbb F_{2^4}$ has a total of 16 elements
+
+$\mathbb F_{2^4}  = \lbrace 0, 1, t, t + 1, t^2, t^2 + 1, t^2 + t, t^2 + t + 1, t^3, t^3 + 1, t^3 + t, t^3 + t + 1, t^3 + t^2, t^3 + t^2 + 1, t^3 + t^2 + t, t^3 + t^2 + t + 1 \rbrace$
+
+There is another notation also to denote the same field.
+
+$\mathbb F_{2^4} = \mathbb F_2[t]/\langle t^3 + t + 1 \rangle$
+
+To understand why this notation is used, let look at Quotient Rings & cosets 
+
+Consider the ring $\mathbb Z = \lbrace \cdots,-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, \cdots \rbrace$
+
+$\langle 4\rangle $ is an Ideal of the ring $\mathbb Z$ which can be generated by the generator $4$ - if you multiply every element of $\mathbb Z$ by 4, you will get $\langle 4 \rangle$
+
+$\langle 4\rangle = 4 \mathbb Z = \lbrace 4\cdot r \|  r \in \mathbb Z \rbrace =  \lbrace \cdots, -12, -8, -4 , 0, 4, 8, 12,  \cdots \rbrace$
+
+An ideal partitions the original ring into equivalence classes called cosets. For e.g. $\langle 4 \rangle$ partitions $\mathbb Z$ into 4 equivalence classes or cosets. 
+
+
+Now let's consider the set 
+
+$4 \mathbb Z + 1 = \lbrace -11, -7, -3,  1, 5, 9, 13, \cdots \rbrace  $ 
+
+$4 \mathbb Z + 2 = \lbrace -10, -6, -2,  2, 6, 10, 14, \cdots \rbrace  $
+
+$4 \mathbb Z + 3 = \lbrace -9, -5, -1,  3, 7, 11, 15, \cdots \rbrace  $
+
+And of course,
+
+$4\mathbb Z + 0 = \mathbb Z =  \lbrace \cdots, -12, -8, -4 , 0, 4, 8, 12,  \cdots \rbrace$
+
+
+Note that except for $4\mathbb Z + 0$ i.e. $ 4\mathbb Z$ (the ideal), the other 3 are sets and not rings
+
+Any element of $\mathbb Z$ can be considered to be part of only one of these cosets. Consider 2 elements $a,b \in \mathbb Z$, they belong to the same coset if $a - b \in \langle 4 \rangle$
+
+Any element like $-7, -3,1, 5,9, 13$ can be denoted as $[1] = 1 + \langle 4 \rangle$ - 
+
+Likewise we have $[0], [2], [3]$ 
+
+Each of these sets are considered an equivalence class called a coset, these 4 cosets  form a quotient ring denoted by 
+
+$\mathbb Z /4 \mathbb Z = \lbrace [0], [1], [2], [3]\rbrace$
+
+
+
+It's also denoted as $\mathbb Z/\langle 4 \rangle = \mathbb Z/ 4 \mathbb Z$
+
+For brevity, the equivalence class symbol is also omitted occasionally 
+
+$\mathbb Z/\langle 4 \rangle = \mathbb Z/ 4 \mathbb Z = \lbrace 0, 1, 2, 3\rbrace$
+
+
+Consider the Polynomial Ring $\mathbb{F}_2[t]$, which consists of all polynomials in the variable $t$ with coefficients from the field $\mathbb{F}_2 = \lbrace 0, 1\rbrace$
+
+$\mathbb{F}_2[t] = \lbrace 0, 1, t, t+1, t^2, t^2+1, t^2+t, t^2+t+1, t^3, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle$ is an Ideal of the ring $\mathbb{F}_2[t]$ which can be generated by the generator $t^3 + t + 1$
+
+If you multiply every polynomial in $\mathbb{F}_2[t]$ by $t^3 + t + 1$, you will get $\langle t^3 + t + 1 \rangle$.
+
+$\langle t^3 + t + 1 \rangle = \lbrace (t^3 + t + 1) \cdot r(t) \mid r(t) \in \mathbb{F}_2[t] \rbrace$
+
+$\langle t^3 + t + 1 \rangle = \lbrace 0, t^3 + t + 1, t(t^3 + t + 1), (t+1)(t^3 + t + 1), \cdots \rbrace$
+
+As we saw in $4\mathbb Z$ case, an ideal partitions the original ring into equivalence classes called cosets
+
+Because the generator has a degree of 3, polynomial long division guarantees that every polynomial leaves a remainder of degree 2 or less. Since there are 3 possible coefficients ($t^2, t, 1$) and each can be $0$ or $1$, $\langle t^3 + t + 1 \rangle$ partitions $\mathbb{F}_2[t]$ into $2^3 = 8$ equivalence classes or cosets.
+
+Now let's consider the 8 sets (none of these are subrings on their own except the ideal itself):
+
+$\langle t^3 + t + 1 \rangle + 0 = \lbrace 0, t^3+t+1, t^4+t^2+t, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle + 1 = \lbrace 1, t^3+t, t^4+t^2+t+1, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle + t = \lbrace t, t^3+1, t^4+t^2, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle + (t + 1) = \lbrace t+1, t^3, t^4+t^2+1, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle + t^2 = \lbrace t^2, t^3+t^2+t+1, t^4+t, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle + (t^2 + 1) = \lbrace t^2+1, t^3+t^2+t, t^4+t+1, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle + (t^2 + t) = \lbrace t^2+t, t^3+t^2+1, t^4, \cdots\rbrace$
+
+$\langle t^3 + t + 1 \rangle + (t^2 + t + 1) = \lbrace t^2+t+1, t^3+t^2, t^4+1, \cdots\rbrace$
+
+Any element of $\mathbb{F}_2[t]$ can be considered to be part of only one of these cosets. Consider 2 polynomials $a(t), b(t) \in \mathbb{F}_2[t]$, they belong to the same coset if $a(t) - b(t) \in \langle t^3 + t + 1 \rangle$ 
+
+Any polynomial like $t^3$ or $t^4+t^2+1$ reduces to a remainder of $t+1$ and can be denoted as $[t+1] = (t+1) + \langle t^3 + t + 1 \rangle$.
+Likewise we have $[0], [1], [t], [t+1], [t^2], [t^2+1], [t^2+t], [t^2+t+1]$.
+Each of these sets is considered an equivalence class called a coset; these 8 cosets form a finite quotient ring denoted by:
+
+$\mathbb F_2[t] / \langle t^3 + t + 1 \rangle = 
+ \mathbb F_{2^3} = \lbrace [0], [1], [t], [t+1], [t^2], [t^2+1], [t^2+t], [t^2+t+1] \rbrace$
+
+As before, the $[]$ notation of denoting a coset can be omitted for brevity
+
+
+
+
+There are a couple of quick ways of writing out the elements of an extension field
+
+**1. Radix representation as a Polynomial**
+
+We know $\mathbb F_{2^4}$ has 16 elements, so consider the numbers $ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10, 11, 12, 13, 14, 15 $
+
+Since $\mathbb F_{2^4}$ is an extension field of $\mathbb F_2$, we take the base $2$ representation of the $16$ numbers & use that as coefficients of the polynomial basis representation of the elements
+
 $0$ is $0000$ i.e. $0t^3 + 0t^2 + 0t^1 + 0t^0 = 0$
 
 $1$ is $0001$ i.e. $0t^3 + 0t^2 + 0t^1 + 1t^0 = 1$
@@ -52,20 +173,19 @@ $2$ is $0010$ i.e. $0t^3 + 0t^2 + 1t^1 + 0t^0 = t$
 
 $5$ is $0101$ i.e. $0t^3 + 1t^2 + 0t^1 + 1t^0 = t^2 + 1$
 
-....
+$\cdots$
 
 $10$ is $1010$ i.e. $1t^3 + 0t^2 + 1t^1 + 0t^0 = t^3 + t$
 
 and so on & so forth.
 
-So the 16 elements of $\mathbb F_{2^4}$ where the irreducible polynomial is $x^4 + x + 1$ can be represented as  
+We will end up with the same elements we got before
 
 
-$\mathbb F_{2^4} = \lbrace 0 , t^2, t^3 , t^3 +t^2 , 1 , t^2 +1 , t^3 +1 , t^3 +t^2 +1, t , t^2 +t , t^3 +t , t^3 +t^2 +t , t +1 , t^2 +t +1 , t^3 +t +1 , t^3 +t^2 +t +1\rbrace$
-
-Likewise $\mathbb F_{3^2}$ would be corresponding to the base 3 representations of $ 0, 1, 2, 3, 4, 5, 6, 7, 8$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
+Likewise $\mathbb F_{3^2}$ can be written out using the base 3 representations of $ 0, 1, 2, 3, 4, 5, 6, 7, 8$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
 
 
+**2. Power Basis**
 You can also get to polynomial basis notation for the elements of an extension field in another way (other than using the bit patterns). Let's try it for $F_{2^4}$. An irreducible polynomial of degree 4 is $x^4 + x + 1$. So if $t$ is the root of this polynomial, then $t^4 + t + 1 =0 $
 
 So,
@@ -74,7 +194,7 @@ $t^4 = -t -1= t + 1$ (because $-1 \bmod 2 \equiv 1$ )
 So, $t^4 = t+1$
 
 We can write out the list of elements 
-of $\mathbb F_{2^4} = \lbrace 0, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14}, t^{15} \rbrace$
+of $\mathbb F_{2^4} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14}, t^{15} \rbrace$
 
 Now, we know $t^4 = t+1$
 
@@ -92,11 +212,11 @@ $t^{14} = t^3 + 1$
 
 & 
 
-$t^{15} = (t^3 + 1)\cdot t = t^4 + t = (t + 1) + t = 1$
+$t^{15} = (t^3 + 1)\cdot t = t^4 + t = (t + 1) + t = 1$ (it cycles back, $t^{16}$ would be $t^{15}\cdot t = 1\cdot t = t$)
 
 So,
 
-$\mathbb F_{2^4} = \lbrace 0,
+$\mathbb F_{2^4} = \lbrace 0, 1,
  t,
  t^2,
  t^3,
@@ -110,20 +230,19 @@ $\mathbb F_{2^4} = \lbrace 0,
  t^3 + t^2 + t,
  t^3 + t^2 + t + 1,
  t^3 + t^2 + 1,
- t^3 + 1,
- 1 \rbrace$
+ t^3 + 1 \rbrace$
 
  Let's try this for $\mathbb F_{3^2}$
 
- $\mathbb F_{3^2} = \lbrace 0, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8\rbrace$
+ $\mathbb F_{3^2} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7\rbrace$
  
-The irreducible prolynomial here is $x^2 + 2x + 2$
+The irreducible degree 2 polynomial in $\mathbb F_3$ is $x^2 + 2x + 2$
 
 So $t^2 + 2t + 2 = 0$
 
 $t^2 = -2t -2 = t + 1 $ (because $-2 \bmod 3 \equiv 1$ ) 
 
-So $\mathbb F_{3^2} = \lbrace 0, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8\rbrace$
+So $\mathbb F_{3^2} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7\rbrace$
 
 $t^2 = t +1$
 
@@ -142,11 +261,23 @@ $t^8 = t^2 + 2t = t+1 + 2t = 1$
 
 So,
 
- $\mathbb F_{3^2} =\lbrace 0, t, t + 1, 2t + 1, 2, 2t, 2t + 2, t + 2, 1\rbrace$
+ $\mathbb F_{3^2} =\lbrace 0,1, t, t + 1, 2t + 1, 2, 2t, 2t + 2, t + 2\rbrace$
+
 
 **Use of $\mathbb F_{2^8}$ in AES**
 
-AES uses the extension field $\mathbb F_{2^8}$ constructed using the irreducible polynomial $x^{8} + x^{4} + x^{3} + x + 1$ over $\mathbb F_2$. One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
+AES uses the extension field $\mathbb F_{2^8}$ constructed using the irreducible polynomial $x^{8} + x^{4} + x^{3} + x + 1$ over $\mathbb F_2$ - i.e $\mathbb{F}_{2}[t]/\langle t^{8}+t^{4}+t^{3}+t+1\rangle $
+
+One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
+
+
+## Polynomials in Extension Fields
+
+The irreducible polynomials discussed earlier were in the base field - for e.g. $x^4+ x + 1$ which is the irreducible polynomial we used to generate $\mathbb F_{2^4}$ is a polynomial in $\mathbb F_2[x]$ - all it's co-efficients are in $\mathbb F_2$. Likewise the AES irreductible polynomial is also in $\mathbb F_2[x]$. 
+
+We can also have polynomials in the Polynomial Ring of the extension field i.e. polynomials whose co-efficients are from the extension field.
+
+For e.g. the polynomial $x^6 + (t^2+1)x^4 + x^3 + (t^2+t+1)x + (t+1)$ is in $\mathbb F_{2^3}[x]$. For convinience, sometimes this polynomial is also written as $x^6 + 5x^4 + x^3 + 7x + 3$ though it's not absolutely correct.
 
 ----  
 
@@ -273,7 +404,7 @@ t
 
 So $2P = E(t^3 + t + 1, t)$  
 
-We used the group law calculations to do the above to understand it better. But everything can be done using Sagemath's in-built EllipticCurve object as shown below
+We used the group law calculations to do fsthe above to understand it better. But everything can be done using Sagemath's in-built EllipticCurve object as shown below
 
 ~~~ruby
 sage: F1.<t> = GF(2^4)
@@ -291,6 +422,8 @@ sage: P + Q
 sage: 2*P
 (t^3 + t + 1 : t : 1)
 ~~~
+----
+
 ----
 
 ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Frisencrypto.github.io%2FExtensionFields%2F&label=Visitors&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FCalcutta)
