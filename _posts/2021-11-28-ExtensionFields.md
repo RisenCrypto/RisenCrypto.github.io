@@ -194,7 +194,7 @@ $t^4 = -t -1= t + 1$ (because $-1 \bmod 2 \equiv 1$ )
 So, $t^4 = t+1$
 
 We can write out the list of elements 
-of $\mathbb F_{2^4} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14}, t^{15} \rbrace$
+of $\mathbb F_{2^4} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14} \rbrace$
 
 Now, we know $t^4 = t+1$
 
@@ -209,10 +209,6 @@ $t^7 = t^6 \cdot t = (t^3 + t^2)\cdot t =t^4 + t^3 = t+1 + t^3 = t^3 + t + 1$
 We continue this way, till we get
 
 $t^{14} = t^3 + 1$
-
-& 
-
-$t^{15} = (t^3 + 1)\cdot t = t^4 + t = (t + 1) + t = 1$ (it cycles back, $t^{16}$ would be $t^{15}\cdot t = 1\cdot t = t$)
 
 So,
 
