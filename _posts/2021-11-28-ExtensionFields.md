@@ -14,11 +14,10 @@ A Field $E$ is an extension field of a field $F$ if $F \subseteq E$ and the oper
 This post is restricted to Finite Extension Fields. Finite Extension Fields are Prime Power Extension Fields. i.e. for a prime $p$ & an integer $n > 1$, $\mathbb F_{p^n}$ is an extension of $\mathbb F_p$. 
 
 
-Let $\mathbb F_p$ be a field where $p$ is a prime number. $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree $2$ or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$ (because if $f(x)$ can be factored, then you would have $f(x) = (x-t_1)\cdot(x-t_2)\cdots$, so $f(t_1) = 0, f(t_2) = 0$ & so on). However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
+Let $\mathbb F_p$ be a field where $p$ is a prime number. $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree $2$ or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more non-constant polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$ (because if $f(x)$ can be factored, then you would have $f(x) = (x-t_1)\cdot(x-t_2)\cdots$, so $f(t_1) = 0, f(t_2) = 0$ & so on). However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
 
 
 ## Construction
-
 
 Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$.
 
@@ -155,10 +154,7 @@ As before, the $[]$ notation of denoting a coset can be omitted for brevity
 
 
 
-
-There are a couple of quick ways of writing out the elements of an extension field
-
-**1. Radix representation as a Polynomial**
+Writing out all polynomials considering various permutations of $a_0, a_1, ...$ etc can also be done quickly considering Radix representation as a Polynomial
 
 We know $\mathbb F_{2^4}$ has 16 elements, so consider the numbers $ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10, 11, 12, 13, 14, 15 $
 
@@ -185,9 +181,13 @@ We will end up with the same elements we got before
 
 Likewise $\mathbb F_{3^2}$ can be written out using the base 3 representations of $ 0, 1, 2, 3, 4, 5, 6, 7, 8$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
 
+### Primitive Polynomials
 
-**2. Power Basis**
-You can also get to polynomial basis notation for the elements of an extension field in another way (other than using the bit patterns). Let's try it for $F_{2^4}$. An irreducible polynomial of degree 4 is $x^4 + x + 1$. So if $t$ is the root of this polynomial, then $t^4 + t + 1 =0 $
+There may be multiple irreducible polynomials of a particular degree in a Polynomial Ring. However, all of them aren't primitive polynomials. A primitive polynomial is an irreducible polynomial whose root can generate all elements of the extension field. 
+
+We used $x^4 + x + 1$ for contructing $F_{2^4}$.
+
+$x^4 + x +1$ other than being an irreducible polynomial is also a primitive one. If $t$ is the root of this polynomial, then $t^4 + t + 1 =0 $
 
 So,
 $t^4 = -t -1= t + 1$ (because $-1 \bmod 2 \equiv 1$ ) 
@@ -259,6 +259,38 @@ $t^8 = t^2 + 2t = t+1 + 2t = 1$
 So,
 
  $\mathbb F_{3^2} =\lbrace 0,1, t, t + 1, 2t + 1, 2, 2t, 2t + 2, t + 2\rbrace$
+
+This way of writing out the elements works only if it's a primitive polynomial. All irreducible polynomials of degree $2$ & $3$ are both irreducible & primitive.
+
+However, from degree $4$ on, this may not be true. There are $4$ degree $4$ irreducible polynomials in $F_2[x]$ but only 3 of them are primitive polynomials - $x4+ x + 1$, $x^4 + x^3 + 1$ & $x^4+x^2+x+1$. The 4th one $x^4 + x^3 + x^2 + x + 1$ isn't primitive. 
+
+When we generate $F_{2^4}$ using the 4th one i.e. $F_2[t]/\langle t^4 + t^3 + t^2 + t + 1\rangle$ we will end up with 16 elements & it's also an extension field $F_{2^4}$ but the root $t$ will not generate all the elements, if will only generate a cyclic subgroup of the field before repeating.
+
+Since $t$ is a root of $x^4 + x^3 + x^2 + x + 1$,  
+
+$t^4 + t^3 + t^2 + t + 1 = 0$
+So, $t^4 = t^3 + t^2 + t + 1$.
+
+Now let's try out $\lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14} \rbrace$
+
+$t^4 = t^3 + t^2 + t + 1$
+
+$t^5 = t^4 \cdot t = t^4 + t^3 + t^2 + t = t^3 + t^2 + t + 1 + t^3 + t^2 + t = 1$
+
+Likewise
+
+$t^6 = t$, 
+
+$t^7 = t^2$
+
+$t^8 = t^3$
+
+$t^9 = t^3 + t^2 + t + 1$
+
+$t^10 = 1$ & so on
+
+So it generates only 5 elements of the field each thrice
+
 
 
 **Use of $\mathbb F_{2^8}$ in AES**
@@ -372,11 +404,11 @@ sage: x1 = F1(t)
 sage: y1 = F1(t^3 + t^2 + t + 1)
 sage: x2 = F1(t^3 + t^2)
 sage: y2 = F1(t^3 + t^2)
-sage: λ = (y1 + y2)/(x1 + x2)
+sage: ? = (y1 + y2)/(x1 + x2)
 sage: a = F1(t^3)
 sage: b = F1(t^3 + 1)
-sage: x3 = λ^2 + λ + x1 + x2 + a
-sage: y3 = λ*(x1 + x3)+ x3 + y1
+sage: x3 = ?^2 + ? + x1 + x2 + a
+sage: y3 = ?*(x1 + x3)+ x3 + y1
 sage: x3
 1
 sage: y3
@@ -390,9 +422,9 @@ So we get $P + Q = E(1,1)$
 Next is Doubling i.e. $2P$ 
 
 ~~~ruby
-sage: λ = x1 + y1/x1
-sage: x3 = λ^2 + λ + a
-sage: y3 = x1^2 +λ*x3 + x3
+sage: ? = x1 + y1/x1
+sage: x3 = ?^2 + ? + a
+sage: y3 = x1^2 +?*x3 + x3
 sage: x3
 t^3 + t + 1
 sage: y3
@@ -419,8 +451,6 @@ sage: P + Q
 sage: 2*P
 (t^3 + t + 1 : t : 1)
 ~~~
-----
-
 ----
 
 ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Frisencrypto.github.io%2FExtensionFields%2F&label=Visitors&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FCalcutta)
