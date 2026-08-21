@@ -404,11 +404,11 @@ sage: x1 = F1(t)
 sage: y1 = F1(t^3 + t^2 + t + 1)
 sage: x2 = F1(t^3 + t^2)
 sage: y2 = F1(t^3 + t^2)
-sage: ? = (y1 + y2)/(x1 + x2)
+sage: λ = (y1 + y2)/(x1 + x2)
 sage: a = F1(t^3)
 sage: b = F1(t^3 + 1)
-sage: x3 = ?^2 + ? + x1 + x2 + a
-sage: y3 = ?*(x1 + x3)+ x3 + y1
+sage: x3 = λ^2 + λ + x1 + x2 + a
+sage: y3 = λ*(x1 + x3)+ x3 + y1
 sage: x3
 1
 sage: y3
@@ -422,7 +422,7 @@ So we get $P + Q = E(1,1)$
 Next is Doubling i.e. $2P$ 
 
 ~~~ruby
-sage: ? = x1 + y1/x1
+sage: λ = x1 + y1/x1
 sage: x3 = ?^2 + ? + a
 sage: y3 = x1^2 +?*x3 + x3
 sage: x3
