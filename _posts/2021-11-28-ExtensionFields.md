@@ -423,8 +423,8 @@ Next is Doubling i.e. $2P$
 
 ~~~ruby
 sage: λ = x1 + y1/x1
-sage: x3 = ?^2 + ? + a
-sage: y3 = x1^2 +?*x3 + x3
+sage: x3 = λ^2 + λ + a
+sage: y3 = x1^2 +λ*x3 + x3
 sage: x3
 t^3 + t + 1
 sage: y3
