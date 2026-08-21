@@ -19,13 +19,14 @@ Let $\mathbb F_p$ be a field where $p$ is a prime number. $\mathbb F_p[x]$ is a 
 
 ## Construction
 
+
 Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$.
 
-$f(x) = x^3 + x + 1$ is an irreducible polynomial of degree $3$ in $\mathbb F_2$.
+$f(x) = x^4 + x + 1$ is an irreducible polynomial of degree $4$ in $\mathbb F_2$.
 
 $\mathbb F_2$ doesn't contain the root of the irreducible polynomial. However the root exists in extension fields of $\mathbb F_2$. Let's go about finding the smallest extension field which contains the root
 
-Let $t$ be the root of this polynomial in an extension field of $\mathbb F_2$. If t is a root, then $f(t) = 0$ i.e. $t^3 + t + 1 = 0$.
+Let $t$ be the root of this polynomial in an extension field of $\mathbb F_2$. If t is a root, then $f(t) = 0$ i.e. $t^4 + t + 1 = 0$.
 
 Let's write out the Polynomial Ring  $\mathbb F_2[t]$. All polynomials will be of the form 
 $a_0 + a_1 t + a_2 t^2 + a_3 t^3 + a_4 t^4 + a_5 t^5 + ...$ where $a_n \in \mathbb F_2$ i.e. all the $a_n$s can only have one the two values, $0$ & $1$ 
@@ -42,7 +43,7 @@ Polynomials:
 
 **Degree 4:** $t^4,t^4 + 1, t^4 + t, t^4 + t + 1, t^4 + t^2, ....$
 
-Now, since $t^3 + t + 1 = 0$, $t^3 = t + 1$ (because in $\mathbb F_2, -1$ is the same as $1$)
+Now, since $t^4 + t + 1 = 0$, $t^4 = t + 1$ (because in $\mathbb F_2, -1$ is the same as $1$)
 
 The first element of degree $4$, 
 
@@ -60,7 +61,7 @@ $\mathbb F_{2^4}  = \lbrace 0, 1, t, t + 1, t^2, t^2 + 1, t^2 + t, t^2 + t + 1, 
 
 There is another notation also to denote the same field.
 
-$\mathbb F_{2^4} = \mathbb F_2[t]/\langle t^3 + t + 1 \rangle$
+$\mathbb F_{2^4} = \mathbb F_2[t]/\langle t^4 + t + 1 \rangle$
 
 To understand why this notation is used, let look at Quotient Rings & cosets 
 
