@@ -433,7 +433,7 @@ t
 
 So $2P = E(t^3 + t + 1, t)$  
 
-We used the group law calculations to do fsthe above to understand it better. But everything can be done using Sagemath's in-built EllipticCurve object as shown below
+We used the group law calculations to do the above to understand it better. But everything can be done using Sagemath's in-built EllipticCurve object as shown below
 
 ~~~ruby
 sage: F1.<t> = GF(2^4)
