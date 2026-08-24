@@ -14,10 +14,12 @@ A Field $E$ is an extension field of a field $F$ if $F \subseteq E$ and the oper
 This post is restricted to Finite Extension Fields. Finite Extension Fields are Prime Power Extension Fields. i.e. for a prime $p$ & an integer $n > 1$, $\mathbb F_{p^n}$ is an extension of $\mathbb F_p$. 
 
 
-Let $\mathbb F_p$ be a field where $p$ is a prime number. $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree $2$ or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more non-constant polynomials of degree 1 or more i.e. there is no $t$ in $\mathbb F_p$ such that $f(t) = 0$ (because if $f(x)$ can be factored, then you would have $f(x) = (x-t_1)\cdot(x-t_2)\cdots$, so $f(t_1) = 0, f(t_2) = 0$ & so on). However, there exists an extension field of $\mathbb F_p$ which contains a $t$ such that $f(t) = 0$. 
+Let $\mathbb F_p$ be a field where $p$ is a prime number. $\mathbb F_p[x]$ is a Polynomial Ring. Let $f(x)$ be an irreducible polynomial of degree $2$ or above in $\mathbb F_p[x]$ - i.e. the polynomial cannot be factored into 2 or more non-constant polynomials of degree 1 or more i.e. there is no $\alpha$ in $\mathbb F_p$ such that $f(\alpha) = 0$ (because if $f(x)$ can be factored, then you would have $f(x) = (x-\alpha_1)\cdot(x-\alpha_2)\cdots$, so $f(\alpha_1) = 0, f(\alpha_2) = 0$ & so on). However, there exists an extension field of $\mathbb F_p$ which contains an $\alpha$ such that $f(\alpha) = 0$. 
 
 
-## Construction
+## Constructing an Extension Field
+
+### Adjoining a root
 
 Let's consider the field $\mathbb F_2$ - the corresponding Polynomial Ring is $\mathbb F_2[x]$.
 
@@ -25,42 +27,44 @@ $f(x) = x^4 + x + 1$ is an irreducible polynomial of degree $4$ in $\mathbb F_2$
 
 $\mathbb F_2$ doesn't contain the root of the irreducible polynomial. However the root exists in extension fields of $\mathbb F_2$. Let's go about finding the smallest extension field which contains the root
 
-Let $t$ be the root of this polynomial in an extension field of $\mathbb F_2$. If t is a root, then $f(t) = 0$ i.e. $t^4 + t + 1 = 0$.
+Let $\alpha$ be the root of this polynomial in an extension field of $\mathbb F_2$. If $\alpha$ is a root, then $f(\alpha) = 0$ i.e. $\alpha^4 + \alpha + 1 = 0$.
 
-Let's write out the Polynomial Ring  $\mathbb F_2[t]$. All polynomials will be of the form 
-$a_0 + a_1 t + a_2 t^2 + a_3 t^3 + a_4 t^4 + a_5 t^5 + ...$ where $a_n \in \mathbb F_2$ i.e. all the $a_n$s can only have one the two values, $0$ & $1$ 
+Let's write out the Polynomial Ring  $\mathbb F_2[\alpha]$. All polynomials will be of the form 
+$f_0 + f_1 \alpha + f_2 \alpha^2 + f_3 \alpha^3 + f_4 \alpha^4 + f_5 \alpha^5 + ...$ where $f_n \in \mathbb F_2$ i.e. all the $f_n$s can only have one of the two values, $0$ & $1$ 
 
 Polynomials:
 
 **Degree 0:**  $0$ & $1$
 
-**Degree 1:** $t,t+1$
+**Degree 1:** $\alpha,\alpha+1$
 
-**Degree 2:** $t^2, t^2 + 1, t^2 + t, t^2 + t + 1$
+**Degree 2:** $\alpha^2, \alpha^2 + 1, \alpha^2 + \alpha, \alpha^2 + \alpha + 1$
 
-**Degree 3:** $t^3, t^3 + 1, t^3 + t, t^3 + t + 1, t^3 + t^2, t^3 + t^2 + 1, t^3 + t^2 + t, t^3 + t^2 + t + 1$
+**Degree 3:** $\alpha^3, \alpha^3 + 1, \alpha^3 + \alpha, \alpha^3 + \alpha + 1, \alpha^3 + \alpha^2, \alpha^3 + \alpha^2 + 1, \alpha^3 + \alpha^2 + \alpha, \alpha^3 + \alpha^2 + \alpha + 1$
 
-**Degree 4:** $t^4,t^4 + 1, t^4 + t, t^4 + t + 1, t^4 + t^2, ....$
+**Degree 4:** $\alpha^4,\alpha^4 + 1, \alpha^4 + \alpha, \alpha^4 + \alpha + 1, \alpha^4 + \alpha^2, ....$
 
-Now, since $t^4 + t + 1 = 0$, $t^4 = t + 1$ (because in $\mathbb F_2, -1$ is the same as $1$)
+Now, since $\alpha^4 + \alpha + 1 = 0$, $\alpha^4 = \alpha + 1$ (because in $\mathbb F_2, -1$ is the same as $1$)
 
 The first element of degree $4$, 
 
-$t^4 = t^3 \cdot t = (t+1)\cdot t = t^2 + t$ (which is already in our list of degree $2$ elements)
+$\alpha^4 = \alpha^3 \cdot \alpha = (\alpha+1)\cdot \alpha = \alpha^2 + \alpha$ (which is already in our list of degree $2$ elements)
 
 The next element of degree $4$,
 
-$t^4 + 1 = t^2 + t + 1$ (already in our degree $2$ list)
+$\alpha^4 + 1 = \alpha^2 + \alpha + 1$ (already in our degree $2$ list)
 
 This way, we can reduce all elements of degree $4$ and above to existing elements of upto degree $3$ or below
 
 So our extension field $\mathbb F_{2^4}$ has a total of 16 elements
 
-$\mathbb F_{2^4}  = \lbrace 0, 1, t, t + 1, t^2, t^2 + 1, t^2 + t, t^2 + t + 1, t^3, t^3 + 1, t^3 + t, t^3 + t + 1, t^3 + t^2, t^3 + t^2 + 1, t^3 + t^2 + t, t^3 + t^2 + t + 1 \rbrace$
+$\mathbb F_{2^4}  = \lbrace 0, 1, \alpha, \alpha + 1, \alpha^2, \alpha^2 + 1, \alpha^2 + \alpha, \alpha^2 + \alpha + 1, \alpha^3, \alpha^3 + 1, \alpha^3 + \alpha, \alpha^3 + \alpha + 1, \alpha^3 + \alpha^2, \alpha^3 + \alpha^2 + 1, \alpha^3 + \alpha^2 + \alpha, \alpha^3 + \alpha^2 + \alpha + 1 \rbrace$
+
+### Quotienting 
 
 There is another notation also to denote the same field.
 
-$\mathbb F_{2^4} = \mathbb F_2[t]/\langle t^4 + t + 1 \rangle$
+$\mathbb F_{2^4} = \mathbb F_2[\alpha]/\langle \alpha^4 + \alpha + 1 \rangle$
 
 To understand why this notation is used, let's look at Quotient Rings & cosets 
 
@@ -107,187 +111,262 @@ For brevity, the equivalence class symbol is also omitted occasionally
 $\mathbb Z/\langle 4 \rangle = \mathbb Z/ 4 \mathbb Z = \lbrace 0, 1, 2, 3\rbrace$
 
 
-Consider the Polynomial Ring $\mathbb{F}_2[t]$, which consists of all polynomials in the variable $t$ with coefficients from the field $\mathbb{F}_2 = \lbrace 0, 1\rbrace$
+Consider the Polynomial Ring $\mathbb{F}_2[\alpha]$, which consists of all polynomials in the variable $\alpha$ with coefficients from the field $\mathbb{F}_2 = \lbrace 0, 1\rbrace$
 
-$\mathbb{F}_2[t] = \lbrace 0, 1, t, t+1, t^2, t^2+1, t^2+t, t^2+t+1, t^3, \cdots\rbrace$
+$\mathbb{F}_2[\alpha] = \lbrace 0, 1, \alpha, \alpha+1, \alpha^2, \alpha^2+1, \alpha^2+\alpha, \alpha^2+\alpha+1, \alpha^3, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle$ is an Ideal of the ring $\mathbb{F}_2[t]$ which can be generated by the generator $t^3 + t + 1$
+$\langle \alpha^3 + \alpha + 1 \rangle$ is an Ideal of the ring $\mathbb{F}_2[\alpha]$ which can be generated by the generator $\alpha^3 + \alpha + 1$
 
-If you multiply every polynomial in $\mathbb{F}_2[t]$ by $t^3 + t + 1$, you will get the ideal $\langle t^3 + t + 1 \rangle$.
+If you multiply every polynomial in $\mathbb{F}_2[\alpha]$ by $\alpha^3 + \alpha + 1$, you will get the ideal $\langle \alpha^3 + \alpha + 1 \rangle$.
 
-$\langle t^3 + t + 1 \rangle = \lbrace (t^3 + t + 1) \cdot r(t) \mid r(t) \in \mathbb{F}_2[t] \rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle = \lbrace (\alpha^3 + \alpha + 1) \cdot r(\alpha) \mid r(\alpha) \in \mathbb{F}_2[\alpha] \rbrace$
 
-$\langle t^3 + t + 1 \rangle = \lbrace 0, t^3 + t + 1, t(t^3 + t + 1), (t+1)(t^3 + t + 1), \cdots \rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle = \lbrace 0, \alpha^3 + \alpha + 1, \alpha\cdot(\alpha^3 + \alpha + 1), (\alpha+1)\cdot(\alpha^3 + \alpha + 1), \cdots \rbrace$
 
 As we saw in $4\mathbb Z$ case, an ideal partitions the original ring into equivalence classes called cosets
 
-Because the generator has a degree of 3, polynomial long division guarantees that every polynomial leaves a remainder of degree 2 or less. Since there are 3 possible coefficients ($t^2, t, 1$) and each can be $0$ or $1$, $\langle t^3 + t + 1 \rangle$ partitions $\mathbb{F}_2[t]$ into $2^3 = 8$ equivalence classes or cosets.
+Because the generator has a degree of 3, polynomial long division guarantees that every polynomial leaves a remainder of degree 2 or less. There are 8 such remainders. So $\langle \alpha^3 + \alpha + 1 \rangle$ partitions $\mathbb{F}_2[\alpha]$ into $2^3 = 8$ equivalence classes or cosets.
 
-Now let's consider the 8 sets (none of these are subrings on their own except the ideal itself):
+Now let's consider the 8 sets (none of these are subrings except the ideal itself):
 
-$\langle t^3 + t + 1 \rangle + 0 = \lbrace 0, t^3+t+1, t^4+t^2+t, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + 0 = \lbrace 0, \alpha^3+\alpha+1, \alpha^4+\alpha^2+\alpha, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle + 1 = \lbrace 1, t^3+t, t^4+t^2+t+1, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + 1 = \lbrace 1, \alpha^3+\alpha, \alpha^4+\alpha^2+\alpha+1, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle + t = \lbrace t, t^3+1, t^4+t^2, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + \alpha = \lbrace \alpha, \alpha^3+1, \alpha^4+\alpha^2, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle + (t + 1) = \lbrace t+1, t^3, t^4+t^2+1, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + (\alpha + 1) = \lbrace \alpha+1, \alpha^3, \alpha^4+\alpha^2+1, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle + t^2 = \lbrace t^2, t^3+t^2+t+1, t^4+t, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + \alpha^2 = \lbrace \alpha^2, \alpha^3+\alpha^2+\alpha+1, \alpha^4+\alpha, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle + (t^2 + 1) = \lbrace t^2+1, t^3+t^2+t, t^4+t+1, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + (\alpha^2 + 1) = \lbrace \alpha^2+1, \alpha^3+\alpha^2+\alpha, \alpha^4+\alpha+1, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle + (t^2 + t) = \lbrace t^2+t, t^3+t^2+1, t^4, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + (\alpha^2 + \alpha) = \lbrace \alpha^2+\alpha, \alpha^3+\alpha^2+1, \alpha^4, \cdots\rbrace$
 
-$\langle t^3 + t + 1 \rangle + (t^2 + t + 1) = \lbrace t^2+t+1, t^3+t^2, t^4+1, \cdots\rbrace$
+$\langle \alpha^3 + \alpha + 1 \rangle + (\alpha^2 + \alpha + 1) = \lbrace \alpha^2+\alpha+1, \alpha^3+\alpha^2, \alpha^4+1, \cdots\rbrace$
 
-Any element of $\mathbb{F}_2[t]$ can be considered to be part of only one of these cosets. Consider 2 polynomials $a(t), b(t) \in \mathbb{F}_2[t]$, they belong to the same coset if $a(t) - b(t) \in \langle t^3 + t + 1 \rangle$ 
+Any element of $\mathbb{F}_2[\alpha]$ can be considered to be part of only one of these cosets. Consider 2 polynomials $f(\alpha), g(\alpha) \in \mathbb{F}_2[\alpha]$, they belong to the same coset if $f(\alpha) - g(\alpha) \in \langle \alpha^3 + \alpha + 1 \rangle$ 
 
-Any polynomial like $t^3$ or $t^4+t^2+1$ reduces to a remainder of $t+1$ and can be denoted as $[t+1] = (t+1) + \langle t^3 + t + 1 \rangle$.
-Likewise we have $[0], [1], [t], [t+1], [t^2], [t^2+1], [t^2+t], [t^2+t+1]$.
+Any polynomial like $\alpha^3$ or $\alpha^4+\alpha^2+1$ reduces to a remainder of $\alpha+1$ and can be denoted as $[\alpha+1] = (\alpha+1) + \langle \alpha^3 + \alpha + 1 \rangle$.
+Likewise we have $[0], [1], [\alpha], [\alpha+1], [\alpha^2], [\alpha^2+1], [\alpha^2+\alpha], [\alpha^2+\alpha+1]$.
 Each of these sets is considered an equivalence class called a coset; these 8 cosets form a finite quotient ring denoted by:
 
-$\mathbb F_2[t] / \langle t^3 + t + 1 \rangle = 
- \mathbb F_{2^3} = \lbrace [0], [1], [t], [t+1], [t^2], [t^2+1], [t^2+t], [t^2+t+1] \rbrace$
+$\mathbb F_2[\alpha] / \langle \alpha^3 + \alpha + 1 \rangle = 
+ \mathbb F_{2^3} = \lbrace [0], [1], [\alpha], [\alpha+1], [\alpha^2], [\alpha^2+1], [\alpha^2+\alpha], [\alpha^2+\alpha+1] \rbrace$
 
-As before, the $[]$ notation of denoting a coset can be omitted for brevity
+Like before, the $[]$ notation of denoting a coset is sometimes omitted for brevity
 
+### Enumerating Elements (Polynomial basis)
 
-
-Writing out all polynomials considering various permutations of $a_0, a_1, ...$ etc can also be done quickly considering Radix representation as a Polynomial
+Writing out all polynomials considering various permutations of $f_0, f_1, ...$ etc can also be done quickly considering Radix representation as a Polynomial
 
 We know $\mathbb F_{2^4}$ has 16 elements, so consider the numbers $ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10, 11, 12, 13, 14, 15 $
 
 Since $\mathbb F_{2^4}$ is an extension field of $\mathbb F_2$, we take the base $2$ representation of the $16$ numbers & use that as coefficients of the polynomial basis representation of the elements
 
-$0$ is $0000$ i.e. $0t^3 + 0t^2 + 0t^1 + 0t^0 = 0$
+$0$ is $0000$ i.e. $0\alpha^3 + 0\alpha^2 + 0\alpha^1 + 0\alpha^0 = 0$
 
-$1$ is $0001$ i.e. $0t^3 + 0t^2 + 0t^1 + 1t^0 = 1$
+$1$ is $0001$ i.e. $0\alpha^3 + 0\alpha^2 + 0\alpha^1 + 1\alpha^0 = 1$
 
-$2$ is $0010$ i.e. $0t^3 + 0t^2 + 1t^1 + 0t^0 = t$
+$2$ is $0010$ i.e. $0\alpha^3 + 0\alpha^2 + 1\alpha^1 + 0\alpha^0 = \alpha$
 
 ....
 
-$5$ is $0101$ i.e. $0t^3 + 1t^2 + 0t^1 + 1t^0 = t^2 + 1$
+$5$ is $0101$ i.e. $0\alpha^3 + 1\alpha^2 + 0\alpha^1 + 1\alpha^0 = \alpha^2 + 1$
 
 $\cdots$
 
-$10$ is $1010$ i.e. $1t^3 + 0t^2 + 1t^1 + 0t^0 = t^3 + t$
+$10$ is $1010$ i.e. $1\alpha^3 + 0\alpha^2 + 1\alpha^1 + 0\alpha^0 = \alpha^3 + \alpha$
 
 and so on & so forth.
 
 We will end up with the same elements we got before
 
 
-Likewise $\mathbb F_{3^2}$ can be written out using the base 3 representations of $ 0, 1, 2, 3, 4, 5, 6, 7, 8$ - i.e. $\lbrace 0, 1, 2,  t, t + 1, t+2, 2t, 2t +1, 2t+2\rbrace$
+Likewise $\mathbb F_{3^2}$ can be written out using the base 3 representations of $ 0, 1, 2, 3, 4, 5, 6, 7, 8$ - i.e. $\lbrace 0, 1, 2,  \alpha, \alpha + 1, \alpha+2, 2\alpha, 2\alpha +1, 2\alpha+2\rbrace$
 
-### Primitive Polynomials
+## Group Operations
+
+**Addition**  
+
+Addition of field elements in an extension field $\mathbb F_{p^n}$ is the usual addition of polynomials, with coefficient addition performed modulo $p$.
+
+For e.g. in  $\mathbb F_{2^4}$, $(\alpha^2 + \alpha + 1) + (\alpha^3 + \alpha + 1) = \alpha^3 +\alpha^2 + (\alpha + \alpha) + (1 + 1)$
+
+Now, $\alpha + \alpha = 2\alpha \bmod 2 = 0$ and $1 + 1 = 2 \bmod 2 = 0$
+
+So
+
+$(\alpha^2 + \alpha + 1) + (\alpha^3 + \alpha + 1)  = \alpha^3 + \alpha^2$  
+
+**Multiplication**  
+
+When we multiply 2 elements of an extension field, it's done modulo the irreducible polynomial used to construct the extension.
+
+Let's take $\mathbb F_2[\alpha]/\langle \alpha^4 + \alpha + 1\rangle$ 
+
+Multiplying 2 elements $f(\alpha)$ & $g(\alpha)$ is done as $f(\alpha) \cdot g(\alpha) \pmod {\alpha^4 + \alpha + 1}$
+
+Let's multiply the elements $(\alpha^3 + \alpha + 1) * (\alpha+1)$
+
+This gives us $\alpha^4 + \alpha^3 + \alpha^2 + 1$. We now have divide this mod the irreducible polynomial.
+
+i.e $\alpha^4 + \alpha^3 + \alpha^2 + 1 \pmod {\alpha^4 + \alpha + 1}$ 
+
+Doing polynomial long division we get a remainder $\alpha^3 + \alpha^2 -\alpha$ 
+
+In $\bmod 2$, $-\alpha$ is the same as $+\alpha$, so this can be written as $\alpha^3 + \alpha^2 + \alpha$.
+
+So we get $(\alpha^3 + \alpha + 1) * (\alpha+1) = \alpha^3 + \alpha^2 + \alpha$
+
+We can get to the same answer using the substitution trick we used earlier.
+
+$\alpha^4 + \alpha + 1 = 0 $, so $\alpha^4= \alpha + 1$
+
+Substituting this in the product of the 2 elements $\alpha^4 + \alpha^3 + \alpha^2 + 1$ we get $ \alpha + 1 + \alpha^3 + \alpha^2 + 1 = \alpha^3 + \alpha^2 + \alpha$ which the same remainder we got by long division
+
+
+## Isomorphism
+There are multiple irreducible polynomials of the same degree in the Polynomial ring $\mathbb F_p[x]$. So $\mathbb F_{p^n}$ can be constructed by quotienting by different irreducible polynomials. 
+
+Let's construct $\mathbb F_{2^3}$ using both 2 different irreducible polynomials $(x^3 + x^2 + 1)$ and $(x^3 + x + 1)$
+
+In both cases, we get the same elements 
+
+$\mathbb F_2[\alpha]/\langle \alpha^2 + 1 \rangle = \mathbb F_2[\alpha]/\langle \alpha^2 + \alpha + 1 \rangle = \lbrace 0, 1, \alpha, \alpha^2, \alpha + 1, \alpha^2 + \alpha, \alpha^2 + \alpha + 1, \alpha^2 + 1\rbrace$
+
+Let's multiply 2 elements 
+
+$(\alpha + 1).(\alpha^2 + 1) = \alpha^3 + \alpha^2 +\alpha +  1$ 
+
+But to complete the operation we need to modulo $\alpha^3 + \alpha^2 + \alpha +1$ with the iredducible polynomial in each of the 2 extensions
+
+- In $\mathbb F_2[\alpha]/\langle \alpha^3 +  \alpha^2 + 1 \rangle$, 
+
+$\qquad\qquad \alpha^3 +  \alpha^2 + 1  = 0 $, so $\alpha^3 =  \alpha^2 + 1 $ 
+
+
+$\qquad\qquad$ so $\alpha^3 + \alpha^2 + \alpha + 1\pmod {\alpha^3 +  \alpha^2 + 1}  = \alpha^2 + 1 + \alpha^2 + \alpha + 1 = \alpha  $
+
+$\qquad\qquad$ i.e. $(\alpha + 1).(\alpha^2 + 1) = \alpha $
+
+- In $\mathbb F_2[\alpha]/\langle \alpha^3 +  \alpha + 1 \rangle$, 
+
+$\qquad\qquad \alpha^3 +  \alpha + 1  = 0 $, so $\alpha^3 =  \alpha + 1 $ 
+
+
+$\qquad\qquad$ so $\alpha^3 + \alpha^2 + \alpha + 1\pmod {\alpha^3 +  \alpha + 1}  = \alpha + 1 + \alpha^2 + \alpha + 1 = \alpha^2  $
+
+$\qquad\qquad$ i.e. $(\alpha + 1).(\alpha^2 + 1) = \alpha^2 $
+
+So even though the elements look the same, they aren't actually identical extension fields. However, they are isomorphic fields. If we call the 2 fields, Field A and Field B, there exists a bijective map $\phi$:Field A $\mapsto$ Field B that preserves both addition and multiplication. This means if $e_1\cdot f_1=g_1$​ in Field A, then $\phi(e_1)\cdot \phi(f_1)=\phi(g_1)$ in Field B. The labels change, but the underlying structure remains identical.
+
+## Primitive Polynomials
 
 There may be multiple irreducible polynomials of a particular degree in a Polynomial Ring. However, all of them aren't primitive polynomials. A primitive polynomial is an irreducible polynomial whose root can generate all elements of the extension field. 
 
 We used $x^4 + x + 1$ for contructing $F_{2^4}$.
 
-$x^4 + x +1$ other than being an irreducible polynomial is also a primitive one. If $t$ is the root of this polynomial, then $t^4 + t + 1 =0 $
+$x^4 + x +1$ other than being an irreducible polynomial is also a primitive one. If $\alpha$ is the root of this polynomial, then $\alpha^4 + \alpha + 1 =0 $
 
 So,
-$t^4 = -t -1= t + 1$ (because $-1 \bmod 2 \equiv 1$ ) 
+$\alpha^4 = -\alpha -1= \alpha + 1$ (because $-1 \bmod 2 \equiv 1$ ) 
 
-So, $t^4 = t+1$
+So, $\alpha^4 = \alpha+1$
 
 We can write out the list of elements 
-of $\mathbb F_{2^4} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14} \rbrace$
+of $\mathbb F_{2^4} = \lbrace 0, 1, \alpha, \alpha^2, \alpha^3, \alpha^4, \alpha^5, \alpha^6, \alpha^7, \alpha^8, \alpha^9, \alpha^{10}, \alpha^{11}, \alpha^{12}, \alpha^{13}, \alpha^{14} \rbrace$
 
-Now, we know $t^4 = t+1$
+Now, we know $\alpha^4 = \alpha+1$
 
 So,
 
-$t^5 = t^4 \cdot t = (t+1)\cdot t = t^2 + t$
+$\alpha^5 = \alpha^4 \cdot \alpha = (\alpha+1)\cdot \alpha = \alpha^2 + \alpha$
 
-$t^6 = t^5 \cdot t = (t^2 + t) \cdot t = t^3 + t^2$
+$\alpha^6 = \alpha^5 \cdot \alpha = (\alpha^2 + \alpha) \cdot \alpha = \alpha^3 + \alpha^2$
 
-$t^7 = t^6 \cdot t = (t^3 + t^2)\cdot t =t^4 + t^3 = t+1 + t^3 = t^3 + t + 1$
+$\alpha^7 = \alpha^6 \cdot \alpha = (\alpha^3 + \alpha^2)\cdot \alpha =\alpha^4 + \alpha^3 = \alpha+1 + \alpha^3 = \alpha^3 + \alpha + 1$
 
 We continue this way, till we get
 
-$t^{14} = t^3 + 1$
+$\alpha^{14} = \alpha^3 + 1$
 
 So,
 
 $\mathbb F_{2^4} = \lbrace 0, 1,
- t,
- t^2,
- t^3,
- t + 1,
- t^2 + t,
- t^3 + t^2,
- t^3 + t + 1,
- t^2 + 1,
- t^3 + t,
- t^2 + t + 1,
- t^3 + t^2 + t,
- t^3 + t^2 + t + 1,
- t^3 + t^2 + 1,
- t^3 + 1 \rbrace$
+ \alpha,
+ \alpha^2,
+ \alpha^3,
+ \alpha + 1,
+ \alpha^2 + \alpha,
+ \alpha^3 + \alpha^2,
+ \alpha^3 + \alpha + 1,
+ \alpha^2 + 1,
+ \alpha^3 + \alpha,
+ \alpha^2 + \alpha + 1,
+ \alpha^3 + \alpha^2 + \alpha,
+ \alpha^3 + \alpha^2 + \alpha + 1,
+ \alpha^3 + \alpha^2 + 1,
+ \alpha^3 + 1 \rbrace$
 
  Let's try this for $\mathbb F_{3^2}$
 
- $\mathbb F_{3^2} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7\rbrace$
+ $\mathbb F_{3^2} = \lbrace 0, 1, \alpha, \alpha^2, \alpha^3, \alpha^4, \alpha^5, \alpha^6, \alpha^7\rbrace$
  
 The irreducible degree 2 polynomial in $\mathbb F_3$ is $x^2 + 2x + 2$
 
-So $t^2 + 2t + 2 = 0$
+So $\alpha^2 + 2\alpha + 2 = 0$
 
-$t^2 = -2t -2 = t + 1 $ (because $-2 \bmod 3 \equiv 1$ ) 
+$\alpha^2 = -2\alpha -2 = \alpha + 1 $ (because $-2 \bmod 3 \equiv 1$ ) 
 
-So $\mathbb F_{3^2} = \lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7\rbrace$
+So $\mathbb F_{3^2} = \lbrace 0, 1, \alpha, \alpha^2, \alpha^3, \alpha^4, \alpha^5, \alpha^6, \alpha^7\rbrace$
 
-$t^2 = t +1$
+$\alpha^2 = \alpha +1$
 
-$t^3 = t^2 + t = t + 1 + t = 2t + 1$
+$\alpha^3 = \alpha^2 + \alpha = \alpha + 1 + \alpha = 2\alpha + 1$
 
-$t^4 = 2t^2 + t = 2t + 2 + t = 2$
+$\alpha^4 = 2\alpha^2 + \alpha = 2\alpha + 2 + \alpha = 2$
 
-$t^5 = 2t$
+$\alpha^5 = 2\alpha$
 
-$t^6 = 2t^2 = 2t + 2$
+$\alpha^6 = 2\alpha^2 = 2\alpha + 2$
 
-$t^7 = 2t^2 + 2t = 2t + 2 + 2t = t + 2$
+$\alpha^7 = 2\alpha^2 + 2\alpha = 2\alpha + 2 + 2\alpha = \alpha + 2$
 
-$t^8 = t^2 + 2t = t+1 + 2t = 1$
+$\alpha^8 = \alpha^2 + 2\alpha = \alpha+1 + 2\alpha = 1$
 
 
 So,
 
- $\mathbb F_{3^2} =\lbrace 0,1, t, t + 1, 2t + 1, 2, 2t, 2t + 2, t + 2\rbrace$
+ $\mathbb F_{3^2} =\lbrace 0,1, \alpha, \alpha + 1, 2\alpha + 1, 2, 2\alpha, 2\alpha + 2, \alpha + 2\rbrace$
 
-This way of writing out the elements works only if it's a primitive polynomial. All irreducible polynomials of degree $2$ & $3$ in $\mathbb F_2[x]$ are both irreducible & primitive.
+This way of writing out the elements works only if it's a primitive polynomial. All irreducible polynomials of degree $2$ & $3$ in $\mathbb F_2[\alpha]$ are both irreducible & primitive.
 
-However, from degree $4$ on, this may not be true. There are $4$ degree $4$ irreducible polynomials in $F_2[x]$ but only 3 of them are primitive polynomials - $x4+ x + 1$, $x^4 + x^3 + 1$ & $x^4+x^2+x+1$. The 4th one $x^4 + x^3 + x^2 + x + 1$ isn't primitive. 
+However, from degree $4$ on, this may not be true. There are $4$ degree $4$ irreducible polynomials in $F_2[\alpha]$ but only 3 of them are primitive polynomials - $\alpha4+ \alpha + 1$, $\alpha^4 + \alpha^3 + 1$ & $\alpha^4+\alpha^2+\alpha+1$. The 4th one $\alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1$ isn't primitive. 
 
-When we generate $F_{2^4}$ using the 4th one i.e. $F_2[t]/\langle t^4 + t^3 + t^2 + t + 1\rangle$ we will end up with 16 elements & it's also an extension field $F_{2^4}$ but the root $t$ will not generate all the elements, if will only generate a cyclic subgroup of the field before repeating.
+When we generate $F_{2^4}$ using the 4th one i.e. $F_2[\alpha]/\langle \alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1\rangle$ we will end up with 16 elements & it's also an extension field $F_{2^4}$ but the root $\alpha$ will not generate all the elements, if will only generate a cyclic subgroup of the field before repeating.
 
-Since $t$ is a root of $x^4 + x^3 + x^2 + x + 1$,  
+Since $\alpha$ is a root, $\alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1 = 0$
 
-$t^4 + t^3 + t^2 + t + 1 = 0$
-So, $t^4 = t^3 + t^2 + t + 1$.
+So, $\alpha^4 = \alpha^3 + \alpha^2 + \alpha + 1$.
 
-Now let's try out $\lbrace 0, 1, t, t^2, t^3, t^4, t^5, t^6, t^7, t^8, t^9, t^{10}, t^{11}, t^{12}, t^{13}, t^{14} \rbrace$
+Now let's try out $\lbrace 0, 1, \alpha, \alpha^2, \alpha^3, \alpha^4, \alpha^5, \alpha^6, \alpha^7, \alpha^8, \alpha^9, \alpha^{10}, \alpha^{11}, \alpha^{12}, \alpha^{13}, \alpha^{14} \rbrace$
 
-$t^4 = t^3 + t^2 + t + 1$
+$\alpha^4 = \alpha^3 + \alpha^2 + \alpha + 1$
 
-$t^5 = t^4 \cdot t = t^4 + t^3 + t^2 + t = t^3 + t^2 + t + 1 + t^3 + t^2 + t = 1$
+$\alpha^5 = \alpha^4 \cdot \alpha = \alpha^4 + \alpha^3 + \alpha^2 + \alpha = \alpha^3 + \alpha^2 + \alpha + 1 + \alpha^3 + \alpha^2 + \alpha = 1$
 
 Likewise
 
-$t^6 = t$, 
+$\alpha^6 = \alpha$, 
 
-$t^7 = t^2$
+$\alpha^7 = \alpha^2$
 
-$t^8 = t^3$
+$\alpha^8 = \alpha^3$
 
-$t^9 = t^3 + t^2 + t + 1$
+$\alpha^9 = \alpha^3 + \alpha^2 + \alpha + 1$
 
-${t^10} = 1$ & so on
+$\alpha^{10} = 1$ & so on
 
 So it generates only 5 elements of the field each thrice
 
@@ -295,7 +374,7 @@ So it generates only 5 elements of the field each thrice
 
 **Use of $\mathbb F_{2^8}$ in AES**
 
-AES uses the extension field $\mathbb F_{2^8}$ constructed using the irreducible polynomial $x^{8} + x^{4} + x^{3} + x + 1$ over $\mathbb F_2$ - i.e $\mathbb{F}_{2}[t]/\langle t^{8}+t^{4}+t^{3}+t+1\rangle $
+AES uses the extension field $\mathbb F_{2^8}$ constructed using the irreducible polynomial $x^{8} + x^{4} + x^{3} + x + 1$ over $\mathbb F_2$ - i.e $\mathbb{F}_{2}[\alpha]/\langle \alpha^{8}+\alpha^{4}+\alpha^{3}+\alpha+1\rangle $
 
 One byte is 256 bits (i.e. $2^8$). If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
 
@@ -306,7 +385,7 @@ The irreducible polynomials discussed earlier were in the base field - for e.g. 
 
 We can also have polynomials in the Polynomial Ring of the extension field i.e. polynomials whose co-efficients are from the extension field.
 
-For e.g. the polynomial $x^6 + (t^2+1)x^4 + x^3 + (t^2+t+1)x + (t+1)$ is in $\mathbb F_{2^3}[x]$. For convinience, sometimes this polynomial is also written as $x^6 + 5x^4 + x^3 + 7x + 3$ though it's not absolutely correct.
+For e.g. the polynomial $x^6 + (\alpha^2+1)x^4 + x^3 + (\alpha^2+\alpha+1)x + (\alpha+1)$ is in $\mathbb F_{2^3}[x]$. For convinience, sometimes this polynomial is also written as $x^6 + 5x^4 + x^3 + 7x + 3$ though it's not absolutely correct.
 
 ----  
 
@@ -360,11 +439,11 @@ $E: y^2 + xy = x^3 + a_2x^2 + a_6$
 
 Let, 
 
-$a_2 = t^3$ (i.e. the bitstring [1000])
+$a_2 = \alpha^3$ (i.e. the bitstring [1000])
 
-$a_6 = t^3 + 1$ (i.e. the bitstring [1001])) 
+$a_6 = \alpha^3 + 1$ (i.e. the bitstring [1001])) 
 
-So the Curve Equation is $E: y^2 + xy = x^3 + {t^3}x^2 + (t^3 + 1)$
+So the Curve Equation is $E: y^2 + xy = x^3 + {\alpha^3}x^2 + (\alpha^3 + 1)$
 
 The x & y coordinates of each point on the Curve are also in the field $\mathbb F_{2^4}$. So x & y can be represented using polynomail basis representation. 
 
@@ -373,12 +452,12 @@ The Elliptic Curve Group has 22 points. These are the 21 elements excluding the 
 $$
 \left[
 \begin{matrix}
-(0 , t^3 + t + 1) & (t + 1 , t^3 + t^2 + t + 1) & (t^3 , t^3 + 1) & (t^3 + t^2 , t^3 + t^2) \\
-(1 , 0) & (t^2 + 1 , 0) & (t^3 + 1 , t^2 + t) & (t^3 + t^2 + t + 1 , t^2) \\
-(1 , 1) & (t^2 + 1 , t^2 + 1) & (t^3 + 1 , t^3 + t^2 + t + 1) & (t^3 + t^2 + t + 1 , t^3 + t + 1) \\
-(t , t^3 + t^2 + 1) & (t^2 + t + 1 , t^3 + t + 1) & (t^3 + t + 1 , t) \\
-(t , t^3 + t^2 + t + 1) & (t^2 + t + 1 , t^3 + t^2) & (t^3 + t + 1 , t^3 + 1) \\
-(t + 1 , t^3 + t^2) & (t^3, 1) & (t^3 + t^2 , 0)
+(0 , \alpha^3 + \alpha + 1) & (\alpha + 1 , \alpha^3 + \alpha^2 + \alpha + 1) & (\alpha^3 , \alpha^3 + 1) & (\alpha^3 + \alpha^2 , \alpha^3 + \alpha^2) \\
+(1 , 0) & (\alpha^2 + 1 , 0) & (\alpha^3 + 1 , \alpha^2 + \alpha) & (\alpha^3 + \alpha^2 + \alpha + 1 , \alpha^2) \\
+(1 , 1) & (\alpha^2 + 1 , \alpha^2 + 1) & (\alpha^3 + 1 , \alpha^3 + \alpha^2 + \alpha + 1) & (\alpha^3 + \alpha^2 + \alpha + 1 , \alpha^3 + \alpha + 1) \\
+(\alpha , \alpha^3 + \alpha^2 + 1) & (\alpha^2 + \alpha + 1 , \alpha^3 + \alpha + 1) & (\alpha^3 + \alpha + 1 , \alpha) \\
+(\alpha , \alpha^3 + \alpha^2 + \alpha + 1) & (\alpha^2 + \alpha + 1 , \alpha^3 + \alpha^2) & (\alpha^3 + \alpha + 1 , \alpha^3 + 1) \\
+(\alpha + 1 , \alpha^3 + \alpha^2) & (\alpha^3, 1) & (\alpha^3 + \alpha^2 , 0)
 \end{matrix}
 \right]
 $$
@@ -387,26 +466,26 @@ Using the group operations specified above, let's see how point addition & point
 
 **Addition**   
 
-$P = E(t, t^3 + t^2 + t + 1)$     
-$Q = E(t^3 + t^2, t^3 + t^2)$
+$P = E(\alpha, \alpha^3 + \alpha^2 + \alpha + 1)$     
+$Q = E(\alpha^3 + \alpha^2, \alpha^3 + \alpha^2)$
 
-The irreducible polynomial is $t^4 + t + 1$. 
+The irreducible polynomial is $\alpha^4 + \alpha + 1$. 
 
 We want to add $P + Q$. Let's use the Group Law formulas to add the points.  
 
 We have 2 polynomial basis representations here - the coordinates of the Elliptic Curve equation are represented as polynomials & the x & y coordinates of the Curve points are also individually represented as polynomials. 
 
 ~~~ruby
-sage: F1.<t> = GF(2^4)
+sage: F1.<α> = GF(2^4)
 sage: F1.polynomial()
-t^4 + t + 1
-sage: x1 = F1(t)
-sage: y1 = F1(t^3 + t^2 + t + 1)
-sage: x2 = F1(t^3 + t^2)
-sage: y2 = F1(t^3 + t^2)
+α^4 + α + 1
+sage: x1 = F1(α)
+sage: y1 = F1(α^3 + α^2 + α + 1)
+sage: x2 = F1(α^3 + α^2)
+sage: y2 = F1(α^3 + α^2)
 sage: λ = (y1 + y2)/(x1 + x2)
-sage: a = F1(t^3)
-sage: b = F1(t^3 + 1)
+sage: a = F1(α^3)
+sage: b = F1(α^3 + 1)
 sage: x3 = λ^2 + λ + x1 + x2 + a
 sage: y3 = λ*(x1 + x3)+ x3 + y1
 sage: x3
@@ -426,30 +505,30 @@ sage: λ = x1 + y1/x1
 sage: x3 = λ^2 + λ + a
 sage: y3 = x1^2 +λ*x3 + x3
 sage: x3
-t^3 + t + 1
+α^3 + α + 1
 sage: y3
-t
+α
 ~~~
 
-So $2P = E(t^3 + t + 1, t)$  
+So $2P = E(\alpha^3 + \alpha + 1, \alpha)$  
 
 We used the group law calculations to do the above to understand it better. But everything can be done using Sagemath's in-built EllipticCurve object as shown below
 
 ~~~ruby
-sage: F1.<t> = GF(2^4)
-sage: E1 = EllipticCurve(F1, [1, t^3, 0, 0, t^3 + 1])
+sage: F1.<α> = GF(2^4)
+sage: E1 = EllipticCurve(F1, [1, α^3, 0, 0, α^3 + 1])
 sage:
 sage: Elist = E1.points()
 sage: P = Elist[5]
 sage: P
-(t : t^3 + t^2 + t + 1 : 1)
+(α : α^3 + α^2 + α + 1 : 1)
 sage: Q = Elist[19]
 sage: Q
-(t^3 + t^2 : t^3 + t^2 : 1)
+(α^3 + α^2 : α^3 + α^2 : 1)
 sage: P + Q
 (1 : 1 : 1)
 sage: 2*P
-(t^3 + t + 1 : t : 1)
+(α^3 + α + 1 : α : 1)
 ~~~
 ----
 
