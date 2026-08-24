@@ -345,9 +345,9 @@ So,
 
 This way of writing out the elements works only if it's a primitive polynomial. All irreducible polynomials of degree $2$ & $3$ in $\mathbb F_2[\alpha]$ are both irreducible & primitive.
 
-However, from degree $4$ on, this may not be true. There are $4$ degree $4$ irreducible polynomials in $F_2[x]$ but only 3 of them are primitive polynomials - $x^4+ x + 1$, $x^4 + x^3 + 1$ &  $x^4 + x^2 + x + 1$. The 4th $x^4 + x^3 + x^2 + x + 1$ isn't primitive. When we generate $F_{2^4}$ using the non-primitive polynomials, we will still end up with 16 elements & it will also be an extension field $F_{2^4}$ but the root $\alpha$ will not generate all the elements, it will only generate a cyclic subgroup of the field before repeating.
+However, from degree $4$ on, this may not be true. There are $3$ degree $4$ irreducible polynomials in $F_2[x]$ but only 2 of them are primitive polynomials - $x^4+ x + 1$ & $x^4 + x^3 + 1$. The 3th $x^4 + x^3 + x^2 + x + 1$ isn't primitive. When we generate $F_{2^4}$ using the non-primitive polynomials, we will still end up with 16 elements & it will also be an extension field $F_{2^4}$ but the root $\alpha$ will not generate all the elements, it will only generate a cyclic subgroup of the field before repeating.
 
-With $x^4+ x + 1$ & $x^4 + x^3 + 1$. Since $\alpha$ is a root, $\alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1 = 0$
+Since $\alpha$ is a root, $\alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1 = 0$
 
 So, $\alpha^4 = \alpha^3 + \alpha^2 + \alpha + 1$.
 
