@@ -229,11 +229,14 @@ Substituting this in the product of the 2 elements $\alpha^4 + \alpha^3 + \alpha
 ## Isomorphism
 There are multiple irreducible polynomials of the same degree in the Polynomial ring $\mathbb F_p[x]$. So $\mathbb F_{p^n}$ can be constructed by quotienting by different irreducible polynomials. 
 
-Let's construct $\mathbb F_{2^3}$ using both 2 different irreducible polynomials $(x^3 + x^2 + 1)$ and $(x^3 + x + 1)$
+Let's construct two extension fields of $\mathbb F_2$ using both 2 different irreducible polynomials $(x^3 + x^2 + 1)$ and $(x^3 + x + 1)$
 
-In both cases, we get the same elements 
+Field A $: \mathbb F_2[\alpha]/\langle \alpha^3 + \alpha^2 + 1 \rangle $ 
 
-$\mathbb F_2[\alpha]/\langle \alpha^3 + \alpha^2 + 1 \rangle = \mathbb F_2[\alpha]/\langle \alpha^3 + \alpha + 1 \rangle = \lbrace 0, 1, \alpha, \alpha^2, \alpha + 1, \alpha^2 + \alpha, \alpha^2 + \alpha + 1, \alpha^2 + 1\rbrace$
+Field B $: \mathbb F_2[\beta]/\langle \alpha^3 + \alpha + 1 \rangle$
+Both fields have the same set of 8 elements when written in polynomial basis
+
+$ \lbrace 0, 1, \alpha, \alpha^2, \alpha + 1, \alpha^2 + \alpha, \alpha^2 + \alpha + 1, \alpha^2 + 1\rbrace$
 
 Let's multiply 2 elements 
 
@@ -342,9 +345,9 @@ So,
 
 This way of writing out the elements works only if it's a primitive polynomial. All irreducible polynomials of degree $2$ & $3$ in $\mathbb F_2[\alpha]$ are both irreducible & primitive.
 
-However, from degree $4$ on, this may not be true. There are $4$ degree $4$ irreducible polynomials in $F_2[\alpha]$ but only 2 of them are primitive polynomials - $x^4+ x + 1$ & $x^4 + x^3 + 1$. The other 2 aren't $x^4 + x^3 + x^2 + x + 1$ & $x^4 + x^2 + x + 1$ aren't primitive. When we generate $F_{2^4}$ using the non-primitive polynomials, we will still end up with 16 elements & they will also be an extension field $F_{2^4}$ but the root $\alpha$ will not generate all the elements, it will only generate a cyclic subgroup of the field before repeating.
+However, from degree $4$ on, this may not be true. There are $4$ degree $4$ irreducible polynomials in $F_2[\alpha]$ but only 3 of them are primitive polynomials - $x^4+ x + 1$, $x^4 + x^3 + 1$ &  $x^4 + x^2 + x + 1$. The 4th $x^4 + x^3 + x^2 + x + 1$ isn't primitive. When we generate $F_{2^4}$ using the non-primitive polynomials, we will still end up with 16 elements & it will also be an extension field $F_{2^4}$ but the root $\alpha$ will not generate all the elements, it will only generate a cyclic subgroup of the field before repeating.
 
-Let's try with $x^4+ x + 1$ & $x^4 + x^3 + 1$. Since $\alpha$ is a root, $\alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1 = 0$
+With $x^4+ x + 1$ & $x^4 + x^3 + 1$. Since $\alpha$ is a root, $\alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1 = 0$
 
 So, $\alpha^4 = \alpha^3 + \alpha^2 + \alpha + 1$.
 
@@ -529,4 +532,5 @@ sage: 2*P
 (α^3 + α + 1 : α : 1)
 ~~~
 ----
+
 ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Frisencrypto.github.io%2FExtensionFields%2F&label=Visitors&icon=github&color=%23198754&message=&style=flat&tz=Asia%2FCalcutta)
