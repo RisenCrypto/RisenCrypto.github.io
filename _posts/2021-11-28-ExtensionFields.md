@@ -234,6 +234,7 @@ Let's construct two extension fields of $\mathbb F_2$ using both 2 different irr
 Field A $: \mathbb F_2[\alpha]/\langle \alpha^3 + \alpha^2 + 1 \rangle $ 
 
 Field B $: \mathbb F_2[\alpha]/\langle \alpha^3 + \alpha + 1 \rangle$
+
 Both fields have the same set of 8 elements when written in polynomial basis
 
 $ \lbrace 0, 1, \alpha, \alpha^2, \alpha + 1, \alpha^2 + \alpha, \alpha^2 + \alpha + 1, \alpha^2 + 1\rbrace$
