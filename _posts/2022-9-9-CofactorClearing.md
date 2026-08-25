@@ -9,7 +9,7 @@ title: Clamping & Cofactor clearing in Curve25519
 ### Clamping
 When using DJB's $Curve25519$, the private key is clamped before use.
 
-The claimping function typically looks like this
+The clamping function typically looks like this
 
 ~~~ruby  
 
@@ -23,9 +23,9 @@ key[31] |= 64;
 
 Here `key` is the private key, a 32-byte value interpreted as an integer in **little-endian** format. Let's see what these 3 lines of code do.
  
-> key[0] &= 248; // 248 is 011111000
+> key[0] &= 248; // 248 is 11111000
 
-This Bitwise ANDing will clear (zero out) the lowest 3 bits of the key. This is called **Cofactor Clearing** and a majority of this post is spent in discussing this.
+This Bitwise ANDing will clear (zero out) the lowest 3 bits of the key. This is called **Cofactor Clearing** and a majority of this post is spent discussing this.
 
 
 > key[31] &= 127; // 127 is 01111111
@@ -40,11 +40,11 @@ This post is mainly about the Cofactor Clearing part of the Clamping function, s
 
 ### Cofactor Clearing
 
-Many cryptographic protocols use elliptic curves of prime order. However there are composite order curves like the Edwards Curve, Montgomery Curve etc which easily provide faster group operations with complete addition laws which are not vulnerable to a timing attack. So many modern elliptic curve implentations use a composite order curve of order $h.p$ where $p$ is a prime & $h$ is a small cofactor usually $8$ or lesser. The composite order curve has a subgroup of prime order $p$ which is used for the implementation. Though these curves have a lot of advantages, there are also some disadvantages, one of which we discuss below called as a small subgroup attack. $Curve25519$ is a composite order curve.
+Many cryptographic protocols use elliptic curves of prime order. However there are composite order curves like the Edwards Curve, Montgomery Curve etc which easily provide faster group operations with complete addition laws which are not vulnerable to a timing attack. So many modern elliptic curve implentations use a composite order curve of order $h.p$ where $p$ is a prime & $h$ is a small cofactor usually $8$ or lesser. The composite order curve has a subgroup of prime order $p$ which is used for the implementation. Though these curves have a lot of advantages, there are also some disadvantages, one of which we discuss below called a small subgroup attack. $Curve25519$ is a composite order curve.
 
 **Small Subgroup attack in non-prime order curves**
 
-The operations are usually implemented in the prime order subgroup of the full Curve. Let's take the example of Diffie Hellman to understand the small subgroup attack. Let's say our curve is of order $8p$ where $p$ is a prime & $8$ is the cofactor. The main group of order $8p$ is a finite cyclic Group. By the fundamental theorem of finite cyclic groups, the 2 subgroups of order $8$ & order $p$ are also finite cyclic subgroups. Let $G$ be a generator of the prime order subgroup. Let $a$ & $b$ be Alice's & Bob's private key respectively. This is how a typical Diffie Hellman key exchange works.
+The operations are usually implemented in the prime order subgroup of the full Curve. Let's take the example of Diffie Hellman to understand the small subgroup attack. Let's say our curve is of order $8p$ where $p$ is a prime & $8$ is the cofactor. The main group of order $8p$ is a finite cyclic Group. By the fundamental theorem of finite cyclic groups, the subgroups of order $8$ and $p$ are also finite cyclic subgroups. Let $G$ be a generator of the prime order subgroup. Let $a$ & $b$ be Alice's & Bob's private key respectively. This is how a typical Diffie Hellman key exchange works.
 
 $$
 \text{Alice} \xrightarrow{\hspace{2cm} a G \hspace{2cm}} \text{Bob} \\
@@ -55,7 +55,7 @@ Alice calculates $a\cdot bG$, Bob calculates $b\cdot aG$ and the shared secret i
 
 If Bob is a malicious participant, he can launch a small subgroup attack which can leak some information about Alice's private key. The protocol depends on operating in the prime order subgroup (i.e. the subgroup of order $p$). Since $G$ is a generator of the prime order subgroup, $abG$ also falls in the prime order subgroup (because of closure). But the full curve group also contains other subgroups - one of which is of order $8$. The points of the subgroup of order $8$ are not in the prime order subgroup (other than the identity). Let $H$ be a **generator** of the subgroup of order $8$. Now, if Bob instead of sending $bG$ to Alice sends just $H$ to Alice.  So Alice calculates $aH$ (instead of $abG$) & derives the share secret using that. Alice then encrypts a message using the shared secret & sends it to Bob. Now if Alice's shared secret had been derived from $abG$, then number of possible values $abG$ could have is $p$ which is a very large prime - for e.g. for $Curve25519$, $p = 2^{252} + 27742317777372353535851937790883648493$ so brute forcing the encrypted message to recover the shared secret is not possible. However, Bob has tricked Alice into deriving her shared secret from $aH$. Since $H$ is a generator of subgroup of order $8$, $aH$ is a point of the subgroup of order $8$ because of closure in the subgroup. So $aH$ can only be one of $8$ points instead one of $p$ points. Now brute forcing the secret key is much simpler for Bob. So Bob can recover $aH$. It's possible to recover the value of $a \bmod 8$ from $aH$ - which is the lower $3$ bits of $a$.
 
-To understand this better, let's take the example of a simple additive group of order $8p$ where $p = 11$ and the cofactor is $8$. This is the group $\mathbb Z/{88\mathbb Z}$. This has the elements $ \lbrace 0, 1, 2, 4, .... 87 \rbrace$ (I am omitting the coset notation for simplicity)
+To understand this better, let's take the example of a simple additive group of order $8p$ where $p = 11$ and the cofactor is $8$. This is the group $\mathbb Z/88\mathbb Z$. This has the elements $ \lbrace 0, 1, 2, 4, .... 87 \rbrace$ (I am omitting the coset notation for simplicity)
 
 This has multiple subgroups including 
 
@@ -77,13 +77,13 @@ In DH, leaking $a \bmod 8$ matters only if Alice reuses $a$. However, above atta
 
 **Mitigation for the small subgroup attack - cofactor clearing**
 
-If you have a cyclic group of order $np$ (where $p$ is a prime), then scalar multipliying any element of the group by the cofactor ($n$) gives you an element of the prime order subgroup irrespective irrespective of which subgroup it was in originally. This can be easily done by both parties - i.e. Alice after choosing a private key $a$, she multiplies it by $8$ & uses $8a$ as the private key. So when she receives $bG$ from Bob, the shared secret is derived from $8abG$ instread of from $abG$. Likewise Bob does the same. Now if Bob is a malicious player, then what is leaked is $8a \bmod 8$ instead of $a \bmod 8$. Since $8a \bmod 8$ is always 0, nothing of significance is leaked. Thus, mutliplying the private key by the cofactor mitigates the small subgroup attack.
+If you have a cyclic group of order $np$ (where $p$ is a prime), then scalar multipliying any element of the group by the cofactor ($n$) gives you an element of the prime order subgroup irrespective irrespective of which subgroup it was in originally. This can be easily done by both parties - i.e. Alice after choosing a private key $a$, she multiplies it by $8$ & uses $8a$ as the private key. So when she receives $bG$ from Bob, the shared secret is derived from $8abG$ instead of from $abG$. Likewise Bob does the same. Now if Bob is a malicious player, then what is leaked is $8a \bmod 8$ instead of $a \bmod 8$. Since $8a \bmod 8$ is always 0, nothing of significance is leaked. Thus, mutliplying the private key by the cofactor mitigates the small subgroup attack.
 
 Below is a sage program which takes all possible values of $a$ & scalar multiplies it by $8$. And you can see that after doing this, the output is always an element of the prime order subgroup. 
 
 As we saw at the beginning of the post DJB uses something similar for $Curve25519$ - the lower 3 bits of the private key/scalar is cleared before use. Any element with $3$ least significant bits as $0$ is a multiple of $8$ & nothing is leaked by the small subgroup attack.
 
-**Torsion safe cofactor clearing**
+**Torsion=safe cofactor clearing**
 
 The method of cofactor clearing by scalar multiplying by the cofactor works fine for many protocols but isn't suitable everywhere. In many implementations of $Ed25519$, the private key/scalar is persisted as is and before use the least significant 3 bits of the scalar are cleared. This creates a problem for some use-cases. 
 Any point $Q$ on the full curve of order $8p$ can be written as the sum of 2 components i.e. the prime order component $P$ & a $8$-torsion component $T$ from the subgroup of order $8$ i.e $Q = P + T$. Clearing the lower 3 bits of $Q$ could change both the prime order component & also the 8-torsion component. This may not be appropriate in some places (like BIP-32 which uses hierarchical key derivation scheme). These use-cases require "torsion-safe" cofactor clearing. 
@@ -148,28 +148,28 @@ So multiplying by $56$ will clear the torsion component while leaving the prime 
 
 Let's take an example of private key/scalar $a = 29$. 
 
-If we use a non-torsion safe clearing of lowest 3 bits, then $a1 = a$ & $248 = 24$ (clearing lowest 3 bits)
+If we use a non-torsion safe clearing of lowest 3 bits, then $a1 = a \& 248 = 24$ (clearing lowest 3 bits)
 
-If we use torsion safe clearing, then $a_2 = 56.39 \bmod 88 = 40$
+If we use torsion safe clearing, then $a_2 = 56\cdot 29 \bmod 88 = 40$
 
 Let's test with a prime order element like $16$.
 
-1) With original key $(a.16) \bmod 88 = (29.16) \bmod 88 = 24$
+1) With original key $(a\cdot 16) \bmod 88 = (29\cdot 16) \bmod 88 = 24$
 
-2) With non-torsion safe cleared key $(a_1.16) \bmod 88 = (24.16) \bmod 88 = 32$
+2) With non-torsion safe cleared key $(a_1\cdot 16) \bmod 88 = (24.16) \bmod 88 = 32$
 
-3) With torsion safe cleared key $(a_2.16) \bmod 88 = (40.16) \bmod 88 =24$
+3) With torsion safe cleared key $(a_2\cdot 16) \bmod 88 = (40\cdot 16) \bmod 88 =24$
 
-Now with a 8-torsion element like $33$
+Now with an 8-torsion element like $33$
 
 
-1) With Original key $(a.33) \bmod 88 = (29.33) \bmod 88 = 77$ 
+1) With original key $(a\cdot 33) \bmod 88 = (29\cdot 33) \bmod 88 = 77$ 
 
-2) With non-torsion safe cleared key $(a_1.33) \bmod 88 = (24.33) \bmod 88 = 0$
+2) With non-torsion safe cleared key $(a_1\cdot 33) \bmod 88 = (24\cdot 33) \bmod 88 = 0$
 
-3) With torsion safe cleared key $(a_2.33) \bmod 88 = (40.33) \bmod 88 =0$
+3) With torsion safe cleared key $(a_2\cdot 33) \bmod 88 = (40\cdot 33) \bmod 88 =0$
 
-So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a_2.Q = a.Q$, but if it belongs to the torsion subgroup, then $a_2.Q = identity$.
+So what we see is if the element (say $Q$) belongs to the prime order subgroup then $a_2\cdot Q = a\cdot Q$, but if it belongs to the torsion subgroup, then $a_2\cdot Q = identity$.
 
 -----  
 
