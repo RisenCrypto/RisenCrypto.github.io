@@ -7,7 +7,7 @@ title: The Pohlig-Hellman Algorithm
 
 {% include mathjax.html %}
 
-The *Pohlig-Hellman Algorithm* helps solve the *Discrete Log Problem* for Finite Fields whose order can be factored into prime powers of smaller primes. The algorithm reduces the computation of the discrete log in the Finite Field $G$ to the computation of the discrete log in prime power order subgroups of $G$
+The *Pohlig-Hellman Algorithm* solves the Discrete Log Problem in any finite group (e.g., the multiplicative group of a finite field or an elliptic curve group) whose group order is smooth—meaning it can be factored into small prime powers. The algorithm reduces the computation of the discrete log in the Finite Field $G$ to the computation of the discrete log in prime power order subgroups of $G$
 
 Take $\mathbb F_p$. The order of it's multiplicative group is $p-1=p_1^{n_1}\cdot p_2^{n_2}\cdot p_3^{n_3}\cdots$
 
@@ -242,7 +242,7 @@ $LHS = 7531^{2700} = pow(7531, 2700, 8101) = 2217$
 
 $2217 \equiv 6^{2700a_0} \bmod 8101$
 
-Since the only variable here is $a_0$ & $a_0 \in \lbrace 0, 1, 3 \rbrace$, we can solve & get 
+Since the only variable here is $a_0$ & $a_0 \in \lbrace 0, 1, 2 \rbrace$, we can solve & get 
 
 $a_0=2$
 
