@@ -9,9 +9,9 @@ title: The Pohlig-Hellman Algorithm
 
 The *Pohlig-Hellman Algorithm* helps solve the *Discrete Log Problem* for Finite Fields whose order can be factored into prime powers of smaller primes. The algorithm reduces the computation of the discrete log in the Finite Field $G$ to the computation of the discrete log in prime power order subgroups of $G$
 
-For e.g. Order of $\mathbb F(p)=p-1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}...$
+Take $\mathbb F_p$. The order of it's multiplicative group is $p-1=p_1^{n_1}\cdot p_2^{n_2}\cdot p_3^{n_3}\cdots$
 
-The PH algorithm allows you to solve the DLP in the smaller subgroups of order $p_1^{n_1}, p_2^{n_2}, p_3^{n_3}$ etc and then combine the solutions using the *Chinese Remainder Theorem* to get the solution for the original DLP.    
+The PH algorithm allows you to solve the DLP in the smaller subgroups of order $p_1^{n_1}, p_2^{n_2}, p_3^{n_3}$ etc and then combine the solutions using the *Chinese Remainder Theorem*, to get the solution for the original DLP.    
 
 ---   
 
@@ -24,11 +24,11 @@ Let $g$ be a generator in $\mathbb F(p)$
 
 $y \equiv g^x \bmod p$
 
-$y, p$ & $g$ are known. The discrete log problem here is to find $x$
+$y, p$ and $g$ are known. The discrete log problem here is to find $x$
 
 **Reduce the DLP in the field into the DLPs in the prime power order subgroups**
 
-The multiplicative operation of $\mathbb F(p)$ excludes the $0$ element & hence it's order is one less than the order of the field. So the order is $p-1$. Any composite number can be expressed as the product of prime powers. 
+The multiplicative operation of $\mathbb F(p)$ excludes the $0$ element & hence its order is one less than the order of the field. So the order is $p-1$. Any composite number can be expressed as the product of prime powers. 
 
 Order = $p-1=p_1^{n_1}.p_2^{n_2}.p_3^{n_3}...$
 
@@ -58,7 +58,7 @@ So, the DLP in the subgroup of order ${p_i}^{n_i}$ is
 
 $y_i \equiv {g_i}^{x_i} \bmod p$.
 
-We simplified the equation after raising using the new variables $y_i$, $g_i$ & $x_i$ to show that now it's a DLP problem in the subgroup. While solving however, we will use continue to use $y$ & $g$ along with the new variable $x_i$
+We simplified the equation after raising using the new variables $y_i$, $g_i$ & $x_i$ to show that now it's a DLP problem in the subgroup. While solving however, we will continue to use $y$ and $g$ along with the new variable $x_i$
 
 i.e. $y^{\frac {p-1}{p_i^{n_i}}} = ({g^{\frac {p-1}{p_i^{n_i}}}})^{x_i} \bmod p$
 
@@ -75,9 +75,9 @@ Note: For e.g. if $p_i=2$, then we have to expand $x_i$ in base 2 (i.e. do a bin
 
 So the binary expansion of $x=13$ will be
 
-$x_i=13=1101=1 . 2^0 + 0. 2^1 + 1.2^2 + 1.2^3$
+$x_i=13=1101= 1 \cdot 2^0 + 0 \cdot 2^1 + 1\cdot 2^2 + 1\cdot 2^3$
 
-Since $x_i$ is $\bmod 2^{n_i}$, then the max value of $x_i$ can only be $2^{n_i} -1$. The number $2^{n_i}$ in binary representation needs $n_i+1$ bits. So the number $2^{n_i}-1$ will need $n_i$ bits. Hence when we expand $x_i$ in base 2, we will have $n_i$ co-efficients $\in \lbrace 0,1 \rbrace$
+Since $x_i$ is $\bmod 2^{n_i}$, the max value of $x_i$ can only be $2^{n_i} -1$. The number $2^{n_i}$ in binary representation needs $n_i+1$ bits. So the number $2^{n_i}-1$ will need $n_i$ bits. Hence when we expand $x_i$ in base 2, we will have $n_i$ co-efficients $\in \lbrace 0,1 \rbrace$
 
 For any base other than 2, we do it similarly
 
@@ -147,7 +147,7 @@ $y^{\frac {p-1}{p_i^2}}.m^{-1} = g^{\frac {(p-1)a_1}{p_i}} \bmod p $
 
 In the above equation, the only unknown is $a_1$ and $a_1 \in \lbrace 0,1,...,p-1 \rbrace$. Like before, it can be solved to get $a_1$
 
-We can keep repeating these steps to get all values from $a_2$ to $a_{n-1}$, there by finding $x_i$.
+We can keep repeating these steps to get all values from $a_2$ to $a_{n-1}$, thereby finding $x_i$.
 
 So now we know $x_1$.
 
@@ -182,7 +182,7 @@ And then for $i=1$, we raised it to $p_i^{n_i - 1}$ which got us
 
 $y^{\frac {p-1}{p_i}} = g^{\frac {p-1}{p_i}{x_i}} \bmod p$
 
-We can combine the above 2 steps into directly raising the original DLP to $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ for finding $a_0$.
+We can combine the above two steps into directly raising the original DLP to $\frac {p-1}{p_i}$ & changing $x$ to $x_i$ for finding $a_0$.
 
 So let's summarise the steps in the Algorithm
 
@@ -255,11 +255,11 @@ $7531 \equiv 6^2 . 6^{3a_1+9a_2+27a_3} \bmod 8101$
 
 $7531 . 6^{-2} \equiv 6^{3a_1+9a_2+27a_3} \bmod 8101$
 
-Using sage, 
+Using Sage, 
 
 $pow(6, -2, 8101) = 7876$ and $mod(7876*7531,8101) = 6735$
 
-So, $6735= \equiv 6^{3a_1+9a_2+27a_3} \bmod 8101$
+So, $6735 \equiv 6^{3a_1+9a_2+27a_3} \bmod 8101$
 
 We raise both sides to $\frac {p-1}{p_i^2}$ i.e. $\frac {8100}{9} = 900$ & also cancel out all $a_i$ terms other than $a_1$ using Fermat's little theorem.
 
