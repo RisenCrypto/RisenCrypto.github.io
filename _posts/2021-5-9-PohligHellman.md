@@ -87,7 +87,7 @@ $x_i=a_0+ a_1p_i + a_2{p_i}^2 +...+ a_{n_i-1}{p_i}^{n_i-1}$ where $a_j \in \lbra
 
 **Solving the DLP in the subgroup** 
 
-Let's first solve it for the subgroup of order ${\frac {p-1}{p_1^{n_1}}}$
+Let's first solve it for the subgroup of order ${p_i}^{n_i}$
 
 i.e. $y^{\frac {p-1}{p_i^{n_i}}} = ({g^{\frac {p-1}{p_i^{n_i}}}})^{x_i} \bmod p$
 
@@ -109,7 +109,7 @@ Other than the first term, all the remaining terms are of the form $g^{k(p-1).p^
 $y^{\frac {p-1}{p_i}} = g^{\frac {(p-1)a_0}{p_i}} \bmod p $
 
 
-In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,p-1 \rbrace$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard's rho etc)
+In the above equation, the only unknown is $a_0$ and $a_0 \in \lbrace 0,1,...,p_i-1 \rbrace$. It can be solved to get $a_0$ (using the BabyStep-GiantStep, Pollard's rho etc)
 
 Now, that $a_0$ is known, let's start again to find other $a_i$
 
@@ -371,7 +371,7 @@ Multiply both sides of the DLP by $\frac {m}{7}$, replace $x$ with $x_1$
 
 $\frac {m}{7}Q=x_1 \frac{m}{7}P$
 
-Expand $x_1$ in base 3
+Expand $x_1$ in base 7
 
 $x_1=a_0+7a_1+7^{2}{a_2}$
 
