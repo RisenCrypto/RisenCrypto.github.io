@@ -304,13 +304,13 @@ $v3 = [0\,0\,1\,1\,0\,1\,0]$ (i.e. multiply the squares of the 3rd, 4th & 6th nu
 
 Let's take the first one
 
-$296^2$ \times $316^2 \equiv (3^2$ \times $17)(3^6$ \times $17) \bmod 87463$   
+$296^2 \times 316^2 \equiv (3^2 \times 17)(3^6 \times 17) \bmod 87463$   
 
 $= {(3^4 \quad \times \quad 17)} ^2$
 
 
 
-$\gcd(N, (296$ \times $316) - (3^4$ \times $17)) = 587$
+$\gcd(N, (296 \times 316) - (3^4 \times 17)) = 587$
 
 So we have factorized $N$ using just the 1st vector 
 
@@ -318,7 +318,7 @@ $87463 = 587 \times 149$
 
 The process actually ends here but let's try it again with the 2nd & 3rd vectors also
 
-$\gcd(N, (299 \times $316 \times 347) - (2 \times 3^4 \times 17^2 \times 19)) = 587$
+$\gcd(N, (299 \times 316 \times 347) - (2 \times 3^4 \times 17^2 \times 19)) = 587$
 
 $\gcd(N, (302 \times 307\times 343) - (2\times 3^3 \times13 \times 29 \times 43)) = 587$ 
 
