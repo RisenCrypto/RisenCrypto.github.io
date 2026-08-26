@@ -138,10 +138,10 @@ $\stackrel {?}{=}(a(1) + \sigma(1)\beta + \gamma)(a(\omega)+ \sigma(\omega)\beta
 
 This can also be written as 
 
-$\prod_{X \in  H} a(X) + X\cdot \beta + \gamma \stackrel {?}{=} \prod_{X \in H} a(X) + \sigma(X)\cdot \beta + \gamma$
+$\prod_{X \in  H} (a(X) + X\cdot \beta + \gamma) \stackrel {?}{=} \prod_{X \in H} a(X) + \sigma(X)\cdot \beta + \gamma$
 
 #### Checking Permutations across multiple vectors
-The above check considers only vector $a$. However, the constraints aren't localised to be intra vector, they actually will be inter-vector also - i.e. the output of the 1st gate (from the $c$ vector) needs to be the left input to the 3rd gate (from the $a$ vector) & so on and so forth. Assuming $n$ gates, we will have a total of $3n$ elements in the 3 vectors. If we had to index $(a \cup b \cup c)$, we will need $3n$ distinct indexes So we create 2 cosets $k_1H$ & $k_2H$ each of which will be disjoint with the $n$ elements of $H$. So in $(H \cup k_1H \cup k_2H)$, we have $3n$ indexes available for the $3n$ elements. Note however that, these will only be used for indexes. For numbering gates, we need & use only the $n$ elements of $H$. We use gate numbers $1$ to $\omega^{n-1}$ for numbering the $n$ gates. Just like the polynomial $a(X)$, we also interpolate & create polynomials $b(X)$ & $c(X)$ from vectors $b$ & $c$. (Note that the $x$ co-ordinate for the interpolation for both $b$ & $c$ will only be the elements of $H$ - it's only for the $y$ co-ordinates which will use ($H\cup k_1H \cup k_2H$). 
+The above check considers only vector $a$. However, the constraints aren't localised to be intra vector, they actually will be inter-vector also - i.e. the output of the 1st gate (from the $c$ vector) needs to be the left input to the 2nd gate (from the $a$ vector) & so on and so forth. Assuming $n$ gates, we will have a total of $3n$ elements in the 3 vectors. If we had to index $(a \cup b \cup c)$, we will need $3n$ distinct indexes So we create 2 cosets $k_1H$ & $k_2H$ each of which will be disjoint with the $n$ elements of $H$. So in $(H \cup k_1H \cup k_2H)$, we have $3n$ indexes available for the $3n$ elements. Note however that, these will only be used for indexes. For numbering gates, we need & use only the $n$ elements of $H$. We use gate numbers $1$ to $\omega^{n-1}$ for numbering the $n$ gates. Just like the polynomial $a(X)$, we also interpolate & create polynomials $b(X)$ & $c(X)$ from vectors $b$ & $c$. (Note that the $x$ co-ordinate for the interpolation for both $b$ & $c$ will only be the elements of $H$ - it's only for the $y$ co-ordinates which will use ($H\cup k_1H \cup k_2H$). 
 
 Though we had $\sigma: index(a) \mapsto index(a)$, in reality we need 3 maps $\sigma_1, \sigma_2, \sigma_3$ one each for index of elements of vectors $a$, $b$ & $c$, in each of these maps the destination could be any of the indices of the $3n$ elements.
 
@@ -152,7 +152,7 @@ The index numbers for Left of the Circuit would be the elements of $H$, while th
 
 $\prod_{X \in H} (a(X) + X\cdot \beta + \gamma)(b(X) + X\cdot k_1\cdot \beta + \gamma)(c(X) + X\cdot k_2\cdot \beta + \gamma) \stackrel {?}{=} $
 
-$\prod_{X \in H} (a(X) + \sigma_1(X)\cdot \beta + \gamma)(b(X) + \sigma_2(X)\cdot \beta + \gamma)(a(X) + \sigma_3(X)\cdot \beta + \gamma)$
+$\prod_{X \in H} (a(X) + \sigma_1(X)\cdot \beta + \gamma)(b(X) + \sigma_2(X)\cdot \beta + \gamma)(c(X) + \sigma_3(X)\cdot \beta + \gamma)$
 
 Let's see how to build & implement this check for our example circuit. 
 
@@ -224,9 +224,9 @@ Likewise, we can also interpolate $S_{\sigma_2}$ & $S_{\sigma_3}$
 
 Our Perm Check Equation
 
-$f'(X) = (a(X) + X\cdot \beta + \gamma)(b(X) + X\cdot \beta + \gamma)(c(X) + X\cdot \beta + \gamma)$
+$f'(X) = (a(X) + X\cdot \beta + \gamma)(b(X) + X\cdot k_1\cdot \beta + \gamma)(c(X) + X\cdot k_2\cdot \beta + \gamma)$
 
-$g'(X) =  (a(X) + \sigma_1(X)\cdot \beta + \gamma)(b(X) + \sigma_2(X)\cdot \beta + \gamma)(a(X) + \sigma_3(X)\cdot \beta + \gamma)$
+$g'(X) =  (a(X) + \sigma_1(X)\cdot \beta + \gamma)(b(X) + \sigma_2(X)\cdot \beta + \gamma)(c(X) + \sigma_3(X)\cdot \beta + \gamma)$
 
 Let $m(X) = \frac {f'(X)}{g'(X)}$
 
@@ -238,7 +238,7 @@ Let's define another polynomial $z(X)$ such that
 
 - $z(\omega) = 1$ and 
 
-- $z(\omega^i) = \prod_{j=1}^{n-1} m(\omega^j)$ for $i = \lbrace 2, 3, ... n \rbrace$ 
+- $z(\omega^i) = \prod_{j=1}^{i-1} m(\omega^j)$ for $i = \lbrace 2, 3, ... n \rbrace$ 
 
 From the above definition
 
