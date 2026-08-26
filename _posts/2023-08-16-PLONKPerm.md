@@ -124,6 +124,10 @@ For the purpose of this example, we have 4 gates & so we need a multiplicative s
 i.e. $H = \lbrace 1, \omega, \omega^2, \omega^3 \rbrace$ 
 or if we are writing values $H = \lbrace 1, 22,96,75\rbrace$.
 
+Since the gate numbers $1,2,3,4$ now correspond to $1,\omega,\omega^2,\omega^3$ respectively, we redefine $\sigma$ on $H$ as:
+
+$\sigma(1) = \omega^2$, $\sigma(\omega) = \omega$, $\sigma(\omega^2) = 1$, $\sigma(\omega^3) = \omega^3$.
+
 Let's say we have a polynomial, $a(X)$ created from the vector $a$ such that if you pass the gate number to the polynomial, it will give you value of the vector at that point. This polynomial can be created using Lagrange Interpolation. For the vector $a = [4, 16, 4, 68]$ we create the polynomial $a(X)$ by interpolating the points $[(1,4), (\omega, 16), (\omega^2, 4), (\omega^3,68)]$
 
 $a(X) = 5x^3 + 78x^2 + 92x + 23$
@@ -141,7 +145,7 @@ This can also be written as
 $\prod_{X \in  H} (a(X) + X\cdot \beta + \gamma) \stackrel {?}{=} \prod_{X \in H} a(X) + \sigma(X)\cdot \beta + \gamma$
 
 #### Checking Permutations across multiple vectors
-The above check considers only vector $a$. However, the constraints aren't localised to be intra vector, they actually will be inter-vector also - i.e. the output of the 1st gate (from the $c$ vector) needs to be the left input to the 2nd gate (from the $a$ vector) & so on and so forth. Assuming $n$ gates, we will have a total of $3n$ elements in the 3 vectors. If we had to index $(a \cup b \cup c)$, we will need $3n$ distinct indexes So we create 2 cosets $k_1H$ & $k_2H$ each of which will be disjoint with the $n$ elements of $H$. So in $(H \cup k_1H \cup k_2H)$, we have $3n$ indexes available for the $3n$ elements. Note however that, these will only be used for indexes. For numbering gates, we need & use only the $n$ elements of $H$. We use gate numbers $1$ to $\omega^{n-1}$ for numbering the $n$ gates. Just like the polynomial $a(X)$, we also interpolate & create polynomials $b(X)$ & $c(X)$ from vectors $b$ & $c$. (Note that the $x$ co-ordinate for the interpolation for both $b$ & $c$ will only be the elements of $H$ - it's only for the $y$ co-ordinates which will use ($H\cup k_1H \cup k_2H$). 
+The above check considers only vector $a$. However, the constraints aren't localised to be intra vector, they actually will be inter-vector also - i.e. the output of the 1st gate (from the $c$ vector) needs to be the left input to the 2nd gate (from the $a$ vector) & so on and so forth. Assuming $n$ gates, we will have a total of $3n$ elements in the 3 vectors. If we had to index $(a \cup b \cup c)$, we will need $3n$ distinct indexes So we create 2 cosets $k_1H$ & $k_2H$ each of which will be disjoint with the $n$ elements of $H$. So in $(H \cup k_1H \cup k_2H)$, we have $3n$ indexes available for the $3n$ elements. Note however that, these will only be used for indexes. For numbering gates, we need & use only the $n$ elements of $H$. We use gate numbers $1$ to $\omega^{n-1}$ for numbering the $n$ gates. Just like the polynomial $a(X)$, we also interpolate & create polynomials $b(X)$ & $c(X)$ from vectors $b$ & $c$. (Note that the $x$ co-ordinate for the interpolation for $b$ & $c$ will only be the elements of $H$ - the $y$ co-ordinates will be the values from the vectors $b$ and $c$. The set $H \cup k_1H \cup k_2H$ is used only for indexing the permutation maps $\sigma_1, \sigma_2, \sigma_3$.)
 
 Though we had $\sigma: index(a) \mapsto index(a)$, in reality we need 3 maps $\sigma_1, \sigma_2, \sigma_3$ one each for index of elements of vectors $a$, $b$ & $c$, in each of these maps the destination could be any of the indices of the $3n$ elements.
 
@@ -284,7 +288,7 @@ Point 6 in Section 5.1 of the $\mathcal{P} \mathfrak{lon}\mathcal{K}$ Paper (Pag
 ![Perm](/images/Perm.png?raw=true)
 (Note - They use $Z(a)$ while we use $z(X)$, they use $g$ where we use $\omega$ but it's the same other than these different names.)
 
-a) $L_1$ is $1$ at $a=1$ & $0$ at all other members of $H$ (by definition of the Lagrange Base). If at $a=\omega$, if $L_1(a)(z(a) - 1) = 0$, then it means $z(\omega) = 1$ - which if true, proves the first condition we are looking to prove.
+a) $L_1$ is $1$ at $a=\omega$ & $0$ at all other members of $H$ (by definition of the Lagrange Base for $\omega$). If at $a=\omega$, if $L_1(a)(z(a) - 1) = 0$, then it means $z(\omega) = 1$ - which if true, proves the first condition we are looking to prove.
 
 b) As we go through 6(b) for each element $\in H$, it shows that $z$ has been built up accumulatively - i.e. each $z$ is the previous $z$ multiplied by the previous $m$.
 
@@ -307,7 +311,7 @@ $z_H(X) = (X-1)(X-\omega)(X-\omega^2)(X-\omega^3),...,(X-\omega^{n-1})$
 
 i.e. $z_H=0$ at every element of the set $H$ - it vanishes at every element of $H$. If a prover wants to prove that a polynomial is zero (vanishes) at every element in a set, she divides the polynomial by the vanishing polynomial for that set. Only if it divides without a remainder will the prover be able to provide a commitment to the quotient of the division. So, if the prover is able to provide a commitment to a polynomial divided by $z_H$ and is able to open the commitment successfully, then it means that polynomial is zero on every element of the set $H$. 
 
-So, if the prover is able to do this for $(z(X) -1)L_1(X) \frac {\alpha^2}{z_H}$ (we will discuss the $\alpha$ term separately), it means $(z(X) -1)L_1(X) = 0$ at all points of $H$ including at $\omega$. Which means $(z(\omega) -1) = 0$ (because $L_1(1) = 1$).
+So, if the prover is able to do this for $(z(X) -1)L_1(X) \frac {\alpha^2}{z_H}$ (we will discuss the $\alpha$ term separately), it means $(z(X) -1)L_1(X) = 0$ at all points of $H$ including at $\omega$. Which means $(z(\omega) -1) = 0$ (because $L_1(\omega) = 1$).
 
 Which means $z(\omega) = 1$ which was one of the things ($6(a)$) the prover set out to prove.
 
