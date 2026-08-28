@@ -318,7 +318,7 @@ $\overrightarrow G$ & $\overrightarrow H$ are the bases for $\overrightarrow m$ 
 
 Instead of proving these 2 statements separately, $\mathcal P$ wants to combine them into one statement & prove it such that proving the one statement will prove both of the above. Since $S$ is an Elliptic Curve point, we will convert $c$ also to a point before combining them.
 
-Let $V$ be another unrelated Generator. We both sides of the 2nd statement by $V$.
+Let $V$ be another unrelated Generator. We multiply both sides of the 2nd statement by $V$.
 
 $cV = <\overrightarrow m, \overrightarrow n>V$
 
@@ -328,7 +328,7 @@ $\mathcal P$ has to prove 2 statements
 
 - $cV = <\overrightarrow m, \overrightarrow n>V$
 
-$\mathcal P$ sends $S$ & $c$ to $\mathcal V$. $\mathcal V$ samples a random value $r$ & sends it to $\mathcal V$. 
+$\mathcal P$ sends $S$ & $c$ to $\mathcal V$. $\mathcal V$ samples a random value $r$ & sends it to $\mathcal P$. 
 
 The 2 statements can be combined in a [linearly independent way](/PLONKWHY/#linear-independence) using the randomness ($r$).
 
@@ -372,7 +372,7 @@ $P = \overrightarrow m \overrightarrow G + \overrightarrow n \overrightarrow H +
 
 where the length of each of the vectors is $N$.
 
-$\mathcal P$ can send $\overrightarrow m$ & $\overrightarrow n$ to $\mathcal V$ & $\mathcal V$ can compute the Inner Product & verify that it's equal to $v$. However, she would to have send $2N$ elements. The algorithm aims to reduce the number of elements sent for the proof.
+$\mathcal P$ can send $\overrightarrow m$ & $\overrightarrow n$ to $\mathcal V$ & $\mathcal V$ can compute the Inner Product & verify that it's equal to $c$. However, she would have to send $2N$ elements. The algorithm aims to reduce the number of elements sent for the proof.
 
 $\mathcal P$ splits the 2 vectors into half, 
 $\overrightarrow m_L$ is the left half of $\overrightarrow m$ & $\overrightarrow m_R$ is the right half. Each of these 2 vectors is of size $N_1 = \frac {N}{2}$. Likewise, $\overrightarrow n_L$ & $\overrightarrow n_R$.
@@ -455,16 +455,16 @@ $P_1 = \overrightarrow m_1 \overrightarrow G_1 + \overrightarrow n_1 \overrighta
 
 $\mathcal P$ can prove the proof for $P_1$ by sending $\overrightarrow m_1$ & $\overrightarrow n_1$ & $\mathcal V$ can check the inner product. The number of elements to be sent has reduced to $2N_1 = N$ (i.e. $N_1$ elements in each vector) which is half of what she would have to send for proving the proof with $P$.
 
-Instead, she can repeat the steps after dividing $\overrightarrow m_1$ & $\overrightarrow n_1$ again into left & right vectors each & $\mathcal V$ sending a new $x_1$. She keeps repeating these steps till in the final round (i.e. round $f = log (N)$), she has to prove
+Instead, she can repeat the steps after dividing $\overrightarrow m_1$ & $\overrightarrow n_1$ again into left & right vectors each & $\mathcal V$ sending a new $x_i$. She keeps repeating these steps till in the final round (i.e. round $f = log (N)$), she has to prove
 
 $P_{f} = m_f G_f +  n_f  H_f + m_f  n_fU$
 
 Here, each of $m_f$ & $n_f$ are single elements & not vectors & hence she has to send only 2 elements to $\mathcal V$. $\mathcal V$ can compute the inner product & verify if $P_f$ is as claimed. If it is, that would mean $P_{f-1}$ is as claimed by $\mathcal P$ in the previous round. As we continue unrolling to the beginning, it would prove that $P$ is as claimed by $\mathcal P$, thus ending the proof.
 
-So, the instead of sending 2 vectors $\overrightarrow m$ & $\overrightarrow n$ each of size $s$, $\mathcal P$ only sends 
+So, instead of sending 2 vectors $\overrightarrow m$ & $\overrightarrow n$ each of size $N$, $\mathcal P$ only sends 
 $L_1, R_1, L_2, R_2, ..., m_f, n_f$ & the final product $c_f = m_f n_f$.
 
-So, Bulletproofs has reduced the number of elements $\mathcal P$ needs to send to $\mathcal V$ from $2N$ to $2log(N)$.
+So, Bulletproofs has reduced the number of elements $\mathcal P$ needs to send to $\mathcal V$ from $2N$ to $2\log(N)$ plus the final $m_f$ and $n_f$ (and possibly $c_f$).
 
 #### Optimization
 
@@ -476,23 +476,33 @@ $\overrightarrow G_1 = x_1^{-1} \overrightarrow G_L + x_1 \overrightarrow G_R$
 
 Similarly in round 2, $\overrightarrow G_2$ would be computed from $\overrightarrow G_{1L}$ & $\overrightarrow G_{1R}$. And $\overrightarrow H_2$ also similarly.
 
-However, $\mathcal V$ doesn't really do anything with these updated bases in each round because he doesn't do any checks till the final round. He needs the final updated bases only in the final round. So, he saves his $x_i$s from each round & finally computes the final $G_l$ & $H_l$ which will be a function of our starting $\overrightarrow G$ & $\overrightarrow H$ & all the $x_i$s.
+However, $\mathcal V$ doesn't really do anything with these updated bases in each round because he doesn't do any checks till the final round. He needs the final updated bases only in the final round. So, he saves his $x_i$s from each round & finally computes the final $\overrightarrow G_f$ & $\overrightarrow H_f$ which will be a function of our starting $\overrightarrow G$ & $\overrightarrow H$ & all the $x_i$s.
 
 ##### Soundness 
 
-In each round, we used a random $x_i$ & scaled up the left halves by $x_i$ & we scaled down the right half by $x_i^{-1}$. This is done so that $\mathcal P$ cannot fake a proof. We saw earlier how without using a random $r$ to create $U = rV$, $\mathcal P$ could prove $c_{fake} = <\overrightarrow m, \overrightarrow n>$ by crafting a $S_{fake}$. Similarly in each round, $\mathcal P$ instead of sending the correctly computed $L$ & $R$ could craft $L_{fake}$ & $R_{fake}$ such that everything matches & if he does this in each round, the final $<m_l, n_l>$ can be made to equal $c_{fake}$. To prevent this, in each round, after $\mathcal P$ sends $L_i$ & $R_i$, $\mathcal V$ samples a random $x_i$ sends it to $\mathcal P$. And then $\mathcal P$ scales the left & right halves of that round by $x_i$ & $x_i^{-1}$ respectively.
+In each round, we used a random $x_i$ & scaled up the left halves by $x_i$ & we scaled down the right half by $x_i^{-1}$. This is done so that $\mathcal P$ cannot fake a proof. We saw earlier how without using a random $r$ to create $U = rV$, $\mathcal P$ could prove $c_{fake} = <\overrightarrow m, \overrightarrow n>$ by crafting a $S_{fake}$. Similarly in each round, $\mathcal P$ instead of sending the correctly computed $L$ & $R$ could craft $L_{fake}$ & $R_{fake}$ such that everything matches & if he does this in each round, the final $<m_f, n_f>$ can be made to equal $c_{fake}$. To prevent this, in each round, after $\mathcal P$ sends $L_i$ & $R_i$, $\mathcal V$ samples a random $x_i$ sends it to $\mathcal P$. And then $\mathcal P$ scales the left & right halves of that round by $x_i$ & $x_i^{-1}$ respectively.
 
 ### Range Proofs in Monero
 
-In the [Monero Post](/Monero/#ringct), we saw how validators can verify that the sum of the inputs of a transaction is greater than the sum of the outputs even though the amounts of the values are hidden using Pedersen Commitments. This check by itself is not enough because of wraparound which happens in Finite Fields. Consider a transaction with 2 inputs & 2 outputs. Alice uses 2 UTXOs of value $10$ & $15$ to send Bob $17$ moneros & sends back change of $7$ to herself. 
+In the [Monero Post](/Monero/#ringct), we saw how validators can verify that the sum of the inputs of a transaction equals the sum of the outputs plus the fee even though the amounts of the values are hidden using Pedersen Commitments. This check by itself is not enough because of wraparound which happens in Finite Fields. Consider a transaction with 2 inputs & 2 outputs. 
 
-$in_1 = 10, in_2 = 15, out_1 = 17, out_2 = 7$
+Alice uses 2 UTXOs of value $10$ & $15$ to send Bob $17$ Monero, pays a fee of $1$, and sends back change of $7$ to herself.
 
-Because Pedersen Commitments are homomorphic, we can check if $C_{in_1} + C_{in_2} \ge C_{out_1} + C_{out_2}$ & the above transaction would verify. 
+$in_1 = 10,\ in_2 = 15,\ out_1 = 17,\ out_2 = 7,\ fee = 1$
 
-However, the scalars in Monero & other blockchains operate in a finite field & not in the field of reals or integers. The actual field is a very large field but for ease of understanding, let's assume they operate in the field $\mathbb F_{7841}$
+Because Pedersen Commitments are homomorphic, we can check if
 
-Now, if Alice sets $out_1 = 30$ & $out_2 = 7835$. In the field $\mathbb F_{7841}$, $30 + 7835 = 24$, so the validation would work! So, Alice spent 2 UTXOs of value $10$ & $15$ & sent Bob $17$ & also managed to get back $7835$ Moneros as change - i.e. she now possesses a UTXO worth $7835$ - she has created Moneros out of thin air.
+$C_{in_1} + C_{in_2} \stackrel{?}{=} C_{out_1} + C_{out_2} + C_{fee}$
+
+where $C_{fee}$ is the commitment to the transaction fee.
+
+However, the scalars in Monero & other blockchains operate in a finite field & not in the field of reals or integers. The actual field is a very large field but for ease of understanding, let's assume they operate in the field $\mathbb F_{7841}$.
+
+Now, if Alice sets $out_1 = 30$ & $out_2 = 7835$, while keeping $fee = 1$, then in the field $\mathbb F_{7841}$,
+
+$30 + 7835 + 1 = 7866 \equiv 25 \pmod{7841}$
+
+and the inputs also sum to $10 + 15 = 25$. So the validation would work! So, Alice spent 2 UTXOs of value $10$ & $15$, sent Bob $17$ Monero, paid a fee of $1$, and also managed to get back $7835$ Monero as change - i.e. she now possesses a UTXO worth $7835$ - she has created Monero out of thin air.
 
 So, we need to verify if each amount hidden by a commitment is in a particular range of values or not. On the blockchain, each amount needs to be between $0$ and $2^{64} - 1$.
 
@@ -504,7 +514,7 @@ To prove this, she first represents $v$ as a binary vector. Let's take an exampl
 
 This can be represented as a vector of bits
 
-$12^0 + 0 2^1 + 12^2 + 0 2^3 + 0 2^4 + 1 2^5 + 1 2^6 = 101$
+$1 \cdot 2^0 + 0 \cdot 2^1 + 1 \cdot 2^2 + 0 \cdot 2^3 + 0 \cdot 2^4 + 1 \cdot 2^5 + 1 \cdot 2^6 = 101$
 
 $\overrightarrow a_L = [1,0,1,0,0,1,1]$ 
 
@@ -512,7 +522,7 @@ Let's create another vector $\overrightarrow a_R$ which is the complement of $\o
 
 $\overrightarrow a_R = \overrightarrow a_L - \overrightarrow{1^n} $
 
-$\overrightarrow a_R = [0, 1, 0,1,1,0,1,1]$
+$\overrightarrow a_R = [0, 1, 0,1,1,0,0]$
 
 To prove $v \in \lbrace 0, 1, ..., 2^{64} -1 \rbrace$, we have to prove 3 things.
 
@@ -544,7 +554,7 @@ $\overrightarrow a_R = [r_0,r_1, r_2, r_3]$
 
 We have already determined that it would not be enough to check if $l_0 r_0 + l_1 r_1 + l_2 r_2 + l_3 r_3  \stackrel {?}{=} 0$.
 
-We have to first combine all individual product terms in a linearly independent way. After $\mathcal P$ commits to the vector, $\mathcal V$ samples a random variable $y$ & sends it to $\mathcal V$. The vector $\overrightarrow {y^4} = [y^0, y^1, y^2, y^3]$ is a linearly independent set. 
+We have to first combine all individual product terms in a linearly independent way. After $\mathcal P$ commits to the vector, $\mathcal V$ samples a random variable $y$ & sends it to $\mathcal P$. The vector $\overrightarrow {y^4} = [y^0, y^1, y^2, y^3]$ is a linearly independent set. 
 
 This makes the individual terms of $l_0 r_0 y^0,\space \space l_1 r_1 y^1,\space \space   l_2 r_2  y^2,\space \space  l_3 r_3 y^3$ also linearly independent, so if their sum is $0$, then it means each of the $l_i r_i$ is $0$.
 
@@ -597,7 +607,7 @@ $$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} >=  <\overrightarro
 
 Adding $< -z \overrightarrow{1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow {y^n}>$ to both sides,
 
-$$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} > + < -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> =  <\overrightarrow a_L, \space\space z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n} + \overrightarrow a_R \circ \overrightarrow {y^n}> + <\overrightarrow -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n>} + <-z \overrightarrow {1^n}, \overrightarrow a_R \circ\overrightarrow{ y^n}>$$
+$$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} > + < -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> =  <\overrightarrow a_L, \space\space z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n} + \overrightarrow a_R \circ \overrightarrow {y^n}> + <\overrightarrow -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> + <-z \overrightarrow {1^n}, \overrightarrow a_R \circ\overrightarrow{ y^n}>$$
 
 The Right Hand Side of the above can be simplified as 
 
