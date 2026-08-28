@@ -729,11 +729,11 @@ $C_{t_u} \stackrel {?}{=} z^2C_v + f(y,z)G + uC_{t_1} + u^2C_{t_2}$
 
 $\mathcal V$ rejects the proof if the equality doesn't check out.
 
-##### Proof of correctness of $\overrightarrow l(x)$ & $\overrightarrow l(x)$ & that $<t_u = \overrightarrow l(x), \overrightarrow r(x)>$
+##### Proof of correctness of $\overrightarrow l(x)$ & $\overrightarrow r(x)$ & that $t_u = <\overrightarrow l(x), \overrightarrow r(x)>$
 
 Like in the section about the optimized proof for [Regular Polynomial Products](#zero-knowledge-polynomial-product-proof), $\mathcal V$ has to construct $S = C_0 + uC_1$ & verify it ($C_0$ is a commitment to the constant terms of both the left & right vector polynomials & $C_1$ to the linear terms). However, unlike the earlier case, he doesn't already have the full $C_0$ or $C_1$ but only a commitment of some of the terms in them through $C_a$ & $C_s$. But he can create the commitments to the remaining terms himself so that $\mathcal P$ doesn't have to send those.
 
-To enable $\mathcal V$ to compute commitments to some terms above like $(\overrightarrow {y^n} o \overrightarrow a_R)$ by himself, Bulletproofs uses a trick.
+To enable $\mathcal V$ to compute commitments to some terms above like $(\overrightarrow {y^n} \circ \overrightarrow a_R)$ by himself, Bulletproofs uses a trick.
 
 $\mathcal V$ creates a new vector of generators
 $\overrightarrow {H'} = \frac {\overrightarrow H}{\overrightarrow {y^n}}  = [\frac {H_0}{y^0}, \frac {H_1}{y^1}, \frac {H_2}{y^2}, ...]$
@@ -744,7 +744,7 @@ Substituting the above into $C_a$ & $C_s$,  we get
 
 $C_a = \overrightarrow a_L G + \overrightarrow (a_R\space o\space \overrightarrow {y^n}) \overrightarrow {H'} + b_aB$
 
-$C_s = \overrightarrow s_L \overrightarrow G + (\overrightarrow s_R \circ \overrightarrow {y^n})\overrightarrow {H'}-b_sB$
+$C_s = \overrightarrow s_L \overrightarrow G + (\overrightarrow s_R \circ \overrightarrow {y^n})\overrightarrow {H'} + b_sB$
 
 So,
 
@@ -754,7 +754,7 @@ $C_s -b_sB = \overrightarrow s_L \overrightarrow G + (\overrightarrow s_R \circ 
 
 Now $\mathcal V$ constructs a commitment for $C_0$ & $C_1$ with bases $\overrightarrow G$ & $\overrightarrow {H'}$.
 
-$C_0 = \overrightarrow a_L \overrightarrow G - z\overrightarrow{1^n} + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'} + (z\overrightarrow {1^n}\circ \overrightarrow {y^n})\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'}$  
+$C_0 = \overrightarrow a_L \overrightarrow G - z\overrightarrow{1^n} G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'} + (z\overrightarrow {1^n}\circ \overrightarrow {y^n})\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'}$  
 
 $C_1 = \overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow {H'}$
 
@@ -788,7 +788,7 @@ $P = \overrightarrow l_u \overrightarrow G + \overrightarrow r_u \overrightarrow
 
 So $\mathcal P$ can use the Bulletproofs protocol to prove to $\mathcal V$ that she knows a commitment to $\overrightarrow l_u$ & $\overrightarrow r_u$ and that $t_u = <\overrightarrow l_u, \overrightarrow r_u>$.
 
-The simple proof for $t_u = <\overrightarrow l_u, \overrightarrow r_u>$ is to send $t_u$, $\overrightarrow l_u$ & $\overrightarrow r_u$ to $\mathcal V$ & $\mathcal V$ checks if $t_u \stackrel {?}{=} <\overrightarrow l_u, \overrightarrow l_r>$. However, each of the vectors contains $N$ elements i.e. $2N$ elements would need to be sent by $\mathcal P$ to $\mathcal V$, so it won't be a succinct proof. So $\mathcal P$ doesn't send the vectors, but uses Bulletproofs which is logarithmic.
+The simple proof for $t_u = <\overrightarrow l_u, \overrightarrow r_u>$ is to send $t_u$, $\overrightarrow l_u$ & $\overrightarrow r_u$ to $\mathcal V$ & $\mathcal V$ checks if $t_u \stackrel {?}{=} <\overrightarrow l_u, \overrightarrow r_u>$. However, each of the vectors contains $N$ elements i.e. $2N$ elements would need to be sent by $\mathcal P$ to $\mathcal V$, so it won't be a succinct proof. So $\mathcal P$ doesn't send the vectors, but uses Bulletproofs which is logarithmic.
 
 $\mathcal P$ has proved that $t(x) = t_0 + t_1x + t_2x^2 = <\overrightarrow l(x), \overrightarrow r(x)>$. If 2 polynomials are equal, it means each of their co-efficients is equal.
 
