@@ -7,7 +7,7 @@ title: Bulletproofs Inner Product Argument & Range Proofs in Monero using Bullet
 {% include mathjax.html %}
 
 ##### Notes
-$\mathbb F_p$ is a Finite Field. We use an Elliptic Curve $E(\mathbb F_p)$ over this field. The order of the curve is $q$ & the discrete log problem is hard in the Group of the Curve. When we sample any random numbers in this post, please assume it's sampled from $\mathbb F_q$. 
+$\mathbb F_p$ is a Finite Field. We use an Elliptic Curve $E(\mathbb F_p)$ over this field. The order of the curve is $q$ & the discrete log problem is hard in the group of the curve. When we sample any random numbers in this post, please assume they are  sampled from $\mathbb F_q$.
 
 The Prover is $\mathcal P$ & the Verifier $\mathcal V$.
 ### Prerequisites
@@ -39,7 +39,7 @@ The above commitment can also be written as
 
 $C_m =  \overrightarrow m  \overrightarrow G + bB$
 
-where $\overrightarrow G = [G_0, G_1, G_2, G_3]$ & is called the "basis" committing $\overrightarrow m$
+where $\overrightarrow G = [G_0, G_1, G_2, G_3]$ & is called the "basis" for committing $\overrightarrow m$
 
 This can also be extended for committing multiple vectors in a single commitment
 
@@ -63,7 +63,7 @@ where $b_0, b_1, b_2$ are randomly sampled blinding factors
 $\mathcal P$ can do a zero knowledge opening of this polynomial commitment with the following Evaluation Proof
 
 - $\mathcal V$ randomly samples $u$ & sends it to $\mathcal P$.
-- $\mathcal P$ evaluates $p(x)$ at $u$, $p_u = p(u) = p_0 + p_1u + p_2u^2$.
+- $\mathcal P$ evaluates $p(x)$ at $u$, $p_u = p(u) = c_0 + c_1u + c_2u^2$.
 
 - $\mathcal P$ also computes $b =  b_0 +  b_1 u +  b_2 u^2$.
 
@@ -74,9 +74,9 @@ If it is, then $\mathcal V$ accepts that the evaluation $p(u)$ is $p_u$ & that $
 
 This works because 
 
-$p_uG + bB\space= (p_0 + p_1u + p_2u^2)G + (b_0 +  b_1 u +  b_2 u^2)B$
+$p_uG + bB\space= (c_0 + c_1u + c_2u^2)G + (b_0 +  b_1 u +  b_2 u^2)B$
 
-$\qquad\qquad =  p_0G + (p_1G + b_1B)u + (p_2G + b_2B )u^2 + b_0B)$
+$\qquad\qquad =  c_0G + (c_1G + b_1B)u + (c_2G + b_2B )u^2 + b_0B$
 
 $\qquad\qquad =  C_0+ C_1u+C_2u^2$
 
@@ -107,7 +107,7 @@ $1)$ Evaluation Proofs for $t(x), l(x)$ & $r(x)$ separately using the method use
 
 - $\mathcal P$ evaluates $l_u = l(u), r_u = r(u), t_u = t(u)$. $\mathcal P$ sends these values to $\mathcal V$.
 
-- $\mathcal V$ checks the evaluation proof for each of the 3 polynomials using the method described in the earlier section & rejects the proof it doesn't verify.
+- $\mathcal V$ checks the evaluation proof for each of the 3 polynomials using the method described in the earlier section & rejects the proof if it doesn't verify.
 
 $2)$ Proof that evaluation of $t$ at a random point is equal to the product of the evaluations of $l$ & $r$ at the same point.
 
@@ -145,13 +145,13 @@ $C_{t_2} = l_1 r_1 G + b_{t_2}B$
 
 $\mathcal P$ sends 5 commitments to $\mathcal V$.
 
-$\mathcal V$s sends $u$ like before & $\mathcal P$ evaluates $l, r, t$ at & $u$ and sends the evaluations $l_u, r_u$ & $t_u$ to $\mathcal V$. She also sends $b_t = b_{t_0} + b_{t_1}u + b_{t_2}u^2$ & $b_{lr} = b_0 + u$.
+$\mathcal V$ sends $u$ like before & $\mathcal P$ evaluates $l, r, t$ at $u$ and sends the evaluations $l_u, r_u$ & $t_u$ to $\mathcal V$. She also sends $b_t = b_{t_0} + b_{t_1}u + b_{t_2}u^2$ & $b_{lr} = b_0 + b_1u$.
 
 $\mathcal V$ computes 
 
 $S = C_0 + C_1\space u$
 
-$\mathcal V$ checks if $S \stackrel {?}{=} l_u G +r_eH + b_{lr}B$ - which is equivalent to checking both $l(x)$ & $(x)$.
+$\mathcal V$ checks if $S \stackrel {?}{=} l_u G +r_uH + b_{lr}B$ - which is equivalent to checking both $l(x)$ & $r(x)$.
 
 This works if $\mathcal P$ is honest because  
 
@@ -198,11 +198,11 @@ $\overrightarrow m \circ \overrightarrow n = [m_0  n_0, \space\space  m_1  n_1, 
 
 Note that unlike the inner product, the output of the Hadamard product is a vector. When the elements of the Hadamard product output are added together, you get the Inner Product.
 
-Since the output a Hadamard Product is a vector, a Hadamard product can be an input to an inner product, i.e. 
+Since the output of a Hadamard Product is a vector, a Hadamard product can be an input to an inner product, i.e. 
 
 $< \overrightarrow m \circ  \overrightarrow n, \space \space \overrightarrow a>$
 
-If the hadamard product of $ \overrightarrow m$ & $\overrightarrow n$ gives us the vector $\overrightarrow p = [m_0  n_0, \space\space m_1  n_1, \space\space m_2  n_2 ]$, then the Inner Product $<\overrightarrow  m \circ \overrightarrow n , a>$ would be the same as $<\overrightarrow p, \overrightarrow a>$.
+If the hadamard product of $ \overrightarrow m$ & $\overrightarrow n$ gives us the vector $\overrightarrow p = [m_0  n_0, \space\space m_1  n_1, \space\space m_2  n_2 ]$, then the Inner Product $<\overrightarrow  m \circ \overrightarrow n , \overrightarrow a>$ would be the same as $<\overrightarrow p, \overrightarrow a>$.
 
 #### Product Algebra
 
@@ -212,7 +212,7 @@ Some rearranging of Inner Products & Hadamard Products which we will be using la
 
 $\qquad = m_0 p_0+m_0 q_0 + m_1 p_1+m_1 q_1 + m_2 p_2+m_2 q_2 $ 
 
-$\qquad = (m_0 p_0 + m_1 p_1 + m_2 p_2 ) + (m_0 q_0 + m_1 q_1 + +m_2 q_2)$
+$\qquad = (m_0 p_0 + m_1 p_1 + m_2 p_2 ) + (m_0 q_0 + m_1 q_1 +m_2 q_2)$
 
 $\qquad = <\overrightarrow m, \overrightarrow p> + <\overrightarrow m, \overrightarrow q>$
 
@@ -241,7 +241,7 @@ $\qquad = <s\overrightarrow m, \overrightarrow n> = <\overrightarrow  m, s\overr
 
 $\qquad$ So, $\overrightarrow m=\overrightarrow m \circ \overrightarrow 1^4$
 
-- $\overrightarrow m \circ s1^4 = s\overrightarrow m\circ 1^4 = s\overrightarrow m$
+- $\overrightarrow m \circ s1^4 = s\overrightarrow m\circ \overrightarrow{1^4} = s\overrightarrow m$
 
 - Consider $\overrightarrow m$ is made of two halves $\overrightarrow m_L$ & $\overrightarrow m_R$ 
 
@@ -251,7 +251,7 @@ $\qquad \overrightarrow m_L = [m_0, m_1]$ & $\overrightarrow m_R = [m_2, m_3]$
 
 $\qquad$ and likewise $n_L$ & $n_R$ are the two halves of $n$, 
 
-$\qquad$ If concatenation is represented by $\oplus$, then (Note that $\oplus$ is different than $+$)
+$\qquad$ If concatenation is represented by $\oplus$, then (Note that $\oplus$ is different from $+$)
 
 $\qquad \overrightarrow m = \overrightarrow m_L \oplus \overrightarrow m_R$ & $\overrightarrow n = \overrightarrow n_L \oplus \overrightarrow n_R$ 
 
@@ -268,9 +268,9 @@ Let us evaluate $\overrightarrow p(x)$ at a point $x=11$.
 
 $\overrightarrow p(11) = \begin{bmatrix} 2 \cr 3 \cr 4 \end{bmatrix} + \begin{bmatrix} 4 \cr 5 \cr 6 \end{bmatrix} 11 + \begin{bmatrix} 6 \cr 7 \cr 8 \end{bmatrix} 11^2$
 
-$\qquad\qquad = \begin{bmatrix} 2 \cr 3 \cr 4 \end{bmatrix} + \begin{bmatrix} 411 \cr 511 \cr 611 \end{bmatrix}  + \begin{bmatrix} 6 11^2 \cr 711^2 \cr 811^2 \end{bmatrix} $
+$\qquad\qquad = \begin{bmatrix} 2 \cr 3 \cr 4 \end{bmatrix} + \begin{bmatrix} 4\cdot 11 \cr 5\cdot 11 \cr 6\cdot 11 \end{bmatrix}  + \begin{bmatrix} 6\cdot 11^2 \cr 7\cdot 11^2 \cr 8\cdot 11^2 \end{bmatrix} $
 
-$\qquad\qquad = \begin{bmatrix} 139 \cr 61 \cr 194 \end{bmatrix} $
+$\qquad\qquad = \begin{bmatrix} 772 \cr 905 \cr 1038 \end{bmatrix} $
 
 <div class="boxed">
 
@@ -284,9 +284,9 @@ $\overrightarrow l(x) = \overrightarrow l_0  + \overrightarrow l_1x$
 
 $\overrightarrow r(x) = \overrightarrow r_0+ \overrightarrow r_1x$
 
-$t(x) = <\overrightarrow l(x), \overrightarrow r(x)>$
+$t(x) = <\overrightarrow l(x), \overrightarrow r(x)>
 
-$\qquad = <\overrightarrow l_1, \overrightarrow r_1> + <\overrightarrow l_0, \overrightarrow r_1>x + <\overrightarrow l_1, \overrightarrow r_0>x + <\overrightarrow l_0, \overrightarrow r_0>x^2$ 
+$\qquad = <\overrightarrow l_0, \overrightarrow r_0> + <\overrightarrow l_0, \overrightarrow r_1>x + <\overrightarrow l_1, \overrightarrow r_0>x + <\overrightarrow l_1, \overrightarrow r_1>x^2$
 
 Since the inner product of vectors is a scalar, each of the co-efficients of $t(x)$ would also be a scalar & hence $t(x)$ is a regular polynomial & not a vector polynomial.
 
@@ -298,7 +298,7 @@ $t(x) = <\overrightarrow l(x), \overrightarrow r(x)> = <\begin{bmatrix}3\cr 5\en
 
 $t(x) = 41  + 50x + 14 x^2$
 
-Since each of the co-efficients of a Vector Polynomial is a vector, a $\mathcal P$ can make a Pedersen Vector Commitment to each of the Vector Co-efficients of the Polynomial and use same method we used for  proving a Vector Polynomial Product. 
+Since each of the co-efficients of a Vector Polynomial is a vector, a $\mathcal P$ can make a Pedersen Vector Commitment to each of the Vector Co-efficients of the Polynomial and use the same method we used for  proving a Vector Polynomial Product. 
 
 ### Bulletproofs
 
