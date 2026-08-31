@@ -241,7 +241,7 @@ $\qquad = <s\overrightarrow m, \overrightarrow n> = <\overrightarrow  m, s\overr
 
 $\qquad$ So, $\overrightarrow m=\overrightarrow m \circ \overrightarrow 1^4$
 
-- $\overrightarrow m \circ s1^4 = s\overrightarrow m\circ \overrightarrow{1^4} = s\overrightarrow m$
+- $\overrightarrow m \circ s\overrightarrow{1^4} = s\overrightarrow m\circ \overrightarrow{1^4} = s\overrightarrow m$
 
 - Consider $\overrightarrow m$ is made of two halves $\overrightarrow m_L$ & $\overrightarrow m_R$ 
 
@@ -607,7 +607,7 @@ $$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} >=  <\overrightarro
 
 Adding $< -z \overrightarrow{1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow {y^n}>$ to both sides,
 
-$$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} > + < -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> =  <\overrightarrow a_L, \space\space z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n} + \overrightarrow a_R \circ \overrightarrow {y^n}>  -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> + <-z \overrightarrow {1^n}, \overrightarrow a_R \circ\overrightarrow{ y^n}>$$
+$$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} > + < -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> =  <\overrightarrow a_L, \space\space z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n} + \overrightarrow a_R \circ \overrightarrow {y^n}> + <-z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> + <-z \overrightarrow {1^n}, \overrightarrow a_R \circ\overrightarrow{ y^n}>$$
 
 The Right Hand Side of the above can be simplified as 
 
@@ -655,11 +655,11 @@ $\overrightarrow l_1 = \overrightarrow s_L$
 
 So, $\overrightarrow l(x) = \overrightarrow l_0 + \overrightarrow l_1x$
 
-$\overrightarrow r(x) = \overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n } + \overrightarrow{y^n}\circ s_Rx  $
+$\overrightarrow r(x) = \overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n } + \overrightarrow{y^n}\circ \overrightarrow{s_R}x  $
 
 $\overrightarrow r_0 = \overrightarrow{y^n}\circ (\overrightarrow a_R + z \overrightarrow{1^n}) + z^2 \overrightarrow{2^n } $
 
-$\overrightarrow r_1 = \overrightarrow{y^n}\circ s_R  $
+$\overrightarrow r_1 = \overrightarrow{y^n}\circ \overrightarrow{s_R}$
 
 So, $\overrightarrow r(x) = \overrightarrow r_0 + \overrightarrow r_1x$
 
