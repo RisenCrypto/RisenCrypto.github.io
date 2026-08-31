@@ -7,7 +7,7 @@ title: Bulletproofs Inner Product Argument & Range Proofs in Monero using Bullet
 {% include mathjax.html %}
 
 ##### Notes
-$\mathbb F_p$ is a Finite Field. We use an Elliptic Curve $E(\mathbb F_p)$ over this field. The order of the curve is $q$ & the discrete log problem is hard in the group of the curve. When we sample any random numbers in this post, please assume they are  sampled from $\mathbb F_q$.
+$\mathbb F_p$ is a Finite Field. We use an Elliptic Curve $E(\mathbb F_p)$ over this field. The order of the curve is $q$ & the discrete log problem is hard in the group of the curve. When we sample any random numbers in this post, please assume they are sampled from $\mathbb F_q$.
 
 The Prover is $\mathcal P$ & the Verifier $\mathcal V$.
 ### Prerequisites
@@ -381,7 +381,7 @@ Similarly, each of the Generator vectors is  split into $2$ i.e.  $\overrightarr
 
 $P = \overrightarrow m_L \overrightarrow G_L + \overrightarrow m_R  \overrightarrow G_R + \overrightarrow n_L \overrightarrow H_L + \overrightarrow n_R \overrightarrow H_R+ <\overrightarrow m, \overrightarrow n>U$
 
-$<\overrightarrow m,\overrightarrow n> = <m_L, n_L> + <m_R, n_R>$ 
+$<\overrightarrow m,\overrightarrow n> = <\overrightarrow m_L, \overrightarrow n_L> + <\overrightarrow m_R, \overrightarrow n_R>$
 
 <div class="boxed">
 
@@ -394,7 +394,7 @@ $\oplus$ & $+$ are different.
 <hr style="clear:both;">
 
 So,
-$P = \overrightarrow m_L \overrightarrow G_L + \overrightarrow m_R  \overrightarrow G_R + \overrightarrow n_L \overrightarrow H_L + \overrightarrow n_R \overrightarrow H_R+ (<m_L, n_L> + <m_R, n_R>)U$
+$P = \overrightarrow m_L \overrightarrow G_L + \overrightarrow m_R  \overrightarrow G_R + \overrightarrow n_L \overrightarrow H_L + \overrightarrow n_R \overrightarrow H_R + (<\overrightarrow m_L, \overrightarrow n_L> + <\overrightarrow m_R, \overrightarrow n_R>)U$
 
 $\mathcal P$ computes $L_1$ & $R_1$ & sends them to $\mathcal V$.
 
@@ -480,7 +480,7 @@ However, $\mathcal V$ doesn't really do anything with these updated bases in eac
 
 ##### Soundness 
 
-In each round, we used a random $x_i$ & scaled up the left halves by $x_i$ & we scaled down the right half by $x_i^{-1}$. This is done so that $\mathcal P$ cannot fake a proof. We saw earlier how without using a random $r$ to create $U = rV$, $\mathcal P$ could prove $c_{fake} = <\overrightarrow m, \overrightarrow n>$ by crafting a $S_{fake}$. Similarly in each round, $\mathcal P$ instead of sending the correctly computed $L$ & $R$ could craft $L_{fake}$ & $R_{fake}$ such that everything matches & if he does this in each round, the final $<m_f, n_f>$ can be made to equal $c_{fake}$. To prevent this, in each round, after $\mathcal P$ sends $L_i$ & $R_i$, $\mathcal V$ samples a random $x_i$ sends it to $\mathcal P$. And then $\mathcal P$ scales the left & right halves of that round by $x_i$ & $x_i^{-1}$ respectively.
+In each round, we used a random $x_i$ & scaled up the left halves by $x_i$ & we scaled down the right half by $x_i^{-1}$. This is done so that $\mathcal P$ cannot fake a proof. We saw earlier how without using a random $r$ to create $U = rV$, $\mathcal P$ could prove $c_{fake} = <\overrightarrow m, \overrightarrow n>$ by crafting a $S_{fake}$. Similarly in each round, $\mathcal P$ instead of sending the correctly computed $L$ & $R$ could craft $L_{fake}$ & $R_{fake}$ such that everything matches & if he does this in each round, the final $<m_f, n_f>$ can be made to equal $c_{fake}$. To prevent this, in each round, after $\mathcal P$ sends $L_i$ & $R_i$, $\mathcal V$ samples a random $x_i$ and sends it to $\mathcal P$. And then $\mathcal P$ scales the left & right halves of that round by $x_i$ & $x_i^{-1}$ respectively.
 
 ### Range Proofs in Monero
 
@@ -502,7 +502,7 @@ Now, if Alice sets $out_1 = 30$ & $out_2 = 7835$, while keeping $fee = 1$, then 
 
 $30 + 7835 + 1 = 7866 \equiv 25 \pmod{7841}$
 
-and the inputs also sum to $10 + 15 = 25$. So the validation would work! So, Alice spent 2 UTXOs of value $10$ & $15$, sent Bob $17$ Monero, paid a fee of $1$, and also managed to get back $7835$ Monero as change - i.e. she now possesses a UTXO worth $7835$ - she has created Monero out of thin air.
+and the inputs also sum to $10 + 15 = 25$. So the validation would work! So, Alice spent 2 UTXOs of value $10$ & $15$, sent Bob $30$ Monero, paid a fee of $1$, and also managed to get back $7835$ Monero as change - i.e. she now possesses a UTXO worth $7835$ - she has created Monero out of thin air.
 
 So, we need to verify if each amount hidden by a commitment is in a particular range of values or not. On the blockchain, each amount needs to be between $0$ and $2^{64} - 1$.
 
@@ -607,7 +607,7 @@ $$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} >=  <\overrightarro
 
 Adding $< -z \overrightarrow{1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow {y^n}>$ to both sides,
 
-$$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} > + < -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> =  <\overrightarrow a_L, \space\space z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n} + \overrightarrow a_R \circ \overrightarrow {y^n}> + <\overrightarrow -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> + <-z \overrightarrow {1^n}, \overrightarrow a_R \circ\overrightarrow{ y^n}>$$
+$$ z^2  v +  z <\overrightarrow {1^n}, \overrightarrow {y^n} > + < -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> =  <\overrightarrow a_L, \space\space z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n} + \overrightarrow a_R \circ \overrightarrow {y^n}>  -z\overrightarrow {1^n}, z^2 \overrightarrow{2^n } +  z\overrightarrow{y^n}> + <-z \overrightarrow {1^n}, \overrightarrow a_R \circ\overrightarrow{ y^n}>$$
 
 The Right Hand Side of the above can be simplified as 
 
@@ -643,9 +643,9 @@ $\mathcal P$ randomly samples 2 blinding vectors $\overrightarrow s_L$ & $\overr
 
 We replace the vectors in $\overrightarrow {ul}$ & $\overrightarrow {ur}$ with the  blinded vectors. However, by doing this, they no longer remain vectors, they become  vector polynomials.
 
-$\overrightarrow l(x) = \overrightarrow a_L + s_Lx -z \overrightarrow{1^n}$
+$\overrightarrow l(x) = \overrightarrow a_L + \overrightarrow  s_Lx -z \overrightarrow{1^n}$
 
-$\overrightarrow r(x) = \overrightarrow{y^n}\circ (\overrightarrow a_R + s_Rx + z \overrightarrow{1^n})+ z^2 \overrightarrow{2^n }$
+$\overrightarrow r(x) = \overrightarrow{y^n}\circ (\overrightarrow a_R + \overrightarrow s_R x + z \overrightarrow{1^n})+ z^2 \overrightarrow{2^n }$
 
 Let
 
@@ -748,13 +748,13 @@ $C_s = \overrightarrow s_L \overrightarrow G + (\overrightarrow s_R \circ \overr
 
 So,
 
-$C_a - b_aB =  \overrightarrow a_L G + \overrightarrow (a_R\space o\space \overrightarrow {y^n}) \overrightarrow {H'}$
+$C_a - b_aB = \overrightarrow a_L \overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n}) \overrightarrow {H'}$
 
 $C_s -b_sB = \overrightarrow s_L \overrightarrow G + (\overrightarrow s_R \circ \overrightarrow {y^n})\overrightarrow {H'}$
 
 Now $\mathcal V$ constructs a commitment for $C_0$ & $C_1$ with bases $\overrightarrow G$ & $\overrightarrow {H'}$.
 
-$C_0 = \overrightarrow a_L \overrightarrow G - z\overrightarrow{1^n} G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'} + (z\overrightarrow {1^n}\circ \overrightarrow {y^n})\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'}$  
+$C_0 = \overrightarrow a_L \overrightarrow G - z\overrightarrow{1^n} \overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'} + (z\overrightarrow {1^n}\circ \overrightarrow {y^n})\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'}$  
 
 $C_1 = \overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow {H'}$
 
@@ -764,7 +764,7 @@ $S = C_0 + uC_1 = \overrightarrow a_L \overrightarrow G - z\overrightarrow{1^n}\
 
 Rearranging and also substituting $z\overrightarrow {1^n}\circ \overrightarrow {y^n} = z\overrightarrow{y^n}$
 
-$S = (\overrightarrow a_L \overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'}) - - z\overrightarrow{1^n}\overrightarrow G + z\overrightarrow{y^n}\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'} + u(\overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow {H'})$
+$S = (\overrightarrow a_L \overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'}) - z\overrightarrow{1^n}\overrightarrow G + z\overrightarrow{y^n}\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'} + u(\overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow {H'})$
 
 Substituting $C_a - b_aB$ & $C_s -b_sB$ into the above
 
