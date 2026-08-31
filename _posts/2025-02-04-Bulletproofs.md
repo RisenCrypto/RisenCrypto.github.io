@@ -360,9 +360,9 @@ which would become
 
 $P = S + cV - c_{fake}V + c_{fake}V$
 
-i.e. 
+This would convince the verifier that the commitment is $S_{fake}$ and the inner product is $c_{fake}$​, even though the proof is actually for the true $c$.
 
-$P = S + cV$ which can be proven true even though $c_{fake} \ne <\overrightarrow m, \overrightarrow n>$. Hence after $\mathcal P$ sends $S$ & $c$ to $\mathcal V$, $\mathcal V$ sends him random $r$ which is used to combine the 2 parts in a linearly independent way.
+Hence after $\mathcal P$ sends $S$ & $c$ to $\mathcal V$, $\mathcal V$ sends him random $r$ which is used to combine the 2 parts in a linearly independent way.
 
 #### The Protocol
 
