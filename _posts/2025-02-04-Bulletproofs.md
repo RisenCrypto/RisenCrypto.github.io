@@ -685,7 +685,7 @@ $\mathcal P$ uses steps similar to that used in the optimized method showed in t
 
 $\mathcal P$ needs to provide the following proofs.
 
-$1)$ Evaluation Proof that $t(x) =\overrightarrow t_0 + \overrightarrow t_1x + \overrightarrow t_2x^2$
+$1)$ Evaluation Proof that $t(x) = t_0 + t_1x + t_2x^2$
 
 $2)$ Evaluation Proof of $\overrightarrow l(x)$ & $\overrightarrow r(x)$
 
@@ -699,9 +699,9 @@ $C_s = \overrightarrow s_L \overrightarrow G + \overrightarrow s_R \overrightarr
 
 She creates commitments to $t_1$ & $t_2$
 
-$C_{t_1} = \overrightarrow t_1 \overrightarrow G + b_{t_1} B$
+$C_{t_1} = t_1 G + b_{t_1} B$
 
-$C_{t_2} = \overrightarrow t_2 \overrightarrow G + b_{t_2} B$
+$C_{t_2} = t_2 G + b_{t_2} B$
 
 $\mathcal P$ sends $C_a, C_s, C_{t_1}$ & $C_{t_2}$ to $\mathcal V$. $\mathcal V$ of the Monero Transaction already has the [amount commitment](/Monero/#amount-commitments) $C_v$ of the value ($v$) whose range we are proving 
 
@@ -709,7 +709,7 @@ $C_v = v G + b_vB $
 
 $\mathcal V$ samples random $u$ & sends it to $\mathcal P$.
 
-$\mathcal P$ evaluates $\overrightarrow l_u = \overrightarrow l(x=u), \overrightarrow r_u = \overrightarrow r(x=u)$ & $ t_u = t(x=u)$ & computes $b_{lr} = b_a + ub_s$ and $b_t = z^2 b_v + b_1u + b_2u^2$.
+$\mathcal P$ evaluates $\overrightarrow l_u = \overrightarrow l(x=u), \overrightarrow r_u = \overrightarrow r(x=u)$ & $ t_u = t(x=u)$ & computes $b_{lr} = b_a + ub_s$ and $b_t = z^2 b_v + b_{t_1}u + b_{t_2}u^2$.
 
 $\mathcal P$ sends $t_u, b_{lr}$ & $b_t$ to $\mathcal V$.
 
@@ -729,7 +729,7 @@ $C_{t_u} \stackrel {?}{=} z^2C_v + f(y,z)G + uC_{t_1} + u^2C_{t_2}$
 
 $\mathcal V$ rejects the proof if the equality doesn't check out.
 
-##### Proof of correctness of $\overrightarrow l(x)$ & $\overrightarrow r(x)$ & that $t_u = <\overrightarrow l(x), \overrightarrow r(x)>$
+##### Proof of correctness of $\overrightarrow l(x)$ & $\overrightarrow r(x)$ & that $t_u = <\overrightarrow l_u, \overrightarrow r_u>$
 
 Like in the section about the optimized proof for [Regular Polynomial Products](#zero-knowledge-polynomial-product-proof), $\mathcal V$ has to construct $S = C_0 + uC_1$ & verify it ($C_0$ is a commitment to the constant terms of both the left & right vector polynomials & $C_1$ to the linear terms). However, unlike the earlier case, he doesn't already have the full $C_0$ or $C_1$ but only a commitment of some of the terms in them through $C_a$ & $C_s$. But he can create the commitments to the remaining terms himself so that $\mathcal P$ doesn't have to send those.
 
@@ -742,7 +742,7 @@ So now, $\overrightarrow H = \overrightarrow {y^n} \overrightarrow {H'}$.
 
 Substituting the above into $C_a$ & $C_s$,  we get
 
-$C_a = \overrightarrow a_L G + \overrightarrow (a_R\space o\space \overrightarrow {y^n}) \overrightarrow {H'} + b_aB$
+$C_a = \overrightarrow a_L \overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n}) \overrightarrow {H'} + b_aB$
 
 $C_s = \overrightarrow s_L \overrightarrow G + (\overrightarrow s_R \circ \overrightarrow {y^n})\overrightarrow {H'} + b_sB$
 
@@ -760,15 +760,15 @@ $C_1 = \overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \o
 
 $\mathcal V$ computes $S = C_0 + uC_1$.
 
-$S = C_0 + uC_1 = \overrightarrow a_L \overrightarrow G - z\overrightarrow{1^n} + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'} + (z\overrightarrow {1^n}\circ \overrightarrow {y^n})\overrightarrow H + z^2 \overrightarrow{2^n } \overrightarrow H + u(\overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow H$
+$S = C_0 + uC_1 = \overrightarrow a_L \overrightarrow G - z\overrightarrow{1^n}\overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'} + (z\overrightarrow {1^n}\circ \overrightarrow {y^n})\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'} + u(\overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow {H'})$
 
 Rearranging and also substituting $z\overrightarrow {1^n}\circ \overrightarrow {y^n} = z\overrightarrow{y^n}$
 
-$S = (\overrightarrow a_L \overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'}) - z\overrightarrow{1^n} + z\overrightarrow{y^n}\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'} + u(\overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow {H'})$
+$S = (\overrightarrow a_L \overrightarrow G + (\overrightarrow a_R \circ \overrightarrow {y^n})\overrightarrow {H'}) - - z\overrightarrow{1^n}\overrightarrow G + z\overrightarrow{y^n}\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'} + u(\overrightarrow s_L \overrightarrow G  +  ( \overrightarrow s_R \circ  \overrightarrow{y^n} ) \overrightarrow {H'})$
 
 Substituting $C_a - b_aB$ & $C_s -b_sB$ into the above
 
-$S = C_a + uC_s - (b_a + ub_s)B - z\overrightarrow{1^n} + z\overrightarrow{y^n}\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'}$ 
+$S = C_a + uC_s - (b_a + ub_s)B - z\overrightarrow{1^n}\overrightarrow G + z\overrightarrow{y^n}\overrightarrow {H'} + z^2 \overrightarrow{2^n } \overrightarrow {H'}$
 
 $\mathcal V$ knows $C_a, C_s$ & $\mathcal P$ has sent him $b_{lr} = b_a + ub_s$. The remaining terms can also be computed by $\mathcal V$ because he knows $z$ & $y$. So $\mathcal V$ computes $S$.
 
