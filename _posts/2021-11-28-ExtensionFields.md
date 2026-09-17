@@ -387,7 +387,7 @@ $\beta^{10} = 1$ & so on
 So it generates only 5 elements of the field which form a subfield of $F_{2_4}$. The multiplicative order of the root of a primitive prolynomial is $p^n - 1$ i.e. $15$ in this case. Whereas the order of $\beta$ is 5
 
 
-## Use of $\mathbb F_{2^8}$ in AES**
+## Use of $\mathbb F_{2^8}$ in AES
 
 AES uses the extension field $\mathbb F_{2^8}$ constructed using the irreducible polynomial $x^{8} + x^{4} + x^{3} + x + 1$ over $\mathbb F_2$ - i.e $\mathbb{F}_{2}[x]/\langle x^{8}+x^{4}+x^{3}+x+1\rangle $
 
