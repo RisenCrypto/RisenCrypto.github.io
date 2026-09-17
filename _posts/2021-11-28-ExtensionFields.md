@@ -386,9 +386,21 @@ $\beta^{10} = 1$ & so on
 
 So it generates only 5 elements of the field which form a subfield of $F_{2_4}$. The multiplicative order of the root of a primitive prolynomial is $p^n - 1$ i.e. $15$ in this case. Whereas the order of $\beta$ is 5
 
-**Use of $\mathbb F_{2^8}$ in AES**
+The extension fields constructed by adjoining the root of a primitive polynomial and the root of a non-primitive polynominal ($\alpha$ & $\beta$ respectively in our examples) are isomorphic. There are multiple maps, one of the map maps $\beta$ to $\alpha^3$. Both $\alpha^3$ & $\beta$ have a multiplicative order of 5 in their respective fields. $\alpha^3$ is the minimal polynomial of $x^4 + x^3 + x^2 + x + 1$ - we discuss minimal polynomials in the next section
 
-AES uses the extension field $\mathbb F_{2^8}$ constructed using the irreducible polynomial $x^{8} + x^{4} + x^{3} + x + 1$ over $\mathbb F_2$ - i.e $\mathbb{F}_{2}[\alpha]/\langle \alpha^{8}+\alpha^{4}+\alpha^{3}+\alpha+1\rangle $
+## Minimal Polynomial
+Every element of an extension field ($\mathbb F_{p^n}$) is the root of infitely many polynomials in $\mathbb F_p[x]$. Among all of them, there is exactly one monic irreducible polynomial of the smallest degree. It is called the minimal polynomial of that element in the base Polynomial Ring ($\mathbb F_p[x]$). 
+
+We saw $\mathbb F_{2^4} = \mathbb F_2[x]/\langle x^4 + x + 1 \rangle$ The minimal polynomial of the element $\alpha^3$ wass was of degree $4$ but this isn't always so - it can be of any degree which divides the degree of the extension field - i.e. for elements of $\mathbb F_{2^4}$, the minimal polynomial can be of degree 1, 2 or 4 since all of them divide 16.
+
+Let's take $\mathbb F_{2^4}  = \mathbb F_[x]/\langle x^4 + x + 1 \rangle = \lbrace 0, 1, \alpha, \alpha + 1, \alpha^2, \alpha^2 + 1, \alpha^2 + \alpha, \alpha^2 + \alpha + 1, \alpha^3, \alpha^3 + 1, \alpha^3 + \alpha, \alpha^3 + \alpha + 1, \alpha^3 + \alpha^2, \alpha^3 + \alpha^2 + 1, \alpha^3 + \alpha^2 + \alpha, \alpha^3 + \alpha^2 + \alpha + 1 \rbrace$
+
+
+
+
+## Use of $\mathbb F_{2^8}$ in AES**
+
+AES uses the extension field $\mathbb F_{2^8}$ constructed using the irreducible polynomial $x^{8} + x^{4} + x^{3} + x + 1$ over $\mathbb F_2$ - i.e $\mathbb{F}_{2}[x]/\langle x^{8}+x^{4}+x^{3}+x+1\rangle $
 
 One byte is 8 bits. It can represent $2^8 = 256$ different values. If 2 bytes have to be multiplied, each byte is represented as a polynomial (the bits of the byte form the coefficients of the polynomial) of degree 7 or less. After multiplying the 2 polynomials, they are reduced modulo the irreducible polynomial of degree 8, which results in a polynomial of degree 7 or lesser which will again fit in a byte, thereby providing closure. 
 
