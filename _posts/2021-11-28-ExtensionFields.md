@@ -392,7 +392,7 @@ The extension fields constructed by adjoining the root of a primitive polynomial
 
 We took an irreducible polynomial in the Polynomial Ring of the base field & used it to construct the extension field. We now go the opposite way. We take an element of an extension field & find its minimal polynomial in the Polynomial Ring of the base field.
 
-Every element of an extension field ($\mathbb F_{p^n}$) is the root of infinitely many polynomials in $\mathbb F_p[x]$. Among all of them, there is exactly one monic irreducible polynomial of the smallest degree. It is called the minimal polynomial of that element.
+Every element of an extension field ($\mathbb F_{p^n}$) is the root of infinitely many polynomials in $\mathbb F_p[x]$. Among all of them, there is exactly one monic irreducible polynomial of the smallest degree. It is called the minimal polynomial of that element. For any element $\beta$ in $\mathbb F_{p^n}$, the minimal polynomial $M(x)$m is the least degree monic polynomial in $\mathbb F_p[x]$ for which $M(x = \beta) = 0$
 
 In the previous section, we saw that the minimal polynomial of the element $\alpha^3$ of $\mathbb F_2[x]/\langle x^4 + x + 1 \rangle$ was $x^4 + x^3 + x^2 + x + 1$ which is of degree 4 - i.e. same as the degree of the irreducible polynomial used to construct the field. This isn't always so. It can be of any degree which divides the degree of the extension field - i.e. for the elements of $\mathbb F_{2^4}$, the minimal polynomial can be of degree 1, 2 or 4 since all of them divide 4, the degree of the extension.
 
