@@ -428,7 +428,7 @@ sage: (x - b) * (x - b^2)
 x^2 + x + 1
 ~~~
 
-So the minimal polynomial of $a^2 + a$ is $x^2 + x + 1$
+So the minimal polynomial of $\alpha^2 + \alpha$ is $x^2 + x + 1$
 
 ## Use of $\mathbb F_{2^8}$ in AES
 
